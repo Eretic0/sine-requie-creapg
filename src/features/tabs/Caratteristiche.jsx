@@ -13,10 +13,13 @@ import { getAllCaratteristiche } from "../../api";
 import Card from "../../components/Card";
 import { estraiTaroccoMinore } from "../../utils/random";
 import MinoriPaper from "../../components/MinoriPaper";
+import { useSelector, useDispatch } from "react-redux";
+import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 
 function Caratteristiche() {
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
+  const dispatch = useDispatch();
   const [caratteristica, setCaratteristica] = useState([]);
-  const [caratteristiche, setCaratteristiche] = useState([]);
   const [minoriEstratti, setMinoriEstratti] = useState([]);
   const [semiStore, setSemiStore] = useState({
     Cuori: 0,
@@ -156,9 +159,9 @@ function Caratteristiche() {
   useEffect(() => {
     getAllCaratteristiche.then((res) => {
       let listaCaratteristiche = res.map((obj) => ({ ...obj, valore: 4 }));
-      setCaratteristiche(listaCaratteristiche);
+      dispatch(setCaratteristiche(listaCaratteristiche));
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Card headerText="Caratteristiche">
