@@ -9,9 +9,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { useEffect, useState } from "react";
-import { getAllAmbientazioni } from "../../api";
 import Card from "../../components/Card";
 import { useSelector, useDispatch } from "react-redux";
+import ambientazioniDb from "../../db/ambientazioni";
+
 import {
   setNome,
   setCognome,
@@ -43,9 +44,7 @@ function Generalita() {
   };
 
   useEffect(() => {
-    getAllAmbientazioni.then((res) => {
-      setAmbientazioni(res);
-    });
+    setAmbientazioni(ambientazioniDb);
   }, []);
 
   return (
@@ -65,11 +64,8 @@ function Generalita() {
             >
               {ambientazioni.length > 0 &&
                 ambientazioni.map((ambient) => (
-                  <MenuItem
-                    key={ambient.ref.value.id}
-                    value={ambient.ref.value.id}
-                  >
-                    {ambient.data.descrizione}
+                  <MenuItem key={ambient.id} value={ambient.id}>
+                    {ambient.descrizione}
                   </MenuItem>
                 ))}
             </Select>
