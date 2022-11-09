@@ -1,4 +1,4 @@
-const ambientazioni = () => [
+const Ambientazioni = () => [
   {
     id: "341411834674282700",
     descrizione: "Sanctum Imperium",
@@ -29,4 +29,4 @@ const ambientazioni = () => [
   },
 ];
 
-export default ambientazioni;
+export default Ambientazioni;
