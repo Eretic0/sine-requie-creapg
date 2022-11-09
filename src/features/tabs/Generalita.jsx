@@ -11,28 +11,35 @@ import TextField from "@mui/material/TextField";
 import { useEffect, useState } from "react";
 import { getAllAmbientazioni } from "../../api";
 import Card from "../../components/Card";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setNome,
+  setCognome,
+  setAmbientazione,
+  setSesso,
+} from "../../redux/slices/generalitaSlice";
 
 function Generalita() {
-  const [ambientazione, setAmbientazione] = useState("");
+  const { nome, cognome, ambientazione, sesso } = useSelector(
+    (state) => state.generalita
+  );
+  const dispatch = useDispatch();
   const [ambientazioni, setAmbientazioni] = useState([]);
-  const [nome, setNome] = useState("");
-  const [cognome, setCognome] = useState("");
-  const [sesso, setSesso] = useState("");
 
   const handleChangeAmbientazione = (event) => {
-    setAmbientazione(event.target.value);
+    dispatch(setAmbientazione(event.target.value));
   };
 
   const handleChangeNome = (event) => {
-    setNome(event.target.value);
+    dispatch(setNome(event.target.value));
   };
 
   const handleChangeCognome = (event) => {
-    setCognome(event.target.value);
+    dispatch(setCognome(event.target.value));
   };
 
   const handleChangeSesso = (event) => {
-    setSesso(event.target.value);
+    dispatch(setSesso(event.target.value));
   };
 
   useEffect(() => {
