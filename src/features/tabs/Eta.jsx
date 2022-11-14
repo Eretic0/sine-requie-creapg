@@ -5,12 +5,15 @@ import Card from "../../components/Card";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useSelector, useDispatch } from "react-redux";
+import { setEta } from "../../redux/slices/etaSlice";
 
 function Eta() {
-  const [eta, setEta] = useState(0);
+  const { eta } = useSelector((state) => state.eta);
+  const dispatch = useDispatch();
 
   const handleChangeEta = (event) => {
-    setEta(event.target.value);
+    dispatch(setEta(event.target.value));
   };
 
   const setEtaPaper = () => {
