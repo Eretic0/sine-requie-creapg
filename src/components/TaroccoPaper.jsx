@@ -21,13 +21,13 @@ export default function TaroccoPaper(props) {
         {tarocco && (
           <>
             <Typography gutterBottom variant="h5" component="div">
-              {tarocco.data.numero} - {tarocco.data.nome}
+              {tarocco.numero} - {tarocco.nome}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {tarocco.data.descDominante}
+              {tarocco.descDominante}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {tarocco.data.caratteristicaDominante}
+              {tarocco.caratteristicaDominante}
             </Typography>
           </>
         )}
