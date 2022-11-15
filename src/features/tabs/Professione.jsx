@@ -19,14 +19,20 @@ const Professione = () => {
   useEffect(() => {
     let professioniFilter = ProfessioniDb;
     if (ambientazione) {
-      console.log("professioniFilter", professioniFilter);
-      setProfessioni(
-        professioniFilter.filter((p) => p.ambientazioneRef === ambientazione)
+      professioniFilter = professioniFilter.filter(
+        (p) => p.ambientazioneRef === ambientazione
       );
-    } else {
-      setProfessioni(professioniFilter);
     }
-  }, [ambientazione]);
+
+    if (eta < 40) {
+      professioniFilter = professioniFilter.filter(
+        (p) => p.eta !== "A" && p.eta !== "E"
+      );
+    } else if (eta < 60) {
+      professioniFilter = professioniFilter.filter((p) => p.eta !== "E");
+    }
+    setProfessioni(professioniFilter);
+  }, [ambientazione, eta]);
 
   const handleChangeProfessione = (event) => {
     dispatch(setProfessione(event.target.value));
