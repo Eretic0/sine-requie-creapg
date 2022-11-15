@@ -6,7 +6,8 @@ import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { getAllPregi, getAllDifetti } from "../../api";
+import PregiDb from "../../db/Pregi";
+import DifettiDb from "../../db/Difetti";
 import { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -27,7 +28,7 @@ export default function PregiDifetti(props) {
   const handleSelectPregi = (pregio) => {
     setPregiSelezionati((state) => [...state, pregio]);
     setNumPregi((prevState) => prevState + 1);
-    setNumDifetti((prevState) => prevState + pregio.data.numeroDifetti);
+    setNumDifetti((prevState) => prevState + pregio.numeroDifetti);
   };
 
   const handleSelectDifetti = (difetto) => {
@@ -36,18 +37,18 @@ export default function PregiDifetti(props) {
   };
 
   const handleDeselectPregi = (pregio) => {
-    const preg = pregi.filter((el) => el.ref.value.id === pregio.ref.value.id);
+    const preg = pregi.filter((el) => el.id === pregio.id);
     console.log("preg", preg);
     setPregiSelezionati(preg);
     setNumPregi((prevState) => prevState - 1);
-    setNumDifetti((prevState) => prevState - pregio.data.numeroDifetti);
+    setNumDifetti((prevState) => prevState - pregio.numeroDifetti);
   };
 
   const disableButtonPregi = (pregio) =>
-    pregiSelezionati.some((pr) => pr.ref.value.id === pregio.ref.value.id);
+    pregiSelezionati.some((pr) => pr.id === pregio.id);
 
   const disableButtonDifetti = (difetto) =>
-    difettiSelezionati.some((dif) => dif.ref.value.id === difetto.ref.value.id);
+    difettiSelezionati.some((dif) => dif.id === difetto.id);
 
   const estraiDifetti = () => {
     let numeroEstrazioni = 0;
@@ -59,8 +60,8 @@ export default function PregiDifetti(props) {
           setMinoriEstratti((state) => [...state, cartaEstratta]);
           const difettoEstratto = difetti.find(
             (dif) =>
-              dif.data.carta === cartaEstratta.numeroCarta &&
-              dif.data.seme === cartaEstratta.semeCarta
+              dif.carta === cartaEstratta.numeroCarta &&
+              dif.seme === cartaEstratta.semeCarta
           );
           handleSelectDifetti(difettoEstratto);
           numeroEstrazioni++;
@@ -70,8 +71,8 @@ export default function PregiDifetti(props) {
 
         const difettoEstratto = difetti.find(
           (dif) =>
-            dif.data.carta === cartaEstratta.numeroCarta &&
-            dif.data.seme === cartaEstratta.semeCarta
+            dif.carta === cartaEstratta.numeroCarta &&
+            dif.seme === cartaEstratta.semeCarta
         );
         handleSelectDifetti(difettoEstratto);
         numeroEstrazioni++;
@@ -88,12 +89,8 @@ export default function PregiDifetti(props) {
   };
 
   useEffect(() => {
-    getAllPregi.then((res) => {
-      setPregi(res);
-    });
-    getAllDifetti.then((res) => {
-      setDifetti(res);
-    });
+    setPregi(PregiDb);
+    setDifetti(DifettiDb);
   }, []);
 
   return (
@@ -116,7 +113,7 @@ export default function PregiDifetti(props) {
               {pregi.length > 0 &&
                 pregi.map((pr) => (
                   <ListItem
-                    key={pr.ref.value.id}
+                    key={pr.id}
                     secondaryAction={
                       <>
                         {disableButtonPregi(pr) ? (
@@ -147,7 +144,7 @@ export default function PregiDifetti(props) {
                       </>
                     }
                   >
-                    <ListItemText primary={pr.data.nome} />
+                    <ListItemText primary={pr.nome} />
                   </ListItem>
                 ))}
             </List>
@@ -179,7 +176,7 @@ export default function PregiDifetti(props) {
               {difettiSelezionati.length > 0 &&
                 difettiSelezionati.map((diff) => (
                   <ListItem
-                    key={diff.ref.value.id}
+                    key={diff.id}
                     secondaryAction={
                       <IconButton
                         disabled={disableButtonDifetti(diff)}
@@ -190,7 +187,7 @@ export default function PregiDifetti(props) {
                       </IconButton>
                     }
                   >
-                    <ListItemText primary={diff.data.nome} />
+                    <ListItemText primary={diff.nome} />
                   </ListItem>
                 ))}
             </List>

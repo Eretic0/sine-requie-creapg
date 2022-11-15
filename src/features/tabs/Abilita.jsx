@@ -6,27 +6,21 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
-import { getAllAbilita, getAllCaratteristiche } from "../../api";
 import Card from "../../components/Card";
+import AbilitaDb from "../../db/Abilita";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 const Abilita = () => {
   const [abilita, setAbilita] = useState([]);
   const [caratteristica, setCaratteristica] = useState([]);
 
   useEffect(() => {
-    getAllCaratteristiche.then((res) => {
-      setCaratteristica(res);
-    });
-
-    getAllAbilita.then((res) => {
-      setAbilita(res.filter((ab) => ab.data.prestampata === true));
-    });
+    setCaratteristica(CaratteristicheDb);
+    setAbilita(AbilitaDb.filter((ab) => ab.prestampata === true));
   }, []);
 
   const getCaratteristica = (ab) =>
-    caratteristica.find(
-      (car) => car.ref.value.id === ab.data.caratteristica.value.id
-    ).data.nome;
+    caratteristica.find((car) => car.id === ab.caratteristica).nome;
 
   return (
     <Card headerText="Abilità">
@@ -44,7 +38,7 @@ const Abilita = () => {
           <TableBody>
             {abilita.map((ab) => (
               <TableRow
-                key={ab.ref.value.id}
+                key={ab.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell
@@ -52,7 +46,7 @@ const Abilita = () => {
                   component="th"
                   scope="row"
                 ></TableCell>
-                <TableCell align="center">{ab.data.descrizione}</TableCell>
+                <TableCell align="center">{ab.descrizione}</TableCell>
                 <TableCell align="center"></TableCell>
                 <TableCell align="center">{getCaratteristica(ab)}</TableCell>
                 <TableCell align="center"></TableCell>

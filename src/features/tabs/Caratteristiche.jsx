@@ -9,7 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import { getAllCaratteristiche } from "../../api";
+import CaratteristicheDb from "../../db/Caratteristiche";
 import Card from "../../components/Card";
 import { estraiTaroccoMinore } from "../../utils/random";
 import MinoriPaper from "../../components/MinoriPaper";
@@ -51,7 +51,7 @@ function Caratteristiche() {
   };
 
   const addReduceCaratteristica = (caratt, positive) => {
-    const carattSeme = caratt.data.seme;
+    const carattSeme = caratt.seme;
     if (positive) {
       setSemiStore((prevState) => ({
         ...prevState,
@@ -59,14 +59,14 @@ function Caratteristiche() {
       }));
       setCaratteristiche((prevState) => {
         const newState = prevState.map((obj) => {
-          if (obj.ref.value.id === caratt.ref.value.id) {
+          if (obj.id === caratt.id) {
             return { ...obj, valore: obj.valore + 1 };
           }
           return obj;
         });
         return newState;
       });
-      setCaratteristica((state) => [...state, caratt.data.nome]);
+      setCaratteristica((state) => [...state, caratt.nome]);
     } else {
       setSemiStore((prevState) => ({
         ...prevState,
@@ -74,14 +74,14 @@ function Caratteristiche() {
       }));
       setCaratteristiche((prevState) => {
         const newState = prevState.map((obj) => {
-          if (obj.ref.value.id === caratt.ref.value.id) {
+          if (obj.id === caratt.id) {
             return { ...obj, valore: obj.valore - 1 };
           }
           return obj;
         });
         return newState;
       });
-      setCaratteristica((state) => [...state, caratt.data.nome]);
+      setCaratteristica((state) => [...state, caratt.nome]);
     }
   };
 
@@ -157,10 +157,11 @@ function Caratteristiche() {
   };
 
   useEffect(() => {
-    getAllCaratteristiche.then((res) => {
-      let listaCaratteristiche = res.map((obj) => ({ ...obj, valore: 4 }));
-      dispatch(setCaratteristiche(listaCaratteristiche));
-    });
+    let listaCaratteristiche = CaratteristicheDb.map((obj) => ({
+      ...obj,
+      valore: 4,
+    }));
+    dispatch(setCaratteristiche(listaCaratteristiche));
   }, [dispatch]);
 
   return (
@@ -200,41 +201,39 @@ function Caratteristiche() {
               <Grid item xs>
                 <List>
                   {caratteristiche
-                    .filter((car) => car.data.seme === "Cuori")
+                    .filter((car) => car.seme === "Cuori")
                     .map((car) => (
                       <ListItem
-                        key={car.ref.value.id}
+                        key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.data.seme) &&
-                              visibleBonus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.data.seme) &&
-                              visibleMalus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
+                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, true)
+                                }
+                              >
+                                <AddCircleOutlineIcon />
+                              </IconButton>
+                            )}
+                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, false)
+                                }
+                              >
+                                <RemoveCircleOutline />
+                              </IconButton>
+                            )}
                           </>
                         }
                       >
                         <ListItemText
-                          primary={car.data.nome}
+                          primary={car.nome}
                           secondary={car.valore}
                         />
                       </ListItem>
@@ -244,41 +243,39 @@ function Caratteristiche() {
               <Grid item xs>
                 <List>
                   {caratteristiche
-                    .filter((car) => car.data.seme === "Quadri")
+                    .filter((car) => car.seme === "Quadri")
                     .map((car) => (
                       <ListItem
-                        key={car.ref.value.id}
+                        key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.data.seme) &&
-                              visibleBonus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.data.seme) &&
-                              visibleMalus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
+                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, true)
+                                }
+                              >
+                                <AddCircleOutlineIcon />
+                              </IconButton>
+                            )}
+                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, false)
+                                }
+                              >
+                                <RemoveCircleOutline />
+                              </IconButton>
+                            )}
                           </>
                         }
                       >
                         <ListItemText
-                          primary={car.data.nome}
+                          primary={car.nome}
                           secondary={car.valore}
                         />
                       </ListItem>
@@ -288,41 +285,39 @@ function Caratteristiche() {
               <Grid item xs>
                 <List>
                   {caratteristiche
-                    .filter((car) => car.data.seme === "Fiori")
+                    .filter((car) => car.seme === "Fiori")
                     .map((car) => (
                       <ListItem
-                        key={car.ref.value.id}
+                        key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.data.seme) &&
-                              visibleBonus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.data.seme) &&
-                              visibleMalus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
+                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, true)
+                                }
+                              >
+                                <AddCircleOutlineIcon />
+                              </IconButton>
+                            )}
+                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, false)
+                                }
+                              >
+                                <RemoveCircleOutline />
+                              </IconButton>
+                            )}
                           </>
                         }
                       >
                         <ListItemText
-                          primary={car.data.nome}
+                          primary={car.nome}
                           secondary={car.valore}
                         />
                       </ListItem>
@@ -332,41 +327,39 @@ function Caratteristiche() {
               <Grid item xs>
                 <List>
                   {caratteristiche
-                    .filter((car) => car.data.seme === "Picche")
+                    .filter((car) => car.seme === "Picche")
                     .map((car) => (
                       <ListItem
-                        key={car.ref.value.id}
+                        key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.data.seme) &&
-                              visibleBonus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.data.seme) &&
-                              visibleMalus(car.data.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.data.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
+                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, true)
+                                }
+                              >
+                                <AddCircleOutlineIcon />
+                              </IconButton>
+                            )}
+                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
+                              <IconButton
+                                edge="end"
+                                disabled={disableButton(car.nome)}
+                                onClick={() =>
+                                  addReduceCaratteristica(car, false)
+                                }
+                              >
+                                <RemoveCircleOutline />
+                              </IconButton>
+                            )}
                           </>
                         }
                       >
                         <ListItemText
-                          primary={car.data.nome}
+                          primary={car.nome}
                           secondary={car.valore}
                         />
                       </ListItem>

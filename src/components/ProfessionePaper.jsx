@@ -23,14 +23,14 @@ const ProfessionePaper = ({ professione }) => {
             </Typography>
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => (
-                <Typography variant="body2" color="text.secondary">
+                <Typography key={ab} variant="body2" color="text.secondary">
                   {ab}
                 </Typography>
               ))}
 
             {professione.abilitaSceltaListRef &&
               professione.abilitaSceltaListRef.map((abs) => (
-                <Typography variant="body2" color="text.secondary">
+                <Typography key={abs} variant="body2" color="text.secondary">
                   {abs}
                 </Typography>
               ))}
