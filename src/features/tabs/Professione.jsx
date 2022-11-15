@@ -8,6 +8,7 @@ import ProfessioniDb from "../../db/Professioni";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setProfessione } from "../../redux/slices/professioneSlice";
+import ProfessionePaper from "../../components/ProfessionePaper";
 
 const Professione = () => {
   const { professione } = useSelector((state) => state.professione);
@@ -65,6 +66,11 @@ const Professione = () => {
               </Select>
             )}
           </FormControl>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <ProfessionePaper professione={professione} />
         </Grid>
       </Grid>
     </Card>
