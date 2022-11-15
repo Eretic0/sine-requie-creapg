@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import { useSelector, useDispatch } from "react-redux";
-import ambientazioniDb from "../../db/Ambientazioni";
+import AmbientazioniDb from "../../db/Ambientazioni";
 
 import {
   setNome,
@@ -44,7 +44,7 @@ function Generalita() {
   };
 
   useEffect(() => {
-    setAmbientazioni(ambientazioniDb);
+    setAmbientazioni(AmbientazioniDb);
   }, []);
 
   return (

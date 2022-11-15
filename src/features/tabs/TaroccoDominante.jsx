@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import TaroccoPaper from "../../components/TaroccoPaper";
 import { generateRandomNumer } from "../../utils/random";
-import tarocchiDb from "../../db/Tarocchi";
+import TarocchiDb from "../../db/Tarocchi";
 import { useSelector, useDispatch } from "react-redux";
 import { setTaroccoDominante } from "../../redux/slices/taroccoSlice";
 
@@ -26,7 +26,7 @@ function TaroccoDominante() {
   };
 
   useEffect(() => {
-    setTarocchi(tarocchiDb);
+    setTarocchi(TarocchiDb);
   }, []);
 
   return (
