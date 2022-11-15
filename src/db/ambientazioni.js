@@ -1,4 +1,4 @@
-const Ambientazioni = () => [
+const Ambientazioni = [
   {
     id: "341411834674282700",
     descrizione: "Sanctum Imperium",

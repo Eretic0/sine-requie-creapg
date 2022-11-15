@@ -6,13 +6,31 @@ import Select from "@mui/material/Select";
 import Card from "../../components/Card";
 import ProfessioniDb from "../../db/Professioni";
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setProfessione } from "../../redux/slices/professioneSlice";
 
 const Professione = () => {
+  const { professione } = useSelector((state) => state.professione);
+  const { eta } = useSelector((state) => state.eta);
+  const { ambientazione } = useSelector((state) => state.generalita);
+  const dispatch = useDispatch();
   const [professioni, setProfessioni] = useState([]);
 
   useEffect(() => {
-    setProfessioni(ProfessioniDb);
-  }, []);
+    let professioniFilter = ProfessioniDb;
+    if (ambientazione) {
+      console.log("professioniFilter", professioniFilter);
+      setProfessioni(
+        professioniFilter.filter((p) => p.ambientazioneRef === ambientazione)
+      );
+    } else {
+      setProfessioni(professioniFilter);
+    }
+  }, [ambientazione]);
+
+  const handleChangeProfessione = (event) => {
+    dispatch(setProfessione(event.target.value));
+  };
 
   return (
     <Card headerText="Professione">
@@ -25,19 +43,21 @@ const Professione = () => {
             >
               Professione
             </InputLabel>
-            <Select
-              id="select-professione"
-              label="Professione"
-              //value={ambientazione}
-              //onChange={handleChangeAmbientazione}
-            >
-              {professioni.length > 0 &&
-                professioni.map((prof) => (
-                  <MenuItem key={prof.id} value={prof.id}>
+            {professioni.length > 0 && (
+              <Select
+                id="select-professione"
+                label="Professione"
+                value={professione}
+                defaultValue=""
+                onChange={handleChangeProfessione}
+              >
+                {professioni.map((prof) => (
+                  <MenuItem key={prof.id} value={prof}>
                     {prof.descrizione}
                   </MenuItem>
                 ))}
-            </Select>
+              </Select>
+            )}
           </FormControl>
         </Grid>
       </Grid>

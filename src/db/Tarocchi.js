@@ -1,4 +1,4 @@
-const Tarocchi = () => [
+const Tarocchi = [
   {
     id: "341425501756195020",
     nome: "Il Matto",

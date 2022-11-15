@@ -3,6 +3,7 @@ import caratteristicheSlice from "./slices/caratteristicheSlice";
 import generalitaSlice from "./slices/generalitaSlice";
 import taroccoSlice from "./slices/taroccoSlice";
 import etaSlice from "./slices/etaSlice";
+import professioneSlice from "./slices/professioneSlice";
 
 export default configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export default configureStore({
     generalita: generalitaSlice,
     tarocco: taroccoSlice,
     eta: etaSlice,
+    professione: professioneSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

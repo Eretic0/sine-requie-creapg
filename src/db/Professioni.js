@@ -1,4 +1,4 @@
-const Professioni = () => [
+const Professioni = [
   {
     id: "343962654843338957",
     descrizione: "Cacciatore di Morti",

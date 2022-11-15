@@ -55,20 +55,22 @@ function Generalita() {
             <InputLabel id="label-input-select-ambientazione">
               Ambientazione
             </InputLabel>
-            <Select
-              labelId="label-input-select-ambientazione"
-              id="select-ambientazione"
-              label="Ambientazione"
-              value={ambientazione}
-              onChange={handleChangeAmbientazione}
-            >
-              {ambientazioni.length > 0 &&
-                ambientazioni.map((ambient) => (
+            {ambientazioni.length > 0 && (
+              <Select
+                labelId="label-input-select-ambientazione"
+                id="select-ambientazione"
+                label="Ambientazione"
+                defaultValue=""
+                value={ambientazione}
+                onChange={handleChangeAmbientazione}
+              >
+                {ambientazioni.map((ambient) => (
                   <MenuItem key={ambient.id} value={ambient.id}>
                     {ambient.descrizione}
                   </MenuItem>
                 ))}
-            </Select>
+              </Select>
+            )}
           </FormControl>
         </Grid>
         <Grid item xs>
