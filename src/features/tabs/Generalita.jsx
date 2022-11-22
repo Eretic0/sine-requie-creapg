@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import { useSelector, useDispatch } from "react-redux";
 import AmbientazioniDb from "../../db/Ambientazioni";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 import {
   setNome,
@@ -19,6 +20,7 @@ import {
   setAmbientazione,
   setSesso,
 } from "../../redux/slices/generalitaSlice";
+import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 
 function Generalita() {
   const { nome, cognome, ambientazione, sesso } = useSelector(
@@ -45,7 +47,8 @@ function Generalita() {
 
   useEffect(() => {
     setAmbientazioni(AmbientazioniDb);
-  }, []);
+    dispatch(setCaratteristiche(CaratteristicheDb));
+  }, [dispatch]);
 
   return (
     <Card headerText="Generalità">

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const etaSlice = createSlice({
   name: "eta",
   initialState: {
-    eta: [],
+    eta: "",
   },
   reducers: {
     setEta: (state, { payload }) => {

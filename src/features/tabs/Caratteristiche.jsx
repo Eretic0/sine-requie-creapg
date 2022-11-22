@@ -18,6 +18,7 @@ import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 
 function Caratteristiche() {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
+  const { taroccoDominante } = useSelector((state) => state.tarocco);
   const dispatch = useDispatch();
   const [caratteristica, setCaratteristica] = useState([]);
   const [minoriEstratti, setMinoriEstratti] = useState([]);
@@ -157,12 +158,19 @@ function Caratteristiche() {
   };
 
   useEffect(() => {
-    let listaCaratteristiche = CaratteristicheDb.map((obj) => ({
-      ...obj,
-      valore: 4,
-    }));
-    dispatch(setCaratteristiche(listaCaratteristiche));
-  }, [dispatch]);
+    let listCaratteristiche = CaratteristicheDb;
+    if (taroccoDominante != null) {
+      const listCaratteristicheByTarocco = taroccoDominante.caratteristicaRef;
+      listCaratteristicheByTarocco.forEach((element) => {
+        listCaratteristiche = listCaratteristiche.map((el) =>
+          el.id === element.id
+            ? { ...el, valore: el.valore + element.valore }
+            : el
+        );
+      });
+    }
+    dispatch(setCaratteristiche(listCaratteristiche));
+  }, [dispatch, taroccoDominante]);
 
   return (
     <Card headerText="Caratteristiche">

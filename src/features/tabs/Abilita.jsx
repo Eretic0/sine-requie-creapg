@@ -20,7 +20,7 @@ const Abilita = () => {
   }, []);
 
   const getCaratteristica = (ab) =>
-    caratteristica.find((car) => car.id === ab.caratteristica).nome;
+    caratteristica.find((car) => car.id === ab.caratteristicaRef).nome;
 
   return (
     <Card headerText="Abilità">
