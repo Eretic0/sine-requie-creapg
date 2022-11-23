@@ -159,7 +159,10 @@ function Caratteristiche() {
 
   useEffect(() => {
     let listCaratteristiche = CaratteristicheDb;
-    if (taroccoDominante != null) {
+    if (
+      taroccoDominante != null &&
+      taroccoDominante.caratteristicaRef != null
+    ) {
       const listCaratteristicheByTarocco = taroccoDominante.caratteristicaRef;
       listCaratteristicheByTarocco.forEach((element) => {
         listCaratteristiche = listCaratteristiche.map((el) =>
@@ -171,6 +174,15 @@ function Caratteristiche() {
     }
     dispatch(setCaratteristiche(listCaratteristiche));
   }, [dispatch, taroccoDominante]);
+
+  const visualizzaModificare = (car) => {
+    let carVisual = car.valore;
+    if (car.modificatore != null) {
+      const mod = car.modificatore(car.valore);
+      carVisual = carVisual + " " + mod;
+    }
+    return carVisual;
+  };
 
   return (
     <Card headerText="Caratteristiche">
@@ -242,7 +254,7 @@ function Caratteristiche() {
                       >
                         <ListItemText
                           primary={car.nome}
-                          secondary={car.valore}
+                          secondary={visualizzaModificare(car)}
                         />
                       </ListItem>
                     ))}
@@ -326,7 +338,7 @@ function Caratteristiche() {
                       >
                         <ListItemText
                           primary={car.nome}
-                          secondary={car.valore}
+                          secondary={visualizzaModificare(car)}
                         />
                       </ListItem>
                     ))}
@@ -368,7 +380,7 @@ function Caratteristiche() {
                       >
                         <ListItemText
                           primary={car.nome}
-                          secondary={car.valore}
+                          secondary={visualizzaModificare(car)}
                         />
                       </ListItem>
                     ))}

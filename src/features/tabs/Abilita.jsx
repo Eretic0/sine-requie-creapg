@@ -9,6 +9,10 @@ import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import AbilitaDb from "../../db/Abilita";
 import CaratteristicheDb from "../../db/Caratteristiche";
+import Checkbox from "@mui/material/Checkbox";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import TextField from "@mui/material/TextField";
 
 const Abilita = () => {
   const [abilita, setAbilita] = useState([]);
@@ -19,8 +23,48 @@ const Abilita = () => {
     setAbilita(AbilitaDb.filter((ab) => ab.prestampata === true));
   }, []);
 
-  const getCaratteristica = (ab) =>
-    caratteristica.find((car) => car.id === ab.caratteristicaRef).nome;
+  const getCaratteristica = (ab) => {
+    const car = caratteristica.find((car) => car.id === ab.caratteristicaRef);
+    return car.nome + " " + car.valore;
+  };
+
+  const visualizzaSpecifico = (ab) => {
+    if (ab.specifico) {
+      if (ab.specifico.length > 0) {
+        return (
+          <>
+            {ab.descrizione}
+            <br />
+            <Select
+              labelId={`label-select-specifico-${ab.id}`}
+              id={`select-specifico-${ab.id}`}
+              label="specifico"
+            >
+              {ab.specifico.map((s) => (
+                <MenuItem key={s.id} value={s.id}>
+                  {s.descrizione}
+                </MenuItem>
+              ))}
+            </Select>
+          </>
+        );
+      } else {
+        return (
+          <>
+            {ab.descrizione}
+            <br />
+            <TextField
+              id={`outlined-textfield-${ab.id}`}
+              label="specifico"
+              variant="outlined"
+            />
+          </>
+        );
+      }
+    }
+
+    return ab.descrizione;
+  };
 
   return (
     <Card headerText="Abilità">
@@ -46,10 +90,23 @@ const Abilita = () => {
                   component="th"
                   scope="row"
                 ></TableCell>
-                <TableCell align="center">{ab.descrizione}</TableCell>
+                <TableCell align="center">{visualizzaSpecifico(ab)}</TableCell>
                 <TableCell align="center"></TableCell>
                 <TableCell align="center">{getCaratteristica(ab)}</TableCell>
-                <TableCell align="center"></TableCell>
+                <TableCell align="center">
+                  <>
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                    <Checkbox />
+                  </>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

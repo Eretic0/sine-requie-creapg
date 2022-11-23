@@ -42,7 +42,7 @@ function TaroccoPassato() {
       </Stack>
       <Grid container spacing={3}>
         <Grid item xs>
-          <TaroccoPaper tarocco={taroccoPassato} />
+          <TaroccoPaper tarocco={taroccoPassato} passato={true} />
         </Grid>
       </Grid>
     </Card>

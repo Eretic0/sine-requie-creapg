@@ -5,18 +5,39 @@ import { useSelector } from "react-redux";
 
 export default function TaroccoPaper(props) {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
-  const { tarocco } = props;
+  const { tarocco, passato } = props;
 
-  const populateAbilita = (car) => {
-    if (caratteristiche.length > 0) {
-      const caratter = caratteristiche.find((c) => c.id === car.id);
-      if (caratter != null) {
-        return (
-          <Typography key={car.id} variant="body2" color="text.secondary">
-            {car.valore} {caratter.nome}
-          </Typography>
-        );
-      }
+  const populateCaratteristica = (tarocco) => {
+    if (tarocco.caratteristicaRef) {
+      tarocco.caratteristicaRef.map((car) => {
+        if (caratteristiche.length > 0) {
+          const caratter = caratteristiche.find((c) => c.id === car.id);
+          if (caratter != null) {
+            return (
+              <Typography key={car.id} variant="body2" color="text.secondary">
+                {car.valore} {caratter.nome}
+              </Typography>
+            );
+          }
+        }
+      });
+    }
+  };
+
+  const populateAbilita = (tarocco) => {
+    if (tarocco.abilitaRef) {
+      tarocco.caratteristicaRef.map((car) => {
+        if (caratteristiche.length > 0) {
+          const caratter = caratteristiche.find((c) => c.id === car.id);
+          if (caratter != null) {
+            return (
+              <Typography key={car.id} variant="body2" color="text.secondary">
+                {car.valore} {caratter.nome}
+              </Typography>
+            );
+          }
+        }
+      });
     }
   };
 
@@ -39,10 +60,11 @@ export default function TaroccoPaper(props) {
               {tarocco.numero} - {tarocco.nome}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {tarocco.descDominante}
+              {passato ? tarocco.descPassato : tarocco.descDominante}
             </Typography>
-            {tarocco.caratteristicaRef &&
-              tarocco.caratteristicaRef.map((car) => populateAbilita(car))}
+            {passato
+              ? populateAbilita(tarocco)
+              : populateCaratteristica(tarocco)}
           </>
         )}
       </Paper>
