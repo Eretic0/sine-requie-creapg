@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 export const caratteristicheSlice = createSlice({
   name: "caratteristiche",
   initialState: {
-    caratteristiche: [],
+    caratteristiche: CaratteristicheDb,
   },
   reducers: {
     setCaratteristiche: (state, { payload }) => {
