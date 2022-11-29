@@ -1,30 +1,34 @@
+import Checkbox from "@mui/material/Checkbox";
+import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
+import Select from "@mui/material/Select";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import React, { useEffect, useState } from "react";
+import TextField from "@mui/material/TextField";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
 import AbilitaDb from "../../db/Abilita";
 import CaratteristicheDb from "../../db/Caratteristiche";
-import Checkbox from "@mui/material/Checkbox";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import TextField from "@mui/material/TextField";
+import { setAbilita } from "../../redux/slices/abilitaSlice";
 
 const Abilita = () => {
-  const [abilita, setAbilita] = useState([]);
-  const [caratteristica, setCaratteristica] = useState([]);
+  const { abilita } = useSelector((state) => state.abilita);
+  const dispatch = useDispatch();
+  const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   useEffect(() => {
-    setCaratteristica(CaratteristicheDb);
-    setAbilita(AbilitaDb.filter((ab) => ab.prestampata === true));
-  }, []);
+    dispatch(setAbilita(AbilitaDb.filter((ab) => ab.prestampata === true)));
+  }, [dispatch]);
 
   const getCaratteristica = (ab) => {
-    const car = caratteristica.find((car) => car.id === ab.caratteristicaRef);
+    const car = CaratteristicheDb.find(
+      (car) => car.id === ab.caratteristicaRef
+    );
     return car.nome + " " + car.valore;
   };
 
@@ -91,21 +95,12 @@ const Abilita = () => {
                   scope="row"
                 ></TableCell>
                 <TableCell align="center">{visualizzaSpecifico(ab)}</TableCell>
-                <TableCell align="center"></TableCell>
+                <TableCell align="center">{ab.grado}</TableCell>
                 <TableCell align="center">{getCaratteristica(ab)}</TableCell>
                 <TableCell align="center">
-                  <>
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                    <Checkbox />
-                  </>
+                  {arrayCounterFallimento.map((c) => (
+                    <Checkbox checked={c <= ab.counterFallimento} />
+                  ))}
                 </TableCell>
               </TableRow>
             ))}

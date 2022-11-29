@@ -1,11 +1,10 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { useSelector } from "react-redux";
+import AbilitaDb from "../db/Abilita";
+import CaratteristicheDb from "../db/Caratteristiche";
 
 export default function TaroccoPaper(props) {
-  const { caratteristiche } = useSelector((state) => state.caratteristiche);
-  const { abilita } = useSelector((state) => state.abilita);
   const { tarocco, passato } = props;
 
   const populateCaratteristica = (tarocco) => {
@@ -17,7 +16,7 @@ export default function TaroccoPaper(props) {
   };
 
   const getAbilita = (ab) => {
-    const ability = abilita.find((a) => a.id === ab.id);
+    const ability = AbilitaDb.find((a) => a.id === ab.id);
     if (ability != null) {
       return (
         <Typography key={ab.id} variant="body2" color="text.secondary">
@@ -28,7 +27,7 @@ export default function TaroccoPaper(props) {
   };
 
   const getCaratteristica = (car) => {
-    const caratter = caratteristiche.find((c) => c.id === car.id);
+    const caratter = CaratteristicheDb.find((c) => c.id === car.id);
     if (caratter != null) {
       return (
         <Typography key={car.id} variant="body2" color="text.secondary">
