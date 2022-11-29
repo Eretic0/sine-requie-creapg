@@ -11,6 +11,7 @@ import PregiDifetti from "./tabs/PregiDifetti";
 import TaroccoPassato from "./tabs/TaroccoPassato";
 import Professione from "./tabs/Professione";
 import Abilita from "./tabs/Abilita";
+import Footer from "../components/Footer";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -68,6 +69,7 @@ function Home() {
       <TabPanel value={value} index={7}>
         <Abilita />
       </TabPanel>
+      <Footer />
     </>
   );
 }

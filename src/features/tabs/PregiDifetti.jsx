@@ -5,6 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import PregiDb from "../../db/Pregi";
 import DifettiDb from "../../db/Difetti";
@@ -129,7 +130,7 @@ export default function PregiDifetti(props) {
                               edge="end"
                               onClick={() => handleDeselectPregi(pr)}
                             >
-                              <CheckCircleOutlineOutlinedIcon />
+                              <RemoveCircleOutlineIcon />
                             </IconButton>
                           </>
                         ) : (
