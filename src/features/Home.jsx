@@ -3,15 +3,14 @@ import Tabs from "@mui/material/Tabs";
 import PropTypes from "prop-types";
 import * as React from "react";
 import Header from "../components/Header";
-import Caratteristiche from "./tabs/Caratteristiche";
-import Generalita from "./tabs/Generalita";
-import TaroccoDominante from "./tabs/TaroccoDominante";
-import Eta from "./tabs/Eta";
-import PregiDifetti from "./tabs/PregiDifetti";
-import TaroccoPassato from "./tabs/TaroccoPassato";
-import Professione from "./tabs/Professione";
 import Abilita from "./tabs/Abilita";
-import Footer from "../components/Footer";
+import Caratteristiche from "./tabs/Caratteristiche";
+import Eta from "./tabs/Eta";
+import Generalita from "./tabs/Generalita";
+import PregiDifetti from "./tabs/PregiDifetti";
+import Professione from "./tabs/Professione";
+import TaroccoDominante from "./tabs/TaroccoDominante";
+import TaroccoPassato from "./tabs/TaroccoPassato";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -35,7 +34,13 @@ function Home() {
   return (
     <>
       <Header appName="Sine Requie CreaPG" />
-      <Tabs value={value} onChange={handleChange}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+      >
         <Tab label="Generalità" />
         <Tab label="Tarocco Dominante" />
         <Tab label="Caratteristiche" />
@@ -69,7 +74,6 @@ function Home() {
       <TabPanel value={value} index={7}>
         <Abilita />
       </TabPanel>
-      <Footer />
     </>
   );
 }
