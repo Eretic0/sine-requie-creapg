@@ -58,30 +58,34 @@ function Caratteristiche() {
         ...prevState,
         [carattSeme]: prevState[carattSeme] - 1,
       }));
-      setCaratteristiche((prevState) => {
-        const newState = prevState.map((obj) => {
-          if (obj.id === caratt.id) {
-            return { ...obj, valore: obj.valore + 1 };
-          }
-          return obj;
-        });
-        return newState;
-      });
+      dispatch(
+        setCaratteristiche(
+          caratteristiche.map((obj) => {
+            if (obj.id === caratt.id) {
+              return { ...obj, valore: caratt.valore + 1 };
+            } else {
+              return obj;
+            }
+          })
+        )
+      );
       setCaratteristica((state) => [...state, caratt.nome]);
     } else {
       setSemiStore((prevState) => ({
         ...prevState,
         [carattSeme]: prevState[carattSeme] + 1,
       }));
-      setCaratteristiche((prevState) => {
-        const newState = prevState.map((obj) => {
-          if (obj.id === caratt.id) {
-            return { ...obj, valore: obj.valore - 1 };
-          }
-          return obj;
-        });
-        return newState;
-      });
+      dispatch(
+        setCaratteristiche(
+          caratteristiche.map((obj) => {
+            if (obj.id === caratt.id) {
+              return { ...obj, valore: caratt.valore - 1 };
+            } else {
+              return obj;
+            }
+          })
+        )
+      );
       setCaratteristica((state) => [...state, caratt.nome]);
     }
   };
@@ -135,6 +139,11 @@ function Caratteristiche() {
     let numeroTotaleEstrazioni = bonus ? 3 : 4;
     while (numeroEstrazioni <= numeroTotaleEstrazioni) {
       const cartaEstratta = estraiTaroccoMinore();
+      console.log("minoriEstratti", minoriEstratti);
+      console.log(
+        "minoriEstratti.some((e) => e.id === cartaEstratta.id)",
+        minoriEstratti.some((e) => e.id === cartaEstratta.id)
+      );
       if (minoriEstratti.length > 0) {
         if (!minoriEstratti.some((e) => e.id === cartaEstratta.id)) {
           setMinoriEstratti((state) => [...state, cartaEstratta]);
@@ -172,8 +181,9 @@ function Caratteristiche() {
         );
       });
     }
+
     dispatch(setCaratteristiche(listCaratteristiche));
-  }, [dispatch, taroccoDominante]);
+  }, []);
 
   const visualizzaModificare = (car) => {
     let carVisual = car.valore;
@@ -187,6 +197,33 @@ function Caratteristiche() {
   return (
     <Card headerText="Caratteristiche">
       <>
+        <Grid container spacing={3}>
+          <Grid item xs>
+            <Stack spacing={3} direction="row">
+              <Button
+                size="small"
+                variant="contained"
+                onClick={() => bonusMalusMinori(true)}
+              >
+                Estrai Bonus
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                onClick={() => bonusMalusMinori(false)}
+              >
+                Estrai Malus
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                onClick={() => resetMinoriEstratti()}
+              >
+                Reset
+              </Button>
+            </Stack>
+          </Grid>
+        </Grid>
         <Grid container spacing={1}>
           <Grid item xs>
             <MinoriPaper minoriEstratti={minoriEstratti} />
@@ -385,33 +422,6 @@ function Caratteristiche() {
                       </ListItem>
                     ))}
                 </List>
-              </Grid>
-            </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs>
-                <Stack spacing={3} direction="row">
-                  <Button
-                    size="small"
-                    variant="contained"
-                    onClick={() => bonusMalusMinori(true)}
-                  >
-                    Estrai Bonus
-                  </Button>
-                  <Button
-                    size="small"
-                    variant="contained"
-                    onClick={() => bonusMalusMinori(false)}
-                  >
-                    Estrai Malus
-                  </Button>
-                  <Button
-                    size="small"
-                    variant="contained"
-                    onClick={() => resetMinoriEstratti()}
-                  >
-                    Reset
-                  </Button>
-                </Stack>
               </Grid>
             </Grid>
           </>

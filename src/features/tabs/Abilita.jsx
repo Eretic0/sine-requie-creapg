@@ -99,7 +99,11 @@ const Abilita = () => {
                 <TableCell align="center">{getCaratteristica(ab)}</TableCell>
                 <TableCell align="center">
                   {arrayCounterFallimento.map((c) => (
-                    <Checkbox checked={c <= ab.counterFallimento} />
+                    <Checkbox
+                      key={c}
+                      disabled
+                      checked={c <= ab.counterFallimento}
+                    />
                   ))}
                 </TableCell>
               </TableRow>
