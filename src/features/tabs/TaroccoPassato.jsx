@@ -35,7 +35,7 @@ function TaroccoPassato() {
                     grado: +0,
                     counterFallimento: el.counterFallimento + 5,
                   }
-                : el
+                : el 
             );
           } else {
             abi.grado = +0;
