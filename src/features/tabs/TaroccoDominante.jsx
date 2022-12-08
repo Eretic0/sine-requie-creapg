@@ -8,6 +8,8 @@ import { generateRandomNumer } from "../../utils/random";
 import TarocchiDb from "../../db/Tarocchi";
 import { useSelector, useDispatch } from "react-redux";
 import { setTaroccoDominante } from "../../redux/slices/taroccoSlice";
+import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 function TaroccoDominante() {
   const { taroccoDominante } = useSelector((state) => state.tarocco);
@@ -21,6 +23,16 @@ function TaroccoDominante() {
       tarocco = tarocchi.filter((tar) => tar.numero === number);
       if (tarocco.length > 0) {
         dispatch(setTaroccoDominante(tarocco[0]));
+        let listCaratteristiche = CaratteristicheDb;
+        const listCaratteristicheByTarocco = tarocco[0].caratteristicaRef;
+        listCaratteristicheByTarocco.forEach((element) => {
+          listCaratteristiche = listCaratteristiche.map((el) =>
+            el.id === element.id
+              ? { ...el, valore: el.valore + element.valore }
+              : el
+          );
+        });
+        dispatch(setCaratteristiche(listCaratteristiche));
       }
     }
   };
