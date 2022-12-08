@@ -20,7 +20,7 @@ export default function TaroccoPaper(props) {
     if (ability != null) {
       return (
         <Typography key={ab.id} variant="body2" color="text.secondary">
-          {ab.valore} {ability.nome}
+          {ability.nome} +0
         </Typography>
       );
     }

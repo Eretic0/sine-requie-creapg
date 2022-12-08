@@ -21,9 +21,7 @@ const Abilita = () => {
   const dispatch = useDispatch();
   const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  useEffect(() => {
-    dispatch(setAbilita(AbilitaDb.filter((ab) => ab.prestampata === true)));
-  }, [dispatch]);
+  useEffect(() => {}, []);
 
   const getCaratteristica = (ab) => {
     const car = CaratteristicheDb.find(
@@ -37,7 +35,7 @@ const Abilita = () => {
       if (ab.specifico.length > 0) {
         return (
           <>
-            {ab.descrizione}
+            {ab.nome}
             <br />
             <Select
               labelId={`label-select-specifico-${ab.id}`}
@@ -46,7 +44,7 @@ const Abilita = () => {
             >
               {ab.specifico.map((s) => (
                 <MenuItem key={s.id} value={s.id}>
-                  {s.descrizione}
+                  {s.nome}
                 </MenuItem>
               ))}
             </Select>
@@ -55,7 +53,7 @@ const Abilita = () => {
       } else {
         return (
           <>
-            {ab.descrizione}
+            {ab.nome}
             <br />
             <TextField
               id={`outlined-textfield-${ab.id}`}
@@ -67,7 +65,7 @@ const Abilita = () => {
       }
     }
 
-    return ab.descrizione;
+    return ab.nome;
   };
 
   return (
