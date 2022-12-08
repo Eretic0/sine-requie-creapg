@@ -9,12 +9,12 @@ import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import CaratteristicheDb from "../../db/Caratteristiche";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
-import { estraiTaroccoMinore } from "../../utils/random";
 import MinoriPaper from "../../components/MinoriPaper";
-import { useSelector, useDispatch } from "react-redux";
 import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import { estraiTaroccoMinore } from "../../utils/random";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 function Caratteristiche() {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
@@ -49,6 +49,22 @@ function Caratteristiche() {
   const resetMinoriEstratti = () => {
     resetPunti();
     setMinoriEstratti([]);
+    let listCaratteristiche = CaratteristicheDb;
+
+    if (
+      taroccoDominante != null &&
+      taroccoDominante.caratteristicaRef != null
+    ) {
+      const listCaratteristicheByTarocco = taroccoDominante.caratteristicaRef;
+      listCaratteristicheByTarocco.forEach((element) => {
+        listCaratteristiche = listCaratteristiche.map((el) =>
+          el.id === element.id
+            ? { ...el, valore: el.valore + element.valore }
+            : el
+        );
+      });
+      dispatch(setCaratteristiche(listCaratteristiche));
+    }
   };
 
   const addReduceCaratteristica = (caratt, positive) => {
@@ -137,15 +153,12 @@ function Caratteristiche() {
     resetPunti();
     let numeroEstrazioni = 0;
     let numeroTotaleEstrazioni = bonus ? 3 : 4;
+    let minoriEstrattiInt = [...minoriEstratti];
     while (numeroEstrazioni <= numeroTotaleEstrazioni) {
       const cartaEstratta = estraiTaroccoMinore();
-      console.log("minoriEstratti", minoriEstratti);
-      console.log(
-        "minoriEstratti.some((e) => e.id === cartaEstratta.id)",
-        minoriEstratti.some((e) => e.id === cartaEstratta.id)
-      );
-      if (minoriEstratti.length > 0) {
-        if (!minoriEstratti.some((e) => e.id === cartaEstratta.id)) {
+      if (minoriEstrattiInt.length > 0) {
+        if (!minoriEstrattiInt.some((e) => e.id === cartaEstratta.id)) {
+          minoriEstrattiInt.push(cartaEstratta);
           setMinoriEstratti((state) => [...state, cartaEstratta]);
           setAttrBonusMalus(
             cartaEstratta.numeroCarta,
@@ -155,6 +168,7 @@ function Caratteristiche() {
           numeroEstrazioni++;
         }
       } else {
+        minoriEstrattiInt.push(cartaEstratta);
         setMinoriEstratti((state) => [...state, cartaEstratta]);
         setAttrBonusMalus(
           cartaEstratta.numeroCarta,
@@ -166,24 +180,7 @@ function Caratteristiche() {
     }
   };
 
-  useEffect(() => {
-    let listCaratteristiche = CaratteristicheDb;
-    if (
-      taroccoDominante != null &&
-      taroccoDominante.caratteristicaRef != null
-    ) {
-      const listCaratteristicheByTarocco = taroccoDominante.caratteristicaRef;
-      listCaratteristicheByTarocco.forEach((element) => {
-        listCaratteristiche = listCaratteristiche.map((el) =>
-          el.id === element.id
-            ? { ...el, valore: el.valore + element.valore }
-            : el
-        );
-      });
-    }
-
-    dispatch(setCaratteristiche(listCaratteristiche));
-  }, []);
+  useEffect(() => {}, []);
 
   const visualizzaModificare = (car) => {
     let carVisual = car.valore;
@@ -264,28 +261,30 @@ function Caratteristiche() {
                         key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, true)
-                                }
-                              >
-                                <AddCircleOutlineIcon />
-                              </IconButton>
-                            )}
-                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, false)
-                                }
-                              >
-                                <RemoveCircleOutline />
-                              </IconButton>
-                            )}
+                            {visibleButton(car.seme) &&
+                              visibleBonus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, true)
+                                  }
+                                >
+                                  <AddCircleOutlineIcon />
+                                </IconButton>
+                              )}
+                            {visibleButton(car.seme) &&
+                              visibleMalus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, false)
+                                  }
+                                >
+                                  <RemoveCircleOutline />
+                                </IconButton>
+                              )}
                           </>
                         }
                       >
@@ -306,28 +305,30 @@ function Caratteristiche() {
                         key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, true)
-                                }
-                              >
-                                <AddCircleOutlineIcon />
-                              </IconButton>
-                            )}
-                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, false)
-                                }
-                              >
-                                <RemoveCircleOutline />
-                              </IconButton>
-                            )}
+                            {visibleButton(car.seme) &&
+                              visibleBonus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, true)
+                                  }
+                                >
+                                  <AddCircleOutlineIcon />
+                                </IconButton>
+                              )}
+                            {visibleButton(car.seme) &&
+                              visibleMalus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, false)
+                                  }
+                                >
+                                  <RemoveCircleOutline />
+                                </IconButton>
+                              )}
                           </>
                         }
                       >
@@ -348,28 +349,30 @@ function Caratteristiche() {
                         key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, true)
-                                }
-                              >
-                                <AddCircleOutlineIcon />
-                              </IconButton>
-                            )}
-                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, false)
-                                }
-                              >
-                                <RemoveCircleOutline />
-                              </IconButton>
-                            )}
+                            {visibleButton(car.seme) &&
+                              visibleBonus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, true)
+                                  }
+                                >
+                                  <AddCircleOutlineIcon />
+                                </IconButton>
+                              )}
+                            {visibleButton(car.seme) &&
+                              visibleMalus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, false)
+                                  }
+                                >
+                                  <RemoveCircleOutline />
+                                </IconButton>
+                              )}
                           </>
                         }
                       >
@@ -390,28 +393,30 @@ function Caratteristiche() {
                         key={car.id}
                         secondaryAction={
                           <>
-                            {visibleButton(car.seme) && visibleBonus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, true)
-                                }
-                              >
-                                <AddCircleOutlineIcon />
-                              </IconButton>
-                            )}
-                            {visibleButton(car.seme) && visibleMalus(car.seme) && (
-                              <IconButton
-                                edge="end"
-                                disabled={disableButton(car.nome)}
-                                onClick={() =>
-                                  addReduceCaratteristica(car, false)
-                                }
-                              >
-                                <RemoveCircleOutline />
-                              </IconButton>
-                            )}
+                            {visibleButton(car.seme) &&
+                              visibleBonus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, true)
+                                  }
+                                >
+                                  <AddCircleOutlineIcon />
+                                </IconButton>
+                              )}
+                            {visibleButton(car.seme) &&
+                              visibleMalus(car.seme) && (
+                                <IconButton
+                                  edge="end"
+                                  disabled={disableButton(car.nome)}
+                                  onClick={() =>
+                                    addReduceCaratteristica(car, false)
+                                  }
+                                >
+                                  <RemoveCircleOutline />
+                                </IconButton>
+                              )}
                           </>
                         }
                       >
