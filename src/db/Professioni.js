@@ -1,7 +1,7 @@
 const Professioni = [
   {
     id: "343962654843338957",
-    descrizione: "Cacciatore di Morti",
+    nome: "Cacciatore di Morti",
     ambientazioneRef: "341412057407553740",
     abilitaRef: [
       "1664285263860000",
@@ -13,7 +13,7 @@ const Professioni = [
   },
   {
     id: "343962772011221197",
-    descrizione: "Frate Minore",
+    nome: "Frate Minore",
     ambientazioneRef: "341412057407553740",
     abilitaRef: [
       "1664285523990000",
@@ -26,7 +26,7 @@ const Professioni = [
   },
   {
     id: "343965072543973581",
-    descrizione: "Mercante Esploratore",
+    nome: "Mercante Esploratore",
     ambientazioneRef: "341412057407553740",
     abilitaRef: [
       "1664284792760000",
@@ -39,7 +39,7 @@ const Professioni = [
   },
   {
     id: "343965540364058829",
-    descrizione: "Partigiano",
+    nome: "Partigiano",
     ambientazioneRef: "341412057407553740",
     abilitaRef: ["1664285730550000", "1664284847750000", "1664285027860000"],
     abilitaSceltaRef: ["1664284792760000", "1664285448060000"],
@@ -57,7 +57,7 @@ const Professioni = [
   },
   {
     id: "343965690621853901",
-    descrizione: "Predone",
+    nome: "Predone",
     ambientazioneRef: "341412057407553740",
     abilitaRef: [
       "1664285495910000",
@@ -70,7 +70,7 @@ const Professioni = [
   },
   {
     id: "343965947300675789",
-    descrizione: "Sopravvisuto",
+    nome: "Sopravvisuto",
     ambientazioneRef: "341412057407553740",
     abilitaRef: ["1664285371460000", "1664285027860000", "1664285027860000"],
     abilitaSceltaRef: [
@@ -85,7 +85,7 @@ const Professioni = [
   },
   {
     id: "343966231325311181",
-    descrizione: "Agente della Gestapo",
+    nome: "Agente della Gestapo",
     ambientazioneRef: "341411954837946572",
     abilitaRef: [
       "1664285730550000",
@@ -98,7 +98,7 @@ const Professioni = [
   },
   {
     id: "343966406623101133",
-    descrizione: "Ispettore",
+    nome: "Ispettore",
     ambientazioneRef: "341411954837946572",
     eta: "A",
     abilitaRef: [
@@ -115,7 +115,7 @@ const Professioni = [
   },
   {
     id: "343966575211053261",
-    descrizione: "Giornalista",
+    nome: "Giornalista",
     ambientazioneRef: "341411954837946572",
     abilitaRef: [
       "1664285569710000",
@@ -128,7 +128,7 @@ const Professioni = [
   },
   {
     id: "343966706870255821",
-    descrizione: "Malavitoso",
+    nome: "Malavitoso",
     ambientazioneRef: "341411954837946572",
     abilitaRef: [
       "1664285358400000",
@@ -141,7 +141,7 @@ const Professioni = [
   },
   {
     id: "343966892302532813",
-    descrizione: "Medico Classe C",
+    nome: "Medico Classe C",
     ambientazioneRef: "341411954837946572",
     abilitaRef: [
       "1664291155530000",
@@ -154,7 +154,7 @@ const Professioni = [
   },
   {
     id: "343967006924472525",
-    descrizione: "Medico Classe B",
+    nome: "Medico Classe B",
     ambientazioneRef: "341411954837946572",
     eta: "A",
     abilitaRef: [
@@ -170,7 +170,7 @@ const Professioni = [
   },
   {
     id: "343967121520197837",
-    descrizione: "Medico Classe A",
+    nome: "Medico Classe A",
     ambientazioneRef: "341411954837946572",
     eta: "E",
     abilitaRef: [
@@ -189,7 +189,7 @@ const Professioni = [
   },
   {
     id: "343967247438446797",
-    descrizione: "Psichiatra del Reich",
+    nome: "Psichiatra del Reich",
     ambientazioneRef: "341411954837946572",
     eta: "A",
     abilitaRef: [
@@ -206,7 +206,7 @@ const Professioni = [
   },
   {
     id: "343967373812826317",
-    descrizione: "Soldato Semplice",
+    nome: "Soldato Semplice",
     ambientazioneRef: "341411954837946572",
     abilitaRef: [
       "1664285263860000",
@@ -219,7 +219,7 @@ const Professioni = [
   },
   {
     id: "343967521352712397",
-    descrizione: "Sottufficiale",
+    nome: "Sottufficiale",
     ambientazioneRef: "341411954837946572",
     eta: "A",
     abilitaRef: [
@@ -236,7 +236,7 @@ const Professioni = [
   },
   {
     id: "343967634681757901",
-    descrizione: "Ufficiale",
+    nome: "Ufficiale",
     ambientazioneRef: "341411954837946572",
     eta: "E",
     abilitaRef: [
@@ -256,7 +256,7 @@ const Professioni = [
   },
   {
     id: "343968062644420813",
-    descrizione: "Metalmeccanico",
+    nome: "Metalmeccanico",
     ambientazioneRef: "341412022890528972",
     abilitaRef: [
       "1664285279910000",
@@ -269,7 +269,7 @@ const Professioni = [
   },
   {
     id: "343968177253777613",
-    descrizione: "Operaio di base",
+    nome: "Operaio di base",
     ambientazioneRef: "341412022890528972",
     abilitaRef: [
       "1664284720160000",
@@ -282,7 +282,7 @@ const Professioni = [
   },
   {
     id: "343968592013820109",
-    descrizione: "Soldato NKVD",
+    nome: "Soldato NKVD",
     ambientazioneRef: "341412022890528972",
     abilitaRef: [
       "343960624931274957",
@@ -295,7 +295,7 @@ const Professioni = [
   },
   {
     id: "343969211872182477",
-    descrizione: "Meccanico Semplice",
+    nome: "Meccanico Semplice",
     ambientazioneRef: "341412022890528972",
     abilitaRef: [
       "343960624931274957",
@@ -308,7 +308,7 @@ const Professioni = [
   },
   {
     id: "343970027712544973",
-    descrizione: "Sottufficiale NKVD",
+    nome: "Sottufficiale NKVD",
     ambientazioneRef: "341412022890528972",
     eta: "A",
     abilitaRef: [
@@ -326,7 +326,7 @@ const Professioni = [
   },
   {
     id: "343970143684001997",
-    descrizione: "Ufficiale NKVD",
+    nome: "Ufficiale NKVD",
     ambientazioneRef: "341412022890528972",
     eta: "E",
     abilitaRef: [

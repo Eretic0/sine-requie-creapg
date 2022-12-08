@@ -8,6 +8,8 @@ import { generateRandomNumer } from "../../utils/random";
 import TarocchiDb from "../../db/Tarocchi";
 import { useSelector, useDispatch } from "react-redux";
 import { setTaroccoPassato } from "../../redux/slices/taroccoSlice";
+import { setAbilita } from "../../redux/slices/abilitaSlice";
+import AbilitaDb from "../../db/Abilita";
 
 function TaroccoPassato() {
   const { taroccoPassato } = useSelector((state) => state.tarocco);
@@ -21,6 +23,26 @@ function TaroccoPassato() {
       tarocco = tarocchi.filter((tar) => tar.numero === number);
       if (tarocco.length > 0) {
         dispatch(setTaroccoPassato(tarocco[0]));
+        let listAbilita = AbilitaDb.filter((ab) => ab.prestampata === true);
+        const listAbilitaByTarocco = tarocco[0].abilitaRef;
+        listAbilitaByTarocco.forEach((element) => {
+          let abi = AbilitaDb.find((ab) => ab.id === element.id);
+          if (abi.prestampata) {
+            listAbilita = listAbilita.map((el) =>
+              el.id === element.id
+                ? {
+                    ...el,
+                    grado: +0,
+                    counterFallimento: el.counterFallimento + 5,
+                  }
+                : el
+            );
+          } else {
+            abi.grado = +0;
+            listAbilita.push(abi);
+          }
+        });
+        dispatch(setAbilita(listAbilita));
       }
     }
   };

@@ -60,7 +60,7 @@ const Professione = () => {
               >
                 {professioni.map((prof) => (
                   <MenuItem key={prof.id} value={prof}>
-                    {prof.descrizione}
+                    {prof.nome}
                   </MenuItem>
                 ))}
               </Select>

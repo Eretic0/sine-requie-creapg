@@ -4,7 +4,7 @@ import AbilitaDb from "../../db/Abilita";
 export const abilitaSlice = createSlice({
   name: "abilita",
   initialState: {
-    abilita: AbilitaDb,
+    abilita: AbilitaDb.filter((ab) => ab.prestampata === true),
   },
   reducers: {
     setAbilita: (state, { payload }) => {
