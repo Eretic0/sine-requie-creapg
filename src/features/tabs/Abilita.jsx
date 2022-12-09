@@ -24,10 +24,12 @@ const Abilita = () => {
   useEffect(() => {}, []);
 
   const getCaratteristica = (ab) => {
-    const car = CaratteristicheDb.find(
-      (car) => car.id === ab.caratteristicaRef
-    );
-    return car.nome + " " + car.valore;
+    if (ab.caratteristicaRef != null) {
+      const car = CaratteristicheDb.find(
+        (car) => car.id === ab.caratteristicaRef
+      );
+      return car.nome + " " + car.valore;
+    }
   };
 
   const visualizzaSpecifico = (ab) => {

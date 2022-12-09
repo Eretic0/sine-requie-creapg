@@ -9,9 +9,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setProfessione } from "../../redux/slices/professioneSlice";
 import ProfessionePaper from "../../components/ProfessionePaper";
+import { setAbilita } from "../../redux/slices/abilitaSlice";
+import AbilitaDb from "../../db/Abilita";
 
 const Professione = () => {
   const { professione } = useSelector((state) => state.professione);
+  const { taroccoPassato } = useSelector((state) => state.tarocco);
   const { eta } = useSelector((state) => state.eta);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
@@ -36,7 +39,51 @@ const Professione = () => {
   }, [ambientazione, eta]);
 
   const handleChangeProfessione = (event) => {
-    dispatch(setProfessione(event.target.value));
+    const prof = event.target.value;
+    dispatch(setProfessione(prof));
+
+    let listAbilita = AbilitaDb.filter((ab) => ab.prestampata === true);
+    const listAbilitaByProfessione = prof.abilitaRef;
+
+    listAbilitaByProfessione.forEach((element) => {
+      let abi = AbilitaDb.find((ab) => ab.id === element.id);
+      if (abi.prestampata) {
+        listAbilita = listAbilita.map((el) =>
+          el.id === element.id
+            ? {
+                ...el,
+                counterFallimento: el.counterFallimento + 5,
+              }
+            : el
+        );
+      } else {
+        listAbilita.push(abi);
+      }
+    });
+
+    const listAbilitaByTarocco = taroccoPassato.abilitaRef;
+
+    if (listAbilitaByTarocco != null) {
+      listAbilitaByTarocco.forEach((element) => {
+        let abi = AbilitaDb.find((ab) => ab.id === element.id);
+        if (abi.prestampata) {
+          listAbilita = listAbilita.map((el) =>
+            el.id === element.id
+              ? {
+                  ...el,
+                  grado: +0,
+                  counterFallimento: el.counterFallimento + 5,
+                }
+              : el
+          );
+        } else {
+          abi.grado = +0;
+          listAbilita.push(abi);
+        }
+      });
+    }
+
+    dispatch(setAbilita(listAbilita));
   };
 
   return (

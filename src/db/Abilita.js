@@ -128,9 +128,9 @@ const Abilita = [
   },
   {
     id: "343960377471533261",
-    nome: "Uso",
+    nome: "Uso -arma-",
     prestampata: true,
-    caratteristicaRef: "341575970478620877",
+    caratteristicaRef: null,
     grado: null,
     counterFallimento: 0,
     specifico: [],
