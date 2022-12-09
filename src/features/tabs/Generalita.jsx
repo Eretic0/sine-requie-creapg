@@ -53,13 +53,13 @@ function Generalita() {
         <Grid item xs>
           <FormControl fullWidth>
             <InputLabel id="label-input-select-ambientazione">
-              Ambientazione
+              Manuale / Ambientazione
             </InputLabel>
             {ambientazioni.length > 0 && (
               <Select
                 labelId="label-input-select-ambientazione"
                 id="select-ambientazione"
-                label="Ambientazione"
+                label="Manuale / Ambientazione"
                 defaultValue=""
                 value={ambientazione}
                 onChange={handleChangeAmbientazione}

@@ -15,18 +15,18 @@ const Ambientazioni = [
     id: "341412057407553740",
     descrizione: "Terre Perdute",
   },
-  {
-    id: "341412111307505868",
-    descrizione: "U.S.A.",
-  },
-  {
-    id: "341412130688336076",
-    descrizione: "Regno d'Osiride",
-  },
-  {
-    id: "341412158384373964",
-    descrizione: "Trono del Crisantemo",
-  },
+  // {
+  //   id: "341412111307505868",
+  //   descrizione: "U.S.A.",
+  // },
+  // {
+  //   id: "341412130688336076",
+  //   descrizione: "Regno d'Osiride",
+  // },
+  // {
+  //   id: "341412158384373964",
+  //   descrizione: "Trono del Crisantemo",
+  // },
 ];
 
 export default Ambientazioni;
