@@ -52,11 +52,13 @@ const Professione = () => {
           el.id === element.id
             ? {
                 ...el,
+                grado: +0,
                 counterFallimento: el.counterFallimento + 5,
               }
             : el
         );
       } else {
+        abi.grado = +0;
         listAbilita.push(abi);
       }
     });
@@ -65,8 +67,8 @@ const Professione = () => {
 
     if (listAbilitaByTarocco != null) {
       listAbilitaByTarocco.forEach((element) => {
-        let abi = AbilitaDb.find((ab) => ab.id === element.id);
-        if (abi.prestampata) {
+        let abil = AbilitaDb.find((ab) => ab.id === element.id);
+        if (abil.prestampata) {
           listAbilita = listAbilita.map((el) =>
             el.id === element.id
               ? {
@@ -77,8 +79,8 @@ const Professione = () => {
               : el
           );
         } else {
-          abi.grado = +0;
-          listAbilita.push(abi);
+          abil = { ...abil, grado: +0 };
+          listAbilita.push(abil);
         }
       });
     }
