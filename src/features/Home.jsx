@@ -11,6 +11,7 @@ import PregiDifetti from "./tabs/PregiDifetti";
 import Professione from "./tabs/Professione";
 import TaroccoDominante from "./tabs/TaroccoDominante";
 import TaroccoPassato from "./tabs/TaroccoPassato";
+import UltimiRitocchi from "./tabs/UltimiRitocchi";
 
 function TabPanel(props) {
   const { children, value, index } = props;
@@ -49,6 +50,7 @@ function Home() {
         <Tab label="Tarocco del Passato" />
         <Tab label="Professione" />
         <Tab label="Abilità" />
+        <Tab label="Ultimi Ritocchi" />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Generalita />
@@ -73,6 +75,9 @@ function Home() {
       </TabPanel>
       <TabPanel value={value} index={7}>
         <Abilita />
+      </TabPanel>
+      <TabPanel value={value} index={8}>
+        <UltimiRitocchi />
       </TabPanel>
     </>
   );
