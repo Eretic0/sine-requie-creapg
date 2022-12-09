@@ -31,13 +31,19 @@ const ProfessionePaper = ({ professione }) => {
         {professione && (
           <>
             <Typography gutterBottom variant="h5" component="div">
-              {professione.descrizione} - {professione.eta}
+              {professione.eta
+                ? professione.nome - professione.eta
+                : professione.nome}
             </Typography>
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => getAbilita(ab))}
-
-            {professione.abilitaSceltaListRef &&
-              professione.abilitaSceltaListRef.map((abs) => getAbilita(abs))}
+            {professione.abilitaSceltaRef && (
+              <Typography gutterBottom variant="h6" component="div">
+                Abilità a scelta
+              </Typography>
+            )}
+            {professione.abilitaSceltaRef &&
+              professione.abilitaSceltaRef.map((abs) => getAbilita(abs))}
           </>
         )}
       </Paper>
