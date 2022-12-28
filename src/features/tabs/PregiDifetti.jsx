@@ -14,12 +14,16 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { estraiTaroccoMinore } from "../../utils/random";
+import { useDispatch, useSelector } from "react-redux";
+import { setPregi, setDifetti } from "../../redux/slices/pregiDifettiSlice";
 
 import MinoriPaper from "../../components/MinoriPaper";
 
-export default function PregiDifetti(props) {
-  const [pregi, setPregi] = useState([]);
-  const [difetti, setDifetti] = useState([]);
+export default function PregiDifetti() {
+  const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
+  const dispatch = useDispatch();
+  const [listPregi, setListPregi] = useState([]);
+  const [listDifetti, setListDifetti] = useState([]);
   const [numDifetti, setNumDifetti] = useState(0);
   const [numPregi, setNumPregi] = useState(0);
   const [pregiSelezionati, setPregiSelezionati] = useState([]);
@@ -27,19 +31,20 @@ export default function PregiDifetti(props) {
   const [minoriEstratti, setMinoriEstratti] = useState([]);
 
   const handleSelectPregi = (pregio) => {
+    dispatch(setPregi(pregio));
     setPregiSelezionati((state) => [...state, pregio]);
     setNumPregi((prevState) => prevState + 1);
     setNumDifetti((prevState) => prevState + pregio.numeroDifetti);
   };
 
   const handleSelectDifetti = (difetto) => {
+    dispatch(setDifetti(difetto));
     setDifettiSelezionati((state) => [...state, difetto]);
     setNumDifetti((prevState) => prevState - 1);
   };
 
   const handleDeselectPregi = (pregio) => {
-    const preg = pregi.filter((el) => el.id === pregio.id);
-    console.log("preg", preg);
+    const preg = listPregi.filter((el) => el.id === pregio.id);
     setPregiSelezionati(preg);
     setNumPregi((prevState) => prevState - 1);
     setNumDifetti((prevState) => prevState - pregio.numeroDifetti);
@@ -59,7 +64,7 @@ export default function PregiDifetti(props) {
       if (minoriEstratti.length > 0) {
         if (!minoriEstratti.some((e) => e.id === cartaEstratta.id)) {
           setMinoriEstratti((state) => [...state, cartaEstratta]);
-          const difettoEstratto = difetti.find(
+          const difettoEstratto = listDifetti.find(
             (dif) =>
               dif.carta === cartaEstratta.numeroCarta &&
               dif.seme === cartaEstratta.semeCarta
@@ -70,7 +75,7 @@ export default function PregiDifetti(props) {
       } else {
         setMinoriEstratti((state) => [...state, cartaEstratta]);
 
-        const difettoEstratto = difetti.find(
+        const difettoEstratto = listDifetti.find(
           (dif) =>
             dif.carta === cartaEstratta.numeroCarta &&
             dif.seme === cartaEstratta.semeCarta
@@ -90,8 +95,8 @@ export default function PregiDifetti(props) {
   };
 
   useEffect(() => {
-    setPregi(PregiDb);
-    setDifetti(DifettiDb);
+    setListPregi(PregiDb);
+    setListDifetti(DifettiDb);
   }, []);
 
   return (
@@ -111,8 +116,8 @@ export default function PregiDifetti(props) {
               Pregi ({numPregi} selezionati)
             </Typography>
             <List>
-              {pregi.length > 0 &&
-                pregi.map((pr) => (
+              {listPregi.length > 0 &&
+                listPregi.map((pr) => (
                   <ListItem
                     key={pr.id}
                     secondaryAction={

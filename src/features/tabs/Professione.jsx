@@ -53,12 +53,14 @@ const Professione = () => {
             ? {
                 ...el,
                 grado: +0,
+                professione: true,
                 counterFallimento: el.counterFallimento + 5,
               }
             : el
         );
       } else {
         abi.grado = +0;
+        abi.professione = true;
         listAbilita.push(abi);
       }
     });
@@ -74,12 +76,13 @@ const Professione = () => {
               ? {
                   ...el,
                   grado: +0,
+                  professione: true,
                   counterFallimento: el.counterFallimento + 5,
                 }
               : el
           );
         } else {
-          abil = { ...abil, grado: +0 };
+          abil = { ...abil, grado: +0, professione: true };
           listAbilita.push(abil);
         }
       });
