@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 export const generateRandomNumer = (max, min) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -45,5 +47,4 @@ export const estraiTaroccoMinore = () => {
   return cartaEstratta;
 };
 
-export const generateRandomId = () =>
-  "id" + Math.random().toString(16).slice(2);
+export const generateRandomId = () => nanoid();
