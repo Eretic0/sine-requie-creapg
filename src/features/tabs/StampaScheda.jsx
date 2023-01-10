@@ -1,14 +1,16 @@
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import ReactToPrint from "react-to-print";
 import Card from "../../components/Card";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import List from "@mui/material/List";
 
 import { styled } from "@mui/material/styles";
 
@@ -38,6 +40,16 @@ const StampaScheda = () => {
   const { professione } = useSelector((state) => state.professione);
   const { eta } = useSelector((state) => state.eta);
   const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
+
+  const visualizzaModificare = (car) => {
+    let carVisual = car.valore;
+    if (car.modificatore != null) {
+      const mod = car.modificatore(car.valore);
+      carVisual = carVisual + " " + mod;
+    }
+    return carVisual;
+  };
 
   return (
     <Card headerText="Scheda Personaggio">
@@ -58,55 +70,123 @@ const StampaScheda = () => {
           </TypographyTitle>
 
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
-            alignItems="center"
-            spacing={0}
+            alignItems="flex-start"
+            spacing={1}
           >
-            <TypographyBody variant="body1" gutterBottom>
-              {`Nome del Personaggio: ${nome} ${cognome}`}
-            </TypographyBody>
-            <List>
-              {pregi.map((p) => (
-                <TypographyBody key={p.id} variant="body1" gutterBottom>
-                  {`Pregio: ${p.nome}`}
-                </TypographyBody>
-              ))}
-            </List>
-            <List>
-              {difetti.map((d) => (
-                <TypographyBody key={d.id} variant="body1" gutterBottom>
-                  {`Difetto: ${d.nome}`}
-                </TypographyBody>
-              ))}
-            </List>
-          </Stack>
-
-          <TypographyBody variant="body1" gutterBottom>
-            {`Tarocco Dominante: ${
-              taroccoDominante.nome ? taroccoDominante.nome : ""
-            }`}
-          </TypographyBody>
-          <TypographyBody variant="body1" gutterBottom>
-            {`Tarocco del Passato: ${
-              taroccoPassato.nome ? taroccoPassato.nome : ""
-            }`}
-          </TypographyBody>
-          <Grid
-            container
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={3}>
+            <Stack spacing={2}>
+              <TypographyBody variant="body1" gutterBottom>
+                {`Nome del Personaggio: ${nome} ${cognome}`}
+              </TypographyBody>
+              <TypographyBody variant="body1" gutterBottom>
+                {`Tarocco Dominante: ${
+                  taroccoDominante.nome ? taroccoDominante.nome : ""
+                }`}
+              </TypographyBody>
               <TypographyBody variant="body1" gutterBottom>
                 {`Professione: ${professione.nome ? professione.nome : ""}`}
               </TypographyBody>
+              <Stack direction="row" spacing={2}>
+                <TypographyBody variant="body1" gutterBottom>
+                  {`Tarocco del Passato: ${
+                    taroccoPassato.nome ? taroccoPassato.nome : ""
+                  }`}
+                </TypographyBody>
+                <TypographyBody
+                  variant="body1"
+                  gutterBottom
+                >{`Età: ${eta}`}</TypographyBody>
+              </Stack>
+            </Stack>
+            <Stack direction="row" spacing={0}>
+              <List>
+                <TypographyBody variant="body1" gutterBottom>
+                  Pregi
+                </TypographyBody>
+                {pregi.map((p) => (
+                  <ListItem key={p.id}>
+                    <ListItemText
+                      sx={{ color: "black" }}
+                      primary={`${p.nome}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+              <List>
+                <TypographyBody variant="body1" gutterBottom>
+                  Difetti
+                </TypographyBody>
+                {difetti.map((d) => (
+                  <ListItem key={d.id}>
+                    <ListItemText
+                      sx={{ color: "black" }}
+                      primary={`${d.nome}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Stack>
+          </Stack>
+          <TypographyTitle variant="h6" gutterBottom>
+            Caratteristiche
+          </TypographyTitle>
+          <Grid container spacing={4}>
+            <Grid item xs>
+              <List>
+                {caratteristiche
+                  .filter((car) => car.seme === "Cuori")
+                  .map((car) => (
+                    <ListItem key={car.id}>
+                      <ListItemText
+                        sx={{ color: "black" }}
+                        primary={`${car.nome}: ${visualizzaModificare(car)}`}
+                      />
+                    </ListItem>
+                  ))}
+              </List>
             </Grid>
-            <Grid item xs={3}>
-              <TypographyBody
-                variant="body1"
-                gutterBottom
-              >{`Età: ${eta}`}</TypographyBody>
+            <Grid item xs>
+              <List>
+                {caratteristiche
+                  .filter((car) => car.seme === "Quadri")
+                  .map((car) => (
+                    <ListItem key={car.id}>
+                      <ListItemText
+                        sx={{ color: "black" }}
+                        primary={`${car.nome}: ${visualizzaModificare(car)}`}
+                      />
+                    </ListItem>
+                  ))}
+              </List>
+            </Grid>
+            <Grid item xs>
+              <List>
+                {caratteristiche
+                  .filter((car) => car.seme === "Fiori")
+                  .map((car) => (
+                    <ListItem key={car.id}>
+                      <ListItemText
+                        sx={{ color: "black" }}
+                        primary={`${car.nome}: ${visualizzaModificare(car)}`}
+                      />
+                    </ListItem>
+                  ))}
+              </List>
+            </Grid>
+            <Grid item xs>
+              <List>
+                {caratteristiche
+                  .filter((car) => car.seme === "Picche")
+                  .map((car) => (
+                    <ListItem key={car.id}>
+                      <ListItemText
+                        sx={{ color: "black" }}
+                        primary={`${car.nome}: ${visualizzaModificare(car)}`}
+                      />
+                    </ListItem>
+                  ))}
+              </List>
             </Grid>
           </Grid>
           <TypographySubTitle variant="subtitle1" gutterBottom>
