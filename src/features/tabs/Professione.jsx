@@ -3,14 +3,14 @@ import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import Card from "../../components/Card";
-import ProfessioniDb from "../../db/Professioni";
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setProfessione } from "../../redux/slices/professioneSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Card from "../../components/Card";
 import ProfessionePaper from "../../components/ProfessionePaper";
-import { setAbilita } from "../../redux/slices/abilitaSlice";
 import AbilitaDb from "../../db/Abilita";
+import ProfessioniDb from "../../db/Professioni";
+import { setAbilita } from "../../redux/slices/abilitaSlice";
+import { setProfessione } from "../../redux/slices/professioneSlice";
 
 const Professione = () => {
   const { professione } = useSelector((state) => state.professione);
