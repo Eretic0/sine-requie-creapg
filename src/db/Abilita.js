@@ -1,3 +1,5 @@
+import ArmiDb from "./Armi";
+
 const Abilita = [
   {
     id: "343960031658508493",
@@ -29,10 +31,10 @@ const Abilita = [
     prestampata: true,
     caratteristicaRef: "341575935372296397",
     specifico: [
-      { id: 1, nome: "due ruote" },
-      { id: 2, nome: "quattro ruote" },
-      { id: 3, nome: "camion" },
-      { id: 4, nome: "cingolato" },
+      { id: 1, nome: "Due ruote" },
+      { id: 2, nome: "Quattro ruote" },
+      { id: 3, nome: "Camion" },
+      { id: 4, nome: "Cingolato" },
     ],
     grado: null,
     counterFallimento: 0,
@@ -133,7 +135,23 @@ const Abilita = [
     caratteristicaRef: null,
     grado: null,
     counterFallimento: 0,
-    specifico: [],
+    specifico: ArmiDb,
+  },
+  {
+    id: "343960377471533261v1",
+    nome: "Uso -arma-",
+    caratteristicaRef: null,
+    grado: null,
+    counterFallimento: 0,
+    specifico: ArmiDb,
+  },
+  {
+    id: "343960377471533261v2",
+    nome: "Uso -arma-",
+    caratteristicaRef: null,
+    grado: null,
+    counterFallimento: 0,
+    specifico: ArmiDb,
   },
   {
     id: "343960552491450573",

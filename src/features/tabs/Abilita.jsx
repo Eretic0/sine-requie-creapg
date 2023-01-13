@@ -15,6 +15,7 @@ import Card from "../../components/Card";
 import AbilitaDb from "../../db/Abilita";
 import CaratteristicheDb from "../../db/Caratteristiche";
 import { setAbilita } from "../../redux/slices/abilitaSlice";
+import InputLabel from "@mui/material/InputLabel";
 
 const Abilita = () => {
   const { abilita } = useSelector((state) => state.abilita);
@@ -39,9 +40,13 @@ const Abilita = () => {
           <>
             {ab.nome}
             <br />
+            <InputLabel id={`label-select-specifico-${ab.id}`}>
+              specifico
+            </InputLabel>
             <Select
               labelId={`label-select-specifico-${ab.id}`}
               id={`select-specifico-${ab.id}`}
+              defaultValue=""
               label="specifico"
             >
               {ab.specifico.map((s) => (
