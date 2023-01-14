@@ -56,17 +56,17 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![sine-requie-creapg][product-screenshot]](https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `Eretic0`, `sine-requie-creapg`, `twitter_handle`, `linkedin_username`, `gmail`, `aiconfinidelfantastico`, `sine-requie-creapg`, `Una web application per la creazione di Personaggi di Sine Requie Anno XIII Seconda Edizione`
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 ### Built With
 
 - [![React][react.js]][react-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -100,7 +100,7 @@ This is an example of how to list things you need to use the software and how to
    const API_KEY = "ENTER YOUR API";
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
@@ -110,7 +110,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- ROADMAP -->
 
@@ -123,7 +123,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -140,7 +140,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- LICENSE -->
 
@@ -148,17 +148,17 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - aiconfinidelfantastico@gmail.com
+Eretic0 - aiconfinidelfantastico@gmail.com - ![YouTube](https://img.shields.io/youtube/channel/UCoc90NOzm_R5QWNjoZtxJ_g?style=social)
 
-Project Link: [https://github.com/Eretic0/sine-requie-creapg](https://github.com/Eretic0/sine-requie-creapg)
+Link al Progetto: [https://github.com/Eretic0/sine-requie-creapg](https://github.com/Eretic0/sine-requie-creapg)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
@@ -166,7 +166,7 @@ Project Link: [https://github.com/Eretic0/sine-requie-creapg](https://github.com
 
 - [Sito Serpentarium](https://www.serpentarium.net)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -175,6 +175,6 @@ Project Link: [https://github.com/Eretic0/sine-requie-creapg](https://github.com
 [stars-url]: https://github.com/Eretic0/sine-requie-creapg/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Eretic0/sine-requie-creapg.svg?style=for-the-badge
 [issues-url]: https://github.com/Eretic0/sine-requie-creapg/issues
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
