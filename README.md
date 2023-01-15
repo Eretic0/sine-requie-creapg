@@ -29,32 +29,32 @@
   <summary>Tabella dei contenuti</summary>
   <ol>
     <li>
-      <a href="#about-the-project">A riguardo del progetto</a>
+      <a href="#a-riguardo-del-progetto">A riguardo del progetto</a>
       <ul>
-        <li><a href="#built-with">Fatto con</a></li>
+        <li><a href="#fatto-con">Fatto con</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Come Iniziare</a>
+      <a href="#come-iniziare">Come Iniziare</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisiti</a></li>
-        <li><a href="#installation">Installazione</a></li>
+        <li><a href="#prerequisiti">Prerequisiti</a></li>
+        <li><a href="#installazione">Installazione</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Utilizzo</a></li>
+    <li><a href="#utilizzo">Utilizzo</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contribuire</a></li>
-    <li><a href="#license">Licenza</a></li>
-    <li><a href="#contact">Contatti</a></li>
-    <li><a href="#acknowledgments">Riconoscimenti</a></li>
+    <li><a href="#contribuire">Contribuire</a></li>
+    <li><a href="#licenza">Licenza</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#riconoscimenti">Riconoscimenti</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## A riguardo del progetto
 
-[![sine-requie-creapg](https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link)]
+[![sine-requie-creapg](https://i.postimg.cc/Y0jbPyBT/Cattura.png)](https://postimg.cc/p5bfhCTB)
 
 Il progetto permette la creazione di un personaggio per il gioco di ruolo Sine Requie Anno XIII con il regolamento per la seconda edizione.
 La Web Application disponibile online è accessibile tramite browser (sono consigliati browser moderni come Google Chrome o Mozilla Firefox) e permette la possibilità di stampare una scheda del personaggio creato.
@@ -62,7 +62,7 @@ Al momento saranno disponibili le professioni del Manuale Base ma l'idea è poco
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
-### Built With
+### Fatto con
 
 - [![React][react.js]][react-url]
 
@@ -108,11 +108,11 @@ Consiglio di avere installato i seguenti software.
 
 Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per creare un personaggio per Sine Requie Anno XIII Seconda Edizione.
 
-[![sine-requie-creapg](https://drive.google.com/file/d/1b0xFLgp3ZgSvMIkzW_xy5Xx8YxfU1MIK/view?usp=share_link)]
+[![sine-requie-creapg](https://i.postimg.cc/vmzhZdQp/Cattura2.png)](https://postimg.cc/McnV9NfD)
 
-[![sine-requie-creapg](https://drive.google.com/file/d/16ZxmCyxlObbpzLeYUGMd6-0HCqCElJri/view?usp=share_link)]
+[![sine-requie-creapg](https://i.postimg.cc/LXQVjBgD/Cattura3.png)](https://postimg.cc/MMRRSBDf)
 
-[![sine-requie-creapg](https://drive.google.com/file/d/1Si8u0QGCBWIUYhdu2ZNwZIbSAE7WQwpE/view?usp=share_link)]
+[![sine-requie-creapg](https://i.postimg.cc/qBYLRwTM/Cattura4.png)](https://postimg.cc/7b37tghp)
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
