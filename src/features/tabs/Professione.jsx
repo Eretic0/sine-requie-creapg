@@ -19,6 +19,9 @@ const Professione = () => {
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
   const [professioni, setProfessioni] = useState([]);
+  const [abilitaScelta, setAbilitaScelta] = useState("");
+  const [puntiAbilita, setPuntiAbilita] = useState(7);
+  const [gradoMassimo, setGradoMassimo] = useState("+3");
 
   useEffect(() => {
     let professioniFilter = ProfessioniDb;
@@ -36,7 +39,25 @@ const Professione = () => {
       professioniFilter = professioniFilter.filter((p) => p.eta !== "E");
     }
     setProfessioni(professioniFilter);
+
+    if (eta < 18) {
+      setPuntiAbilita(2);
+      setGradoMassimo("+2");
+    } else if (eta >= 19 && eta <= 39) {
+      setPuntiAbilita(7);
+      setGradoMassimo("+3");
+    } else if (eta >= 40 && eta <= 59) {
+      setPuntiAbilita(15);
+      setGradoMassimo("+4");
+    } else if (eta >= 60) {
+      setPuntiAbilita(21);
+      setGradoMassimo("+5");
+    }
   }, [ambientazione, eta]);
+
+  const handleChangeAbilitaScelta = (event) => {
+    setAbilitaScelta(event.target.value);
+  };
 
   const handleChangeProfessione = (event) => {
     const prof = event.target.value;
@@ -122,7 +143,13 @@ const Professione = () => {
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs>
-          <ProfessionePaper professione={professione} />
+          <ProfessionePaper
+            professione={professione}
+            abilitaScelta={abilitaScelta}
+            handleChangeAbilitaScelta={handleChangeAbilitaScelta}
+            puntiAbilita={puntiAbilita}
+            gradoMassimo={gradoMassimo}
+          />
         </Grid>
       </Grid>
     </Card>
