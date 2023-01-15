@@ -157,7 +157,7 @@ Distribuita con la licenza GNU General Public License v3.0. Vedi `LICENSE.txt` p
 
 ## Contatti
 
-Eretic0 - aiconfinidelfantastico@gmail.com - ![YouTube](https://img.shields.io/youtube/channel/UCoc90NOzm_R5QWNjoZtxJ_g?style=social)
+Eretic0 - aiconfinidelfantastico@gmail.com - [YouTube](https://www.youtube.com/@GoticaArcana)
 
 Link al Progetto: [https://github.com/Eretic0/sine-requie-creapg](https://github.com/Eretic0/sine-requie-creapg)
 

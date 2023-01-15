@@ -1,9 +1,20 @@
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
 import Paper from "@mui/material/Paper";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 import Typography from "@mui/material/Typography";
 import AbilitaDb from "../db/Abilita";
 
-const ProfessionePaper = ({ professione }) => {
+const ProfessionePaper = ({
+  professione,
+  abilitaScelta,
+  handleChangeAbilitaScelta,
+  puntiAbilita,
+  gradoMassimo,
+}) => {
   const getAbilita = (ab) => {
     const ability = AbilitaDb.find((a) => a.id === ab.id);
     if (ability != null) {
@@ -13,6 +24,29 @@ const ProfessionePaper = ({ professione }) => {
         </Typography>
       );
     }
+  };
+
+  const getAbilitaScelta = (listAbilitaScelta) => {
+    return (
+      <FormControl fullWidth>
+        <FormLabel id="demo-radio-buttons-group-label">
+          Abilità a scelta
+        </FormLabel>
+        <RadioGroup
+          name="radio-buttons-group"
+          value={abilitaScelta}
+          onChange={handleChangeAbilitaScelta}
+        >
+          {listAbilitaScelta.map((abi) => (
+            <FormControlLabel
+              value={abi.id}
+              control={<Radio />}
+              label={AbilitaDb.find((a) => a.id === abi.id).nome}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    );
   };
 
   return (
@@ -37,13 +71,18 @@ const ProfessionePaper = ({ professione }) => {
             </Typography>
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => getAbilita(ab))}
+            <br />
             {professione.abilitaSceltaRef && (
               <Typography gutterBottom variant="h6" component="div">
-                Abilità a scelta
+                Seleziona un'abilità a scelta
               </Typography>
             )}
             {professione.abilitaSceltaRef &&
-              professione.abilitaSceltaRef.map((abs) => getAbilita(abs))}
+              getAbilitaScelta(professione.abilitaSceltaRef)}
+            <br />
+            <Typography gutterBottom variant="h6" component="div">
+              {`Punti da distribuire per abilità di Professione: ${puntiAbilita} e Grado massimo per Abilità: ${gradoMassimo}`}
+            </Typography>
           </>
         )}
       </Paper>
