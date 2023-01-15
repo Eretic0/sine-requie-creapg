@@ -15,11 +15,9 @@
   <p align="center">
     Una web application per la creazione di Personaggi di Sine Requie Anno XIII Seconda Edizione
     <br />
-    <a href="https://github.com/Eretic0/sine-requie-creapg"><strong>Esplora la documentazione »</strong></a>
+    <a href="https://eretic0.github.io/sine-requie-creapg/"><strong>Prova l'applicazione »</strong></a>
     <br />
     <br />
-    <a href="https://eretic0.github.io/sine-requie-creapg/">Prova l'applicazione</a>
-    ·
     <a href="https://github.com/Eretic0/sine-requie-creapg/issues">Report Bug</a>
     ·
     <a href="https://github.com/Eretic0/sine-requie-creapg/issues">Richiesta Feature</a>
@@ -56,9 +54,11 @@
 
 ## About The Project
 
-[![sine-requie-creapg][product-screenshot]](https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link)
+[![sine-requie-creapg](https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link)]
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `Eretic0`, `sine-requie-creapg`, `twitter_handle`, `linkedin_username`, `gmail`, `aiconfinidelfantastico`, `sine-requie-creapg`, `Una web application per la creazione di Personaggi di Sine Requie Anno XIII Seconda Edizione`
+Il progetto permette la creazione di un personaggio per il gioco di ruolo Sine Requie Anno XIII con il regolamento per la seconda edizione.
+La Web Application disponibile online è accessibile tramite browser (sono consigliati browser moderni come Google Chrome o Mozilla Firefox) e permette la possibilità di stampare una scheda del personaggio creato.
+Al momento saranno disponibili le professioni del Manuale Base ma l'idea è poco alla volta espandere con tutti i manuali successivi.
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
@@ -70,45 +70,49 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+## Come Iniziare
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Se vuoi installare localmente l'applicazione per provarla in modalità offline o intendi contribuire al progetto qui sotto troverai i passi necessari.
 
-### Prerequisites
+### Prerequisiti
 
-This is an example of how to list things you need to use the software and how to install them.
+Consiglio di avere installato i seguenti software.
 
+- node.js (ultima versione LTS)
 - npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
-### Installation
+### Installazione
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clona il repository
    ```sh
    git clone https://github.com/Eretic0/sine-requie-creapg.git
    ```
-3. Install NPM packages
+2. Installa i pacchetti NPM
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+3. Configura git flow (se desideri collaborare )
+   ```sh
+   git flow init
+   ```
+4. Fai partire il progetto
+   ```sh
+   npm start
    ```
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## Utilizzo
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per creare un personaggio per Sine Requie Anno XIII Seconda Edizione.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+[![sine-requie-creapg](https://drive.google.com/file/d/1b0xFLgp3ZgSvMIkzW_xy5Xx8YxfU1MIK/view?usp=share_link)]
+
+[![sine-requie-creapg](https://drive.google.com/file/d/16ZxmCyxlObbpzLeYUGMd6-0HCqCElJri/view?usp=share_link)]
+
+[![sine-requie-creapg](https://drive.google.com/file/d/1Si8u0QGCBWIUYhdu2ZNwZIbSAE7WQwpE/view?usp=share_link)]
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
@@ -116,43 +120,42 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- [ ] Implementazione Professioni Manuale Base
+- [ ] Distribuzione punteggi abilità
+- [ ] Stampa scheda personaggio
 
-See the [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) for a full list of proposed features (and known issues).
+Vedere presso [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) per una lista completa delle feature proposte (e problemi conosciuti).
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## Contribuire
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+I contributi sono quello che rende la community open souce un posto magnifico per imparare, ispirare e creare. Ogni contributo che farai saranno **estremamente graditi**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Se hai un suggerimento che potrebbe rendere questa appplicazione migliore, ti prego di fare un fork del repository e di creare una pull request. Tu puoi anche semplicemente creare un issue con il tag "miglioramenti".
+Non dimenticare di dare a questo progetto una stella! Grazie ancora!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork il Progetto
+2. Crea il tuo Feature Branch (`git checkout -b feature/FeatureFantastica`)
+3. Committa le tue Modifiche (`git commit -m 'Aggiunta FeatureFantastica'`)
+4. Pusha verso il Branch (`git push origin feature/FeatureFantastica`)
+5. Apri una Pull Request
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- LICENSE -->
 
-## License
+## Licenza
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distribuita con la licenza GNU General Public License v3.0. Vedi `LICENSE.txt` per maggiori informazioni.
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 
 <!-- CONTACT -->
 
-## Contact
+## Contatti
 
 Eretic0 - aiconfinidelfantastico@gmail.com - ![YouTube](https://img.shields.io/youtube/channel/UCoc90NOzm_R5QWNjoZtxJ_g?style=social)
 
@@ -175,6 +178,5 @@ Link al Progetto: [https://github.com/Eretic0/sine-requie-creapg](https://github
 [stars-url]: https://github.com/Eretic0/sine-requie-creapg/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Eretic0/sine-requie-creapg.svg?style=for-the-badge
 [issues-url]: https://github.com/Eretic0/sine-requie-creapg/issues
-[product-screenshot]: https://drive.google.com/file/d/1W15Bv6ZTjp5OX3W6bS4QaE6KDQ4KzEeP/view?usp=share_link
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
