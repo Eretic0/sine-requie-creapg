@@ -9,17 +9,18 @@ import Card from "../../components/Card";
 import ProfessionePaper from "../../components/ProfessionePaper";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
-import { setAbilita } from "../../redux/slices/abilitaSlice";
+import { setAbilita, updateAbilita } from "../../redux/slices/abilitaSlice";
 import { setProfessione } from "../../redux/slices/professioneSlice";
 
 const Professione = () => {
   const { professione } = useSelector((state) => state.professione);
+  const { abilita } = useSelector((state) => state.abilita);
   const { taroccoPassato } = useSelector((state) => state.tarocco);
   const { eta } = useSelector((state) => state.eta);
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
   const [professioni, setProfessioni] = useState([]);
-  const [abilitaScelta, setAbilitaScelta] = useState("");
   const [puntiAbilita, setPuntiAbilita] = useState(7);
   const [gradoMassimo, setGradoMassimo] = useState("+3");
 
@@ -56,7 +57,42 @@ const Professione = () => {
   }, [ambientazione, eta]);
 
   const handleChangeAbilitaScelta = (event) => {
-    setAbilitaScelta(event.target.value);
+    let abilityNew = null;
+    let ability = abilita.find((ab) => ab.id === event.target.value);
+    if (!ability) {
+      ability = AbilitaDb.find((ab) => ab.id === event.target.value);
+    }
+    abilityNew = { ...ability };
+    if (abilityNew.prestampata) {
+      abilityNew.counterFallimento += 5;
+      abilityNew.grado = 0;
+      if (abilityNew.counterFallimento >= 10) {
+        abilityNew.counterFallimento = 0;
+        abilityNew.grado += 1;
+      }
+    } else {
+      abilityNew.grado = 0;
+    }
+    abilityNew.professione = true;
+    abilityNew.scelta = true;
+    dispatch(updateAbilita(abilityNew));
+  };
+
+  const getAbilitaVS = (abilita) => {
+    let textVs = "";
+    const caratteristica = caratteristiche.find(
+      (t) => t.id === abilita.caratteristicaRef
+    );
+    if (caratteristica) {
+      const valoreCaratteristica = caratteristica.valore;
+      if (abilita.grado + valoreCaratteristica >= 8) {
+        textVs = "V";
+      } else if (abilita.grado + valoreCaratteristica <= 3) {
+        textVs = "S";
+      }
+    }
+
+    return textVs;
   };
 
   const handleChangeProfessione = (event) => {
@@ -145,10 +181,11 @@ const Professione = () => {
         <Grid item xs>
           <ProfessionePaper
             professione={professione}
-            abilitaScelta={abilitaScelta}
             handleChangeAbilitaScelta={handleChangeAbilitaScelta}
             puntiAbilita={puntiAbilita}
             gradoMassimo={gradoMassimo}
+            abilita={abilita}
+            getAbilitaVS={getAbilitaVS}
           />
         </Grid>
       </Grid>
