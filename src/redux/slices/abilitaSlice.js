@@ -10,10 +10,15 @@ export const abilitaSlice = createSlice({
     setAbilita: (state, { payload }) => {
       state.abilita = payload;
     },
-    updateAbilita: (state, { payload }) => {
-      const ability = state.abilita.filter((ab) => ab.id !== payload.id);
-      state.abilita = ability;
+
+    addAbilita: (state, { payload }) => {
       state.abilita.push(payload);
+    },
+
+    updateAbilita: (state, { payload }) => {
+      state.abilita = state.abilita.map((ab) =>
+        ab.id === payload.id ? payload : ab
+      );
     },
   },
 });

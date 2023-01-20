@@ -30,6 +30,7 @@ const Abilita = [
     nome: "Guidare",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
+    specificoSelezionato: "",
     specifico: [
       { id: 1, nome: "Due ruote" },
       { id: 2, nome: "Quattro ruote" },
@@ -70,6 +71,7 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    specificoSelezionato: "",
     specifico: [],
   },
   {
@@ -135,6 +137,7 @@ const Abilita = [
     caratteristicaRef: null,
     grado: null,
     counterFallimento: 0,
+    specificoSelezionato: "",
     specifico: ArmiDb,
   },
   {
@@ -144,6 +147,7 @@ const Abilita = [
     grado: null,
     counterFallimento: 0,
     specifico: ArmiDb,
+    specificoSelezionato: "",
   },
   {
     id: "343960377471533261v2",
@@ -152,6 +156,7 @@ const Abilita = [
     grado: null,
     counterFallimento: 0,
     specifico: ArmiDb,
+    specificoSelezionato: "",
   },
   {
     id: "343960552491450573",
@@ -165,6 +170,7 @@ const Abilita = [
     nome: "Addestrare",
     caratteristicaRef: "341428089448825036",
     specifico: [],
+    specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
   },
@@ -187,6 +193,7 @@ const Abilita = [
     nome: "Artigianato",
     caratteristicaRef: "341575976248934605",
     specifico: [],
+    specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
   },
@@ -407,6 +414,7 @@ const Abilita = [
     nome: "Pilotare",
     caratteristicaRef: "341575935372296397",
     specifico: [],
+    specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
   },
@@ -472,6 +480,7 @@ const Abilita = [
     nome: "Sport",
     caratteristicaRef: "341575970478620877",
     specifico: [],
+    specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
   },
@@ -496,6 +505,7 @@ const Abilita = [
     grado: null,
     counterFallimento: 0,
     specifico: [],
+    specificoSelezionato: "",
   },
   {
     id: "343961562179961037",

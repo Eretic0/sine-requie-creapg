@@ -14,15 +14,15 @@ import { setProfessione } from "../../redux/slices/professioneSlice";
 
 const Professione = () => {
   const { professione } = useSelector((state) => state.professione);
+  const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
+    (state) => state.eta
+  );
   const { abilita } = useSelector((state) => state.abilita);
   const { taroccoPassato } = useSelector((state) => state.tarocco);
   const { eta } = useSelector((state) => state.eta);
-  const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
   const [professioni, setProfessioni] = useState([]);
-  const [puntiAbilita, setPuntiAbilita] = useState(7);
-  const [gradoMassimo, setGradoMassimo] = useState("+3");
 
   useEffect(() => {
     let professioniFilter = ProfessioniDb;
@@ -40,20 +40,6 @@ const Professione = () => {
       professioniFilter = professioniFilter.filter((p) => p.eta !== "E");
     }
     setProfessioni(professioniFilter);
-
-    if (eta < 18) {
-      setPuntiAbilita(2);
-      setGradoMassimo("+2");
-    } else if (eta >= 19 && eta <= 39) {
-      setPuntiAbilita(7);
-      setGradoMassimo("+3");
-    } else if (eta >= 40 && eta <= 59) {
-      setPuntiAbilita(15);
-      setGradoMassimo("+4");
-    } else if (eta >= 60) {
-      setPuntiAbilita(21);
-      setGradoMassimo("+5");
-    }
   }, [ambientazione, eta]);
 
   const handleChangeAbilitaScelta = (event) => {
@@ -76,23 +62,6 @@ const Professione = () => {
     abilityNew.professione = true;
     abilityNew.scelta = true;
     dispatch(updateAbilita(abilityNew));
-  };
-
-  const getAbilitaVS = (abilita) => {
-    let textVs = "";
-    const caratteristica = caratteristiche.find(
-      (t) => t.id === abilita.caratteristicaRef
-    );
-    if (caratteristica) {
-      const valoreCaratteristica = caratteristica.valore;
-      if (abilita.grado + valoreCaratteristica >= 8) {
-        textVs = "V";
-      } else if (abilita.grado + valoreCaratteristica <= 3) {
-        textVs = "S";
-      }
-    }
-
-    return textVs;
   };
 
   const handleChangeProfessione = (event) => {
@@ -182,10 +151,9 @@ const Professione = () => {
           <ProfessionePaper
             professione={professione}
             handleChangeAbilitaScelta={handleChangeAbilitaScelta}
-            puntiAbilita={puntiAbilita}
-            gradoMassimo={gradoMassimo}
+            puntiAbilita={puntiAbilitaEta}
+            gradoMassimo={gradoMassimoEta}
             abilita={abilita}
-            getAbilitaVS={getAbilitaVS}
           />
         </Grid>
       </Grid>

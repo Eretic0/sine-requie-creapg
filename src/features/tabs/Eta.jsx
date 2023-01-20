@@ -5,14 +5,32 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
-import { setEta } from "../../redux/slices/etaSlice";
+import {
+  setEta,
+  setGradoMassimoEta,
+  setPuntiAbilitaEta,
+} from "../../redux/slices/etaSlice";
 
 function Eta() {
   const { eta } = useSelector((state) => state.eta);
   const dispatch = useDispatch();
 
   const handleChangeEta = (event) => {
-    dispatch(setEta(event.target.value));
+    const etaValue = event.target.value;
+    dispatch(setEta(etaValue));
+    if (etaValue < 18) {
+      dispatch(setPuntiAbilitaEta(2));
+      dispatch(setGradoMassimoEta(2));
+    } else if (etaValue >= 19 && etaValue <= 39) {
+      dispatch(setPuntiAbilitaEta(7));
+      dispatch(setGradoMassimoEta(3));
+    } else if (etaValue >= 40 && etaValue <= 59) {
+      dispatch(setPuntiAbilitaEta(15));
+      dispatch(setGradoMassimoEta(4));
+    } else if (etaValue >= 60) {
+      dispatch(setPuntiAbilitaEta(21));
+      dispatch(setGradoMassimoEta(5));
+    }
   };
 
   const setEtaPaper = () => {
