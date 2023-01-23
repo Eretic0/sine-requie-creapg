@@ -15,8 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateAbilita } from "../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../redux/slices/etaSlice";
 import ArmiDb from "../db/Armi";
+import ProfiloAbilita from "../db/ProfiloAbilita";
 
-const AbilitaTable = ({ abilita }) => {
+const AbilitaTable = ({ abilita, listBonusAbilita = null }) => {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useDispatch();
@@ -31,10 +32,18 @@ const AbilitaTable = ({ abilita }) => {
     );
     if (caratteristica) {
       const valoreCaratteristica = caratteristica.valore;
-      if (abilita.grado + valoreCaratteristica >= 8) {
-        textVs = "V";
-      } else if (abilita.grado + valoreCaratteristica <= 3) {
-        textVs = "S";
+      if ("1/2" === abilita.grado) {
+        if (valoreCaratteristica / 2 >= 8) {
+          textVs = "V";
+        } else if (valoreCaratteristica / 2 <= 3) {
+          textVs = "S";
+        }
+      } else {
+        if (abilita.grado + valoreCaratteristica >= 8) {
+          textVs = "V";
+        } else if (abilita.grado + valoreCaratteristica <= 3) {
+          textVs = "S";
+        }
       }
     }
 
@@ -120,18 +129,54 @@ const AbilitaTable = ({ abilita }) => {
     dispatch(updateAbilita(abilityNew));
   };
 
+  const valueAbilita = (ability) => {
+    const abilityGrado = ability.grado;
+
+    if ("1/2" !== abilityGrado && abilityGrado) {
+    }
+  };
+
   const editGrado = (ability) => {
-    return (
-      <>
-        {ability.grado}
-        <IconButton
-          edge="end"
-          onClick={() => handleUpdateGradoAbilita(ability)}
-        >
-          <AddCircleOutlineIcon />
-        </IconButton>
-      </>
-    );
+    if (!listBonusAbilita) {
+      return (
+        <>
+          {ability.grado}
+          <IconButton
+            edge="end"
+            onClick={() => handleUpdateGradoAbilita(ability)}
+          >
+            <AddCircleOutlineIcon />
+          </IconButton>
+        </>
+      );
+    } else if (
+      ability.prestampata &&
+      "1/2" === ability.grado &&
+      !ability.professione &&
+      !ability.passato
+    ) {
+      return (
+        <>
+          {ability.grado}
+          <br />
+          <Select
+            labelId={`label-select-arraybonus-${ability.id}`}
+            id={`select-arrayBonus-${ability.id}`}
+            defaultValue=""
+            label="specifico"
+            value={""}
+            onChange={(event) => handleChangeSpecifico(event, ability.id)}
+          >
+            {listBonusAbilita.map((ar) => (
+              <MenuItem key={ar.id} value={ar.id}>
+                {ar.valore}
+              </MenuItem>
+            ))}
+          </Select>
+        </>
+      );
+    }
+    return ability.grado;
   };
 
   return (
