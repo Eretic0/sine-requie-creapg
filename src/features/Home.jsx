@@ -9,14 +9,47 @@ import Eta from "./tabs/Eta";
 import Generalita from "./tabs/Generalita";
 import PregiDifetti from "./tabs/PregiDifetti";
 import Professione from "./tabs/Professione";
+import StampaScheda from "./tabs/StampaScheda";
 import TaroccoDominante from "./tabs/TaroccoDominante";
 import TaroccoPassato from "./tabs/TaroccoPassato";
-import StampaScheda from "./tabs/StampaScheda";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import Fab from "@mui/material/Fab";
 
 function TabPanel(props) {
-  const { children, value, index } = props;
+  const { children, value, index, handleChangeButton } = props;
 
-  return <>{value === index && children}</>;
+  return (
+    <>
+      {value === index && (
+        <>
+          {children}
+          {value !== 0 && (
+            <Fab
+              color="primary"
+              variant="extended"
+              sx={{ position: "absolute", left: 16 }}
+              onClick={() => handleChangeButton(false)}
+            >
+              <NavigateBeforeIcon sx={{ mr: 1 }} />
+              Precedente
+            </Fab>
+          )}
+          {value !== 8 && (
+            <Fab
+              color="primary"
+              variant="extended"
+              sx={{ position: "absolute", right: 16 }}
+              onClick={() => handleChangeButton(true)}
+            >
+              <NavigateNextIcon sx={{ mr: 1 }} />
+              Prossimo
+            </Fab>
+          )}
+        </>
+      )}
+    </>
+  );
 }
 
 TabPanel.propTypes = {
@@ -30,6 +63,12 @@ function Home() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleChangeButton = (next) => {
+    const valSto = value;
+    let newVal = valSto;
+    next ? setValue((newVal += 1)) : setValue((newVal -= 1));
   };
 
   return (
@@ -52,31 +91,31 @@ function Home() {
         <Tab label="Abilità" />
         <Tab label="Stampa Scheda" />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} handleChangeButton={handleChangeButton}>
         <Generalita />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} handleChangeButton={handleChangeButton}>
         <TaroccoDominante />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={2} handleChangeButton={handleChangeButton}>
         <Caratteristiche />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={3} handleChangeButton={handleChangeButton}>
         <Eta />
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel value={value} index={4} handleChangeButton={handleChangeButton}>
         <PregiDifetti />
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel value={value} index={5} handleChangeButton={handleChangeButton}>
         <TaroccoPassato />
       </TabPanel>
-      <TabPanel value={value} index={6}>
+      <TabPanel value={value} index={6} handleChangeButton={handleChangeButton}>
         <Professione />
       </TabPanel>
-      <TabPanel value={value} index={7}>
+      <TabPanel value={value} index={7} handleChangeButton={handleChangeButton}>
         <Abilita />
       </TabPanel>
-      <TabPanel value={value} index={8}>
+      <TabPanel value={value} index={8} handleChangeButton={handleChangeButton}>
         <StampaScheda />
       </TabPanel>
     </>
