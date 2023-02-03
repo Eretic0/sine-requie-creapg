@@ -15,7 +15,11 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { estraiTaroccoMinore } from "../../utils/random";
 import { useDispatch, useSelector } from "react-redux";
-import { setPregi, setDifetti } from "../../redux/slices/pregiDifettiSlice";
+import {
+  addPregio,
+  addDifetto,
+  removePregio,
+} from "../../redux/slices/pregiDifettiSlice";
 
 import MinoriPaper from "../../components/MinoriPaper";
 
@@ -26,35 +30,31 @@ export default function PregiDifetti() {
   const [listDifetti, setListDifetti] = useState([]);
   const [numDifetti, setNumDifetti] = useState(0);
   const [numPregi, setNumPregi] = useState(0);
-  const [pregiSelezionati, setPregiSelezionati] = useState([]);
-  const [difettiSelezionati, setDifettiSelezionati] = useState([]);
   const [minoriEstratti, setMinoriEstratti] = useState([]);
 
   const handleSelectPregi = (pregio) => {
-    dispatch(setPregi(pregio));
-    setPregiSelezionati((state) => [...state, pregio]);
+    dispatch(addPregio(pregio));
     setNumPregi((prevState) => prevState + 1);
     setNumDifetti((prevState) => prevState + pregio.numeroDifetti);
   };
 
   const handleSelectDifetti = (difetto) => {
-    dispatch(setDifetti(difetto));
-    setDifettiSelezionati((state) => [...state, difetto]);
+    dispatch(addDifetto(difetto));
     setNumDifetti((prevState) => prevState - 1);
   };
 
   const handleDeselectPregi = (pregio) => {
     const preg = listPregi.filter((el) => el.id === pregio.id);
-    setPregiSelezionati(preg);
+    dispatch(removePregio(preg));
     setNumPregi((prevState) => prevState - 1);
     setNumDifetti((prevState) => prevState - pregio.numeroDifetti);
   };
 
   const disableButtonPregi = (pregio) =>
-    pregiSelezionati.some((pr) => pr.id === pregio.id);
+    pregi.some((pr) => pr.id === pregio.id);
 
   const disableButtonDifetti = (difetto) =>
-    difettiSelezionati.some((dif) => dif.id === difetto.id);
+    difetti.some((dif) => dif.id === difetto.id);
 
   const estraiDifetti = () => {
     let numeroEstrazioni = 0;
@@ -87,8 +87,6 @@ export default function PregiDifetti() {
   };
 
   const resetDifetti = () => {
-    setPregiSelezionati([]);
-    setDifettiSelezionati([]);
     setMinoriEstratti([]);
     setNumPregi(0);
     setNumDifetti(0);
@@ -179,8 +177,8 @@ export default function PregiDifetti() {
               </Button>
             </Stack>
             <List>
-              {difettiSelezionati.length > 0 &&
-                difettiSelezionati.map((diff) => (
+              {difetti.length > 0 &&
+                difetti.map((diff) => (
                   <ListItem
                     key={diff.id}
                     secondaryAction={

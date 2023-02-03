@@ -7,19 +7,25 @@ export const pregiDifettiSlice = createSlice({
     difetti: [],
   },
   reducers: {
-    setPregi: {
-      reducer: (state, action) => {
-        state.pregi.push(action.payload);
-      },
+    addPregio: (state, { payload }) => {
+      state.pregi.push(payload);
     },
-    setDifetti: {
-      reducer: (state, action) => {
-        state.difetti.push(action.payload);
-      },
+
+    removePregio: (state, { payload }) => {
+      state.pregi.filter((pr) => pr.id !== payload.id);
+    },
+
+    addDifetto: (state, { payload }) => {
+      state.difetti.push(payload);
+    },
+
+    removeDifetto: (state, { payload }) => {
+      state.difetti.filter((pr) => pr.id !== payload.id);
     },
   },
 });
 
-export const { setPregi, setDifetti } = pregiDifettiSlice.actions;
+export const { addPregio, addDifetto, removePregio, removeDifetto } =
+  pregiDifettiSlice.actions;
 
 export default pregiDifettiSlice.reducer;

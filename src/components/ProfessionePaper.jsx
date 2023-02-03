@@ -72,8 +72,8 @@ const ProfessionePaper = ({
         {professione && (
           <>
             <Typography gutterBottom variant="h5" component="div">
-              {professione.eta
-                ? professione.nome - professione.eta
+              {professione.eta !== "N"
+                ? `${professione.nome} - ${professione.eta}`
                 : professione.nome}
             </Typography>
             {professione.abilitaRef &&

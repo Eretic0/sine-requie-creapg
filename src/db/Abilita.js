@@ -6,7 +6,7 @@ const Abilita = [
     nome: "Arrampicarsi",
     prestampata: true,
     caratteristicaRef: "341575970478620877",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -14,7 +14,7 @@ const Abilita = [
     nome: "Ascoltare",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -22,7 +22,7 @@ const Abilita = [
     nome: "Correre",
     prestampata: true,
     caratteristicaRef: "341575970478620877",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -37,7 +37,7 @@ const Abilita = [
       { id: 3, nome: "Camion" },
       { id: 4, nome: "Cingolato" },
     ],
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -45,7 +45,7 @@ const Abilita = [
     nome: "Intrufolarsi",
     prestampata: true,
     caratteristicaRef: "341575970478620877",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -53,7 +53,7 @@ const Abilita = [
     nome: "Lanciare",
     prestampata: true,
     caratteristicaRef: "341575984630202573",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -61,7 +61,7 @@ const Abilita = [
     nome: "Leggere e scrivere",
     prestampata: true,
     caratteristicaRef: "341575873655210189",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -69,7 +69,7 @@ const Abilita = [
     nome: "Lingua",
     prestampata: true,
     caratteristicaRef: "341575873655210189",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
     specificoSelezionato: "",
     specifico: [],
@@ -79,7 +79,7 @@ const Abilita = [
     nome: "Mercanteggiare",
     prestampata: true,
     caratteristicaRef: "341575965808263373",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -87,7 +87,7 @@ const Abilita = [
     nome: "Nuotare",
     prestampata: true,
     caratteristicaRef: "341575970478620877",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -95,7 +95,7 @@ const Abilita = [
     nome: "Osservare",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -103,7 +103,7 @@ const Abilita = [
     nome: "Perquisire",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -111,7 +111,7 @@ const Abilita = [
     nome: "Persuadere",
     prestampata: true,
     caratteristicaRef: "341575965808263373",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -119,7 +119,7 @@ const Abilita = [
     nome: "Rissa",
     prestampata: true,
     caratteristicaRef: "341575970478620877",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -127,7 +127,7 @@ const Abilita = [
     nome: "Seguire tracce",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
   {
@@ -135,7 +135,7 @@ const Abilita = [
     nome: "Uso -arma-",
     prestampata: true,
     caratteristicaRef: null,
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
     specificoSelezionato: "",
     specifico: ArmiDb,
@@ -570,7 +570,7 @@ const Abilita = [
     nome: "Orientamento",
     prestampata: true,
     caratteristicaRef: "341575935372296397",
-    grado: null,
+    grado: "1/2",
     counterFallimento: 0,
   },
 ];
