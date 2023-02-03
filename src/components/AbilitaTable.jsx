@@ -12,12 +12,19 @@ import TextField from "@mui/material/TextField";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import IconButton from "@mui/material/IconButton";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAbilita } from "../redux/slices/abilitaSlice";
+import {
+  removeBonusFromListBonusAbilita,
+  updateAbilita,
+} from "../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../redux/slices/etaSlice";
 import ArmiDb from "../db/Armi";
-import ProfiloAbilita from "../db/ProfiloAbilita";
+import ProfiloAbilitaDb from "../db/ProfiloAbilita";
 
-const AbilitaTable = ({ abilita, listBonusAbilita = null }) => {
+const AbilitaTable = ({
+  abilita,
+  listBonusAbilita = null,
+  profiloAbilitaSelezionato = null,
+}) => {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useDispatch();
@@ -129,10 +136,25 @@ const AbilitaTable = ({ abilita, listBonusAbilita = null }) => {
     dispatch(updateAbilita(abilityNew));
   };
 
-  const valueAbilita = (ability) => {
-    const abilityGrado = ability.grado;
-
-    if ("1/2" !== abilityGrado && abilityGrado) {
+  const handleOnChangeGradoAbilita = (event, ability) => {
+    console.log("ability", ability);
+    const idBonusAbilitaSel = event.target.value;
+    console.log("idBonusAbilitaSel", idBonusAbilitaSel);
+    console.log("profiloAbilitaSelezionato", profiloAbilitaSelezionato);
+    const profSel = profiloAbilitaSelezionato
+      ? ProfiloAbilitaDb.find((t) => t.id === profiloAbilitaSelezionato)
+      : null;
+    console.log("profSel", profSel);
+    if (profSel) {
+      const objValore = profSel.arrayBonus.find(
+        (t) => t.id === idBonusAbilitaSel
+      );
+      let abilityNew = null;
+      const abilitySto = abilita.find((ab) => ab.id === ability.id);
+      abilityNew = { ...abilitySto };
+      abilityNew.grado = objValore.valore;
+      dispatch(updateAbilita(abilityNew));
+      dispatch(removeBonusFromListBonusAbilita({ id: idBonusAbilitaSel }));
     }
   };
 
@@ -153,7 +175,8 @@ const AbilitaTable = ({ abilita, listBonusAbilita = null }) => {
       ability.prestampata &&
       "1/2" === ability.grado &&
       !ability.professione &&
-      !ability.passato
+      !ability.passato &&
+      listBonusAbilita.length > 0
     ) {
       return (
         <>
@@ -165,7 +188,7 @@ const AbilitaTable = ({ abilita, listBonusAbilita = null }) => {
             defaultValue=""
             label="specifico"
             value={""}
-            onChange={(event) => handleChangeSpecifico(event, ability.id)}
+            onChange={(event) => handleOnChangeGradoAbilita(event, ability)}
           >
             {listBonusAbilita.map((ar) => (
               <MenuItem key={ar.id} value={ar.id}>

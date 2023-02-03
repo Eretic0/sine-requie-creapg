@@ -59,7 +59,11 @@ const Abilita = () => {
           </RadioGroup>
         </FormControl>
       </Stack>
-      <AbilitaTable abilita={abilita} listBonusAbilita={listBonusAbilita} />
+      <AbilitaTable
+        abilita={abilita}
+        listBonusAbilita={listBonusAbilita}
+        profiloAbilitaSelezionato={profiloAbilitaSelezionato}
+      />
     </Card>
   );
 };
