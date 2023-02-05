@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card";
-import TaroccoPaper from "../../components/TaroccoPaper";
+import TaroccoPaper from "./TaroccoPaper";
 import { generateRandomNumer } from "../../utils/random";
 import TarocchiDb from "../../db/Tarocchi";
 import { useSelector, useDispatch } from "react-redux";
@@ -35,7 +35,7 @@ function TaroccoPassato() {
                     grado: +0,
                     counterFallimento: el.counterFallimento + 5,
                   }
-                : el 
+                : el
             );
           } else {
             abi.grado = +0;

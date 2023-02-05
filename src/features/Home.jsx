@@ -3,15 +3,13 @@ import Tabs from "@mui/material/Tabs";
 import PropTypes from "prop-types";
 import * as React from "react";
 import Header from "../components/Header";
-import Abilita from "./tabs/Abilita";
-import Caratteristiche from "./tabs/Caratteristiche";
-import Eta from "./tabs/Eta";
-import Generalita from "./tabs/Generalita";
-import PregiDifetti from "./tabs/PregiDifetti";
-import Professione from "./tabs/Professione";
-import StampaScheda from "./tabs/StampaScheda";
-import TaroccoDominante from "./tabs/TaroccoDominante";
-import TaroccoPassato from "./tabs/TaroccoPassato";
+import AbilitaTabContainer from "./ViewTabs/AbilitaTabContainer";
+import CaratteristicheTabContainer from "./ViewTabs/CaratteristicheTabContainer";
+import GeneralitaTabContainer from "./ViewTabs/GeneralitaTabContainer";
+import PregiDifettiTabContainer from "./ViewTabs/PregiDifettiTabContainer";
+import ProfessioneTabContainer from "./ViewTabs/ProfessioneTabContainer";
+import StampaSchedaTabContainer from "./ViewTabs/StampaSchedaTabContainer";
+import TarocchiTabContainer from "./ViewTabs/TarocchiTabContainer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Fab from "@mui/material/Fab";
@@ -35,7 +33,7 @@ function TabPanel(props) {
               Precedente
             </Fab>
           )}
-          {value !== 8 && (
+          {value !== 6 && (
             <Fab
               color="primary"
               variant="extended"
@@ -82,41 +80,33 @@ function Home() {
         allowScrollButtonsMobile
       >
         <Tab label="Generalità" />
-        <Tab label="Tarocco Dominante" />
+        <Tab label="Tarocchi" />
         <Tab label="Caratteristiche" />
-        <Tab label="Età" />
         <Tab label="Pregi e Difetti" />
-        <Tab label="Tarocco del Passato" />
         <Tab label="Professione" />
         <Tab label="Abilità" />
         <Tab label="Stampa Scheda" />
       </Tabs>
       <TabPanel value={value} index={0} handleChangeButton={handleChangeButton}>
-        <Generalita />
+        <GeneralitaTabContainer />
       </TabPanel>
       <TabPanel value={value} index={1} handleChangeButton={handleChangeButton}>
-        <TaroccoDominante />
+        <TarocchiTabContainer />
       </TabPanel>
       <TabPanel value={value} index={2} handleChangeButton={handleChangeButton}>
-        <Caratteristiche />
+        <CaratteristicheTabContainer />
       </TabPanel>
       <TabPanel value={value} index={3} handleChangeButton={handleChangeButton}>
-        <Eta />
+        <PregiDifettiTabContainer />
       </TabPanel>
       <TabPanel value={value} index={4} handleChangeButton={handleChangeButton}>
-        <PregiDifetti />
+        <ProfessioneTabContainer />
       </TabPanel>
       <TabPanel value={value} index={5} handleChangeButton={handleChangeButton}>
-        <TaroccoPassato />
+        <AbilitaTabContainer />
       </TabPanel>
       <TabPanel value={value} index={6} handleChangeButton={handleChangeButton}>
-        <Professione />
-      </TabPanel>
-      <TabPanel value={value} index={7} handleChangeButton={handleChangeButton}>
-        <Abilita />
-      </TabPanel>
-      <TabPanel value={value} index={8} handleChangeButton={handleChangeButton}>
-        <StampaScheda />
+        <StampaSchedaTabContainer />
       </TabPanel>
     </>
   );

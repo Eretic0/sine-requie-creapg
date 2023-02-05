@@ -149,7 +149,7 @@ Non dimenticare di dare a questo progetto una stella! Grazie ancora!
 
 ## Licenza
 
-Distribuita con la licenza GNU General Public License v3.0. Vedi `LICENSE.txt` per maggiori informazioni.
+Distribuita con la licenza Creative Commons Attribution Non Commercial No Derivatives 4.0 International. Vedi `LICENSE` per maggiori informazioni.
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
 

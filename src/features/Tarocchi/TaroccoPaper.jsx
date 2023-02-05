@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import AbilitaDb from "../db/Abilita";
-import CaratteristicheDb from "../db/Caratteristiche";
+import AbilitaDb from "../../db/Abilita";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 export default function TaroccoPaper(props) {
   const { tarocco, passato } = props;

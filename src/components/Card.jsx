@@ -9,7 +9,7 @@ export default function BasicCard(props) {
   const { children, cardActionText, headerText, headerSubText } = props;
 
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ marginBottom: "8px" }}>
       {headerText ? (
         <CardHeader title={headerText} subheader={headerSubText} />
       ) : null}
