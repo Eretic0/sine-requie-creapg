@@ -31,7 +31,7 @@ const TypographyBody = styled(Typography)({
   padding: "12px",
 });
 
-const StampaScheda = () => {
+const StampaSchedaComponent = () => {
   const componentRef = useRef();
   const { nome, cognome } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
@@ -198,4 +198,4 @@ const StampaScheda = () => {
   );
 };
 
-export default StampaScheda;
+export default StampaSchedaComponent;

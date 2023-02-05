@@ -11,7 +11,7 @@ import {
   setPuntiAbilitaEta,
 } from "../../redux/slices/etaSlice";
 
-function Eta() {
+function EtaComponent() {
   const { eta } = useSelector((state) => state.eta);
   const dispatch = useDispatch();
 
@@ -92,4 +92,4 @@ function Eta() {
   );
 }
 
-export default Eta;
+export default EtaComponent;

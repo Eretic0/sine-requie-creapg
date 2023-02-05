@@ -6,9 +6,8 @@ import Paper from "@mui/material/Paper";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import Typography from "@mui/material/Typography";
-import AbilitaDb from "../db/Abilita";
-
-import AbilitaTable from "./AbilitaTable";
+import AbilitaDb from "../../db/Abilita";
+import AbilitaTable from "../Abilita/AbilitaTable";
 
 const ProfessionePaper = ({
   professione,

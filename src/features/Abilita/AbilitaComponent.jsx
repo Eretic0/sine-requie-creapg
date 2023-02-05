@@ -6,7 +6,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Stack from "@mui/material/Stack";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AbilitaTable from "../../components/AbilitaTable";
+import AbilitaTable from "./AbilitaTable";
 import Card from "../../components/Card";
 import ProfiloAbilitaDb from "../../db/ProfiloAbilita";
 import {
@@ -14,7 +14,7 @@ import {
   setProfiloAbilitaSelezionato,
 } from "../../redux/slices/abilitaSlice";
 
-const Abilita = () => {
+function AbilitaComponent() {
   const { abilita, profiloAbilitaSelezionato, listBonusAbilita } = useSelector(
     (state) => state.abilita
   );
@@ -66,6 +66,6 @@ const Abilita = () => {
       />
     </Card>
   );
-};
+}
 
-export default Abilita;
+export default AbilitaComponent;

@@ -23,7 +23,7 @@ import {
 
 import MinoriPaper from "../../components/MinoriPaper";
 
-export default function PregiDifetti() {
+export default function PregiDifettiComponent() {
   const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
   const dispatch = useDispatch();
   const [listPregi, setListPregi] = useState([]);

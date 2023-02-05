@@ -3,7 +3,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import CaratteristicheDb from "../db/Caratteristiche";
+import CaratteristicheDb from "../../db/Caratteristiche";
 import Checkbox from "@mui/material/Checkbox";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -15,10 +15,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   removeBonusFromListBonusAbilita,
   updateAbilita,
-} from "../redux/slices/abilitaSlice";
-import { setPuntiAbilitaEta } from "../redux/slices/etaSlice";
-import ArmiDb from "../db/Armi";
-import ProfiloAbilitaDb from "../db/ProfiloAbilita";
+} from "../../redux/slices/abilitaSlice";
+import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
+import ArmiDb from "../../db/Armi";
+import ProfiloAbilitaDb from "../../db/ProfiloAbilita";
 
 const AbilitaTable = ({
   abilita,
@@ -137,14 +137,10 @@ const AbilitaTable = ({
   };
 
   const handleOnChangeGradoAbilita = (event, ability) => {
-    console.log("ability", ability);
     const idBonusAbilitaSel = event.target.value;
-    console.log("idBonusAbilitaSel", idBonusAbilitaSel);
-    console.log("profiloAbilitaSelezionato", profiloAbilitaSelezionato);
     const profSel = profiloAbilitaSelezionato
       ? ProfiloAbilitaDb.find((t) => t.id === profiloAbilitaSelezionato)
       : null;
-    console.log("profSel", profSel);
     if (profSel) {
       const objValore = profSel.arrayBonus.find(
         (t) => t.id === idBonusAbilitaSel

@@ -16,7 +16,7 @@ import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 import { estraiTaroccoMinore } from "../../utils/random";
 import CaratteristicheDb from "../../db/Caratteristiche";
 
-function Caratteristiche() {
+function CaratteristicheComponent() {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { taroccoDominante } = useSelector((state) => state.tarocco);
   const dispatch = useDispatch();
@@ -436,4 +436,4 @@ function Caratteristiche() {
   );
 }
 
-export default Caratteristiche;
+export default CaratteristicheComponent;

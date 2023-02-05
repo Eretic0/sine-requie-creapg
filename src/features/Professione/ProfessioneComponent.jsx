@@ -6,13 +6,13 @@ import Select from "@mui/material/Select";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
-import ProfessionePaper from "../../components/ProfessionePaper";
+import ProfessionePaper from "./ProfessionePaper";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
 import { setAbilita, updateAbilita } from "../../redux/slices/abilitaSlice";
 import { setProfessione } from "../../redux/slices/professioneSlice";
 
-const Professione = () => {
+const ProfessioneComponent = () => {
   const { professione } = useSelector((state) => state.professione);
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
     (state) => state.eta
@@ -161,4 +161,4 @@ const Professione = () => {
   );
 };
 
-export default Professione;
+export default ProfessioneComponent;

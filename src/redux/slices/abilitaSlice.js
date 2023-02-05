@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import AbilitaDb from "../../db/Abilita";
 
+const initialState = {
+  abilita: AbilitaDb.filter((ab) => ab.prestampata === true),
+  profiloAbilitaSelezionato: null,
+  listBonusAbilita: [],
+};
+
 export const abilitaSlice = createSlice({
   name: "abilita",
-  initialState: {
-    abilita: AbilitaDb.filter((ab) => ab.prestampata === true),
-    profiloAbilitaSelezionato: null,
-    listBonusAbilita: [],
-  },
+  initialState: initialState,
   reducers: {
     setAbilita: (state, { payload }) => {
       state.abilita = payload;
@@ -36,6 +38,14 @@ export const abilitaSlice = createSlice({
         (bn) => bn.id !== payload.id
       );
     },
+    resetAbilita: (state, { payload }) => {
+      state.abilita = state.abilita.map((ab) =>
+        ab.id === payload.id ? AbilitaDb.find((t) => t.id === payload.id) : ab
+      );
+    },
+    resetAllAbilita: (state) => {
+      state.abilita = initialState.abilita;
+    },
   },
 });
 
@@ -46,6 +56,8 @@ export const {
   setProfiloAbilitaSelezionato,
   setListBonusAbilita,
   removeBonusFromListBonusAbilita,
+  resetAbilita,
+  resetAllAbilita,
 } = abilitaSlice.actions;
 
 export default abilitaSlice.reducer;
