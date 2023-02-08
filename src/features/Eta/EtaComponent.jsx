@@ -9,7 +9,12 @@ import {
   setEta,
   setGradoMassimoEta,
   setPuntiAbilitaEta,
+  setArrayProfessioneEta,
 } from "../../redux/slices/etaSlice";
+import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
+import { resetTarocchi } from "../../redux/slices/taroccoSlice";
+import { resetProfessione } from "../../redux/slices/professioneSlice";
 
 function EtaComponent() {
   const { eta } = useSelector((state) => state.eta);
@@ -17,19 +22,29 @@ function EtaComponent() {
 
   const handleChangeEta = (event) => {
     const etaValue = event.target.value;
-    dispatch(setEta(etaValue));
-    if (etaValue < 18) {
-      dispatch(setPuntiAbilitaEta(2));
-      dispatch(setGradoMassimoEta(2));
-    } else if (etaValue >= 19 && etaValue <= 39) {
-      dispatch(setPuntiAbilitaEta(7));
-      dispatch(setGradoMassimoEta(3));
-    } else if (etaValue >= 40 && etaValue <= 59) {
-      dispatch(setPuntiAbilitaEta(15));
-      dispatch(setGradoMassimoEta(4));
-    } else if (etaValue >= 60) {
-      dispatch(setPuntiAbilitaEta(21));
-      dispatch(setGradoMassimoEta(5));
+    dispatch(resetTarocchi());
+    dispatch(resetCaratteristiche());
+    dispatch(resetAllAbilita());
+    dispatch(resetProfessione());
+    if (etaValue > 0) {
+      dispatch(setEta(etaValue));
+      if (etaValue >= 10 && etaValue <= 18) {
+        dispatch(setPuntiAbilitaEta(2));
+        dispatch(setGradoMassimoEta(2));
+        dispatch(setArrayProfessioneEta(["N"]));
+      } else if (etaValue >= 19 && etaValue <= 39) {
+        dispatch(setPuntiAbilitaEta(7));
+        dispatch(setGradoMassimoEta(3));
+        dispatch(setArrayProfessioneEta(["N"]));
+      } else if (etaValue >= 40 && etaValue <= 59) {
+        dispatch(setPuntiAbilitaEta(15));
+        dispatch(setGradoMassimoEta(4));
+        dispatch(setArrayProfessioneEta(["N", "A"]));
+      } else if (etaValue >= 60) {
+        dispatch(setPuntiAbilitaEta(21));
+        dispatch(setGradoMassimoEta(5));
+        dispatch(setArrayProfessioneEta(["N", "A", "E"]));
+      }
     }
   };
 
