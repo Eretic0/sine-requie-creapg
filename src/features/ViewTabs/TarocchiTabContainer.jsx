@@ -1,11 +1,13 @@
 import TaroccoDominanteComponent from "../Tarocchi/TaroccoDominanteComponent";
 import TaroccoPassatoComponent from "../Tarocchi/TaroccoPassatoComponent";
+import { useSelector } from "react-redux";
 
 function TarocchiTabContainer() {
+  const { eta } = useSelector((state) => state.eta);
   return (
     <>
       <TaroccoDominanteComponent />
-      <TaroccoPassatoComponent />
+      {eta >= 19 && <TaroccoPassatoComponent />}
     </>
   );
 }

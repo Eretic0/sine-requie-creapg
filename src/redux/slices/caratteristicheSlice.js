@@ -4,7 +4,7 @@ import CaratteristicheDb from "../../db/Caratteristiche";
 export const caratteristicheSlice = createSlice({
   name: "caratteristiche",
   initialState: {
-    caratteristiche: CaratteristicheDb,
+    caratteristiche: [...CaratteristicheDb],
   },
   reducers: {
     setCaratteristiche: (state, { payload }) => {
@@ -27,7 +27,7 @@ export const caratteristicheSlice = createSlice({
       );
     },
     resetCaratteristiche: (state) => {
-      state.caratteristiche = CaratteristicheDb;
+      state.caratteristiche = [...CaratteristicheDb];
     },
   },
 });

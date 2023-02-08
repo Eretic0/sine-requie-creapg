@@ -12,7 +12,7 @@ export const professioneSlice = createSlice({
       state.professione = payload;
     },
     resetProfessione: (state) => {
-      state.professione = initialState.professione;
+      state.professione = "";
     },
   },
 });

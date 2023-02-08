@@ -13,9 +13,14 @@ export const taroccoSlice = createSlice({
     setTaroccoPassato: (state, { payload }) => {
       state.taroccoPassato = payload;
     },
+    resetTarocchi: (state) => {
+      state.taroccoDominante = {};
+      state.taroccoPassato = {};
+    },
   },
 });
 
-export const { setTaroccoDominante, setTaroccoPassato } = taroccoSlice.actions;
+export const { setTaroccoDominante, setTaroccoPassato, resetTarocchi } =
+  taroccoSlice.actions;
 
 export default taroccoSlice.reducer;

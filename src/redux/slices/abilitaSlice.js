@@ -44,7 +44,7 @@ export const abilitaSlice = createSlice({
       );
     },
     resetAllAbilita: (state) => {
-      state.abilita = initialState.abilita;
+      state.abilita = AbilitaDb.filter((ab) => ab.prestampata === true);
     },
   },
 });
