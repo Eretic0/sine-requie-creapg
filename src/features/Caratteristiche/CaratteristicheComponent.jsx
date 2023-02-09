@@ -8,13 +8,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
 import MinoriPaper from "../../components/MinoriPaper";
+import CaratteristicheDb from "../../db/Caratteristiche";
 import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 import { estraiTaroccoMinore } from "../../utils/random";
-import CaratteristicheDb from "../../db/Caratteristiche";
 
 function CaratteristicheComponent() {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
@@ -179,8 +179,6 @@ function CaratteristicheComponent() {
       }
     }
   };
-
-  useEffect(() => {}, []);
 
   const visualizzaModificare = (car) => {
     let carVisual = car.valore;
