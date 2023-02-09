@@ -5,20 +5,48 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
+import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
 import {
+  resetCaratteristiche,
+  updateCaratteristica,
+} from "../../redux/slices/caratteristicheSlice";
+import {
+  setArrayProfessioneEta,
   setEta,
   setGradoMassimoEta,
   setPuntiAbilitaEta,
-  setArrayProfessioneEta,
 } from "../../redux/slices/etaSlice";
-import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
-import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
-import { resetTarocchi } from "../../redux/slices/taroccoSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
+import { resetTarocchi } from "../../redux/slices/taroccoSlice";
+import IconTooltip from "../../components/IconTooltip";
+import CaratteristicheDb from "../../db/Caratteristiche";
 
 function EtaComponent() {
   const { eta } = useSelector((state) => state.eta);
+
+  const carMemoria = CaratteristicheDb.find(
+    (t) => t.id === "341575873655210189"
+  );
+  const carAspetto = CaratteristicheDb.find(
+    (t) => t.id === "341575948055871693"
+  );
+  const carFiori = CaratteristicheDb.filter((t) => t.seme === "Fiori");
+
   const dispatch = useDispatch();
+
+  const assignMalusToCaratteristicheByEta = (valore) => {
+    let carMemoriaMod = { ...carMemoria };
+    let carAspettoMod = { ...carAspetto };
+    carMemoriaMod.valore -= valore;
+    carAspettoMod.valore -= valore;
+    dispatch(updateCaratteristica(carMemoriaMod));
+    dispatch(updateCaratteristica(carAspettoMod));
+    carFiori.forEach((element) => {
+      let carMod = { ...element };
+      carMod.valore -= valore;
+      dispatch(updateCaratteristica(carMod));
+    });
+  };
 
   const handleChangeEta = (event) => {
     const etaValue = event.target.value;
@@ -40,10 +68,12 @@ function EtaComponent() {
         dispatch(setPuntiAbilitaEta(15));
         dispatch(setGradoMassimoEta(4));
         dispatch(setArrayProfessioneEta(["N", "A"]));
+        assignMalusToCaratteristicheByEta(1);
       } else if (etaValue >= 60) {
         dispatch(setPuntiAbilitaEta(21));
         dispatch(setGradoMassimoEta(5));
         dispatch(setArrayProfessioneEta(["N", "A", "E"]));
+        assignMalusToCaratteristicheByEta(2);
       }
     }
   };
@@ -97,7 +127,15 @@ function EtaComponent() {
     <Card headerText="Età">
       <Grid container spacing={4}>
         <Grid item xs>
-          <TextField type="number" value={eta} onChange={handleChangeEta} />
+          <>
+            <TextField type="number" value={eta} onChange={handleChangeEta} />
+            <IconTooltip
+              type={"info"}
+              message={
+                "La modifica comporta il reset dei seguenti campi: Professione, Abilità, Caratteristiche, Tarocco Dominante, Tarocco del Passato"
+              }
+            />
+          </>
         </Grid>
         <Grid item xs>
           {setEtaPaper()}

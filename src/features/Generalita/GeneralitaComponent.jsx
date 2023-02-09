@@ -13,6 +13,11 @@ import {
   setNome,
   setSesso,
 } from "../../redux/slices/generalitaSlice";
+import { resetProfessione } from "../../redux/slices/professioneSlice";
+import { resetTarocchi } from "../../redux/slices/taroccoSlice";
+import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
+import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import IconTooltip from "../../components/IconTooltip";
 
 function GeneralitaComponent() {
   const { nome, cognome, ambientazione, sesso } = useSelector(
@@ -21,6 +26,10 @@ function GeneralitaComponent() {
   const dispatch = useDispatch();
 
   const handleChangeAmbientazione = (event) => {
+    dispatch(resetTarocchi());
+    dispatch(resetCaratteristiche());
+    dispatch(resetAllAbilita());
+    dispatch(resetProfessione());
     dispatch(setAmbientazione(event.target.value));
   };
 
@@ -41,25 +50,33 @@ function GeneralitaComponent() {
       <Card headerText="Generalità">
         <Grid container spacing={4}>
           <Grid item xs>
-            <FormControl fullWidth>
-              <InputLabel id="label-input-select-ambientazione">
-                Manuale / Ambientazione
-              </InputLabel>
-              <Select
-                labelId="label-input-select-ambientazione"
-                id="select-ambientazione"
-                label="Manuale / Ambientazione"
-                defaultValue=""
-                value={ambientazione}
-                onChange={handleChangeAmbientazione}
-              >
-                {AmbientazioniDb.map((ambient) => (
-                  <MenuItem key={ambient.id} value={ambient.id}>
-                    {ambient.descrizione}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            <>
+              <FormControl fullWidth>
+                <InputLabel id="label-input-select-ambientazione">
+                  Manuale / Ambientazione
+                </InputLabel>
+                <Select
+                  labelId="label-input-select-ambientazione"
+                  id="select-ambientazione"
+                  label="Manuale / Ambientazione"
+                  defaultValue=""
+                  value={ambientazione}
+                  onChange={handleChangeAmbientazione}
+                >
+                  {AmbientazioniDb.map((ambient) => (
+                    <MenuItem key={ambient.id} value={ambient.id}>
+                      {ambient.descrizione}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <IconTooltip
+                type={"info"}
+                message={
+                  "La modifica comporta il reset dei seguenti campi: Professione, Abilità, Tarocco Dominante, Tarocco del Passato"
+                }
+              />
+            </>
           </Grid>
           <Grid item xs>
             <FormControl fullWidth>
