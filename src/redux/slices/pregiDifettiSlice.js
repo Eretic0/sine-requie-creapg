@@ -5,6 +5,9 @@ export const pregiDifettiSlice = createSlice({
   initialState: {
     pregi: [],
     difetti: [],
+    minoriEstratti: [],
+    numPregi: 0,
+    numDifetti: 0,
   },
   reducers: {
     addPregio: (state, { payload }) => {
@@ -22,10 +25,48 @@ export const pregiDifettiSlice = createSlice({
     removeDifetto: (state, { payload }) => {
       state.difetti.filter((pr) => pr.id !== payload.id);
     },
+
+    resetPregi: (state) => {
+      state.pregi = [];
+    },
+    resetDifetti: (state) => {
+      state.difetti = [];
+    },
+
+    setMinoriEstratti: (state, { payload }) => {
+      state.minoriEstratti = payload;
+    },
+
+    addMinoreEstratto: (state, { payload }) => {
+      state.minoriEstratti.push(payload);
+    },
+
+    resetMinoriEstratti: (state) => {
+      state.minoriEstratti = [];
+    },
+
+    setNumPregi: (state, { payload }) => {
+      state.numPregi = payload;
+    },
+
+    setNumDifetti: (state, { payload }) => {
+      state.numDifetti = payload;
+    },
   },
 });
 
-export const { addPregio, addDifetto, removePregio, removeDifetto } =
-  pregiDifettiSlice.actions;
+export const {
+  addPregio,
+  addDifetto,
+  removePregio,
+  removeDifetto,
+  resetPregi,
+  resetDifetti,
+  setMinoriEstratti,
+  resetMinoriEstratti,
+  setNumPregi,
+  setNumDifetti,
+  addMinoreEstratto,
+} = pregiDifettiSlice.actions;
 
 export default pregiDifettiSlice.reducer;
