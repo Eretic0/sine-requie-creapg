@@ -1,101 +1,77 @@
-import Card from "../../components/Card";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import IconButton from "@mui/material/IconButton";
-import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import PregiDb from "../../db/Pregi";
-import DifettiDb from "../../db/Difetti";
-import { useEffect, useState } from "react";
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import { estraiTaroccoMinore } from "../../utils/random";
+import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
+import Card from "../../components/Card";
+import DifettiDb from "../../db/Difetti";
+import PregiDb from "../../db/Pregi";
 import {
-  addPregio,
   addDifetto,
-  removePregio,
+  addPregio,
+  resetDifetti,
+  resetMinoriEstratti,
+  resetPregi,
+  addMinoreEstratto,
+  setNumDifetti,
+  setNumPregi,
 } from "../../redux/slices/pregiDifettiSlice";
+import { estraiTaroccoMinore } from "../../utils/random";
 
 import MinoriPaper from "../../components/MinoriPaper";
 
 export default function PregiDifettiComponent() {
-  const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
+  const { pregi, difetti, minoriEstratti, numDifetti, numPregi } = useSelector(
+    (state) => state.pregiDifetti
+  );
   const dispatch = useDispatch();
-  const [listPregi, setListPregi] = useState([]);
-  const [listDifetti, setListDifetti] = useState([]);
-  const [numDifetti, setNumDifetti] = useState(0);
-  const [numPregi, setNumPregi] = useState(0);
-  const [minoriEstratti, setMinoriEstratti] = useState([]);
 
   const handleSelectPregi = (pregio) => {
     dispatch(addPregio(pregio));
-    setNumPregi((prevState) => prevState + 1);
-    setNumDifetti((prevState) => prevState + pregio.numeroDifetti);
-  };
-
-  const handleSelectDifetti = (difetto) => {
-    dispatch(addDifetto(difetto));
-    setNumDifetti((prevState) => prevState - 1);
-  };
-
-  const handleDeselectPregi = (pregio) => {
-    const preg = listPregi.filter((el) => el.id === pregio.id);
-    dispatch(removePregio(preg));
-    setNumPregi((prevState) => prevState - 1);
-    setNumDifetti((prevState) => prevState - pregio.numeroDifetti);
+    let numPregiLocal = numPregi;
+    numPregiLocal += 1;
+    dispatch(setNumPregi(numPregiLocal));
+    let numDifettiLocal = numDifetti;
+    numDifettiLocal += pregio.numeroDifetti;
+    dispatch(setNumDifetti(numDifettiLocal));
   };
 
   const disableButtonPregi = (pregio) =>
     pregi.some((pr) => pr.id === pregio.id);
 
-  const disableButtonDifetti = (difetto) =>
-    difetti.some((dif) => dif.id === difetto.id);
-
   const estraiDifetti = () => {
     let numeroEstrazioni = 0;
+    let minoriEstrattiInt = [...minoriEstratti];
     while (numeroEstrazioni < numDifetti) {
       const cartaEstratta = estraiTaroccoMinore();
-
-      if (minoriEstratti.length > 0) {
-        if (!minoriEstratti.some((e) => e.id === cartaEstratta.id)) {
-          setMinoriEstratti((state) => [...state, cartaEstratta]);
-          const difettoEstratto = listDifetti.find(
-            (dif) =>
-              dif.carta === cartaEstratta.numeroCarta &&
-              dif.seme === cartaEstratta.semeCarta
-          );
-          handleSelectDifetti(difettoEstratto);
-          numeroEstrazioni++;
-        }
-      } else {
-        setMinoriEstratti((state) => [...state, cartaEstratta]);
-
-        const difettoEstratto = listDifetti.find(
+      if (!minoriEstrattiInt.find((e) => e.id === cartaEstratta.id)) {
+        minoriEstrattiInt.push(cartaEstratta);
+        dispatch(addMinoreEstratto(cartaEstratta));
+        const difettoEstratto = DifettiDb.find(
           (dif) =>
             dif.carta === cartaEstratta.numeroCarta &&
             dif.seme === cartaEstratta.semeCarta
         );
-        handleSelectDifetti(difettoEstratto);
+        dispatch(addDifetto(difettoEstratto));
         numeroEstrazioni++;
       }
     }
+    dispatch(setNumDifetti(0));
   };
 
-  const resetDifetti = () => {
-    setMinoriEstratti([]);
-    setNumPregi(0);
-    setNumDifetti(0);
+  const resetPregiDifetti = () => {
+    dispatch(resetMinoriEstratti());
+    dispatch(setNumPregi(0));
+    dispatch(setNumDifetti(0));
+    dispatch(resetPregi());
+    dispatch(resetDifetti());
   };
-
-  useEffect(() => {
-    setListPregi(PregiDb);
-    setListDifetti(DifettiDb);
-  }, []);
 
   return (
     <Card headerText="Pregi e Difetti">
@@ -106,7 +82,6 @@ export default function PregiDifettiComponent() {
           )}
         </Grid>
       </Grid>
-
       <Grid container spacing={2}>
         <Grid item xs>
           <>
@@ -114,43 +89,37 @@ export default function PregiDifettiComponent() {
               Pregi ({numPregi} selezionati)
             </Typography>
             <List>
-              {listPregi.length > 0 &&
-                listPregi.map((pr) => (
-                  <ListItem
-                    key={pr.id}
-                    secondaryAction={
-                      <>
-                        {disableButtonPregi(pr) ? (
-                          <>
-                            <IconButton
-                              edge="end"
-                              disabled={disableButtonPregi(pr)}
-                              onClick={() => handleSelectPregi(pr)}
-                            >
-                              <CheckCircleOutlineOutlinedIcon />
-                            </IconButton>
-                            <IconButton
-                              edge="end"
-                              onClick={() => handleDeselectPregi(pr)}
-                            >
-                              <RemoveCircleOutlineIcon />
-                            </IconButton>
-                          </>
-                        ) : (
-                          <IconButton
-                            edge="end"
-                            disabled={disableButtonPregi(pr)}
-                            onClick={() => handleSelectPregi(pr)}
-                          >
-                            <AddCircleOutlineIcon />
-                          </IconButton>
-                        )}
-                      </>
-                    }
-                  >
-                    <ListItemText primary={pr.nome} />
-                  </ListItem>
-                ))}
+              {PregiDb.map((pr) => (
+                <ListItem
+                  key={pr.id}
+                  secondaryAction={
+                    <>
+                      {disableButtonPregi(pr) ? (
+                        <IconButton
+                          edge="end"
+                          disabled={disableButtonPregi(pr)}
+                          onClick={() => handleSelectPregi(pr)}
+                        >
+                          <CheckCircleOutlineOutlinedIcon />
+                        </IconButton>
+                      ) : (
+                        <IconButton
+                          edge="end"
+                          disabled={disableButtonPregi(pr)}
+                          onClick={() => handleSelectPregi(pr)}
+                        >
+                          <AddCircleOutlineIcon />
+                        </IconButton>
+                      )}
+                    </>
+                  }
+                >
+                  <ListItemText
+                    primary={pr.nome}
+                    secondary={`Numero difetti: ${pr.numeroDifetti}`}
+                  />
+                </ListItem>
+              ))}
             </List>
           </>
         </Grid>
@@ -171,7 +140,7 @@ export default function PregiDifettiComponent() {
               <Button
                 size="small"
                 variant="contained"
-                onClick={() => resetDifetti()}
+                onClick={() => resetPregiDifetti()}
               >
                 Reset
               </Button>
@@ -179,18 +148,7 @@ export default function PregiDifettiComponent() {
             <List>
               {difetti.length > 0 &&
                 difetti.map((diff) => (
-                  <ListItem
-                    key={diff.id}
-                    secondaryAction={
-                      <IconButton
-                        disabled={disableButtonDifetti(diff)}
-                        edge="end"
-                        onClick={() => handleSelectDifetti(diff)}
-                      >
-                        <CheckCircleOutlineOutlinedIcon />
-                      </IconButton>
-                    }
-                  >
+                  <ListItem key={diff.id}>
                     <ListItemText primary={diff.nome} />
                   </ListItem>
                 ))}
