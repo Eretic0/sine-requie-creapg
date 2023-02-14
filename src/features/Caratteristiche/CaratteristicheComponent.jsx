@@ -8,175 +8,79 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
 import MinoriPaper from "../../components/MinoriPaper";
-import CaratteristicheDb from "../../db/Caratteristiche";
-import { setCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import {
+  addCaratteristicaAggiornata,
+  addMinoreEstratto,
+  resetCaratteristiche,
+  resetCaratteristicheAggiornate,
+  resetMinoriEstratti,
+  resetSemiBonus,
+  resetSemiMalus,
+  setBtnBonusPressed,
+  setBtnMalusPressed,
+  setCaratteristiche,
+  setSemiBonus,
+  setSemiMalus,
+  updateCaratteristica,
+  updateSemiBonus,
+  updateSemiMalus,
+} from "../../redux/slices/caratteristicheSlice";
 import { estraiTaroccoMinore } from "../../utils/random";
 
 function CaratteristicheComponent() {
-  const { caratteristiche } = useSelector((state) => state.caratteristiche);
-  const { taroccoDominante } = useSelector((state) => state.tarocco);
+  const {
+    caratteristiche,
+    caratteristicheStorico,
+    minoriEstratti,
+    semiBonus,
+    semiMalus,
+    caratteristicheAggiornate,
+    btnBonusPressed,
+    btnMalusPressed,
+  } = useSelector((state) => state.caratteristiche);
   const dispatch = useDispatch();
-  const [caratteristica, setCaratteristica] = useState([]);
-  const [minoriEstratti, setMinoriEstratti] = useState([]);
-  const [semiStore, setSemiStore] = useState({
-    Cuori: 0,
-    Quadri: 0,
-    Fiori: 0,
-    Picche: 0,
-  });
 
-  const visibleButton = (seme) => semiStore[seme] !== 0;
+  const visibleButtonBonus = (seme) => isPuntiBonus(seme) > 0;
 
-  const visibleBonus = (seme) => semiStore[seme] > -1;
-  const visibleMalus = (seme) => semiStore[seme] < 0;
+  const visibleButtonMalus = (seme) => isPuntiMalus(seme) > 0;
 
-  const disableButton = (cara) => caratteristica.includes(cara);
+  const disableButtonBonus = (cara) =>
+    caratteristicheAggiornate.some((t) => cara.id === t.id);
 
-  const resetPunti = () => {
-    setSemiStore((prevState) => ({
-      ...prevState,
-      Cuori: 0,
-      Quadri: 0,
-      Fiori: 0,
-      Picche: 0,
-    }));
-  };
+  const disableButtonMalus = (cara) =>
+    caratteristicheAggiornate.some((t) => cara.id === t.id);
 
-  const resetMinoriEstratti = () => {
-    resetPunti();
-    setMinoriEstratti([]);
-    let listCaratteristiche = CaratteristicheDb;
-
-    if (
-      taroccoDominante != null &&
-      taroccoDominante.caratteristicaRef != null
-    ) {
-      const listCaratteristicheByTarocco = taroccoDominante.caratteristicaRef;
-      listCaratteristicheByTarocco.forEach((element) => {
-        listCaratteristiche = listCaratteristiche.map((el) =>
-          el.id === element.id
-            ? { ...el, valore: el.valore + element.valore }
-            : el
-        );
-      });
-      dispatch(setCaratteristiche(listCaratteristiche));
-    }
+  const handleResetMinoriEstratti = () => {
+    dispatch(resetMinoriEstratti());
+    dispatch(resetSemiBonus());
+    dispatch(resetSemiMalus());
+    dispatch(setBtnMalusPressed(false));
+    dispatch(setBtnBonusPressed(false));
+    dispatch(resetCaratteristiche());
+    dispatch(resetCaratteristicheAggiornate());
+    dispatch(setCaratteristiche(caratteristicheStorico));
   };
 
   const addReduceCaratteristica = (caratt, positive) => {
-    const carattSeme = caratt.seme;
+    let car = { ...caratteristiche.find((t) => t.id === caratt.id) };
     if (positive) {
-      setSemiStore((prevState) => ({
-        ...prevState,
-        [carattSeme]: prevState[carattSeme] - 1,
-      }));
-      dispatch(
-        setCaratteristiche(
-          caratteristiche.map((obj) => {
-            if (obj.id === caratt.id) {
-              return { ...obj, valore: caratt.valore + 1 };
-            } else {
-              return obj;
-            }
-          })
-        )
-      );
-      setCaratteristica((state) => [...state, caratt.nome]);
+      car.valore += 1;
     } else {
-      setSemiStore((prevState) => ({
-        ...prevState,
-        [carattSeme]: prevState[carattSeme] + 1,
-      }));
-      dispatch(
-        setCaratteristiche(
-          caratteristiche.map((obj) => {
-            if (obj.id === caratt.id) {
-              return { ...obj, valore: caratt.valore - 1 };
-            } else {
-              return obj;
-            }
-          })
-        )
-      );
-      setCaratteristica((state) => [...state, caratt.nome]);
+      car.valore -= 1;
     }
-  };
-
-  const setBonusMalus = (operand1, positive, operand2) => {
+    dispatch(updateCaratteristica(car));
+    dispatch(addCaratteristicaAggiornata(car));
     if (positive) {
-      return operand1 + operand2;
+      let sem = { ...semiBonus.find((t) => t.id === caratt.seme) };
+      sem.valore -= 1;
+      dispatch(updateSemiBonus(sem));
     } else {
-      return operand1 - operand2;
-    }
-  };
-
-  const setAttrBonusMalus = (numeroCarta, semeCarta, positive) => {
-    let bonusMalus = 0;
-
-    bonusMalus = numeroCarta > 10 ? 2 : 1;
-
-    switch (semeCarta) {
-      case 1:
-        setSemiStore((prevState) => ({
-          ...prevState,
-          Cuori: setBonusMalus(prevState.Cuori, positive, bonusMalus),
-        }));
-        break;
-      case 2:
-        setSemiStore((prevState) => ({
-          ...prevState,
-          Quadri: setBonusMalus(prevState.Quadri, positive, bonusMalus),
-        }));
-        break;
-      case 3:
-        setSemiStore((prevState) => ({
-          ...prevState,
-          Fiori: setBonusMalus(prevState.Fiori, positive, bonusMalus),
-        }));
-        break;
-      case 4:
-        setSemiStore((prevState) => ({
-          ...prevState,
-          Picche: setBonusMalus(prevState.Picche, positive, bonusMalus),
-        }));
-        break;
-      default:
-        break;
-    }
-  };
-
-  const bonusMalusMinori = (bonus) => {
-    resetPunti();
-    let numeroEstrazioni = 0;
-    let numeroTotaleEstrazioni = bonus ? 3 : 4;
-    let minoriEstrattiInt = [...minoriEstratti];
-    while (numeroEstrazioni <= numeroTotaleEstrazioni) {
-      const cartaEstratta = estraiTaroccoMinore();
-      if (minoriEstrattiInt.length > 0) {
-        if (!minoriEstrattiInt.some((e) => e.id === cartaEstratta.id)) {
-          minoriEstrattiInt.push(cartaEstratta);
-          setMinoriEstratti((state) => [...state, cartaEstratta]);
-          setAttrBonusMalus(
-            cartaEstratta.numeroCarta,
-            cartaEstratta.semeCarta,
-            bonus
-          );
-          numeroEstrazioni++;
-        }
-      } else {
-        minoriEstrattiInt.push(cartaEstratta);
-        setMinoriEstratti((state) => [...state, cartaEstratta]);
-        setAttrBonusMalus(
-          cartaEstratta.numeroCarta,
-          cartaEstratta.semeCarta,
-          bonus
-        );
-        numeroEstrazioni++;
-      }
+      let sem = { ...semiMalus.find((t) => t.id === caratt.seme) };
+      sem.valore -= 1;
+      dispatch(updateSemiMalus(sem));
     }
   };
 
@@ -189,6 +93,81 @@ function CaratteristicheComponent() {
     return carVisual;
   };
 
+  const handleEstraiBonusMalus = (bonus) => {
+    bonus
+      ? dispatch(setBtnBonusPressed(true))
+      : dispatch(setBtnMalusPressed(true));
+    let numeroEstrazioni = 0;
+    const numeroTotaleEstrazioni = bonus ? 3 : 4;
+    let minoriEstrattiInt = [...minoriEstratti];
+    let updatedSemiBonusMalus = [
+      { id: "Cuori", valore: 0 },
+      { id: "Quadri", valore: 0 },
+      { id: "Fiori", valore: 0 },
+      { id: "Picche", valore: 0 },
+    ];
+    while (numeroEstrazioni <= numeroTotaleEstrazioni) {
+      const cartaEstratta = estraiTaroccoMinore();
+      if (!minoriEstrattiInt.find((e) => e.id === cartaEstratta.id)) {
+        minoriEstrattiInt.push(cartaEstratta);
+        dispatch(addMinoreEstratto(cartaEstratta));
+        const bonusMalus = cartaEstratta.numeroCarta > 10 ? 2 : 1;
+        const cartaEstrattaSeme = cartaEstratta.descSemeCarta;
+        let seme = {
+          ...updatedSemiBonusMalus.find((t) => t.id === cartaEstrattaSeme),
+        };
+        seme.valore += bonusMalus;
+        updatedSemiBonusMalus = updatedSemiBonusMalus.map((ca) =>
+          ca.id === seme.id ? seme : ca
+        );
+        numeroEstrazioni++;
+      }
+    }
+    bonus
+      ? dispatch(setSemiBonus(updatedSemiBonusMalus))
+      : dispatch(setSemiMalus(updatedSemiBonusMalus));
+  };
+
+  const descPuntiBonusMalus = (seme) => {
+    let desc = seme;
+    if (btnBonusPressed && isPuntiBonus(seme)) {
+      desc = `${seme} (Punti da assegnare: ${getPuntiBonus(seme)})`;
+    } else if (btnMalusPressed && isPuntiMalus(seme)) {
+      desc = `${seme} (Punti da assegnare: ${getPuntiMalus(seme)})`;
+    }
+    return desc;
+  };
+
+  const isPuntiBonus = (seme) => {
+    const sem = semiBonus.find((t) => t.id === seme);
+    return sem.valore > 0;
+  };
+
+  const isPuntiMalus = (seme) => {
+    const sem = semiMalus.find((t) => t.id === seme);
+    return sem.valore > 0;
+  };
+
+  const getPuntiBonus = (seme) => {
+    const sem = semiBonus.find((t) => t.id === seme);
+    return sem.valore;
+  };
+
+  const getPuntiMalus = (seme) => {
+    const sem = semiMalus.find((t) => t.id === seme);
+    return sem.valore;
+  };
+
+  const checkIfBonusPointArePresent = () => semiBonus.some((t) => t.valore > 0);
+
+  const abilitateBtnMalus = () => {
+    let test = true;
+    if (btnBonusPressed && !checkIfBonusPointArePresent() && !btnMalusPressed) {
+      test = false;
+    }
+    return test;
+  };
+
   return (
     <Card headerText="Caratteristiche">
       <>
@@ -196,23 +175,26 @@ function CaratteristicheComponent() {
           <Grid item xs>
             <Stack spacing={3} direction="row">
               <Button
+                disabled={btnBonusPressed}
                 size="small"
                 variant="contained"
-                onClick={() => bonusMalusMinori(true)}
+                onClick={() => handleEstraiBonusMalus(true)}
               >
                 Estrai Bonus
               </Button>
               <Button
+                disabled={abilitateBtnMalus()}
                 size="small"
                 variant="contained"
-                onClick={() => bonusMalusMinori(false)}
+                onClick={() => handleEstraiBonusMalus(false)}
               >
                 Estrai Malus
               </Button>
               <Button
                 size="small"
+                disabled={abilitateBtnMalus()}
                 variant="contained"
-                onClick={() => resetMinoriEstratti()}
+                onClick={() => handleResetMinoriEstratti()}
               >
                 Reset
               </Button>
@@ -228,207 +210,176 @@ function CaratteristicheComponent() {
         <Grid container spacing={4}>
           <Grid item xs>
             <Typography variant="h5" component="div">
-              Cuori ({semiStore.Cuori} punti)
+              {descPuntiBonusMalus("Cuori")}
             </Typography>
           </Grid>
           <Grid item xs>
             <Typography variant="h5" component="div">
-              Quadri ({semiStore.Quadri} punti)
+              {descPuntiBonusMalus("Quadri")}
             </Typography>
           </Grid>
           <Grid item xs>
             <Typography variant="h5" component="div">
-              Fiori ({semiStore.Fiori} punti)
+              {descPuntiBonusMalus("Fiori")}
             </Typography>
           </Grid>
           <Grid item xs>
             <Typography variant="h5" component="div">
-              Picche ({semiStore.Picche} punti)
+              {descPuntiBonusMalus("Picche")}
             </Typography>
           </Grid>
         </Grid>
-        {caratteristiche.length > 0 && (
-          <>
-            <Grid container spacing={4}>
-              <Grid item xs>
-                <List>
-                  {caratteristiche
-                    .filter((car) => car.seme === "Cuori")
-                    .map((car) => (
-                      <ListItem
-                        key={car.id}
-                        secondaryAction={
-                          <>
-                            {visibleButton(car.seme) &&
-                              visibleBonus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.seme) &&
-                              visibleMalus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
-                          </>
-                        }
-                      >
-                        <ListItemText
-                          primary={car.nome}
-                          secondary={visualizzaModificare(car)}
-                        />
-                      </ListItem>
-                    ))}
-                </List>
-              </Grid>
-              <Grid item xs>
-                <List>
-                  {caratteristiche
-                    .filter((car) => car.seme === "Quadri")
-                    .map((car) => (
-                      <ListItem
-                        key={car.id}
-                        secondaryAction={
-                          <>
-                            {visibleButton(car.seme) &&
-                              visibleBonus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.seme) &&
-                              visibleMalus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
-                          </>
-                        }
-                      >
-                        <ListItemText
-                          primary={car.nome}
-                          secondary={car.valore}
-                        />
-                      </ListItem>
-                    ))}
-                </List>
-              </Grid>
-              <Grid item xs>
-                <List>
-                  {caratteristiche
-                    .filter((car) => car.seme === "Fiori")
-                    .map((car) => (
-                      <ListItem
-                        key={car.id}
-                        secondaryAction={
-                          <>
-                            {visibleButton(car.seme) &&
-                              visibleBonus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.seme) &&
-                              visibleMalus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
-                          </>
-                        }
-                      >
-                        <ListItemText
-                          primary={car.nome}
-                          secondary={visualizzaModificare(car)}
-                        />
-                      </ListItem>
-                    ))}
-                </List>
-              </Grid>
-              <Grid item xs>
-                <List>
-                  {caratteristiche
-                    .filter((car) => car.seme === "Picche")
-                    .map((car) => (
-                      <ListItem
-                        key={car.id}
-                        secondaryAction={
-                          <>
-                            {visibleButton(car.seme) &&
-                              visibleBonus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, true)
-                                  }
-                                >
-                                  <AddCircleOutlineIcon />
-                                </IconButton>
-                              )}
-                            {visibleButton(car.seme) &&
-                              visibleMalus(car.seme) && (
-                                <IconButton
-                                  edge="end"
-                                  disabled={disableButton(car.nome)}
-                                  onClick={() =>
-                                    addReduceCaratteristica(car, false)
-                                  }
-                                >
-                                  <RemoveCircleOutline />
-                                </IconButton>
-                              )}
-                          </>
-                        }
-                      >
-                        <ListItemText
-                          primary={car.nome}
-                          secondary={visualizzaModificare(car)}
-                        />
-                      </ListItem>
-                    ))}
-                </List>
-              </Grid>
-            </Grid>
-          </>
-        )}
+        <Grid container spacing={4}>
+          <Grid item xs>
+            <List>
+              {caratteristiche
+                .filter((car) => car.seme === "Cuori")
+                .map((car) => (
+                  <ListItem
+                    key={car.id}
+                    secondaryAction={
+                      <>
+                        {visibleButtonBonus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonBonus(car)}
+                            onClick={() => addReduceCaratteristica(car, true)}
+                          >
+                            <AddCircleOutlineIcon />
+                          </IconButton>
+                        )}
+                        {visibleButtonMalus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonMalus(car)}
+                            onClick={() => addReduceCaratteristica(car, false)}
+                          >
+                            <RemoveCircleOutline />
+                          </IconButton>
+                        )}
+                      </>
+                    }
+                  >
+                    <ListItemText
+                      primary={car.nome}
+                      secondary={visualizzaModificare(car)}
+                    />
+                  </ListItem>
+                ))}
+            </List>
+          </Grid>
+          <Grid item xs>
+            <List>
+              {caratteristiche
+                .filter((car) => car.seme === "Quadri")
+                .map((car) => (
+                  <ListItem
+                    key={car.id}
+                    secondaryAction={
+                      <>
+                        {visibleButtonBonus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonBonus(car)}
+                            onClick={() => addReduceCaratteristica(car, true)}
+                          >
+                            <AddCircleOutlineIcon />
+                          </IconButton>
+                        )}
+                        {visibleButtonMalus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonMalus(car)}
+                            onClick={() => addReduceCaratteristica(car, false)}
+                          >
+                            <RemoveCircleOutline />
+                          </IconButton>
+                        )}
+                      </>
+                    }
+                  >
+                    <ListItemText primary={car.nome} secondary={car.valore} />
+                  </ListItem>
+                ))}
+            </List>
+          </Grid>
+          <Grid item xs>
+            <List>
+              {caratteristiche
+                .filter((car) => car.seme === "Fiori")
+                .map((car) => (
+                  <ListItem
+                    key={car.id}
+                    secondaryAction={
+                      <>
+                        {visibleButtonBonus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonBonus(car)}
+                            onClick={() => addReduceCaratteristica(car, true)}
+                          >
+                            <AddCircleOutlineIcon />
+                          </IconButton>
+                        )}
+                        {visibleButtonMalus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonMalus(car)}
+                            onClick={() => addReduceCaratteristica(car, false)}
+                          >
+                            <RemoveCircleOutline />
+                          </IconButton>
+                        )}
+                      </>
+                    }
+                  >
+                    <ListItemText
+                      primary={car.nome}
+                      secondary={visualizzaModificare(car)}
+                    />
+                  </ListItem>
+                ))}
+            </List>
+          </Grid>
+          <Grid item xs>
+            <List>
+              {caratteristiche
+                .filter((car) => car.seme === "Picche")
+                .map((car) => (
+                  <ListItem
+                    key={car.id}
+                    secondaryAction={
+                      <>
+                        {visibleButtonBonus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonBonus(car)}
+                            onClick={() => addReduceCaratteristica(car, true)}
+                          >
+                            <AddCircleOutlineIcon />
+                          </IconButton>
+                        )}
+                        {visibleButtonMalus(car.seme) && (
+                          <IconButton
+                            edge="end"
+                            disabled={disableButtonMalus(car)}
+                            onClick={() => addReduceCaratteristica(car, false)}
+                          >
+                            <RemoveCircleOutline />
+                          </IconButton>
+                        )}
+                      </>
+                    }
+                  >
+                    <ListItemText
+                      primary={car.nome}
+                      secondary={visualizzaModificare(car)}
+                    />
+                  </ListItem>
+                ))}
+            </List>
+          </Grid>
+        </Grid>
       </>
     </Card>
   );
