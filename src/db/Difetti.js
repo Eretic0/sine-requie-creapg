@@ -241,7 +241,7 @@ const Difetti = [
   },
   {
     id: "341974129326424268",
-    nome: "Reliogione minoritaria",
+    nome: "Religione minoritaria",
     carta: 13,
     seme: 3,
   },
