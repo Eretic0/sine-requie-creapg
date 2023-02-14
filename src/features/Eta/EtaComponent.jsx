@@ -5,9 +5,11 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
+import IconTooltip from "../../components/IconTooltip";
 import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
 import {
   resetCaratteristiche,
+  setCaratteristicheStorico,
   updateCaratteristica,
 } from "../../redux/slices/caratteristicheSlice";
 import {
@@ -18,19 +20,14 @@ import {
 } from "../../redux/slices/etaSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
-import IconTooltip from "../../components/IconTooltip";
-import CaratteristicheDb from "../../db/Caratteristiche";
 
 function EtaComponent() {
   const { eta } = useSelector((state) => state.eta);
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
 
-  const carMemoria = CaratteristicheDb.find(
-    (t) => t.id === "341575873655210189"
-  );
-  const carAspetto = CaratteristicheDb.find(
-    (t) => t.id === "341575948055871693"
-  );
-  const carFiori = CaratteristicheDb.filter((t) => t.seme === "Fiori");
+  const carMemoria = caratteristiche.find((t) => t.id === "341575873655210189");
+  const carAspetto = caratteristiche.find((t) => t.id === "341575948055871693");
+  const carFiori = caratteristiche.filter((t) => t.seme === "Fiori");
 
   const dispatch = useDispatch();
 
@@ -75,6 +72,7 @@ function EtaComponent() {
         dispatch(setArrayProfessioneEta(["N", "A", "E"]));
         assignMalusToCaratteristicheByEta(2);
       }
+      dispatch(setCaratteristicheStorico());
     }
   };
 

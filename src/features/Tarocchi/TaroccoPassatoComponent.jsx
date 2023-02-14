@@ -13,6 +13,7 @@ import {
   addAbilita,
 } from "../../redux/slices/abilitaSlice";
 import AbilitaDb from "../../db/Abilita";
+import IconTooltip from "../../components/IconTooltip";
 
 function TaroccoPassato() {
   const { taroccoPassato } = useSelector((state) => state.tarocco);
@@ -43,13 +44,21 @@ function TaroccoPassato() {
   return (
     <Card headerText="Tarocco Passato">
       <Stack spacing={2} direction="row">
-        <Button
-          size="small"
-          variant="contained"
-          onClick={handleRandomTaroccoPassato}
-        >
-          Estrai
-        </Button>
+        <>
+          <Button
+            size="small"
+            variant="contained"
+            onClick={handleRandomTaroccoPassato}
+          >
+            Estrai
+          </Button>
+          <IconTooltip
+            type={"info"}
+            message={
+              "La modifica comporta il reset dei seguenti campi: Professione, Abilità"
+            }
+          />
+        </>
       </Stack>
       <Grid container spacing={3}>
         <Grid item xs>
