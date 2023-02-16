@@ -54,7 +54,7 @@
 
 ## A riguardo del progetto
 
-[![sine-requie-creapg](https://i.postimg.cc/Y0jbPyBT/Cattura.png)](https://postimg.cc/p5bfhCTB)
+[![sine-requie-creapg](https://i.postimg.cc/43NfF9My/Cattura.png)](https://postimg.cc/FY8XY7hX)
 
 Il progetto permette la creazione di un personaggio per il gioco di ruolo Sine Requie Anno XIII con il regolamento per la seconda edizione.
 La Web Application disponibile online è accessibile tramite browser (sono consigliati browser moderni come Google Chrome o Mozilla Firefox) e permette la possibilità di stampare una scheda del personaggio creato.
@@ -121,7 +121,10 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 ## Roadmap
 
 - [ ] Implementazione Professioni Manuale Base
+- [ ] Implementazione Pregi e Difetti
 - [ ] Distribuzione punteggi abilità
+- [ ] Implementazione Malattie Mentali
+- [ ] Implementazione regole per creare PG Morti
 - [ ] Stampa scheda personaggio
 
 Vedere presso [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) per una lista completa delle feature proposte (e problemi conosciuti).
@@ -132,7 +135,7 @@ Vedere presso [open issues](https://github.com/Eretic0/sine-requie-creapg/issues
 
 ## Contribuire
 
-I contributi sono quello che rende la community open souce un posto magnifico per imparare, ispirare e creare. Ogni contributo che farai saranno **estremamente graditi**.
+I contributi sono quello che rende la community open souce un posto magnifico per imparare, ispirare e creare. Ogni contributo che farai sarà **estremamente gradito**.
 
 Se hai un suggerimento che potrebbe rendere questa appplicazione migliore, ti prego di fare un fork del repository e di creare una pull request. Tu puoi anche semplicemente creare un issue con il tag "miglioramenti".
 Non dimenticare di dare a questo progetto una stella! Grazie ancora!
