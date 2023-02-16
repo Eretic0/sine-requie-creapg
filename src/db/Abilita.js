@@ -573,6 +573,69 @@ const Abilita = [
     grado: "1/2",
     counterFallimento: 0,
   },
+  {
+    id: "343968013220839630",
+    nome: "Lingua -tedesco-",
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0
+  },
+  {
+    id: "343968013220839631",
+    nome: "Guidare -cingolato-",
+    caratteristicaRef: "341575935372296397",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839632",
+    nome: "Uso -fucile-",
+    caratteristicaRef: "341575984630202573",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839633",
+    nome: "Artigianato -meccanico-",
+    caratteristicaRef: "341575976248934605",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839634",
+    nome: "Lingua -latino-",
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0
+  },
+  {
+    id: "343968013220839635",
+    nome: "Uso -spada-",
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839636",
+    nome: "Uso -requiem-",
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839637",
+    nome: "Addestrare -cavallo-",
+    caratteristicaRef: "341428089448825036",
+    grado: null,
+    counterFallimento: 0,
+  },
+  {
+    id: "343968013220839638",
+    nome: "Uso -expiator-",
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+  },
 ];
 
 export default Abilita;
