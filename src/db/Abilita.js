@@ -8,6 +8,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960054820503757",
@@ -16,6 +18,8 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960116705362125",
@@ -24,6 +28,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960130942927053",
@@ -39,6 +45,8 @@ const Abilita = [
     ],
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960144603775181",
@@ -47,6 +55,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960154959511757",
@@ -55,6 +65,8 @@ const Abilita = [
     caratteristicaRef: "341575984630202573",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960168760869069",
@@ -63,6 +75,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960188611461325",
@@ -73,6 +87,8 @@ const Abilita = [
     counterFallimento: 0,
     specificoSelezionato: "",
     specifico: [],
+    professione: false,
+    passato: false,
   },
   {
     id: "343960225473102029",
@@ -81,6 +97,8 @@ const Abilita = [
     caratteristicaRef: "341575965808263373",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960240733028557",
@@ -89,6 +107,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960281846644941",
@@ -97,6 +117,8 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960305710137549",
@@ -105,6 +127,8 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960318838309069",
@@ -113,6 +137,8 @@ const Abilita = [
     caratteristicaRef: "341575965808263373",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960335239086285",
@@ -121,6 +147,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960353026080973",
@@ -129,6 +157,8 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960377471533261",
@@ -139,6 +169,8 @@ const Abilita = [
     counterFallimento: 0,
     specificoSelezionato: "",
     specifico: ArmiDb,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960377471533261v1",
@@ -148,6 +180,8 @@ const Abilita = [
     counterFallimento: 0,
     specifico: ArmiDb,
     specificoSelezionato: "",
+    professione: false,
+    passato: false,
   },
   {
     id: "343960377471533261v2",
@@ -157,6 +191,8 @@ const Abilita = [
     counterFallimento: 0,
     specifico: ArmiDb,
     specificoSelezionato: "",
+    professione: false,
+    passato: false,
   },
   {
     id: "343960552491450573",
@@ -164,6 +200,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960572802367693",
@@ -173,6 +211,8 @@ const Abilita = [
     specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960584919711949",
@@ -180,6 +220,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960624931274957",
@@ -187,6 +229,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960641759871181",
@@ -196,6 +240,8 @@ const Abilita = [
     specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960656041476301",
@@ -203,6 +249,8 @@ const Abilita = [
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960670392287437",
@@ -210,6 +258,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960724060504269",
@@ -217,6 +267,8 @@ const Abilita = [
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960737749663949",
@@ -224,6 +276,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960798508351693",
@@ -231,6 +285,8 @@ const Abilita = [
     caratteristicaRef: "341575960680726733",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960818077925581",
@@ -238,6 +294,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960841070051533",
@@ -245,6 +303,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960868252287181",
@@ -252,6 +312,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960881357390029",
@@ -259,6 +321,8 @@ const Abilita = [
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960897696301261",
@@ -266,6 +330,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960914857296077",
@@ -273,6 +339,8 @@ const Abilita = [
     caratteristicaRef: "341575952441016525",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960932485955789",
@@ -280,6 +348,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960945631953101",
@@ -287,6 +357,8 @@ const Abilita = [
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960977172070605",
@@ -294,6 +366,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343960994335162573",
@@ -301,6 +375,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961040254402765",
@@ -308,6 +384,8 @@ const Abilita = [
     caratteristicaRef: "341575952441016525",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961063271694541",
@@ -315,6 +393,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961081343901901",
@@ -323,6 +403,8 @@ const Abilita = [
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961097641918669",
@@ -334,6 +416,8 @@ const Abilita = [
     ],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961114292256973",
@@ -341,6 +425,8 @@ const Abilita = [
     caratteristicaRef: "341575952441016525",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961128250900685",
@@ -348,6 +434,8 @@ const Abilita = [
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961138922258637",
@@ -355,6 +443,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961163498782925",
@@ -362,6 +452,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961188338499789",
@@ -373,6 +465,8 @@ const Abilita = [
     ],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961201334550733",
@@ -380,6 +474,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961225310240973",
@@ -387,6 +483,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961275507671245",
@@ -394,6 +492,8 @@ const Abilita = [
     caratteristicaRef: "341575965808263373",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961295983214797",
@@ -401,6 +501,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961312311640269",
@@ -408,6 +510,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961323029135565",
@@ -417,6 +521,8 @@ const Abilita = [
     specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961340510994637",
@@ -424,6 +530,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961353401139405",
@@ -431,6 +539,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961388801065165",
@@ -438,6 +548,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961407678578893",
@@ -446,6 +558,8 @@ const Abilita = [
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961428784316621",
@@ -453,6 +567,8 @@ const Abilita = [
     caratteristicaRef: "341575965808263373",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961444479402189",
@@ -460,6 +576,8 @@ const Abilita = [
     caratteristicaRef: "341575960680726733",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961463669391565",
@@ -467,6 +585,8 @@ const Abilita = [
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961475369402573",
@@ -474,6 +594,8 @@ const Abilita = [
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961491016253645",
@@ -483,6 +605,8 @@ const Abilita = [
     specificoSelezionato: "",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961508662739149",
@@ -490,6 +614,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961521508843725",
@@ -497,6 +623,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961548035719373",
@@ -506,6 +634,8 @@ const Abilita = [
     counterFallimento: 0,
     specifico: [],
     specificoSelezionato: "",
+    professione: false,
+    passato: false,
   },
   {
     id: "343961562179961037",
@@ -514,6 +644,8 @@ const Abilita = [
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961571675865293",
@@ -521,6 +653,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961586155651277",
@@ -528,6 +662,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961600257949901",
@@ -535,6 +671,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961628090302669",
@@ -542,6 +680,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961656401854669",
@@ -550,6 +690,8 @@ const Abilita = [
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343961683497058509",
@@ -557,6 +699,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343966802788745421",
@@ -564,6 +708,8 @@ const Abilita = [
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839629",
@@ -572,13 +718,17 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: "1/2",
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839630",
     nome: "Lingua -tedesco-",
     caratteristicaRef: "341575873655210189",
     grado: null,
-    counterFallimento: 0
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839631",
@@ -586,6 +736,8 @@ const Abilita = [
     caratteristicaRef: "341575935372296397",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839632",
@@ -593,6 +745,8 @@ const Abilita = [
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839633",
@@ -600,13 +754,17 @@ const Abilita = [
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839634",
     nome: "Lingua -latino-",
     caratteristicaRef: "341575873655210189",
     grado: null,
-    counterFallimento: 0
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839635",
@@ -614,6 +772,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839636",
@@ -621,6 +781,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839637",
@@ -628,6 +790,8 @@ const Abilita = [
     caratteristicaRef: "341428089448825036",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
   {
     id: "343968013220839638",
@@ -635,6 +799,8 @@ const Abilita = [
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
+    professione: false,
+    passato: false,
   },
 ];
 
