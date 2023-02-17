@@ -11,9 +11,11 @@ import {
   resetAllAbilita,
   updateAbilita,
   addAbilita,
+  setAbilitaStorico,
 } from "../../redux/slices/abilitaSlice";
 import AbilitaDb from "../../db/Abilita";
 import IconTooltip from "../../components/IconTooltip";
+import { resetProfessione } from "../../redux/slices/professioneSlice";
 
 function TaroccoPassato() {
   const { taroccoPassato } = useSelector((state) => state.tarocco);
@@ -26,6 +28,7 @@ function TaroccoPassato() {
       dispatch(setTaroccoPassato(tarocco));
       const listAbilitaByTarocco = tarocco.abilitaRef;
       dispatch(resetAllAbilita());
+      dispatch(resetProfessione());
       listAbilitaByTarocco.forEach((element) => {
         const ability = AbilitaDb.find((ab) => ab.id === element.id);
         let abi = { ...ability };
@@ -38,6 +41,7 @@ function TaroccoPassato() {
           dispatch(addAbilita(abi));
         }
       });
+      dispatch(setAbilitaStorico());
     }
   };
 

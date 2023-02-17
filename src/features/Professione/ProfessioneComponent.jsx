@@ -3,14 +3,19 @@ import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
-import ProfessionePaper from "./ProfessionePaper";
+import IconTooltip from "../../components/IconTooltip";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
-import { setAbilita, updateAbilita } from "../../redux/slices/abilitaSlice";
+import {
+  resetAllAbilita,
+  addAbilita,
+  updateAbilita,
+} from "../../redux/slices/abilitaSlice";
 import { setProfessione } from "../../redux/slices/professioneSlice";
+import ProfessionePaper from "./ProfessionePaper";
 
 const ProfessioneComponent = () => {
   const { professione } = useSelector((state) => state.professione);
@@ -19,28 +24,22 @@ const ProfessioneComponent = () => {
   );
   const { abilita } = useSelector((state) => state.abilita);
   const { taroccoPassato } = useSelector((state) => state.tarocco);
-  const { eta } = useSelector((state) => state.eta);
+  const { arrayProfessioneEta } = useSelector((state) => state.eta);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
-  const [professioni, setProfessioni] = useState([]);
 
-  useEffect(() => {
+  const getListProfessione = () => {
     let professioniFilter = ProfessioniDb;
     if (ambientazione) {
       professioniFilter = professioniFilter.filter(
         (p) => p.ambientazioneRef === ambientazione
       );
     }
-
-    if (eta < 40) {
-      professioniFilter = professioniFilter.filter(
-        (p) => p.eta !== "A" && p.eta !== "E"
-      );
-    } else if (eta < 60) {
-      professioniFilter = professioniFilter.filter((p) => p.eta !== "E");
-    }
-    setProfessioni(professioniFilter);
-  }, [ambientazione, eta]);
+    professioniFilter = professioniFilter.filter((p) =>
+      arrayProfessioneEta.includes(p.eta)
+    );
+    return professioniFilter;
+  };
 
   const handleChangeAbilitaScelta = (event) => {
     let abilityNew = null;
@@ -65,70 +64,65 @@ const ProfessioneComponent = () => {
   };
 
   const handleChangeProfessione = (event) => {
+    dispatch(resetAllAbilita());
     const prof = event.target.value;
     dispatch(setProfessione(prof));
-
-    let listAbilita = AbilitaDb.filter((ab) => ab.prestampata === true);
     const listAbilitaByProfessione = prof.abilitaRef;
-
     listAbilitaByProfessione.forEach((element) => {
-      let abi = AbilitaDb.find((ab) => ab.id === element.id);
-      if (abi.prestampata) {
-        listAbilita = listAbilita.map((el) =>
-          el.id === element.id
-            ? {
-                ...el,
-                grado: +0,
-                professione: true,
-                counterFallimento: el.counterFallimento + 5,
-              }
-            : el
+      const abi = AbilitaDb.find((ab) => ab.id === element.id);
+      if (taroccoPassato.abilitaRef) {
+        const abiPassProf = taroccoPassato.abilitaRef.find(
+          (t) => t.id === abi.id
         );
+        if (abiPassProf) {
+          let abiPassProfMod = { ...abi };
+          abiPassProfMod.grado = +0;
+          abiPassProfMod.professione = true;
+          abiPassProfMod.passato = true;
+          if (abiPassProfMod.prestampata) {
+            abiPassProfMod.counterFallimento += 10;
+            dispatch(updateAbilita(abiPassProfMod));
+          } else {
+            abiPassProfMod.counterFallimento += 5;
+            dispatch(addAbilita(abiPassProfMod));
+          }
+        } else {
+          let abiMod = { ...abi };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          if (abiMod.prestampata) {
+            abiMod.counterFallimento += 5;
+            dispatch(updateAbilita(abiMod));
+          } else {
+            dispatch(addAbilita(abiMod));
+          }
+        }
       } else {
-        abi.grado = +0;
-        abi.professione = true;
-        listAbilita.push(abi);
+        let abiMod = { ...abi };
+        abiMod.grado = +0;
+        abiMod.professione = true;
+        if (abiMod.prestampata) {
+          abiMod.counterFallimento += 5;
+          dispatch(updateAbilita(abiMod));
+        } else {
+          dispatch(addAbilita(abiMod));
+        }
       }
     });
-
-    const listAbilitaByTarocco = taroccoPassato.abilitaRef;
-
-    if (listAbilitaByTarocco != null) {
-      listAbilitaByTarocco.forEach((element) => {
-        let abil = AbilitaDb.find((ab) => ab.id === element.id);
-        if (abil.prestampata) {
-          listAbilita = listAbilita.map((el) =>
-            el.id === element.id
-              ? {
-                  ...el,
-                  grado: +0,
-                  professione: true,
-                  counterFallimento: el.counterFallimento + 5,
-                }
-              : el
-          );
-        } else {
-          abil = { ...abil, grado: +0, professione: true };
-          listAbilita.push(abil);
-        }
-      });
-    }
-
-    dispatch(setAbilita(listAbilita));
   };
 
   return (
     <Card headerText="Professione">
       <Grid container spacing={4}>
         <Grid item xs>
-          <FormControl fullWidth>
-            <InputLabel
-              id="label-input-select-professione"
-              htmlFor="select-professione"
-            >
-              Professione
-            </InputLabel>
-            {professioni.length > 0 && (
+          <>
+            <FormControl fullWidth>
+              <InputLabel
+                id="label-input-select-professione"
+                htmlFor="select-professione"
+              >
+                Professione
+              </InputLabel>
               <Select
                 id="select-professione"
                 label="Professione"
@@ -136,14 +130,20 @@ const ProfessioneComponent = () => {
                 defaultValue=""
                 onChange={handleChangeProfessione}
               >
-                {professioni.map((prof) => (
+                {getListProfessione().map((prof) => (
                   <MenuItem key={prof.id} value={prof}>
                     {prof.nome}
                   </MenuItem>
                 ))}
               </Select>
-            )}
-          </FormControl>
+            </FormControl>
+            <IconTooltip
+              type={"info"}
+              message={
+                "La modifica comporta il reset dei seguenti campi: Abilità"
+              }
+            />
+          </>
         </Grid>
       </Grid>
       <Grid container spacing={3}>

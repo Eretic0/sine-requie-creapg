@@ -1,24 +1,23 @@
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Checkbox from "@mui/material/Checkbox";
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import CaratteristicheDb from "../../db/Caratteristiche";
-import Checkbox from "@mui/material/Checkbox";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import IconButton from "@mui/material/IconButton";
 import { useDispatch, useSelector } from "react-redux";
+import ArmiDb from "../../db/Armi";
+import ProfiloAbilitaDb from "../../db/ProfiloAbilita";
 import {
   removeBonusFromListBonusAbilita,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
-import ArmiDb from "../../db/Armi";
-import ProfiloAbilitaDb from "../../db/ProfiloAbilita";
 
 const AbilitaTable = ({
   abilita,
@@ -59,7 +58,7 @@ const AbilitaTable = ({
 
   const getCaratteristica = (ab) => {
     if (ab.caratteristicaRef != null) {
-      const car = CaratteristicheDb.find(
+      const car = caratteristiche.find(
         (car) => car.id === ab.caratteristicaRef
       );
       return car.nome + " " + car.valore;
