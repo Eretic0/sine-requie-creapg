@@ -28,6 +28,34 @@ const ProfessionePaper = ({
     }
   };
 
+  const getAbilitaSceltaLibera = (listAbilitaSceltaLibera) => {
+    return (
+      <FormControl fullWidth>
+        <FormLabel id="abilitascelta-radio-buttons-group-label">
+          Abilità a scelta
+        </FormLabel>
+        <RadioGroup
+          name="abilitascelta-radio-buttons-group"
+          value={
+            abilita.find((t) => t.scelta === true)
+              ? abilita.find((t) => t.scelta === true).id
+              : ""
+          }
+          onChange={handleChangeAbilitaScelta}
+        >
+          {listAbilitaSceltaLibera.map((ar) => (
+            <FormControlLabel
+              key={ar.id}
+              value={ar.id}
+              control={<Radio />}
+              label={AbilitaDb.find((a) => a.id === ar.id).nome}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    );
+  };
+
   const getAbilitaScelta = (listAbilitaScelta) => {
     return (
       <>
@@ -61,6 +89,28 @@ const ProfessionePaper = ({
     );
   };
 
+  const AbilitaSceltaComponent = () => {
+    return (
+      <>
+        <Typography gutterBottom variant="h6" component="div">
+          Seleziona un'abilità a scelta
+        </Typography>
+        {getAbilitaScelta(professione.abilitaSceltaRef)}
+      </>
+    );
+  };
+
+  const AbilitaSceltaLiberaComponent = () => {
+    return (
+      <>
+        <Typography gutterBottom variant="h6" component="div">
+          Seleziona un'abilità a scelta
+        </Typography>
+        {getAbilitaSceltaLibera(professione.abilitaLiberaListRef)}
+      </>
+    );
+  };
+
   return (
     <Box
       sx={{
@@ -84,16 +134,14 @@ const ProfessionePaper = ({
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => getAbilita(ab))}
             <br />
-            <Stack>
-              {professione.abilitaSceltaRef && (
-                <Typography gutterBottom variant="h6" component="div">
-                  Seleziona un'abilità a scelta
-                </Typography>
-              )}
-              {professione.abilitaSceltaRef &&
-                getAbilitaScelta(professione.abilitaSceltaRef)}
-              <br />
+            <Stack direction="row" spacing={2}>
+              <>
+                {professione.abilitaSceltaRef && AbilitaSceltaComponent()}
+                {professione.abilitaLiberaListRef &&
+                  AbilitaSceltaLiberaComponent()}
+              </>
             </Stack>
+            <br />
             <Typography gutterBottom variant="h6" component="div">
               {`Punti da distribuire per abilità di Professione: ${puntiAbilita} e Grado massimo per Abilità: ${gradoMassimo}`}
             </Typography>
