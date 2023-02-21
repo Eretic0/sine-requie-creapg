@@ -22,6 +22,7 @@ import {
   resetProfessioneAbilitaScelteLibere,
   setProfessione,
   setProfessioneAbilitaScelteLibere,
+  setProfessionePrecedente,
   updateProfessioneAbilitaScelta,
 } from "../../redux/slices/professioneSlice";
 import ProfessionePaper from "./ProfessionePaper";
@@ -30,6 +31,7 @@ const ProfessioneComponent = () => {
   const {
     professione,
     professioneAbilitaScelte,
+    professionePrecedente,
     professioneAbilitaScelteLibere,
   } = useSelector((state) => state.professione);
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
@@ -127,6 +129,25 @@ const ProfessioneComponent = () => {
     dispatch(resetProfessioneAbilitaScelte());
     dispatch(resetProfessioneAbilitaScelteLibere());
     dispatch(resetAllAbilita());
+    const prof = event.target.value;
+    dispatch(setProfessionePrecedente(prof));
+    const listAbilitaByProfessione = prof.abilitaRef;
+    listAbilitaByProfessione.forEach((element) => {
+      let abilitaStor = abilitaStoricoTarocco.find((t) => t.id === element.id);
+      if (abilitaStor) {
+        let abiMod = { ...abilitaStor };
+        abiMod.grado = +0;
+        abiMod.professione = true;
+        abiMod.counterFallimento += 5;
+        dispatch(updateAbilita(abiMod));
+      } else {
+        abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+        let abiMod = { ...abilitaStor };
+        abiMod.grado = +0;
+        abiMod.professione = true;
+        dispatch(addAbilita(abiMod));
+      }
+    });
   };
 
   const handleChangeProfessione = (event) => {
@@ -201,7 +222,7 @@ const ProfessioneComponent = () => {
                 <Select
                   id="select-professione-precedente"
                   label="Professione Precedente"
-                  value={professione}
+                  value={professionePrecedente}
                   defaultValue=""
                   onChange={handleChangeProfessionePrecedente}
                 >
@@ -226,6 +247,7 @@ const ProfessioneComponent = () => {
         <Grid item xs>
           <ProfessionePaper
             professione={professione}
+            professionePrecedente={professionePrecedente}
             professioneAbilitaScelte={professioneAbilitaScelte}
             handleChangeAbilitaScelta={handleChangeAbilitaScelta}
             handleChangeAbilitaSceltaLibera={handleChangeAbilitaSceltaLibera}
