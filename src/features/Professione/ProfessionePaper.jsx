@@ -1,21 +1,26 @@
-import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import Grid from "@mui/material/Grid";
+import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
+import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import AbilitaDb from "../../db/Abilita";
 import AbilitaTable from "../Abilita/AbilitaTable";
+import ListItemText from "@mui/material/ListItemText";
+import Checkbox from "@mui/material/Checkbox";
+import OutlinedInput from "@mui/material/OutlinedInput";
 
 const ProfessionePaper = ({
   professione,
+  professioneAbilitaScelte,
   handleChangeAbilitaScelta,
+  handleChangeAbilitaSceltaLibera,
   puntiAbilita,
   gradoMassimo,
   abilita,
+  professioneAbilitaScelteLibere,
 }) => {
   const getAbilita = (ab) => {
     const ability = AbilitaDb.find((a) => a.id === ab.id);
@@ -28,30 +33,64 @@ const ProfessionePaper = ({
     }
   };
 
+  const isAbilitaSceltaLiberaPresent = (idAbilita) => {
+    let test = false;
+    const ability = professioneAbilitaScelteLibere.find((t) => t === idAbilita);
+    if (ability) {
+      test = true;
+    }
+    return test;
+  };
+
+  const isAbilitaSceltaPresent = (idList) => {
+    let test = false;
+    const select = professioneAbilitaScelte.find((t) => t.idList === idList);
+    if (select) {
+      test = true;
+    }
+    return test;
+  };
+
+  const isMaxAbilitaSceltaLibera = () =>
+    professioneAbilitaScelteLibere.length === professione.numeroAbilitaLibera;
+
   const getAbilitaSceltaLibera = (listAbilitaSceltaLibera) => {
     return (
       <FormControl fullWidth>
         <FormLabel id="abilitascelta-radio-buttons-group-label">
           Abilità a scelta
         </FormLabel>
-        <RadioGroup
-          name="abilitascelta-radio-buttons-group"
-          value={
-            abilita.find((t) => t.scelta === true)
-              ? abilita.find((t) => t.scelta === true).id
-              : ""
+        <Select
+          labelId="abilitasceltalibera-select-label"
+          id="select-abilitasceltalibera"
+          label="Abilità a scelta"
+          defaultValue=""
+          multiple
+          renderValue={(selected) =>
+            selected
+              .map((t) => AbilitaDb.find((a) => a.id === t).nome)
+              .join(", ")
           }
-          onChange={handleChangeAbilitaScelta}
+          input={<OutlinedInput label="Abilità a scelta" />}
+          value={professioneAbilitaScelteLibere}
+          onChange={handleChangeAbilitaSceltaLibera}
         >
           {listAbilitaSceltaLibera.map((ar) => (
-            <FormControlLabel
+            <MenuItem
               key={ar.id}
               value={ar.id}
-              control={<Radio />}
-              label={AbilitaDb.find((a) => a.id === ar.id).nome}
-            />
+              disabled={
+                isAbilitaSceltaLiberaPresent(ar.id) ||
+                isMaxAbilitaSceltaLibera()
+              }
+            >
+              <Checkbox checked={isAbilitaSceltaLiberaPresent(ar.id)} />
+              <ListItemText
+                primary={AbilitaDb.find((a) => a.id === ar.id).nome}
+              />
+            </MenuItem>
           ))}
-        </RadioGroup>
+        </Select>
       </FormControl>
     );
   };
@@ -60,29 +99,34 @@ const ProfessionePaper = ({
     return (
       <>
         {listAbilitaScelta.map((abi) => (
-          <FormControl fullWidth key={abi.id}>
-            <FormLabel id="abilitascelta-radio-buttons-group-label">
-              Abilità a scelta
+          <FormControl fullWidth key={abi.idList}>
+            <FormLabel id="abilitascelta-select-label">
+              Abilità da selezionare
             </FormLabel>
-            <RadioGroup
-              name="abilitascelta-radio-buttons-group"
-              key={abi.id}
+            <Select
+              labelId="abilitascelta-select-label"
+              id="select-abilitascelta"
+              label="Abilità da selezionare"
+              defaultValue=""
               value={
-                abilita.find((t) => t.scelta === true)
-                  ? abilita.find((t) => t.scelta === true).id
+                professioneAbilitaScelte.find((t) => t.idList === abi.idList)
+                  ? professioneAbilitaScelte.find(
+                      (t) => t.idList === abi.idList
+                    ).idAbilita
                   : ""
               }
-              onChange={handleChangeAbilitaScelta}
+              onChange={(event) => handleChangeAbilitaScelta(abi.idList, event)}
             >
-              {abi.list.map((ar) => (
-                <FormControlLabel
+              {abi.listAbilita.map((ar) => (
+                <MenuItem
                   key={ar.id}
                   value={ar.id}
-                  control={<Radio />}
-                  label={AbilitaDb.find((a) => a.id === ar.id).nome}
-                />
+                  disabled={isAbilitaSceltaPresent(abi.idList)}
+                >
+                  {AbilitaDb.find((a) => a.id === ar.id).nome}
+                </MenuItem>
               ))}
-            </RadioGroup>
+            </Select>
           </FormControl>
         ))}
       </>
@@ -93,7 +137,7 @@ const ProfessionePaper = ({
     return (
       <>
         <Typography gutterBottom variant="h6" component="div">
-          Seleziona un'abilità a scelta
+          Seleziona un'abilità fra le opzioni
         </Typography>
         {getAbilitaScelta(professione.abilitaSceltaRef)}
       </>
@@ -104,7 +148,7 @@ const ProfessionePaper = ({
     return (
       <>
         <Typography gutterBottom variant="h6" component="div">
-          Seleziona un'abilità a scelta
+          {`Abilità a scelta: ${professione.numeroAbilitaLibera} da selezionare`}
         </Typography>
         {getAbilitaSceltaLibera(professione.abilitaLiberaListRef)}
       </>
@@ -134,13 +178,15 @@ const ProfessionePaper = ({
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => getAbilita(ab))}
             <br />
-            <Stack direction="row" spacing={2}>
-              <>
+            <Grid container spacing={2}>
+              <Grid item xs>
                 {professione.abilitaSceltaRef && AbilitaSceltaComponent()}
+              </Grid>
+              <Grid item xs>
                 {professione.abilitaLiberaListRef &&
                   AbilitaSceltaLiberaComponent()}
-              </>
-            </Stack>
+              </Grid>
+            </Grid>
             <br />
             <Typography gutterBottom variant="h6" component="div">
               {`Punti da distribuire per abilità di Professione: ${puntiAbilita} e Grado massimo per Abilità: ${gradoMassimo}`}
