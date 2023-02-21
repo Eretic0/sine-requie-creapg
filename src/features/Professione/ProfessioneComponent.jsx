@@ -10,15 +10,24 @@ import IconTooltip from "../../components/IconTooltip";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
 import {
-  resetAllAbilita,
   addAbilita,
+  resetAllAbilita,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
-import { setProfessione } from "../../redux/slices/professioneSlice";
+import {
+  addProfessioneAbilitaScelta,
+  setProfessione,
+  setProfessioneAbilitaScelteLibere,
+  updateProfessioneAbilitaScelta,
+} from "../../redux/slices/professioneSlice";
 import ProfessionePaper from "./ProfessionePaper";
 
 const ProfessioneComponent = () => {
-  const { professione } = useSelector((state) => state.professione);
+  const {
+    professione,
+    professioneAbilitaScelte,
+    professioneAbilitaScelteLibere,
+  } = useSelector((state) => state.professione);
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
     (state) => state.eta
   );
@@ -27,6 +36,31 @@ const ProfessioneComponent = () => {
   const { arrayProfessioneEta } = useSelector((state) => state.eta);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
+
+  const handleChangeAbilitaSceltaLibera = (event) => {
+    let abilitySelected = event.target.value;
+
+    if (typeof abilitySelected === "string") {
+      abilitySelected = abilitySelected.split(",");
+    }
+    dispatch(setProfessioneAbilitaScelteLibere(abilitySelected));
+
+    abilitySelected.forEach((element) => {
+      let ability = abilita.find((ab) => ab.id === element);
+      if (!ability) {
+        ability = AbilitaDb.find((ab) => ab.id === element);
+        if (!ability.scelta) {
+          ability.scelta = true;
+          dispatch(addAbilita(setAbilityForProfessione(ability)));
+        }
+      } else {
+        if (!ability.scelta) {
+          ability.scelta = true;
+          dispatch(updateAbilita(setAbilityForProfessione(ability)));
+        }
+      }
+    });
+  };
 
   const getListProfessione = () => {
     let professioniFilter = ProfessioniDb;
@@ -41,26 +75,34 @@ const ProfessioneComponent = () => {
     return professioniFilter;
   };
 
-  const handleChangeAbilitaScelta = (event) => {
-    let abilityNew = null;
-    let ability = abilita.find((ab) => ab.id === event.target.value);
-    if (!ability) {
-      ability = AbilitaDb.find((ab) => ab.id === event.target.value);
+  const setAbilityForProfessione = (ability) => {
+    let abilityInt = { ...ability };
+    if (abilityInt.prestampata) {
+      abilityInt.counterFallimento += 5;
     }
-    abilityNew = { ...ability };
-    if (abilityNew.prestampata) {
-      abilityNew.counterFallimento += 5;
-      abilityNew.grado = 0;
-      if (abilityNew.counterFallimento >= 10) {
-        abilityNew.counterFallimento = 0;
-        abilityNew.grado += 1;
-      }
+    abilityInt.grado = 0;
+    abilityInt.professione = true;
+    return abilityInt;
+  };
+
+  const handleChangeAbilitaScelta = (idList, event) => {
+    const idAbilita = event.target.value;
+    const professioneAbilitaScelta = {
+      idList,
+      idAbilita,
+    };
+    if (professioneAbilitaScelte.find((t) => t.idList === idList)) {
+      dispatch(updateProfessioneAbilitaScelta(professioneAbilitaScelta));
     } else {
-      abilityNew.grado = 0;
+      dispatch(addProfessioneAbilitaScelta(professioneAbilitaScelta));
     }
-    abilityNew.professione = true;
-    abilityNew.scelta = true;
-    dispatch(updateAbilita(abilityNew));
+    let ability = abilita.find((ab) => ab.id === idAbilita);
+    if (!ability) {
+      ability = AbilitaDb.find((ab) => ab.id === idAbilita);
+      dispatch(addAbilita(setAbilityForProfessione(ability)));
+    } else {
+      dispatch(updateAbilita(setAbilityForProfessione(ability)));
+    }
   };
 
   const handleChangeProfessione = (event) => {
@@ -150,10 +192,13 @@ const ProfessioneComponent = () => {
         <Grid item xs>
           <ProfessionePaper
             professione={professione}
+            professioneAbilitaScelte={professioneAbilitaScelte}
             handleChangeAbilitaScelta={handleChangeAbilitaScelta}
+            handleChangeAbilitaSceltaLibera={handleChangeAbilitaSceltaLibera}
             puntiAbilita={puntiAbilitaEta}
             gradoMassimo={gradoMassimoEta}
             abilita={abilita}
+            professioneAbilitaScelteLibere={professioneAbilitaScelteLibere}
           />
         </Grid>
       </Grid>
