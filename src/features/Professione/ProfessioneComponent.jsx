@@ -12,10 +12,14 @@ import ProfessioniDb from "../../db/Professioni";
 import {
   addAbilita,
   resetAllAbilita,
+  setAbilita,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
 import {
   addProfessioneAbilitaScelta,
+  resetProfessione,
+  resetProfessioneAbilitaScelte,
+  resetProfessioneAbilitaScelteLibere,
   setProfessione,
   setProfessioneAbilitaScelteLibere,
   updateProfessioneAbilitaScelta,
@@ -31,8 +35,9 @@ const ProfessioneComponent = () => {
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
     (state) => state.eta
   );
-  const { abilita } = useSelector((state) => state.abilita);
-  const { taroccoPassato } = useSelector((state) => state.tarocco);
+  const { abilita, abilitaStoricoTarocco } = useSelector(
+    (state) => state.abilita
+  );
   const { arrayProfessioneEta } = useSelector((state) => state.eta);
   const { ambientazione } = useSelector((state) => state.generalita);
   const dispatch = useDispatch();
@@ -75,6 +80,19 @@ const ProfessioneComponent = () => {
     return professioniFilter;
   };
 
+  const getListProfessioneFilterByPrecedente = () => {
+    let professioniFilter = ProfessioniDb.filter(
+      (p) => p.ambientazioneRef === professione.ambientazioneRef
+    );
+    professioniFilter = professioniFilter.filter(
+      (p) => p.id !== professione.id
+    );
+    professioniFilter = professioniFilter.filter((p) =>
+      arrayProfessioneEta.includes(p.eta)
+    );
+    return professioniFilter;
+  };
+
   const setAbilityForProfessione = (ability) => {
     let abilityInt = { ...ability };
     if (abilityInt.prestampata) {
@@ -105,50 +123,33 @@ const ProfessioneComponent = () => {
     }
   };
 
+  const handleChangeProfessionePrecedente = (event) => {
+    dispatch(resetProfessioneAbilitaScelte());
+    dispatch(resetProfessioneAbilitaScelteLibere());
+    dispatch(resetAllAbilita());
+  };
+
   const handleChangeProfessione = (event) => {
+    dispatch(resetProfessione());
     dispatch(resetAllAbilita());
     const prof = event.target.value;
     dispatch(setProfessione(prof));
     const listAbilitaByProfessione = prof.abilitaRef;
+    dispatch(setAbilita(abilitaStoricoTarocco));
     listAbilitaByProfessione.forEach((element) => {
-      const abi = AbilitaDb.find((ab) => ab.id === element.id);
-      if (taroccoPassato.abilitaRef) {
-        const abiPassProf = taroccoPassato.abilitaRef.find(
-          (t) => t.id === abi.id
-        );
-        if (abiPassProf) {
-          let abiPassProfMod = { ...abi };
-          abiPassProfMod.grado = +0;
-          abiPassProfMod.professione = true;
-          abiPassProfMod.passato = true;
-          if (abiPassProfMod.prestampata) {
-            abiPassProfMod.counterFallimento += 10;
-            dispatch(updateAbilita(abiPassProfMod));
-          } else {
-            abiPassProfMod.counterFallimento += 5;
-            dispatch(addAbilita(abiPassProfMod));
-          }
-        } else {
-          let abiMod = { ...abi };
-          abiMod.grado = +0;
-          abiMod.professione = true;
-          if (abiMod.prestampata) {
-            abiMod.counterFallimento += 5;
-            dispatch(updateAbilita(abiMod));
-          } else {
-            dispatch(addAbilita(abiMod));
-          }
-        }
-      } else {
-        let abiMod = { ...abi };
+      let abilitaStor = abilitaStoricoTarocco.find((t) => t.id === element.id);
+      if (abilitaStor) {
+        let abiMod = { ...abilitaStor };
         abiMod.grado = +0;
         abiMod.professione = true;
-        if (abiMod.prestampata) {
-          abiMod.counterFallimento += 5;
-          dispatch(updateAbilita(abiMod));
-        } else {
-          dispatch(addAbilita(abiMod));
-        }
+        abiMod.counterFallimento += 5;
+        dispatch(updateAbilita(abiMod));
+      } else {
+        abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+        let abiMod = { ...abilitaStor };
+        abiMod.grado = +0;
+        abiMod.professione = true;
+        dispatch(addAbilita(abiMod));
       }
     });
   };
@@ -187,6 +188,39 @@ const ProfessioneComponent = () => {
             />
           </>
         </Grid>
+        {professione.professionePrecedente && (
+          <Grid item xs>
+            <>
+              <FormControl fullWidth>
+                <InputLabel
+                  id="label-input-select-professione-precedente"
+                  htmlFor="select-professione-precedente"
+                >
+                  Professione Precedente
+                </InputLabel>
+                <Select
+                  id="select-professione-precedente"
+                  label="Professione Precedente"
+                  value={professione}
+                  defaultValue=""
+                  onChange={handleChangeProfessionePrecedente}
+                >
+                  {getListProfessioneFilterByPrecedente().map((prof) => (
+                    <MenuItem key={prof.id} value={prof}>
+                      {prof.nome}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <IconTooltip
+                type={"info"}
+                message={
+                  "La modifica comporta il reset dei seguenti campi: Abilità"
+                }
+              />
+            </>
+          </Grid>
+        )}
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs>

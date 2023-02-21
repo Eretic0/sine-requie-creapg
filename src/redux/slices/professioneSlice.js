@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   professione: "",
+  professionePrecedente: "",
   professioneAbilitaScelte: [],
   professioneAbilitaScelteLibere: [],
 };
@@ -13,8 +14,14 @@ export const professioneSlice = createSlice({
     setProfessione: (state, { payload }) => {
       state.professione = payload;
     },
+    setProfessionePrecedente: (state, { payload }) => {
+      state.professionePrecedente = payload;
+    },
     resetProfessione: (state) => {
       state.professione = "";
+      state.professionePrecedente = "";
+      state.professioneAbilitaScelte = [];
+      state.professioneAbilitaScelteLibere = [];
     },
     setProfessioneAbilitaScelte: (state, { payload }) => {
       state.professioneAbilitaScelte = payload;
@@ -41,6 +48,14 @@ export const professioneSlice = createSlice({
           ab.id === payload.id ? payload : ab
         );
     },
+
+    resetProfessioneAbilitaScelte: (state) => {
+      state.professioneAbilitaScelte = [];
+    },
+
+    resetProfessioneAbilitaScelteLibere: (state) => {
+      state.professioneAbilitaScelteLibere = [];
+    },
   },
 });
 
@@ -53,6 +68,9 @@ export const {
   setProfessioneAbilitaScelteLibere,
   addProfessioneAbilitaSceltaLibera,
   updateProfessioneAbilitaSceltaLibera,
+  resetProfessioneAbilitaScelte,
+  resetProfessioneAbilitaScelteLibere,
+  setProfessionePrecedente,
 } = professioneSlice.actions;
 
 export default professioneSlice.reducer;
