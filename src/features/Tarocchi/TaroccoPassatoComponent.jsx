@@ -11,7 +11,7 @@ import {
   resetAllAbilita,
   updateAbilita,
   addAbilita,
-  setAbilitaStorico,
+  setAbilitaStoricoTarocco,
 } from "../../redux/slices/abilitaSlice";
 import AbilitaDb from "../../db/Abilita";
 import IconTooltip from "../../components/IconTooltip";
@@ -41,7 +41,7 @@ function TaroccoPassato() {
           dispatch(addAbilita(abi));
         }
       });
-      dispatch(setAbilitaStorico());
+      dispatch(setAbilitaStoricoTarocco());
     }
   };
 
