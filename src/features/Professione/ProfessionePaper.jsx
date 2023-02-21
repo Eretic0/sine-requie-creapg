@@ -14,6 +14,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 
 const ProfessionePaper = ({
   professione,
+  professionePrecedente,
   professioneAbilitaScelte,
   handleChangeAbilitaScelta,
   handleChangeAbilitaSceltaLibera,
@@ -145,12 +146,20 @@ const ProfessionePaper = ({
   };
 
   const AbilitaSceltaLiberaComponent = () => {
+    const numeroAbilita = professione.numeroAbilitaLibera
+      ? professione.numeroAbilitaLibera
+      : professionePrecedente.numeroAbilitaLibera;
+
+    const listAbility = professione.abilitaLiberaListRef
+      ? professione.abilitaLiberaListRef
+      : professionePrecedente.abilitaLiberaListRef;
+
     return (
       <>
         <Typography gutterBottom variant="h6" component="div">
-          {`Abilità a scelta: ${professione.numeroAbilitaLibera} da selezionare`}
+          {`Abilità a scelta: ${numeroAbilita} da selezionare`}
         </Typography>
-        {getAbilitaSceltaLibera(professione.abilitaLiberaListRef)}
+        {getAbilitaSceltaLibera(listAbility)}
       </>
     );
   };
@@ -175,17 +184,28 @@ const ProfessionePaper = ({
                 ? `${professione.nome} - ${professione.eta}`
                 : professione.nome}
             </Typography>
+            {professione.professionePrecedente &&
+              "La professione eredita le abilità della professione precedente"}
+            <br />
             {professione.abilitaRef &&
               professione.abilitaRef.map((ab) => getAbilita(ab))}
             <br />
+            {professionePrecedente.abilitaRef &&
+              professionePrecedente.abilitaRef.map((ab) => getAbilita(ab))}
+            <br />
             <Grid container spacing={2}>
-              <Grid item xs>
-                {professione.abilitaSceltaRef && AbilitaSceltaComponent()}
-              </Grid>
-              <Grid item xs>
-                {professione.abilitaLiberaListRef &&
-                  AbilitaSceltaLiberaComponent()}
-              </Grid>
+              {(professione.abilitaSceltaRef ||
+                professionePrecedente.abilitaSceltaRef) && (
+                <Grid item xs>
+                  {AbilitaSceltaComponent()}
+                </Grid>
+              )}
+              {(professione.abilitaLiberaListRef ||
+                professionePrecedente.abilitaSceltaRef) && (
+                <Grid item xs>
+                  {AbilitaSceltaLiberaComponent()}
+                </Grid>
+              )}
             </Grid>
             <br />
             <Typography gutterBottom variant="h6" component="div">
