@@ -15,6 +15,7 @@ import ArmiDb from "../../db/Armi";
 import ProfiloAbilitaDb from "../../db/ProfiloAbilita";
 import {
   removeBonusFromListBonusAbilita,
+  setAbilitaStoricoProfessione,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
@@ -120,6 +121,7 @@ const AbilitaTable = ({
       dispatch(updateAbilita(abilityNew));
       let puntiAbilita = puntiAbilitaEta - 1;
       dispatch(setPuntiAbilitaEta(puntiAbilita));
+      dispatch(setAbilitaStoricoProfessione());
     }
   };
 
