@@ -135,12 +135,15 @@ const ProfessionePaper = ({
   };
 
   const AbilitaSceltaComponent = () => {
+    const listAbility = professione.abilitaSceltaRef
+      ? professione.abilitaSceltaRef
+      : professionePrecedente.abilitaSceltaRef;
     return (
       <>
         <Typography gutterBottom variant="h6" component="div">
           Seleziona un'abilità fra le opzioni
         </Typography>
-        {getAbilitaScelta(professione.abilitaSceltaRef)}
+        {getAbilitaScelta(listAbility)}
       </>
     );
   };
@@ -201,7 +204,7 @@ const ProfessionePaper = ({
                 </Grid>
               )}
               {(professione.abilitaLiberaListRef ||
-                professionePrecedente.abilitaSceltaRef) && (
+                professionePrecedente.abilitaLiberaListRef) && (
                 <Grid item xs>
                   {AbilitaSceltaLiberaComponent()}
                 </Grid>
