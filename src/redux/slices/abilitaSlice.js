@@ -4,7 +4,10 @@ import AbilitaDb from "../../db/Abilita";
 const initialState = {
   abilita: [...AbilitaDb.filter((ab) => ab.prestampata === true)],
   abilitaStoricoTarocco: [...AbilitaDb.filter((ab) => ab.prestampata === true)],
-  profiloAbilitaSelezionato: null,
+  abilitaStoricoProfessione: [
+    ...AbilitaDb.filter((ab) => ab.prestampata === true),
+  ],
+  profiloAbilitaSelezionato: "",
   listBonusAbilita: [],
 };
 
@@ -51,6 +54,10 @@ export const abilitaSlice = createSlice({
     setAbilitaStoricoTarocco: (state) => {
       state.abilitaStoricoTarocco = [...state.abilita];
     },
+
+    setAbilitaStoricoProfessione: (state) => {
+      state.abilitaStoricoProfessione = [...state.abilita];
+    },
   },
 });
 
@@ -64,6 +71,7 @@ export const {
   resetAbilita,
   resetAllAbilita,
   setAbilitaStoricoTarocco,
+  setAbilitaStoricoProfessione,
 } = abilitaSlice.actions;
 
 export default abilitaSlice.reducer;
