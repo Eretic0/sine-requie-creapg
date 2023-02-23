@@ -120,9 +120,13 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 
 ## Roadmap
 
-- [ ] Implementazione Professioni Manuale Base
+- [x] Generalità ed età
+- [x] Estrazione Tarocco Dominante e Tarocco Passato
+- [x] Gestione Caratteristiche
 - [ ] Implementazione Pregi e Difetti
-- [ ] Distribuzione punteggi abilità
+- [x] Professioni Eccellenti e Avanzate
+- [x] Implementazione Professioni Manuale Base
+- [x] Distribuzione punteggi abilità
 - [ ] Implementazione Malattie Mentali
 - [ ] Implementazione regole per creare PG Morti
 - [ ] Stampa scheda personaggio
