@@ -110,8 +110,6 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 
 [![sine-requie-creapg](https://i.postimg.cc/vmzhZdQp/Cattura2.png)](https://postimg.cc/McnV9NfD)
 
-[![sine-requie-creapg](https://i.postimg.cc/LXQVjBgD/Cattura3.png)](https://postimg.cc/MMRRSBDf)
-
 [![sine-requie-creapg](https://i.postimg.cc/qBYLRwTM/Cattura4.png)](https://postimg.cc/7b37tghp)
 
 <p align="right">(<a href="#readme-top">ritorna all'inizio</a>)</p>
@@ -120,10 +118,15 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 
 ## Roadmap
 
-- [ ] Implementazione Professioni Manuale Base
+- [x] Generalità ed età
+- [x] Estrazione Tarocco Dominante e Tarocco Passato
+- [x] Gestione Caratteristiche
 - [ ] Implementazione Pregi e Difetti
-- [ ] Distribuzione punteggi abilità
-- [ ] Implementazione Malattie Mentali
+- [x] Professioni Eccellenti e Avanzate
+- [x] Implementazione Professioni Manuale Base
+- [x] Distribuzione punteggi abilità
+- [ ] Implementazione Disturbi Mentali
+- [ ] Implementazione Doni
 - [ ] Implementazione regole per creare PG Morti
 - [ ] Stampa scheda personaggio
 
