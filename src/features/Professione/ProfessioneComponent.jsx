@@ -9,6 +9,7 @@ import Card from "../../components/Card";
 import IconTooltip from "../../components/IconTooltip";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
+import Button from "@mui/material/Button";
 import {
   addAbilita,
   resetAllAbilita,
@@ -175,8 +176,22 @@ const ProfessioneComponent = () => {
     });
   };
 
+  const handleResetProfessione = () => {
+    dispatch(resetProfessione());
+    dispatch(resetAllAbilita());
+    dispatch(setAbilita(abilitaStoricoTarocco));
+  };
+
   return (
     <Card headerText="Professione">
+      <Button
+        sx={{ marginBottom: "8px" }}
+        size="small"
+        variant="contained"
+        onClick={handleResetProfessione}
+      >
+        Reset
+      </Button>
       <Grid container spacing={4}>
         <Grid item xs>
           <>
