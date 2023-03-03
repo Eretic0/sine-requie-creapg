@@ -86,7 +86,7 @@ const AbilitaTable = ({
             >
               {ab.specifico.map((s) => (
                 <MenuItem key={s.id} value={s.id}>
-                  {s.nome}
+                  {s.id}
                 </MenuItem>
               ))}
             </Select>
