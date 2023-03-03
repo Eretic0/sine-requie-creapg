@@ -1,82 +1,62 @@
 const Armi = [
   {
-    id: "1",
-    nome: "Arco",
+    id: "Arco",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "2",
-    nome: "Fucile",
+    id: "Fionda",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "3",
-    nome: "Fionda",
+    id: "Pistola",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "4",
-    nome: "Pistola",
+    id: "Fucile",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "5",
-    nome: "Fucile",
+    id: "Mitra",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "6",
-    nome: "Mitra",
+    id: "Mitragliatrice",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "7",
-    nome: "Mitragliatrice",
+    id: "Lanciafiamme",
     caratteristicaRef: "341575984630202573",
   },
   {
-    id: "8",
-    nome: "Lanciafiamme",
-    caratteristicaRef: "341575984630202573",
-  },
-  {
-    id: "9",
-    nome: "Ascia",
+    id: "Ascia",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "10",
-    nome: "Pugnale",
+    id: "Pugnale",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "11",
-    nome: "Spada",
+    id: "Spada",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "12",
-    nome: "Mazza",
+    id: "Mazza",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "13",
-    nome: "Frusta",
+    id: "Frusta",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "14",
-    nome: "Scudo",
+    id: "Scudo",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "15",
-    nome: "Requiem",
+    id: "Requiem",
     caratteristicaRef: "341575970478620877",
   },
   {
-    id: "16",
-    nome: "Expiator",
+    id: "Expiator",
     caratteristicaRef: "341575970478620877",
   },
 ];
