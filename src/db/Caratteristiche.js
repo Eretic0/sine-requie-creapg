@@ -6,7 +6,7 @@ const Caratteristiche = [
     valore: 4,
     modificatore: function calcolaModificatore(valore) {
       const val = valore - 5;
-      return `(${val})`;
+      return `${val}`;
     },
   },
   {
@@ -75,7 +75,7 @@ const Caratteristiche = [
       } else if (valore <= 3) {
         val = -1;
       }
-      return `(${val})`;
+      return `${val}`;
     },
   },
   {
@@ -114,7 +114,7 @@ const Caratteristiche = [
         default:
           break;
       }
-      return `(${val})`;
+      return `${val}`;
     },
   },
   {
@@ -128,13 +128,6 @@ const Caratteristiche = [
     nome: "Equilibrio Mentale",
     seme: "Picche",
     valore: 4,
-    modificatore: function calcolaModificatore(valore) {
-      let val = 0;
-      if (valore < 4) {
-        val = 4 - valore;
-      }
-      return `(${val})`;
-    },
   },
   {
     id: "341576033844068557",
@@ -142,13 +135,13 @@ const Caratteristiche = [
     seme: "Picche",
     valore: 4,
     modificatore: function calcolaModificatore(valore) {
-      let val = "Neutro";
+      let val = "N";
       if (valore >= 8) {
-        val = "Vantaggio";
+        val = "V";
       } else if (valore < 3) {
-        val = "Svantaggio";
+        val = "S";
       }
-      return `(${val})`;
+      return `${val}`;
     },
   },
 ];

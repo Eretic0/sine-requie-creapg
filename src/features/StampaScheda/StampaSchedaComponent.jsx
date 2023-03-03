@@ -11,6 +11,9 @@ import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import ReactToPrint from "react-to-print";
 import Card from "../../components/Card";
+import { PDFDocument } from "pdf-lib";
+import download from "downloadjs";
+import Sine_Requie_Pdf_Form from "../../components/Sine_Requie_Pdf_Form.pdf";
 
 import { styled } from "@mui/material/styles";
 
@@ -30,6 +33,17 @@ const TypographyBody = styled(Typography)({
   color: "black",
   padding: "12px",
 });
+
+async function fillForm() {
+  const formUrl = Sine_Requie_Pdf_Form;
+  const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
+  const pdfDoc = await PDFDocument.load(formPdfBytes);
+  const form = pdfDoc.getForm();
+  const nameField = form.getTextField("nome");
+  nameField.setText("Mario");
+  const pdfBytes = await pdfDoc.save();
+  download(pdfBytes, "sine-requie-creapg.pdf", "application/pdf");
+}
 
 const StampaSchedaComponent = () => {
   const componentRef = useRef();
@@ -53,6 +67,7 @@ const StampaSchedaComponent = () => {
 
   return (
     <Card headerText="Scheda Personaggio">
+      <button onClick={() => fillForm()}>Stampa</button>
       <ReactToPrint
         trigger={() => (
           <Tooltip title="Dopo aver cliccato il pulsante Stampa attendere che il browser crei l'anteprima della scheda da stampare, le prime volte potrebbe metterci qualche secondo.">

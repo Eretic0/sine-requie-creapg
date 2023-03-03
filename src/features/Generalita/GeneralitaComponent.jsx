@@ -100,23 +100,22 @@ function GeneralitaComponent() {
           </Grid>
           <Grid item xs>
             <FormControl fullWidth>
-              <InputLabel id="label-input-select-sesso">Sesso</InputLabel>
+              <InputLabel id="label-input-select-tipologiaScheda">
+                Tipologia Scheda
+              </InputLabel>
               <Select
-                labelId="label-input-select-sesso"
-                id="select-sesso"
-                label="Sesso"
+                labelId="label-input-select-tipologiaScheda"
+                id="select-tipologiaScheda"
+                label="Tipologia Scheda"
                 defaultValue=""
                 value={sesso}
                 onChange={handleChangeSesso}
               >
                 <MenuItem key="M" value="M">
-                  M
+                  Uomo
                 </MenuItem>
                 <MenuItem key="F" value="F">
-                  F
-                </MenuItem>
-                <MenuItem key="Altro" value="Altro">
-                  Altro
+                  Donna
                 </MenuItem>
               </Select>
             </FormControl>
