@@ -88,7 +88,7 @@ function CaratteristicheComponent() {
     let carVisual = car.valore;
     if (car.modificatore != null) {
       const mod = car.modificatore(car.valore);
-      carVisual = carVisual + " " + mod;
+      carVisual = `${carVisual} (${mod})`;
     }
     return carVisual;
   };
