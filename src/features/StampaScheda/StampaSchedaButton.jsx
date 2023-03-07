@@ -12,39 +12,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-
-const calcolaCaratUsata = (gradoAbilita, valoreCaratteristica) => {
-  let caratUsata = "";
-  if ("1/2" === gradoAbilita) {
-    if (typeof valoreCaratteristica == "number") {
-      caratUsata = Math.floor(valoreCaratteristica / 2);
-    }
-  } else {
-    if (typeof valoreCaratteristica == "number") {
-      caratUsata = gradoAbilita + valoreCaratteristica;
-    }
-  }
-
-  return caratUsata.toString();
-};
-
-const calcolaVS = (gradoAbilita, valoreCaratteristica) => {
-  let textVs = "";
-  if ("1/2" === gradoAbilita) {
-    if (valoreCaratteristica / 2 >= 8) {
-      textVs = "V";
-    } else if (valoreCaratteristica / 2 <= 3) {
-      textVs = "S";
-    }
-  } else {
-    if (gradoAbilita + valoreCaratteristica >= 8) {
-      textVs = "V";
-    } else if (gradoAbilita + valoreCaratteristica <= 3) {
-      textVs = "S";
-    }
-  }
-  return textVs;
-};
+import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
+import Button from "@mui/material/Button";
+import DialogActions from "@mui/material/DialogActions";
 
 const setTextField = (form, idTextField, valore) => {
   form.getTextField(idTextField).setText(valore);
@@ -56,20 +26,33 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
   const abilitaNotPrest = abilita.filter((t) => !t.prestampata);
 
   abilitaPrest.forEach((element) => {
-    const valoreCaratt = element.caratteristicaRef
-      ? getValoreCaratteristica(caratteristiche, element.caratteristicaRef)
+    const caratteristica = element.caratteristicaRef
+      ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
     setTextField(form, element.id, element.grado.toString());
     setTextField(
       form,
       `vs_${element.id}`,
-      calcolaVS(element.grado, valoreCaratt)
+      calcolaVS(element.grado, caratteristica.valore)
     );
-    setTextField(
-      form,
-      `car_${element.id}`,
-      calcolaCaratUsata(element.grado, valoreCaratt)
-    );
+
+    if (element.id !== "343960377471533261") {
+      setTextField(
+        form,
+        `car_${element.id}`,
+        calcolaCaratUsata(element.grado, caratteristica.valore)
+      );
+    } else {
+      setTextField(
+        form,
+        `car_${element.id}`,
+        `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
+          element.grado,
+          caratteristica.valore
+        )}`
+      );
+    }
+
     if (element.specifico && element.specificoSelezionato !== "") {
       setTextField(
         form,
@@ -77,24 +60,44 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
         element.specificoSelezionato
       );
     }
+
+    if (element.counterFallimento > 0) {
+      for (let index = 1; index <= element.counterFallimento; index++) {
+        form
+          .getRadioGroup(`counter_${element.id}_${index}`)
+          .select(index.toString());
+      }
+    }
   });
 
   abilitaNotPrest.forEach((element, index) => {
-    const valoreCaratt = element.caratteristicaRef
-      ? getValoreCaratteristica(caratteristiche, element.caratteristicaRef)
+    const caratteristica = element.caratteristicaRef
+      ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
     setTextField(form, `nome_abilita_${index}`, element.nome);
     setTextField(form, `abilita_${index}`, element.grado.toString());
     setTextField(
       form,
       `vs_abilita_${index}`,
-      calcolaVS(element.grado, valoreCaratt)
+      calcolaVS(element.grado, caratteristica.valore)
     );
+
     setTextField(
       form,
       `car_abilita_${index}`,
-      calcolaCaratUsata(element.grado, valoreCaratt)
+      `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
+        element.grado,
+        caratteristica.valore
+      )}`
     );
+
+    if (element.counterFallimento > 0) {
+      for (let index = 1; index <= element.counterFallimento; index++) {
+        form
+          .getRadioGroup(`counter_abilita_${index}_${index}`)
+          .select(index.toString());
+      }
+    }
   });
 };
 
@@ -112,8 +115,18 @@ const fillCaratteristicheLabel = (form, caratteristiche) => {
 };
 
 const getValoreCaratteristica = (caratteristiche, idCaratteristica) => {
-  return caratteristiche.find((t) => t.id === idCaratteristica).valore;
+  let car = "";
+
+  const caratt = getCaratteristica(caratteristiche, idCaratteristica);
+  if (caratt) {
+    car = caratt.valore;
+  }
+
+  return car;
 };
+
+const getCaratteristica = (caratteristiche, idCaratteristica) =>
+  caratteristiche.find((t) => t.id === idCaratteristica);
 
 async function fillForm({
   nome,
@@ -126,6 +139,8 @@ async function fillForm({
   difetti,
   caratteristiche,
   abilita,
+  doni,
+  disturbiMentali,
 }) {
   const formUrl = SineRequie_UomoForm;
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
@@ -137,25 +152,17 @@ async function fillForm({
   setTextField(form, "taroccoPassato", taroccoPassato.nome);
   setTextField(form, "professione", professione.nome);
   setTextField(form, "eta", eta);
-  let pregiLabel = "";
+  setTextField(form, "doni", doni.map((t) => t).join("\n"));
+
   if (pregi.length > 0) {
-    pregi.forEach((element) => {
-      pregiLabel += `${element.nome}, `;
-    });
-    setTextField(form, "pregi", pregiLabel);
+    setTextField(form, "pregi", pregi.map((t) => t.nome).join("\n"));
   }
 
-  let difettiLabel = "";
   if (difetti.length > 0) {
-    difetti.forEach((element) => {
-      difettiLabel += `${element.nome}, `;
-    });
-    setTextField(form, "difetti", difettiLabel);
+    setTextField(form, "difetti", difetti.map((t) => t.nome).join("\n"));
   }
+
   const vitField = form.getRadioGroup("vit");
-  //TODO
-  //const oreMarciaField = form.getTextField("oreMarcia");
-  //const doniField = form.getTextField("doni");
 
   let vitMaxLabel = "8";
 
@@ -167,6 +174,8 @@ async function fillForm({
     vitMaxLabel = forzaFisicaVal.toString();
   }
   vitField.select(vitMaxLabel);
+
+  setTextField(form, "oreMarcia", forzaFisicaVal.toString());
 
   setTextField(
     form,
@@ -180,15 +189,23 @@ async function fillForm({
     "341576027967848653"
   );
 
-  //TODO
   if (equilibrioMentaleVal <= 3) {
-    setTextField(form, "disturboMentale3", "disturboMentale3");
-    form.getCheckBox("equi3").check();
-    if (equilibrioMentaleVal === 2) {
-      setTextField(form, "disturboMentale2", "disturboMentale2");
+    const distuMent3 = disturbiMentali.filter((t) => t.equilibrioMental === 3);
+    const distuMent2 = disturbiMentali.filter((t) => t.equilibrioMental === 2);
+    const distuMent1 = disturbiMentali.filter((t) => t.equilibrioMental === 1);
+
+    if (distuMent3) {
+      setTextField(form, "disturboMentale3", distuMent3.nome);
+      form.getCheckBox("equi3").check();
+    }
+
+    if (distuMent2) {
+      setTextField(form, "disturboMentale2", distuMent2.nome);
       form.getCheckBox("equi2").check();
-    } else if (equilibrioMentaleVal <= 1) {
-      setTextField(form, "disturboMentale1", "disturboMentale1");
+    }
+
+    if (distuMent1) {
+      setTextField(form, "disturboMentale1", distuMent1.nome);
       form.getCheckBox("equi1").check();
     }
   }
@@ -218,12 +235,14 @@ async function fillForm({
   setTextField(form, "risoluzione", risoluzioneLabel.toString());
   fillCaratteristicheLabel(form, caratteristiche);
   fillAbilitaLabel(form, abilita, caratteristiche);
+
   const pdfBytes = await pdfDoc.save();
   download(pdfBytes, `SineRequie_${nomePg}.pdf`, "application/pdf");
 }
 
 const StampaSchedaButton = () => {
   const [printingPdf, setPrintingPdf] = useState(false);
+  const [openDialogError, setOpenDialogError] = React.useState(false);
   const { nome, cognome } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
     (state) => state.tarocco
@@ -233,6 +252,16 @@ const StampaSchedaButton = () => {
   const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { abilita } = useSelector((state) => state.abilita);
+  const { disturbiMentali } = useSelector((state) => state.disturbiMentali);
+  const { doni } = useSelector((state) => state.doni);
+
+  const handleClickDialogError = () => {
+    setOpenDialogError(true);
+  };
+
+  const handleCloseDialogError = () => {
+    setOpenDialogError(false);
+  };
 
   const handlePrint = () => {
     setPrintingPdf(true);
@@ -247,11 +276,33 @@ const StampaSchedaButton = () => {
       difetti,
       caratteristiche,
       abilita,
-    }).then(() => setPrintingPdf(false));
+      disturbiMentali,
+      doni,
+    })
+      .then(() => setPrintingPdf(false))
+      .catch(() => handleCatchError());
+  };
+
+  const handleCatchError = () => {
+    setPrintingPdf(false);
+    handleClickDialogError();
   };
 
   return (
     <>
+      <Dialog open={openDialogError}>
+        <DialogTitle id="alert-dialog-error-title">{"Errore"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-error-title">
+            Si è verificato un problema, riprovare più tardi
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialogError} autoFocus>
+            Chiudi
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Dialog open={printingPdf}>
         <DialogTitle id="alert-dialog-title">{"Stampa in corso"}</DialogTitle>
         <DialogContent>
@@ -266,7 +317,10 @@ const StampaSchedaButton = () => {
             </Stack>
           </Box>
           <DialogContentText id="alert-dialog-description">
-            Attendere la creazione della Scheda Personaggio
+            Attendere la creazione della Scheda Personaggio.
+            <br />
+            Una volta creata la Scheda Personaggio raccomandiamo di aprirla
+            utilizzando Adobe Reader per avere un'esperienza migliore.
           </DialogContentText>
         </DialogContent>
       </Dialog>

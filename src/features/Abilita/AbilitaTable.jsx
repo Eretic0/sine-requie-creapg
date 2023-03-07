@@ -19,6 +19,7 @@ import {
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
+import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
 
 const AbilitaTable = ({
   abilita,
@@ -32,29 +33,13 @@ const AbilitaTable = ({
     (state) => state.eta
   );
 
-  const getAbilitaVS = (abilita) => {
-    let textVs = "";
-    const caratteristica = caratteristiche.find(
-      (t) => t.id === abilita.caratteristicaRef
-    );
-    if (caratteristica) {
-      const valoreCaratteristica = caratteristica.valore;
-      if ("1/2" === abilita.grado) {
-        if (valoreCaratteristica / 2 >= 8) {
-          textVs = "V";
-        } else if (valoreCaratteristica / 2 <= 3) {
-          textVs = "S";
-        }
-      } else {
-        if (abilita.grado + valoreCaratteristica >= 8) {
-          textVs = "V";
-        } else if (abilita.grado + valoreCaratteristica <= 3) {
-          textVs = "S";
-        }
-      }
+  const getVS = (ab) => {
+    if (ab.caratteristicaRef != null) {
+      const car = caratteristiche.find(
+        (car) => car.id === ab.caratteristicaRef
+      );
+      return calcolaVS(ab.grado, car.valore);
     }
-
-    return textVs;
   };
 
   const getCaratteristica = (ab) => {
@@ -62,7 +47,8 @@ const AbilitaTable = ({
       const car = caratteristiche.find(
         (car) => car.id === ab.caratteristicaRef
       );
-      return car.nome + " " + car.valore;
+      const sommaGradoCaratt = calcolaCaratUsata(ab.grado, car.valore);
+      return `${car.nome} ${sommaGradoCaratt}`;
     }
   };
 
@@ -214,7 +200,7 @@ const AbilitaTable = ({
         {abilita.map((ab) => (
           <TableRow key={ab.id}>
             <TableCell align="center" component="th" scope="row">
-              {getAbilitaVS(ab)}
+              {getVS(ab)}
             </TableCell>
             <TableCell align="center">{visualizzaSpecifico(ab)}</TableCell>
             <TableCell align="center">{editGrado(ab)}</TableCell>
