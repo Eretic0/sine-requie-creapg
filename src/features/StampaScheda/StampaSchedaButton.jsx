@@ -60,6 +60,14 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
         element.specificoSelezionato
       );
     }
+
+    if (element.counterFallimento > 0) {
+      for (let index = 1; index <= element.counterFallimento; index++) {
+        form
+          .getRadioGroup(`counter_${element.id}_${index}`)
+          .select(index.toString());
+      }
+    }
   });
 
   abilitaNotPrest.forEach((element, index) => {
@@ -82,6 +90,14 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
         caratteristica.valore
       )}`
     );
+
+    if (element.counterFallimento > 0) {
+      for (let index = 1; index <= element.counterFallimento; index++) {
+        form
+          .getRadioGroup(`counter_abilita_${index}_${index}`)
+          .select(index.toString());
+      }
+    }
   });
 };
 
@@ -301,7 +317,10 @@ const StampaSchedaButton = () => {
             </Stack>
           </Box>
           <DialogContentText id="alert-dialog-description">
-            Attendere la creazione della Scheda Personaggio
+            Attendere la creazione della Scheda Personaggio.
+            <br />
+            Una volta creata la Scheda Personaggio raccomandiamo di aprirla
+            utilizzando Adobe Reader per avere un'esperienza migliore.
           </DialogContentText>
         </DialogContent>
       </Dialog>
