@@ -6,6 +6,8 @@ import etaSlice from "./slices/etaSlice";
 import professioneSlice from "./slices/professioneSlice";
 import abilitaSlice from "./slices/abilitaSlice";
 import pregiDifettiSlice from "./slices/pregiDifettiSlice";
+import doniSlice from "./slices/doniSlice";
+import disturbiMentaliSlice from "./slices/disturbiMentaliSlice";
 
 export default configureStore({
   reducer: {
@@ -16,6 +18,8 @@ export default configureStore({
     professione: professioneSlice,
     abilita: abilitaSlice,
     pregiDifetti: pregiDifettiSlice,
+    doni: doniSlice,
+    disturbiMentali: disturbiMentaliSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
