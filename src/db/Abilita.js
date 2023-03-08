@@ -177,7 +177,7 @@ const Abilita = [
   },
   {
     id: "343960377471533261",
-    nome: "Uso -arma-",
+    nome: "Uso",
     prestampata: true,
     caratteristicaRef: null,
     grado: "1/2",
@@ -190,7 +190,7 @@ const Abilita = [
   },
   {
     id: "343960377471533261v1",
-    nome: "Uso -arma-",
+    nome: "Uso",
     caratteristicaRef: null,
     grado: null,
     counterFallimento: 0,
@@ -202,7 +202,7 @@ const Abilita = [
   },
   {
     id: "343960377471533261v2",
-    nome: "Uso -arma-",
+    nome: "Uso",
     caratteristicaRef: null,
     grado: null,
     counterFallimento: 0,

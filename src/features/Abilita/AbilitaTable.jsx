@@ -116,7 +116,7 @@ const AbilitaTable = ({
     const abilitySto = abilita.find((ab) => ab.id === id);
     abilityNew = { ...abilitySto };
     abilityNew.specificoSelezionato = event.target.value;
-    if (abilityNew.nome === "Uso -arma-") {
+    if (abilityNew.nome === "Uso") {
       const arma = ArmiDb.find((a) => a.id === abilityNew.specificoSelezionato);
       abilityNew.caratteristicaRef = arma.caratteristicaRef;
     }

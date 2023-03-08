@@ -15,7 +15,11 @@
   <p align="center">
     Una web application per la creazione di Personaggi di Sine Requie Anno XIII Seconda Edizione
     <br />
-    <a href="https://eretic0.github.io/sine-requie-creapg/"><strong>Prova l'applicazione »</strong></a>
+    <b>Importante!</b>
+    <br />
+    Per una migliore esperienza consigliamo di utilizzare browser come Google Chrome e Mozilla Firefox per accedere all'applicativo e per la visualizzazione della Scheda del Personaggio consigliamo di utilizzare Adobe Acrobat.
+    <br />
+    <a href="https://eretic0.github.io/sine-requie-creapg/"><strong>Vai all'applicazione »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Eretic0/sine-requie-creapg/issues">Report Bug</a>
@@ -127,8 +131,9 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 - [x] Distribuzione punteggi abilità
 - [ ] Implementazione Disturbi Mentali
 - [ ] Implementazione Doni
-- [ ] Implementazione regole per creare PG Morti
-- [ ] Stampa scheda personaggio
+- [ ] Implementazione regole Propeudicità
+- [ ] Implementazione Professioni da Manuali successivi al Manuale Base
+- [x] Stampa scheda personaggio
 
 Vedere presso [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) per una lista completa delle feature proposte (e problemi conosciuti).
 
