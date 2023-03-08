@@ -16,9 +16,10 @@
     Una web application per la creazione di Personaggi di Sine Requie Anno XIII Seconda Edizione
     <br />
     <b>Importante!</b>
+    <br />
     Per una migliore esperienza consigliamo di utilizzare browser come Google Chrome e Mozilla Firefox per accedere all'applicativo e per la visualizzazione della Scheda del Personaggio consigliamo di utilizzare Adobe Acrobat.
     <br />
-    <a href="https://eretic0.github.io/sine-requie-creapg/"><strong>Prova l'applicazione »</strong></a>
+    <a href="https://eretic0.github.io/sine-requie-creapg/"><strong>Vai all'applicazione »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Eretic0/sine-requie-creapg/issues">Report Bug</a>
