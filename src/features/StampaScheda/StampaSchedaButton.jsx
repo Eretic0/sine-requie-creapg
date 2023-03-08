@@ -71,10 +71,21 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
   });
 
   abilitaNotPrest.forEach((element, index) => {
+    let indexElement = index;
     const caratteristica = element.caratteristicaRef
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
-    setTextField(form, `nome_abilita_${index}`, element.nome);
+
+    if (element.specificoSelezionato) {
+      setTextField(
+        form,
+        `nome_abilita_${index}`,
+        `${element.nome} -${element.specificoSelezionato}-`
+      );
+    } else {
+      setTextField(form, `nome_abilita_${index}`, `${element.nome}`);
+    }
+
     setTextField(form, `abilita_${index}`, element.grado.toString());
     setTextField(
       form,
@@ -94,7 +105,7 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
     if (element.counterFallimento > 0) {
       for (let index = 1; index <= element.counterFallimento; index++) {
         form
-          .getRadioGroup(`counter_abilita_${index}_${index}`)
+          .getRadioGroup(`counter_abilita_${indexElement}_${index}`)
           .select(index.toString());
       }
     }
@@ -190,24 +201,17 @@ async function fillForm({
   );
 
   if (equilibrioMentaleVal <= 3) {
+    form.getCheckBox("equi3").check();
+    equilibrioMentaleVal <= 2 && form.getCheckBox("equi2").check();
+    equilibrioMentaleVal <= 1 && form.getCheckBox("equi1").check();
+
     const distuMent3 = disturbiMentali.filter((t) => t.equilibrioMental === 3);
     const distuMent2 = disturbiMentali.filter((t) => t.equilibrioMental === 2);
     const distuMent1 = disturbiMentali.filter((t) => t.equilibrioMental === 1);
 
-    if (distuMent3) {
-      setTextField(form, "disturboMentale3", distuMent3.nome);
-      form.getCheckBox("equi3").check();
-    }
-
-    if (distuMent2) {
-      setTextField(form, "disturboMentale2", distuMent2.nome);
-      form.getCheckBox("equi2").check();
-    }
-
-    if (distuMent1) {
-      setTextField(form, "disturboMentale1", distuMent1.nome);
-      form.getCheckBox("equi1").check();
-    }
+    distuMent3 && setTextField(form, "disturboMentale3", distuMent3.nome);
+    distuMent2 && setTextField(form, "disturboMentale2", distuMent2.nome);
+    distuMent1 && setTextField(form, "disturboMentale1", distuMent1.nome);
   }
 
   const percezioneVal = getValoreCaratteristica(
