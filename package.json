@@ -19,13 +19,10 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
     "react-scripts": "5.0.1",
-    "react-to-print": "^2.14.10",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
-    "minimatch": ">=3.0.5",
-    "nth-check": ">=2.0.1"
+    "gh-pages": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

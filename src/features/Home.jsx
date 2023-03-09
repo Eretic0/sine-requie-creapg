@@ -3,7 +3,6 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Fab from "@mui/material/Fab";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import PropTypes from "prop-types";
 import * as React from "react";
 import Header from "../components/Header";
 import StampaSchedaButton from "./StampaScheda/StampaSchedaButton";
@@ -50,12 +49,6 @@ function TabPanel(props) {
     </>
   );
 }
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
 
 function Home() {
   const [value, setValue] = React.useState(0);
