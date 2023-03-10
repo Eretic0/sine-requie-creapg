@@ -9,7 +9,6 @@ import Card from "../../components/Card";
 import AmbientazioniDb from "../../db/Ambientazioni";
 import {
   setAmbientazione,
-  setCognome,
   setNome,
   setSesso,
 } from "../../redux/slices/generalitaSlice";
@@ -20,7 +19,7 @@ import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
 import IconTooltip from "../../components/IconTooltip";
 
 function GeneralitaComponent() {
-  const { nome, cognome, ambientazione, sesso } = useSelector(
+  const { nome, ambientazione, sesso } = useSelector(
     (state) => state.generalita
   );
   const dispatch = useDispatch();
@@ -35,10 +34,6 @@ function GeneralitaComponent() {
 
   const handleChangeNome = (event) => {
     dispatch(setNome(event.target.value));
-  };
-
-  const handleChangeCognome = (event) => {
-    dispatch(setCognome(event.target.value));
   };
 
   const handleChangeSesso = (event) => {
@@ -82,19 +77,9 @@ function GeneralitaComponent() {
             <FormControl fullWidth>
               <TextField
                 id="nome-textfield"
-                label="Nome"
+                label="Nome del Personaggio"
                 value={nome}
                 onChange={handleChangeNome}
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs>
-            <FormControl fullWidth>
-              <TextField
-                id="cognome-textfield"
-                label="Cognome"
-                value={cognome}
-                onChange={handleChangeCognome}
               />
             </FormControl>
           </Grid>

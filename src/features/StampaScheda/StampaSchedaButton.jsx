@@ -141,7 +141,6 @@ const getCaratteristica = (caratteristiche, idCaratteristica) =>
 
 async function fillForm({
   nome,
-  cognome,
   taroccoDominante,
   taroccoPassato,
   professione,
@@ -157,8 +156,7 @@ async function fillForm({
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const form = pdfDoc.getForm();
-  const nomePg = `${nome} ${cognome}`;
-  setTextField(form, "nomePg", nomePg);
+  setTextField(form, "nomePg", nome);
   setTextField(form, "taroccoDominante", taroccoDominante.nome);
   setTextField(form, "taroccoPassato", taroccoPassato.nome);
   setTextField(form, "professione", professione.nome);
@@ -241,13 +239,13 @@ async function fillForm({
   fillAbilitaLabel(form, abilita, caratteristiche);
 
   const pdfBytes = await pdfDoc.save();
-  download(pdfBytes, `SineRequie_${nomePg}.pdf`, "application/pdf");
+  download(pdfBytes, `SineRequie_${nome}.pdf`, "application/pdf");
 }
 
 const StampaSchedaButton = () => {
   const [printingPdf, setPrintingPdf] = useState(false);
   const [openDialogError, setOpenDialogError] = React.useState(false);
-  const { nome, cognome } = useSelector((state) => state.generalita);
+  const { nome } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
     (state) => state.tarocco
   );
@@ -271,7 +269,6 @@ const StampaSchedaButton = () => {
     setPrintingPdf(true);
     fillForm({
       nome,
-      cognome,
       taroccoDominante,
       taroccoPassato,
       professione,
@@ -328,12 +325,7 @@ const StampaSchedaButton = () => {
           </DialogContentText>
         </DialogContent>
       </Dialog>
-      <Fab
-        color="primary"
-        variant="extended"
-        sx={{ position: "absolute", right: "8px" }}
-        onClick={() => handlePrint()}
-      >
+      <Fab color="primary" variant="extended" onClick={() => handlePrint()}>
         <PrintIcon sx={{ mr: 1 }} />
         Stampa
       </Fab>
