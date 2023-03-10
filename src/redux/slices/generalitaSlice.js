@@ -4,16 +4,12 @@ export const generalitaSlice = createSlice({
   name: "generalita",
   initialState: {
     nome: "",
-    cognome: "",
     ambientazione: "",
     sesso: "",
   },
   reducers: {
     setNome: (state, { payload }) => {
       state.nome = payload;
-    },
-    setCognome: (state, { payload }) => {
-      state.cognome = payload;
     },
     setAmbientazione: (state, { payload }) => {
       state.ambientazione = payload;
@@ -24,7 +20,6 @@ export const generalitaSlice = createSlice({
   },
 });
 
-export const { setNome, setCognome, setAmbientazione, setSesso } =
-  generalitaSlice.actions;
+export const { setNome, setAmbientazione, setSesso } = generalitaSlice.actions;
 
 export default generalitaSlice.reducer;
