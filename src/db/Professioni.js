@@ -651,8 +651,287 @@ const Professioni = [
     ],
   },
   /* *** Manuale Base - End *** */
+  /* *** Manuale Sanctum Imperium - Begin *** */
+  /* Commissario del Santo Uffizio
+ Armi da Fuoco, Perquisire, Borseggiare, Cavalcare o Guidare -veicolo-, Interrogare, Lingua -specifica-, Lingua -latino-, Raggirare, Recitare,  
+ Rissa, Teologia, Uso -arma-, Uso -arma-
+ */
+  {
+    id: "343970143684002012",
+    nome: "Commissario del Santo Uffizio",
+    ambientazioneRef: "341411834674282700",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960305710137549" },
+      { id: "343960724060504269" },
+      { id: "343961114292256973" },
+      { id: "343960188611461325" },
+      { id: "343968013220839634" },
+      { id: "343961428784316621" },
+      { id: "343961444479402189" },
+      { id: "343960335239086285" },
+      { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960818077925581" },
+          { id: "343960130942927053" },
+        ],
+      },
+    ],
+  },
+
+  /* Crociato
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
+ un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*
+ */
+  {
+    id: "343970143684002013",
+    nome: "Crociato",
+    ambientazioneRef: "341411834674282700",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960818077925581" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960656041476301" },
+          { id: "343960868252287181" },
+          { id: "343960130942927053" },
+        ],
+      },
+    ],
+  },
+
+  /* Crociato Sottufficiale
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
+ un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
+ Impartire Ordini, Naturalistica, Tattica
+ */
+  {
+    id: "343970143684002014",
+    nome: "Crociato Sottufficiale",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960818077925581" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+      { id: "343961040254402765" },
+      { id: "343961201334550733" },
+      { id: "343961571675865293" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960656041476301" },
+          { id: "343960868252287181" },
+          { id: "343960130942927053" },
+        ],
+      },
+    ],
+  },
+
+  /* Crociato Ufficiale
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
+ un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
+ Impartire Ordini, Naturalistica, Tattica, Lingua -latino-, Politica ed Economia,
+ Strategia
+ */
+  {
+    id: "343970143684002015",
+    nome: "Crociato Ufficiale",
+    ambientazioneRef: "341411834674282700",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960818077925581" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+      { id: "343961040254402765" },
+      { id: "343961201334550733" },
+      { id: "343961571675865293" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961521508843725" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960656041476301" },
+          { id: "343960868252287181" },
+          { id: "343960130942927053" },
+        ],
+      },
+    ],
+  },
+
+  /* Crociato Nero
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
+ un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
+ Impartire Ordini, Tattica, Uso -lanciafiamme-
+ */
+  {
+    id: "343970143684002016",
+    nome: "Crociato Nero",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960818077925581" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+      { id: "343961040254402765" },
+      { id: "343961571675865293" },
+      { id: "343968013220839642" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960656041476301" },
+          { id: "343960868252287181" },
+          { id: "343960130942927053" },
+        ],
+      },
+    ],
+  },
+
+  /* Frate Gesuita (Provinciale - Giornalista)
+ Fotografia, Leggere e scrivere, Lingua -latino-, Politica ed economia, Storia,
+ Teologia
+ */
+  {
+    id: "343970143684002016",
+    nome: "Frate Gesuita (Provinciale - Giornalista)",
+    ambientazioneRef: "341411834674282700",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960945631953101" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },
+
+  /* Giornalista Laico
+ Fotografia, Leggere e scrivere, Persuadere, Politica ed Economia, Raggirare
+ */
+  {
+    id: "343970143684002017",
+    nome: "Giornalista Laico",
+    ambientazioneRef: "341411834674282700",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960945631953101" },
+      { id: "343960168760869069" },
+      { id: "343960318838309069" },
+      { id: "343961340510994637" },
+      { id: "343961428784316621" },
+    ],
+  },
+
+  /* Missionario
+ Lingua -latino-, Naturalistica, Persuadere, Pronto soccorso, Teologia, Uso -arma-
+ */
+  {
+    id: "343970143684002018",
+    nome: "Missionario",
+    ambientazioneRef: "341411834674282700",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839634" },
+      { id: "343961201334550733" },
+      { id: "343960318838309069" },
+      { id: "343961388801065165" },
+      { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+
+  /* Missionario Superiore
+ Lingua -latino-, Naturalistica, Persuadere, Pronto soccorso, Teologia, Uso -arma-
+ Oratoria, Tattica, Telegrafia
+ */
+  {
+    id: "343970143684002019",
+    nome: "Missionario Superiore",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    abilitaRef: [
+      { id: "343968013220839634" },
+      { id: "343961201334550733" },
+      { id: "343960318838309069" },
+      { id: "343961388801065165" },
+      { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+      { id: "343961275507671245" },
+      { id: "343961571675865293" },
+      { id: "343961600257949901" },
+    ],
+  },
+
+  /* Membro di una Setta
+   */
+  {
+    id: "343970143684002020",
+    nome: "Membro di una Setta",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    professionePrecedente: true,
+    abilitaRef: [],
+  },
+
+  /* Padre Esorcista
+Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
+ */
+  {
+    id: "343970143684002021",
+    nome: "Padre Esorcista",
+    ambientazioneRef: "341411834674282700",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960914857296077" },
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
+      { id: "343968013220839634" },
+      { id: "343961225310240973" },
+      { id: "343961628090302669" },
+    ],
+  },
+
+  /* Membro di una Setta
+   */
+  {
+    id: "343970143684002022",
+    nome: "Strega o Magus",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    professionePrecedente: true,
+    abilitaRef: [],
+  },
+  /* *** Manuale Sanctum Imperium - End *** */
   /* *** Inquisizione - Begin *** */
-/* Converso specializzato - Guardia del corpo
+  /* Converso specializzato - Guardia del corpo
  Armi da Fuoco, Perquisire, Pronto Soccorso, Rissa, Uso -arma-, Uso -arma- */
   {
     id: "343970143684002001",
@@ -668,7 +947,7 @@ const Professioni = [
       { id: "343960377471533261v2" },
     ],
   },
-/* Converso specializzato - Avanscoperta
+  /* Converso specializzato - Avanscoperta
 Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
   {
     id: "343970143684002002",
@@ -684,7 +963,7 @@ Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
       { id: "343961463669391565" },
     ],
   },
-/* Converso specializzato - Persecutore
+  /* Converso specializzato - Persecutore
 Artigianato -Vario-, Interrogare, Pronto Soccorso, Teologia, Torturare, Uso -arma- */
   {
     id: "343970143684002003",
@@ -700,7 +979,7 @@ Artigianato -Vario-, Interrogare, Pronto Soccorso, Teologia, Torturare, Uso -arm
       { id: "343960377471533261v1" },
     ],
   },
-/* Converso specializzato - Autista
+  /* Converso specializzato - Autista
 Artigianato -Meccanici-, Rissa, Uso -arma- e tre a scelta tra: Guidare -due ruote-, Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battelli- */
   /*{
     id: "343970143684002004",
@@ -720,7 +999,7 @@ Artigianato -Meccanici-, Rissa, Uso -arma- e tre a scelta tra: Guidare -due ruot
       { id: "343968013220839631" },
     ],
   },*/
-/* Converso specializzato - Bruto
+  /* Converso specializzato - Bruto
 Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
   {
     id: "343970143684002005",
@@ -735,10 +1014,10 @@ Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
       { id: "343960377471533261v2" },
     ],
   },
-/* Notaio - Contabile
+  /* Notaio - Contabile
 Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
-/* {
+  /* {
     id: "343970143684002006",
     nome: "Notaio - Contabile",
     ambientazioneRef: "341412111307505868",
@@ -752,10 +1031,10 @@ Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
       { id: "343961628090302669" },
     ],
   },  */
-/* Notaio - Avvocato
+  /* Notaio - Avvocato
 Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Legge (+3), Oratoria */
-/* {
+  /* {
     id: "343970143684002007",
     nome: "Notaio - Avvocato",
     ambientazioneRef: "341412111307505868",
@@ -770,10 +1049,10 @@ Legge (+3), Oratoria */
 	  { id: "343961275507671245" },
     ],
   },  */
-/* Notaio - Notaio
+  /* Notaio - Notaio
 Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Falsificazione, Mercanteggiare, Legge (+3) */
-/* {
+  /* {
     id: "343970143684002008",
     nome: "Notaio - Notaio",
     ambientazioneRef: "341412111307505868",
@@ -787,11 +1066,11 @@ Falsificazione, Mercanteggiare, Legge (+3) */
       { id: "343961628090302669" },
     ],
   },  */
-/* Notaio - Teologo
+  /* Notaio - Teologo
 Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Teologia (+3)
 Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
-/* {
+  /* {
     id: "343970143684002009",
     nome: "Notaio - Teologo",
     ambientazioneRef: "341412111307505868",
@@ -805,11 +1084,11 @@ Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
       { id: "343961628090302669" },
     ],
   },  */
-/* Notaio - Letterato
+  /* Notaio - Letterato
 Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Scegliere due tra:
 Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
-/* {
+  /* {
     id: "343970143684002010",
     nome: "Notaio - Letterato",
     ambientazioneRef: "341412111307505868",
@@ -829,10 +1108,10 @@ Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
       { id: "343960188611461325v2" },
     ],
   },  */
-/* Segretari tirocinanti
+  /* Segretari tirocinanti
 Scegliere 3 tra queste, con grado massimo +2 e 3 abilità per cosa faceva prima, ma non dalla lista seguente 
 Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia  */
-/* {
+  /* {
     id: "343970143684002011",
     nome: "Segretari tirocinanti",
     ambientazioneRef: "341412111307505868",
