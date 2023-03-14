@@ -8,16 +8,12 @@ const Ambientazioni = [
     descrizione: "IV Reich",
   },
   {
-    id: "341412022890528972",
-    descrizione: "Soviet",
-  },
-  {
     id: "341412057407553740",
     descrizione: "Terre Perdute",
   },
   {
-    id: "341412111307505868",
-    descrizione: "Inquisizione",
+    id: "341412022890528972",
+    descrizione: "Soviet",
   },
   // {
   //   id: "341412130688336076",
@@ -27,6 +23,10 @@ const Ambientazioni = [
   //   id: "341412158384373964",
   //   descrizione: "Trono del Crisantemo",
   // },
+  {
+    id: "341412111307505868",
+    descrizione: "Inquisizione",
+  },
 ];
 
 export default Ambientazioni;
