@@ -919,7 +919,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
     ],
   },
 
-  /* Membro di una Setta
+  /* Strega o Magus
    */
   {
     id: "343970143684002022",
@@ -930,6 +930,136 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
     abilitaRef: [],
   },
   /* *** Manuale Sanctum Imperium - End *** */
+
+  /* *** Manuale Soviet - Start *** */
+  /* Operaio Esperto
+ Artigianato, Artigianato -meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento
+ Rissa, Leggere e Scrivere, un'abilità relativa mansione */
+  {
+    id: "343968177253777714",
+    nome: "Operaio Esperto",
+    ambientazioneRef: "341412022890528972",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960641759871181" },
+      { id: "343968013220839633" },
+      { id: "343960724060504269" },
+      { id: "343960977172070605" },
+      { id: "343960144603775181" },
+      { id: "343968013220839629" },
+      { id: "343960335239086285" },
+      { id: "343960168760869069" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        //TODO lista abilità relativa Mansione
+        listAbilita: [{ id: "" }, { id: "" }, { id: "" }],
+      },
+    ],
+  },
+
+  /* Addetto ai Servizi Speciali
+ Ascoltare, Borseggiare, Correre, Intrufolarsi, Mercanteggiare, Orientamento, Perquisire
+ Raggirare, Rissa */
+  {
+    id: "343968177253777715",
+    nome: "Addetto ai Servizi Speciali",
+    ambientazioneRef: "341412022890528972",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960054820503757" },
+      { id: "343960724060504269" },
+      { id: "343960116705362125" },
+      { id: "343960144603775181" },
+      { id: "343960225473102029" },
+      { id: "343968013220839629" },
+      { id: "343960305710137549" },
+      { id: "343961428784316621" },
+      { id: "343960335239086285" },
+    ],
+  },
+
+  /* Meccanici Avanzati
+ Armi da fuoco, artigianato meccanico, artiglieria, biologia, chimica farmaceutica,
+ fisica, guidare -cingoloto-, impartire ordini, ingegneria, ingegneria biomeccanica
+ leggere e scrivere, medicina e chirurgia
+  */
+  {
+    id: "343968177253777716",
+    nome: "Meccanici Avanzati",
+    ambientazioneRef: "341412022890528972",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343968013220839633" },
+      { id: "343960656041476301" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343968013220839631" },
+      { id: "343961040254402765" },
+      { id: "343961063271694541" },
+      { id: "343961097641918669" },
+      { id: "343960168760869069" },
+      { id: "343961188338499789" },
+    ],
+  },
+
+  /* Membro del Gruppo d'Assalto
+ Armi da fuoco, artiglieria, demolizione, Impartire Ordini, Intrufolarsi,
+ Orientamento, rissa, tattica, uso arma, uso arma, uso arma, uso arma
+  */
+  {
+    id: "343968177253777717",
+    nome: "Membro del Gruppo d'Assalto",
+    ambientazioneRef: "341412022890528972",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960656041476301" },
+      { id: "343960868252287181" },
+      { id: "343961040254402765" },
+      { id: "343960144603775181" },
+      { id: "343968013220839629" },
+      { id: "343960335239086285" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+      { id: "343960377471533261v3" },
+      { id: "343960377471533261v4" },
+    ],
+  },
+
+  /* Biomacchina da lavoro
+   */
+  {
+    id: "343968177253777718",
+    nome: "Biomacchina da lavoro",
+    ambientazioneRef: "341412022890528972",
+    eta: "N",
+    professionePrecedente: true,
+    abilitaRef: [],
+  },
+
+  /* Biomacchina da guerra
+  armi da fuoco, artiglieria, uso -arma-
+   */
+  {
+    id: "343968177253777719",
+    nome: "Biomacchina da guerra",
+    ambientazioneRef: "341412022890528972",
+    eta: "A",
+    professionePrecedente: true,
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960656041476301" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+
+  /* *** Manuale Soviet - End *** */
+
   /* *** Inquisizione - Begin *** */
   /* Converso specializzato - Guardia del corpo
  Armi da Fuoco, Perquisire, Pronto Soccorso, Rissa, Uso -arma-, Uso -arma- */
