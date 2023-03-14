@@ -472,16 +472,6 @@ const Abilita = [
     scelta: false,
   },
   {
-    id: "343961128250900685",
-    nome: "Lanciare",
-    caratteristicaRef: "341575984630202573",
-    grado: null,
-    counterFallimento: 0,
-    professione: false,
-    passato: false,
-    scelta: false,
-  },
-  {
     id: "343961138922258637",
     nome: "Legge",
     caratteristicaRef: "341575873655210189",
@@ -818,6 +808,16 @@ const Abilita = [
   {
     id: "343968013220839632",
     nome: "Uso -fucile-",
+    caratteristicaRef: "341575984630202573",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "343968013220839642",
+    nome: "Uso -lanciafiamme-",
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
