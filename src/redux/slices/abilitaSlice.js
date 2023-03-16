@@ -29,6 +29,19 @@ export const abilitaSlice = createSlice({
       );
     },
 
+    saveOrUpdateAbilita: (state, { payload }) => {
+      const ability = state.abilita.find((t) => t.id === payload.id);
+      if (ability) {
+        let ability = { ...payload };
+        ability.counterFallimento += 5;
+        state.abilita = state.abilita.map((ab) =>
+          ab.id === payload.id ? ability : ab
+        );
+      } else {
+        state.abilita.push(payload);
+      }
+    },
+
     setProfiloAbilitaSelezionato: (state, { payload }) => {
       state.profiloAbilitaSelezionato = payload;
     },
@@ -65,6 +78,7 @@ export const {
   setAbilita,
   updateAbilita,
   addAbilita,
+  saveOrUpdateAbilita,
   setProfiloAbilitaSelezionato,
   setListBonusAbilita,
   removeBonusFromListBonusAbilita,
