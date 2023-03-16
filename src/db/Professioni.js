@@ -1336,6 +1336,336 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
     ],
   },
   /* *** Inquisizione - End *** */
+  /* *** Trono del Crisantemo - Begin *** */
+  /* Lavoratore e Artigiano
+Ascoltare, Correre, Leggere e Scrivere, Rissa più due a scelta, in base alle occupazioni svolte, tra: Addestrare Animale, Agronomia, Artigianato -Specifico-, Naturalistica, Pescare, Pronto Soccorso, Raggirare, Rissa, Uso -arma- */
+  /*{
+    id: "21005963684002000",
+    nome: "Lavoratore e Artigiano",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+    numeroAbilitaLibera: 2,
+    abilitaLiberaListRef: [
+      { id: "343961163498782925" },
+      { id: "343960188611461325v1" },
+      { id: "343960188611461325v2" },
+    ],
+  },/*
+
+
+  /* Capovillaggio (A)
+Maturo o con pregio Kazoku
+Impartire Ordini, Interrogare, Legge, Leggere e Scrivere, Oratoria, Politica ed Economia */
+  /*{
+    id: "21005963684002001",
+    nome: "Capovillaggio",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Becchino
+Artigianato -Armatura dei Becchini-, Ascoltare, Correre, Osservare, Uso -arma-, Uso -Naginata-
+Oppure Samurai o Samurai Esperto e sostituire un'Abilità con Uso -Naginata- */
+  /*{
+    id: "21005963684002002",
+    nome: "Becchino",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+
+  /* Becchino Maestro (A)
+Acrobazia, Arte Marziale -Naginatajiutsu-, Arte Marziale -Rissa- */
+  /*{
+    id: "21005963684002003",
+    nome: Becchino Maestro",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+    numeroAbilitaLibera: 2,
+    abilitaLiberaListRef: [
+      { id: "343961163498782925" },
+      { id: "343960188611461325v1" },
+      { id: "343960188611461325v2" },
+    ],
+  },/*
+
+  /* Ladruncolo
+Borseggiare, Correre, Intrufolarsi, Perquisire, Raggirare, Scassinare */
+  /*{
+    id: "21005963684002004",
+    nome: "Ladruncolo",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Mercante itinerante
+Addestrare Animale, Cavalcare, Leggere e Scrivere, Mercanteggiare, Orientamento, Uso -arma- */
+  /*{
+    id: "21005963684002005",
+    nome: "Mercante itinerante",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Mercante di Successo (A)
+Maturo o con pregio Kazoku
+Artigianato -Specifico-, Impartite Ordini, Legge */
+  /*{
+    id: "21005963684002006",
+    nome: "Mercante di Successo",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Samurai
+Interrogare, Perquisire, Seguire Tracce, Uso -arma-, Uso -arma-, Uso -Katana- */
+  /*{
+    id: "21005963684002007",
+    nome: "Samurai",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Samurai Esperto (A)
+Maturo o con pregio Kazoku, deve avere Pregio Bushido
+Arte Marziale -Arma-, Arte Marziale -Katana-, Arte Marziale -Rissa- */
+  /*{
+    id: "21005963684002008",
+    nome: "Samurai Esperto",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Sacerdote Shintoista
+Esorcismo, Naturalistica, Occultismo, Oratoria, Storia e filosofia, Teologia */
+  /*{
+    id: "21005963684002009",
+    nome: "Sacerdote Shintoistao",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Monaco Buddista
+Leggere e Scrivere, Oratoria, Persuadere, Politica ed Economia, Storia e filosofia, Teologia */
+  /*{
+    id: "21005963684002010",
+    nome: "Monaco Buddista",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Sohei (A)
+Arte Marziale -Arma-, Uso -arma-, Uso -arma- */
+  /*{
+    id: "21005963684002011",
+    nome: "Sohei",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Shinobi Rei
+Acrobazia, Borseggiare, Intrufolarsi, Scassinare, Recitare, Uso -Shinobi-to- */
+  /*{
+    id: "21005963684002012",
+    nome: "Shinobi Rei",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Shinobi
+Età tra i 20 e 25 anni, ma Maturo
+Può accedere a Via della Mano sinistra 
+Arte Marziale -Arma-, Arte Marziale -Rissa-, Uso -arma- */
+  /*{
+    id: "21005963684002013",
+    nome: "Shinobi",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Kunochi (A)
+Età tra 16 e 30 anni, ma Maturo. Può accedere a Via della Mano sinistra 
+Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica Farmaceutica, Intrufolarsi, Raggirare, Recitare, Uso -arma-, Uso -arma- */
+  /*{
+    id: "21005963684002014",
+    nome: "Kunochi",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Yakuza, Membro giovane
+Obbligo Difetto Tatuaggio 
+Armi da fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
+  /*{
+    id: "21005963684002015",
+    nome: "Yakuza, Membro giovane",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Yakuza, Kumicho (A)
+Obbligo Difetto Tatuaggio
+Impartire Ordini, Politica ed economia, Strategia */
+  /*{
+    id: "21005963684002016",
+    nome: "Yakuza, Kumicho",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+
+  /* Sanguisuga
+Guidare -Veicolo- o Cavalcare, Perquisire, Rissa, Torturare, Uso -arma-, Uso -arma- */
+  /*{
+    id: "21005963684002017",
+    nome: "Sanguisuga",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343968013220839634" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
+      { id: "343961628090302669" },
+    ],
+  },/*
+  /* *** Trono del Crisantemo - End *** */
 ];
 
 export default Professioni;
