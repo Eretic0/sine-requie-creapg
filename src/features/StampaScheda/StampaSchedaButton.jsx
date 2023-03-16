@@ -1,6 +1,7 @@
 import download from "downloadjs";
 import { PDFDocument } from "pdf-lib";
 import SineRequie_UomoForm from "../../components/SineRequie_UomoForm.pdf";
+import SineRequie_DonnaForm from "../../components/SineRequie_DonnaForm.pdf";
 import { useSelector } from "react-redux";
 import PrintIcon from "@mui/icons-material/Print";
 import Fab from "@mui/material/Fab";
@@ -151,8 +152,9 @@ async function fillForm({
   abilita,
   doni,
   disturbiMentali,
+  sesso,
 }) {
-  const formUrl = SineRequie_UomoForm;
+  const formUrl = sesso === "M" ? SineRequie_UomoForm : SineRequie_DonnaForm;
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const form = pdfDoc.getForm();
@@ -245,7 +247,7 @@ async function fillForm({
 const StampaSchedaButton = () => {
   const [printingPdf, setPrintingPdf] = useState(false);
   const [openDialogError, setOpenDialogError] = React.useState(false);
-  const { nome } = useSelector((state) => state.generalita);
+  const { nome, sesso } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
     (state) => state.tarocco
   );
@@ -279,6 +281,7 @@ const StampaSchedaButton = () => {
       abilita,
       disturbiMentali,
       doni,
+      sesso,
     })
       .then(() => setPrintingPdf(false))
       .catch(() => handleCatchError());
