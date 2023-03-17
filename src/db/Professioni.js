@@ -1657,6 +1657,250 @@ Guidare -Veicolo- o Cavalcare, Perquisire, Rissa, Torturare, Uso -arma-, Uso -ar
     ],
   },
   /* *** Trono del Crisantemo - End *** */
+  /* *** IV Reich - Begin *** */
+  /* Avvocato privato
+Interrogare, Legge, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare, Seguire tracce */
+  {
+    id: "20405963684002000",
+    nome: "Avvocato privato",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "N",
+    abilitaRef: [
+      { id: "343961114292256973" },
+      { id: "343961138922258637" },
+      { id: "343960168760869069" },
+      { id: "343960318838309069" },
+      { id: "343961340510994637" },
+      { id: "343961428784316621" },
+      { id: "343960353026080973" },
+    ],
+  },
+  /* Mercante itinerante
+Cavalcare o Guidare -veicolo-, Lingua -specifica- o Leggere e Scrivere, Mercanteggiare, Orientamento, Raggirare, Uso -arma- */
+  {
+    id: "20405963684002001",
+    nome: "Mercante itinerante",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "N",
+    abilitaRef: [
+      { id: "343960225473102029" },
+      { id: "343968013220839629" },
+      { id: "343961428784316621" },
+      { id: "343960377471533261v1" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960818077925581" },
+          { id: "343960130942927053" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960188611461325" },
+          { id: "343960168760869069" },
+        ],
+      },
+    ],
+  },
+    /* Agente della Kripto (Kripto Agent) (A)
+Guidare -veicolo-, Interrogare, Legge, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo o Pronto Soccorso */
+  {
+    id: "20405963684002002",
+    nome: "Agente della Kripto (Kripto Agent)",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "A",
+    abilitaRef: [
+      { id: "343960130942927053" },
+      { id: "343961114292256973" },
+      { id: "343961138922258637" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960144603775181" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+    /* Agente Speciale Kripto (A)
+    Abilità professione precedente, Seguire tracce, Uso -arma-, Uso -arma-. */
+  {
+    id: "20405963684002003",
+    nome: "Agente Speciale Kripto",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "A",
+    abilitaRef: [
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+    /* Ispettore della Kripto (Oberinspektor) (E)
+Guidare -veicolo-, Impartire Ordini, Interrogare, Legge, Perquisire, Politica ed Economia, Seguire tracce, Tattica, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002004",
+    nome: "Ispettore della Kripto (Oberinspektor)",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "E",
+    abilitaRef: [
+      { id: "343960130942927053" },
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
+      { id: "343961138922258637" },
+      { id: "343960305710137549" },
+      { id: "343961340510994637" },
+      { id: "343960353026080973" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+    /* Agente della Feuerbrigade (Feuer Agent)
+Arrampicarsi o Ascoltare, Guidare -veicolo- o Osservare, Pronto Soccorso o Lanciare, Impartire Ordini, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002005",
+    nome: "Agente della Feuerbrigade (Feuer Agent)",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "N",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960031658508493" },
+          { id: "343960054820503757" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960281846644941" },
+        ],
+      },
+      {
+        idList: 3,
+        listAbilita: [
+          { id: "343961388801065165" },
+          { id: "343961128250900685" },
+        ],
+      },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+    /* Ispettore della Feuerbrigade (Feuerinspektor) (A)
+Arrampicarsi o Ascoltare, Guidare -veicolo- o Osservare, Pronto Soccorso o Lanciare, Impartire Ordini, Legge, Politica ed Economia, Tattica, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002006",
+    nome: "Ispettore della Feuerbrigade (Feuerinspektor)",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "A",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961138922258637" },
+      { id: "343961340510994637" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960031658508493" },
+          { id: "343960054820503757" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960281846644941" },
+        ],
+      },
+      {
+        idList: 3,
+        listAbilita: [
+          { id: "343961388801065165" },
+          { id: "343961128250900685" },
+        ],
+      },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+    /* Agente della Sipo (Sicherheitspolizei) (E)
+Armi da Fuoco, Fotografia, Guidare -veicolo-, Interrogare, Intrufolarsi, Perquisire, Pronto Soccorso, Recitare, Scassinare, Seguire tracce, Uso -arma-, Uso -arma- */
+  {
+    id: "20405963684002007",
+    nome: "Agente della Sipo (Sicherheitspolizei)",
+    ambientazioneRef: ["341411954837946572"],
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960945631953101" },
+      { id: "343960130942927053" },
+      { id: "343961114292256973" },
+      { id: "343960144603775181" },
+      { id: "343960305710137549" },
+      { id: "343961388801065165" },
+      { id: "343961444479402189" },
+      { id: "343961463669391565" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* *** IV Reich - End *** */
 ];
 
 export default Professioni;
