@@ -1369,7 +1369,7 @@ Impartire Ordini, Interrogare, Legge, Leggere e Scrivere, Oratoria, Politica ed 
     id: "21005963684002001",
     nome: "Capovillaggio",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343961040254402765" },
       { id: "343961114292256973" },
@@ -1402,7 +1402,7 @@ Acrobazia, Arte Marziale -Naginatajiutsu-, Arte Marziale -Rissa- */
     id: "21005963684002003",
     nome: "Becchino Maestro",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343960552491450573" },
       { id: "210068013220839603" },
@@ -1448,7 +1448,7 @@ Artigianato -Specifico-, Impartire Ordini, Legge */
     id: "21005963684002006",
     nome: "Mercante di Successo",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343960641759871181" },
       { id: "343961040254402765" },
@@ -1478,7 +1478,7 @@ Arte Marziale -Arma-, Arte Marziale -Katana-, Arte Marziale -Rissa- */
     id: "21005963684002008",
     nome: "Samurai Esperto",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "210068013220839601" },
       { id: "210068013220839602" },
@@ -1529,7 +1529,7 @@ Arte Marziale -Arma-, Leggere e Scrivere, Oratoria, Persuadere, Politica ed Econ
     id: "21005963684002011",
     nome: "Sohei",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "210068013220839601" },
       { id: "343960168760869069" },
@@ -1566,7 +1566,7 @@ Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Borseggiare, Intrufolars
     id: "21005963684002013",
     nome: "Shinobi",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343960552491450573" },
       { id: "210068013220839601" },
@@ -1586,7 +1586,7 @@ Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica F-arma-ceutica, 
     id: "21005963684002014",
     nome: "Kunochi",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343960552491450573" },
       { id: "210068013220839601" },
@@ -1623,7 +1623,7 @@ Armi da Fuoco, Gioco d'azzardo, Impartire Ordini, Mercanteggiare, Persuadere, Po
     id: "21005963684002016",
     nome: "Yakuza, Kumicho",
     ambientazioneRef: ["341412158384373964"],
-    eta: "N",
+    eta: "A",
     abilitaRef: [
       { id: "343960624931274957" },
       { id: "343960994335162573" },
