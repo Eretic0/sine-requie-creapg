@@ -3,7 +3,7 @@ const Professioni = [
   {
     id: "343962654843338957",
     nome: "Cacciatore di Morti",
-    ambientazioneRef: "341412057407553740",
+    ambientazioneRef: ["341412057407553740"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -25,8 +25,8 @@ const Professioni = [
   {
     id: "343962772011221197",
     nome: "Frate Minore",
+    ambientazioneRef: ["341412057407553740"],
     eta: "N",
-    ambientazioneRef: "341412057407553740",
     abilitaRef: [
       { id: "343960897696301261" },
       { id: "343968013220839634" },
@@ -39,7 +39,7 @@ const Professioni = [
   {
     id: "343965072543973581",
     nome: "Mercante Esploratore",
-    ambientazioneRef: "341412057407553740",
+    ambientazioneRef: ["341412057407553740"],
     eta: "N",
     abilitaRef: [
       { id: "343960130942927053" },
@@ -52,7 +52,7 @@ const Professioni = [
   {
     id: "343965540364058829",
     nome: "Partigiano",
-    ambientazioneRef: "341412057407553740",
+    ambientazioneRef: ["341412057407553740"],
     eta: "N",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -83,7 +83,7 @@ const Professioni = [
   {
     id: "343965690621853901",
     nome: "Predone",
-    ambientazioneRef: "341412057407553740",
+    ambientazioneRef: ["341412057407553740"],
     eta: "N",
     abilitaRef: [
       { id: "343960868252287181" },
@@ -98,7 +98,7 @@ const Professioni = [
     id: "343965947300675789",
     nome: "Sopravvisuto",
     eta: "N",
-    ambientazioneRef: "341412057407553740",
+    ambientazioneRef: ["341412057407553740"],
     abilitaRef: [
       { id: "343960737749663949" },
       { id: "343960377471533261v1" },
@@ -133,7 +133,7 @@ const Professioni = [
     id: "343966231325311181",
     nome: "Agente della Gestapo",
     eta: "N",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     abilitaRef: [
       { id: "343961114292256973" },
       { id: "343960130942927053" },
@@ -146,7 +146,7 @@ const Professioni = [
   {
     id: "343966406623101133",
     nome: "Ispettore",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "A",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -163,7 +163,7 @@ const Professioni = [
   {
     id: "343966575211053261",
     nome: "Giornalista",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "N",
     abilitaRef: [
       { id: "343960945631953101" },
@@ -177,7 +177,7 @@ const Professioni = [
   {
     id: "343966706870255821",
     nome: "Malavitoso",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "N",
     abilitaRef: [
       { id: "343960724060504269" },
@@ -191,7 +191,7 @@ const Professioni = [
   {
     id: "343966892302532813",
     nome: "Medico Classe C",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "N",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -205,7 +205,7 @@ const Professioni = [
   {
     id: "343967006924472525",
     nome: "Medico Classe B",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "A",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -222,7 +222,7 @@ const Professioni = [
   {
     id: "343967121520197837",
     nome: "Medico Classe A",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "E",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -242,7 +242,7 @@ const Professioni = [
   {
     id: "343967247438446797",
     nome: "Psichiatra del Reich",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "A",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -259,7 +259,7 @@ const Professioni = [
   {
     id: "343967373812826317",
     nome: "Soldato Semplice",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -273,7 +273,7 @@ const Professioni = [
   {
     id: "343967521352712397",
     nome: "Sottufficiale",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "A",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -290,7 +290,7 @@ const Professioni = [
   {
     id: "343967634681757901",
     nome: "Ufficiale",
-    ambientazioneRef: "341411954837946572",
+    ambientazioneRef: ["341411954837946572"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -310,7 +310,7 @@ const Professioni = [
   {
     id: "343968062644420813",
     nome: "Metalmeccanico",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343968013220839633" },
@@ -324,7 +324,7 @@ const Professioni = [
   {
     id: "343968177253777613",
     nome: "Operaio di base",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343960054820503757" },
@@ -338,7 +338,7 @@ const Professioni = [
   {
     id: "343968177253777614",
     nome: "Operaio Medico",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -352,7 +352,7 @@ const Professioni = [
   {
     id: "343968592013820109",
     nome: "Soldato NKVD",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -366,7 +366,7 @@ const Professioni = [
   {
     id: "343969211872182477",
     nome: "Meccanico Semplice",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -380,7 +380,7 @@ const Professioni = [
   {
     id: "343970027712544973",
     nome: "Sottufficiale NKVD",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "A",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -397,7 +397,7 @@ const Professioni = [
   {
     id: "343970143684001997",
     nome: "Ufficiale NKVD",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -417,7 +417,7 @@ const Professioni = [
   {
     id: "343970143684001998",
     nome: "Gladiatore",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     professionePrecedente: true,
     abilitaRef: [],
@@ -425,7 +425,7 @@ const Professioni = [
   {
     id: "343970143684001999",
     nome: "Ribelle",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     abilitaRef: [
       { id: "343961163498782925" },
@@ -456,7 +456,7 @@ const Professioni = [
   {
     id: "343970143684002000",
     nome: "Cacciatore di Morti",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -478,7 +478,7 @@ const Professioni = [
   {
     id: "343970143684002001",
     nome: "Converso",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -492,7 +492,7 @@ const Professioni = [
   {
     id: "343970143684002002",
     nome: "Excubitor",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -506,7 +506,7 @@ const Professioni = [
   {
     id: "343970143684002003",
     nome: "Portavoce degli Excubitor",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -523,7 +523,7 @@ const Professioni = [
   {
     id: "343970143684002004",
     nome: "Frate Penitenziale",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343966802788745421" },
@@ -537,7 +537,7 @@ const Professioni = [
   {
     id: "343970143684002005",
     nome: "Malavitoso",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960724060504269" },
@@ -551,7 +551,7 @@ const Professioni = [
   {
     id: "343970143684002006",
     nome: "Sotium Inquisitoris",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -565,7 +565,7 @@ const Professioni = [
   {
     id: "343970143684002007",
     nome: "Inquisitore",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -582,7 +582,7 @@ const Professioni = [
   {
     id: "343970143684002008",
     nome: "Magister",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "E",
     abilitaRef: [
       { id: "343961114292256973" },
@@ -602,7 +602,7 @@ const Professioni = [
   {
     id: "343970143684002009",
     nome: "Templare Errante",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343968013220839637" },
@@ -616,7 +616,7 @@ const Professioni = [
   {
     id: "343970143684002010",
     nome: "Templare Adepto",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343968013220839637" },
@@ -633,7 +633,7 @@ const Professioni = [
   {
     id: "343970143684002011",
     nome: "Maestro Templare",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "E",
     abilitaRef: [
       { id: "343968013220839637" },
@@ -659,7 +659,7 @@ const Professioni = [
   {
     id: "343970143684002012",
     nome: "Commissario del Santo Uffizio",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -693,7 +693,7 @@ const Professioni = [
   {
     id: "343970143684002013",
     nome: "Crociato",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -722,7 +722,7 @@ const Professioni = [
   {
     id: "343970143684002014",
     nome: "Crociato Sottufficiale",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -755,7 +755,7 @@ const Professioni = [
   {
     id: "343970143684002015",
     nome: "Crociato Ufficiale",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -790,7 +790,7 @@ const Professioni = [
   {
     id: "343970143684002016",
     nome: "Crociato Nero",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -815,13 +815,13 @@ const Professioni = [
   },
 
   /* Frate Gesuita (Provinciale - Giornalista)
- Fotografia, Leggere e scrivere, Lingua -latino-, Politica ed economia, Storia,
+ Fotografia, Leggere e Scrivere, Lingua -latino-, Politica ed economia, Storia,
  Teologia
  */
   {
     id: "343970143684002016",
     nome: "Frate Gesuita (Provinciale - Giornalista)",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960945631953101" },
@@ -834,12 +834,12 @@ const Professioni = [
   },
 
   /* Giornalista Laico
- Fotografia, Leggere e scrivere, Persuadere, Politica ed Economia, Raggirare
+ Fotografia, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare
  */
   {
     id: "343970143684002017",
     nome: "Giornalista Laico",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960945631953101" },
@@ -856,7 +856,7 @@ const Professioni = [
   {
     id: "343970143684002018",
     nome: "Missionario",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343968013220839634" },
@@ -875,7 +875,7 @@ const Professioni = [
   {
     id: "343970143684002019",
     nome: "Missionario Superiore",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     abilitaRef: [
       { id: "343968013220839634" },
@@ -895,7 +895,7 @@ const Professioni = [
   {
     id: "343970143684002020",
     nome: "Membro di una Setta",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     professionePrecedente: true,
     abilitaRef: [],
@@ -907,7 +907,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   {
     id: "343970143684002021",
     nome: "Padre Esorcista",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "N",
     abilitaRef: [
       { id: "343960914857296077" },
@@ -924,7 +924,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   {
     id: "343970143684002022",
     nome: "Strega o Magus",
-    ambientazioneRef: "341411834674282700",
+    ambientazioneRef: ["341411834674282700"],
     eta: "A",
     professionePrecedente: true,
     abilitaRef: [],
@@ -933,12 +933,12 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
 
   /* *** Manuale Soviet - Start *** */
   /* Operaio Esperto
- Artigianato, Artigianato -meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento
+ Artigianato, Artigianato -Meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento
  Rissa, Leggere e Scrivere, un'abilità relativa mansione */
   {
-    id: "343968177253777714",
+    id: "205068177253777714",
     nome: "Operaio Esperto",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "A",
     abilitaRef: [
       { id: "343960641759871181" },
@@ -963,9 +963,9 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
  Ascoltare, Borseggiare, Correre, Intrufolarsi, Mercanteggiare, Orientamento, Perquisire
  Raggirare, Rissa */
   {
-    id: "343968177253777715",
+    id: "205068177253777715",
     nome: "Addetto ai Servizi Speciali",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "A",
     abilitaRef: [
       { id: "343960054820503757" },
@@ -981,14 +981,14 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   },
 
   /* Meccanici Avanzati
- Armi da fuoco, artigianato meccanico, artiglieria, biologia, chimica farmaceutica,
- fisica, guidare -cingoloto-, impartire ordini, ingegneria, ingegneria biomeccanica
- leggere e scrivere, medicina e chirurgia
+ Armi da Fuoco, Artigianato -Meccanico-, Artiglieria, Biologia, Chimica Farmaceutica,
+ Fisica, Guidare -cingolato-, Impartire Ordini, Ingegneria, Ingegneria Biomeccanica
+ Leggere e Scrivere, Medicina e Chirurgia
   */
   {
-    id: "343968177253777716",
+    id: "205068177253777716",
     nome: "Meccanici Avanzati",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -1007,13 +1007,13 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   },
 
   /* Membro del Gruppo d'Assalto
- Armi da fuoco, artiglieria, demolizione, Impartire Ordini, Intrufolarsi,
- Orientamento, rissa, tattica, uso arma, uso arma, uso arma, uso arma
+ Armi da Fuoco, Artiglieria, Demolizione, Impartire Ordini, Intrufolarsi,
+ Orientamento, Rissa, Tattica, Uso -arma-, Uso -arma-, Uso -arma-, Uso -arma-
   */
   {
-    id: "343968177253777717",
+    id: "205068177253777717",
     nome: "Membro del Gruppo d'Assalto",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "E",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -1034,21 +1034,21 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Biomacchina da lavoro
    */
   {
-    id: "343968177253777718",
+    id: "205068177253777718",
     nome: "Biomacchina da lavoro",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "N",
     professionePrecedente: true,
     abilitaRef: [],
   },
 
   /* Biomacchina da guerra
-  armi da fuoco, artiglieria, uso -arma-
+  Armi da Fuoco, Artiglieria, Uso -arma-
    */
   {
-    id: "343968177253777719",
+    id: "205068177253777719",
     nome: "Biomacchina da guerra",
-    ambientazioneRef: "341412022890528972",
+    ambientazioneRef: ["341412022890528972"],
     eta: "A",
     professionePrecedente: true,
     abilitaRef: [
@@ -1064,9 +1064,9 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Converso specializzato - Guardia del corpo
  Armi da Fuoco, Perquisire, Pronto Soccorso, Rissa, Uso -arma-, Uso -arma- */
   {
-    id: "34397894684002001",
+    id: "21907894684002001",
     nome: "Converso specializzato - Guardia del corpo",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -1080,9 +1080,9 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Converso specializzato - Avanscoperta
 Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
   {
-    id: "343923943684002002",
+    id: "219023943684002002",
     nome: "Converso specializzato - Avanscoperta",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343960144603775181" },
@@ -1096,9 +1096,9 @@ Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
   /* Converso specializzato - Persecutore
 Artigianato -Vario-, Interrogare, Pronto Soccorso, Teologia, Torturare, Uso -arma- */
   {
-    id: "343970112384002003",
+    id: "219070112384002003",
     nome: "Converso specializzato - Persecutore",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343960641759871181" },
@@ -1114,9 +1114,9 @@ Artigianato -Meccanici-, Rissa, Uso -arma-
 e tre a scelta tra: Guidare -due ruote-, 
 Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battelli- */
   {
-    id: "343974563684002004",
+    id: "219074563684002004",
     nome: "Converso specializzato - Autista",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343968013220839633" },
@@ -1132,11 +1132,11 @@ Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battel
     ],
   },
   /* Converso specializzato - Bruto
-Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
+Armi da Fuoco, Perquisire, Rissa, Uso --arma-, Uso -arma- */
   {
-    id: "343977843684002005",
+    id: "219077843684002005",
     nome: "Converso specializzato - Bruto",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343960624931274957" },
@@ -1147,12 +1147,12 @@ Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
     ],
   },
   /* Notaio - Contabile
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
   {
-    id: "34397018984002006",
+    id: "21907018984002006",
     nome: "Notaio - Contabile",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1164,12 +1164,12 @@ Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
     ],
   },
   /* Notaio - Avvocato
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Legge (+3), Oratoria */
   {
-    id: "343975443684002017",
+    id: "219075443684002017",
     nome: "Notaio - Avvocato",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1183,12 +1183,12 @@ Legge (+3), Oratoria */
   },
 
   /* Notaio - Notaio
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Falsificazione, Mercanteggiare, Legge (+3) */
   {
-    id: "343977896324002008",
+    id: "219077896324002008",
     nome: "Notaio - Notaio",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1202,13 +1202,13 @@ Falsificazione, Mercanteggiare, Legge (+3) */
     ],
   },
   /* Notaio - Teologo
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Teologia (+3)
 Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
   {
-    id: "34397041526384002009",
+    id: "21907041526384002009",
     nome: "Notaio - Teologo",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1220,13 +1220,13 @@ Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
     ],
   },
   /* Notaio - Letterato
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Scegliere due tra:
 Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
   {
-    id: "34395963684002010",
+    id: "21905963684002010",
     nome: "Notaio - Letterato",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1247,9 +1247,9 @@ Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
 Scegliere 3 tra queste, con grado massimo +2 e 3 abilità per cosa faceva prima, ma non dalla lista seguente 
 Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia  */
   {
-    id: "343971247884002011",
+    id: "219071247884002011",
     nome: "Segretario tirocinante",
-    ambientazioneRef: "341412111307505868",
+    ambientazioneRef: ["341412111307505868"],
     eta: "N",
     abilitaRef: [
       { id: "343961138922258637" },
@@ -1581,7 +1581,7 @@ Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Borseggiare, Intrufolars
   },
   /* Kunochi (A)
 Età tra 16 e 30 anni, ma Maturo. Può accedere a Via della Mano sinistra 
-Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica Farmaceutica, Intrufolarsi, Raggirare, Recitare, Uso -arma-, Uso -arma- */
+Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica F-arma-ceutica, Intrufolarsi, Raggirare, Recitare, Uso -arma-, Uso -arma- */
   {
     id: "21005963684002014",
     nome: "Kunochi",
@@ -1601,7 +1601,7 @@ Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica Farmaceutica, In
   },
   /* Yakuza, Membro giovane
 Obbligo Difetto Tatuaggio 
-Armi da fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
+Armi da Fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
   {
     id: "21005963684002015",
     nome: "Yakuza, Membro giovane",
@@ -1618,7 +1618,7 @@ Armi da fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
   },
   /* Yakuza, Kumicho (A)
 Obbligo Difetto Tatuaggio
-Armi da fuoco, Gioco d'azzardo, Impartire Ordini, Mercanteggiare, Persuadere, Politica ed economia, Rissa, Strategia, Uso -arma- */
+Armi da Fuoco, Gioco d'azzardo, Impartire Ordini, Mercanteggiare, Persuadere, Politica ed economia, Rissa, Strategia, Uso -arma- */
   {
     id: "21005963684002016",
     nome: "Yakuza, Kumicho",
