@@ -475,6 +475,7 @@ const Abilita = [
   {
     id: "343961097641918669",
     nome: "Ingegneria Biomeccanica",
+    ambientazioneRef: ["341412022890528972"],
     caratteristicaRef: "341575873655210189",
     propedeuticitaRef: [
       { id: "343961188338499789" },
@@ -720,6 +721,7 @@ const Abilita = [
   {
     id: "343961562179961037",
     nome: "Tanatologia",
+    ambientazioneRef: ["341411954837946572"],
     caratteristicaRef: "341575873655210189",
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
@@ -771,6 +773,7 @@ const Abilita = [
   {
     id: "343961656401854669",
     nome: "Teratologia",
+    ambientazioneRef: ["341411954837946572"],
     caratteristicaRef: "341575873655210189",
     propedeuticitaRef: [{ id: "343961188338499789" }],
     grado: null,
@@ -938,6 +941,7 @@ const Abilita = [
   {
     id: "343968013220839636",
     nome: "Uso -requiem-",
+    ambientazioneRef: ["341411834674282700"],
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
@@ -958,6 +962,7 @@ const Abilita = [
   {
     id: "343968013220839638",
     nome: "Uso -expiator-",
+    ambientazioneRef: ["341411834674282700"],
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
@@ -970,7 +975,7 @@ const Abilita = [
   {
     id: "210068013220839600",
     nome: "Artigianato -Armatura dei Becchini-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
@@ -982,7 +987,7 @@ const Abilita = [
   /* Prerequisito: Uso -Arma- a Grado +2 o superiore */
     id: "210068013220839601",
     nome: "Arte Marziale -Arma-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
@@ -994,7 +999,7 @@ const Abilita = [
   /* Prerequisito: Uso -Katana- a Grado +2 o superiore */
     id: "210068013220839602",
     nome: "Arte Marziale -Katana-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
@@ -1006,7 +1011,7 @@ const Abilita = [
   /* Prerequisito: Uso Naginatajiutsu a Grado +2 o superiore */
     id: "210068013220839603",
     nome: "Arte Marziale -Naginatajiutsu-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
@@ -1018,7 +1023,7 @@ const Abilita = [
   /* Prerequisito: Rissa a Grado +2 o superiore */
     id: "210068013220839604",
     nome: "Arte Marziale -Rissa-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
@@ -1029,7 +1034,7 @@ const Abilita = [
   {
     id: "210068013220839605",
     nome: "Uso -Katana-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575976248934605",
     grado: null,
     counterFallimento: 0,
@@ -1040,7 +1045,7 @@ const Abilita = [
   {
     id: "210068013220839606",
     nome: "Uso -Naginata-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
@@ -1052,7 +1057,7 @@ const Abilita = [
   /* Prerequisito: Coordinazione 6*/
     id: "210068013220839607",
     nome: "Uso -Shinobi-to-",
-    ambientazioneRef: [id: "341412158384373964"],
+    ambientazioneRef: ["341412158384373964"],
     caratteristicaRef: "341575970478620877",
     grado: null,
     counterFallimento: 0,
