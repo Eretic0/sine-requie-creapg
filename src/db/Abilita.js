@@ -595,7 +595,7 @@ const Abilita = [
   },
   {
     id: "343961340510994637",
-    nome: "Politica ed Economica",
+    nome: "Politica ed Economia",
     caratteristicaRef: "341575873655210189",
     grado: null,
     counterFallimento: 0,
