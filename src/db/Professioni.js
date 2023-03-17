@@ -96,7 +96,7 @@ const Professioni = [
   },
   {
     id: "343965947300675789",
-    nome: "Sopravvisuto",
+    nome: "Sopravvissuto",
     eta: "N",
     ambientazioneRef: ["341412057407553740"],
     abilitaRef: [
