@@ -1338,12 +1338,12 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
   },
   /* *** Inquisizione - End *** */
 
-/* *** Templari - Begin *** */
+  /* *** Templari - Begin *** */
   /* Scudiero
 Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti per Grado massimo +2 */
   {
     id: "21805963684002001",
-	  nome: "Scudiero",
+    nome: "Scudiero",
     ambientazioneRef: "341412111307502180",
     eta: "N",
     abilitaRef: [
@@ -1361,7 +1361,7 @@ Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti 
 -3 ad ognuna di quattro Caratteristiche a propria scelta */
   {
     id: "21805963684002002",
-  	nome: "Templare Sterminatore (Adepto)",
+    nome: "Templare Sterminatore (Adepto)",
     ambientazioneRef: "341412111307502180",
     eta: "A",
     abilitaRef: [
@@ -1382,7 +1382,7 @@ Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti 
 -3 ad ognuna di quattro Caratteristiche a propria scelta */
   {
     id: "21805963684002003",
-	  nome: "Templare Sterminatore (Errante)",
+    nome: "Templare Sterminatore (Errante)",
     ambientazioneRef: "341412111307502180",
     eta: "N",
     abilitaRef: [
@@ -1401,7 +1401,7 @@ Forza fisica 6
 Esclusi con i Difetti Albino, Brutta cicatrice, Cattiva Reputazione, Fedina penale sporca, Grasso, Mutilazione, Nantismo/Gigantismo, Obeso, Puzzolente, Ricercato, Sdentato, Tatuaggio, Zoppia */
   {
     id: "21805963684002004",
-  	nome: "Templare Guardia Nobile",
+    nome: "Templare Guardia Nobile",
     ambientazioneRef: "341412111307502180",
     eta: "A",
     abilitaRef: [
@@ -1424,7 +1424,7 @@ Orientamento +3
 Lingua -francese- +3*/
   {
     id: "21805963684002005",
-	  nome: "Templare Parisienne (Adepto)",
+    nome: "Templare Parisienne (Adepto)",
     ambientazioneRef: "341412111307502180",
     eta: "A",
     abilitaRef: [
@@ -1438,17 +1438,16 @@ Lingua -francese- +3*/
       { id: "343961571675865293" },
       { id: "343968013220839638" },
       { id: "343960624931274957" },
-	    { id: "343968013220832190" },
+      { id: "343968013220832190" },
       { id: "343960624931274957" },
-	    { id: "343968013220839777" },
-	    { id: "343968013220839647" },
-	    { id: "343968013220832190" },
+      { id: "343968013220839777" },
+      { id: "343968013220839647" },
+      { id: "343968013220832190" },
     ],
     numeroAbilitaLibera: 1,
     abilitaLiberaListRef: [
       { id: "343968013220839632" },
       { id: "343968013220844432" },
-    ],
     ],
   },
   /* Templare Parisienne (Errante)
@@ -1459,7 +1458,7 @@ Orientamento +3
 Lingua -francese- +3*/
   {
     id: "21805963684002006",
-  	nome: "Templare Parisienne (Errante)",
+    nome: "Templare Parisienne (Errante)",
     ambientazioneRef: "341412111307502180",
     eta: "N",
     abilitaRef: [
@@ -1470,9 +1469,9 @@ Lingua -francese- +3*/
       { id: "343961628090302669" },
       { id: "343968013220839635" },
       { id: "343960624931274957" },
-	    { id: "343968013220839777" },
-	    { id: "343968013220839647" },
-	    { id: "343968013220832190" },
+      { id: "343968013220839777" },
+      { id: "343968013220839647" },
+      { id: "343968013220832190" },
     ],
     numeroAbilitaLibera: 1,
     abilitaLiberaListRef: [
@@ -1486,7 +1485,7 @@ Orientamento al Grado +3 o superiore
 Correre +1 o superiore */
   {
     id: "21805963684002007",
-  	nome: "Templare Pellegrino (Adepto)",
+    nome: "Templare Pellegrino (Adepto)",
     ambientazioneRef: "341412111307502180",
     eta: "A",
     abilitaRef: [
@@ -1500,7 +1499,7 @@ Correre +1 o superiore */
       { id: "343961571675865293" },
       { id: "343968013220839638" },
       { id: "343960624931274957" },
-	  { id: "343960377471533261v1" },
+      { id: "343960377471533261v1" },
     ],
   },
   /* Templare Pellegrino (Errante)
@@ -1509,7 +1508,7 @@ Orientamento al Grado +3 o superiore
 Correre +1 o superiore */
   {
     id: "21805963684002008",
-  	nome: "Templare Pellegrino (Errante)",
+    nome: "Templare Pellegrino (Errante)",
     ambientazioneRef: "341412111307502180",
     eta: "N",
     abilitaRef: [
@@ -1520,7 +1519,7 @@ Correre +1 o superiore */
       { id: "343961628090302669" },
       { id: "343968013220839635" },
       { id: "343960624931274957" },
-	  { id: "343960377471533261v1" },
+      { id: "343960377471533261v1" },
     ],
   },
   /* *** Templari - End *** */
@@ -1859,7 +1858,7 @@ Autocontrollo deve essere 1 o superiore
  */
   {
     id: "21005963684002018",
-  	nome: "Ronin - Inscius",
+    nome: "Ronin - Inscius",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
@@ -1893,7 +1892,7 @@ Diabolicus ha 1 punto da spendere.
 Volontà 10 */
   {
     id: "21005963684002019",
-	  nome: "Ronin - Diabolicus",
+    nome: "Ronin - Diabolicus",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
