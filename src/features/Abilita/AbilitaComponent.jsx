@@ -21,6 +21,7 @@ function AbilitaComponent() {
     profiloAbilitaSelezionato,
     listBonusAbilita,
     abilitaStoricoProfessione,
+    abilitaStoricoTarocco,
   } = useSelector((state) => state.abilita);
   const dispatch = useDispatch();
 
@@ -29,7 +30,11 @@ function AbilitaComponent() {
       (pa) => pa.id === event.target.value
     );
     dispatch(resetAllAbilita());
-    dispatch(setAbilita(abilitaStoricoProfessione));
+
+    abilitaStoricoTarocco.length > abilitaStoricoProfessione.length
+      ? dispatch(setAbilita(abilitaStoricoTarocco))
+      : dispatch(setAbilita(abilitaStoricoProfessione));
+
     dispatch(setProfiloAbilitaSelezionato(profiloAbilita.id));
     dispatch(setListBonusAbilita(profiloAbilita.arrayBonus));
   };
