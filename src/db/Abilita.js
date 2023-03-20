@@ -868,6 +868,16 @@ const Abilita = [
     scelta: false,
   },
   {
+    id: "343968013220839777",
+    nome: "Guidare -due ruote-",
+    caratteristicaRef: "341575935372296397",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
     id: "343968013220839647",
     nome: "Guidare -quattro ruote-",
     caratteristicaRef: "341575935372296397",
@@ -900,6 +910,16 @@ const Abilita = [
   {
     id: "343968013220839632",
     nome: "Uso -fucile-",
+    caratteristicaRef: "341575984630202573",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "343968013220844432",
+    nome: "Uso -pistola-",
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
