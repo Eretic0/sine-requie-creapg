@@ -823,7 +823,16 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
-
+  {
+    id: "343968013220832190",
+    nome: "Lingua -francese-",
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
   {
     id: "343960188611461325v1",
     nome: "Lingua",
