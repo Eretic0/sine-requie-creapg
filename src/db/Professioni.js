@@ -1592,6 +1592,12 @@ Acrobazia, Arte Marziale -Naginatajiutsu-, Arte Marziale -Rissa- */
     ambientazioneRef: "341412158384373964",
     eta: "A",
     abilitaRef: [
+      { id: "210068013220839600" },
+      { id: "343960054820503757" },
+      { id: "343960116705362125" },
+      { id: "343960281846644941" },
+      { id: "343960377471533261v1" },
+      { id: "210068013220839606" },
       { id: "343960552491450573" },
       { id: "210068013220839603" },
       { id: "210068013220839604" },
@@ -1638,6 +1644,12 @@ Artigianato -Specifico-, Impartire Ordini, Legge */
     ambientazioneRef: "341412158384373964",
     eta: "A",
     abilitaRef: [
+      { id: "343960572802367693" },
+      { id: "343960818077925581" },
+      { id: "343960168760869069" },
+      { id: "343960225473102029" },
+      { id: "343968013220839629" },
+      { id: "343960377471533261v1" },
       { id: "343960641759871181" },
       { id: "343961040254402765" },
       { id: "343961138922258637" },
@@ -1861,6 +1873,7 @@ Autocontrollo deve essere 1 o superiore
     nome: "Ronin - Inscius",
     ambientazioneRef: "341412158384373964",
     eta: "N",
+    professionePrecedente: true,
     abilitaRef: [
       { id: "210068013220839608" },
       { id: "210068013220839601" },
@@ -1895,6 +1908,7 @@ Volontà 10 */
     nome: "Ronin - Diabolicus",
     ambientazioneRef: "341412158384373964",
     eta: "N",
+    professionePrecedente: true,
     abilitaRef: [
       { id: "210068013220839608" },
       { id: "210068013220839601" },
@@ -1951,7 +1965,7 @@ Cavalcare o Guidare -veicolo-, Lingua -specifica- o Leggere e Scrivere, Mercante
       },
     ],
   },
-  /* Agente della Kripto (Kripto Agent) (A)
+  /* Agente della Kripo (Kripo Agent) (A)
 Guidare -veicolo-, Interrogare, Legge, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-.
 Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo o Pronto Soccorso */
   {
@@ -1980,25 +1994,26 @@ Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotogra
       { id: "343961388801065165" },
     ],
   },
-  /* Agente Speciale Kripto (A)
+  /* Agente Speciale Kripo (A)
     Abilità professione precedente, Seguire tracce, Uso -arma-, Uso -arma-. */
   {
     id: "20405963684002003",
-    nome: "Agente Speciale Kripto",
+    nome: "Agente Speciale Kripo",
     ambientazioneRef: "341411954837946572",
     eta: "A",
+    professionePrecedente: true,
     abilitaRef: [
       { id: "343960353026080973" },
       { id: "343960377471533261v1" },
       { id: "343960377471533261v2" },
     ],
   },
-  /* Ispettore della Kripto (Oberinspektor) (E)
+  /* Ispettore della Kripo (Oberinspektor) (E)
 Guidare -veicolo-, Impartire Ordini, Interrogare, Legge, Perquisire, Politica ed Economia, Seguire tracce, Tattica, Uso -arma-, Uso -arma-.
 Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
   {
     id: "20405963684002004",
-    nome: "Ispettore della Kripto (Oberinspektor)",
+    nome: "Ispettore della Kripo (Oberinspektor)",
     ambientazioneRef: "341411954837946572",
     eta: "E",
     abilitaRef: [
