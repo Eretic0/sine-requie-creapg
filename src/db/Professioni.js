@@ -1126,6 +1126,7 @@ Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battel
     numeroAbilitaLibera: 3,
     abilitaLiberaListRef: [
       { id: "343968013220839647" },
+      { id: "343968013220839777" },
       { id: "343968013220839648" },
       { id: "343968013220839631" },
       { id: "343968013220839649" },
@@ -1336,6 +1337,194 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
     ],
   },
   /* *** Inquisizione - End *** */
+
+/* *** Templari - Begin *** */
+  /* Scudiero
+Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti per Grado massimo +2 */
+  {
+    id: "21805963684002001",
+	  nome: "Scudiero",
+    ambientazioneRef: "341412111307502180",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+    ],
+  },
+  /* Templare Sterminatore (Adepto)
++1 Coordinazione
++2 Forza fisica
+-3 ad ognuna di quattro Caratteristiche a propria scelta */
+  {
+    id: "21805963684002002",
+  	nome: "Templare Sterminatore (Adepto)",
+    ambientazioneRef: "341412111307502180",
+    eta: "A",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839638" },
+    ],
+  },
+  /* Templare Sterminatore (Errante)
++1 Coordinazione
++2 Forza fisica
+-3 ad ognuna di quattro Caratteristiche a propria scelta */
+  {
+    id: "21805963684002003",
+	  nome: "Templare Sterminatore (Errante)",
+    ambientazioneRef: "341412111307502180",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+    ],
+  },
+  /* Templare Guardia nobile
+  Templare Adepto
+Aspetto 4
+Forza fisica 6
+Esclusi con i Difetti Albino, Brutta cicatrice, Cattiva Reputazione, Fedina penale sporca, Grasso, Mutilazione, Nantismo/Gigantismo, Obeso, Puzzolente, Ricercato, Sdentato, Tatuaggio, Zoppia */
+  {
+    id: "21805963684002004",
+  	nome: "Templare Guardia Nobile",
+    ambientazioneRef: "341412111307502180",
+    eta: "A",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839638" },
+    ],
+  },
+  /* Templare Parisienne  (Adepto)
+4 punti da dividere tra "Armi da fuoco" e "Uso -arma-" (pistola o fucile)
+Guidare -due ruote- +1
+Guidare -quattro ruote- +1
+Orientamento +3
+Lingua -francese- +3*/
+  {
+    id: "21805963684002005",
+	  nome: "Templare Parisienne (Adepto)",
+    ambientazioneRef: "341412111307502180",
+    eta: "A",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839638" },
+      { id: "343960624931274957" },
+	    { id: "343968013220832190" },
+      { id: "343960624931274957" },
+	    { id: "343968013220839777" },
+	    { id: "343968013220839647" },
+	    { id: "343968013220832190" },
+    ],
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343968013220839632" },
+      { id: "343968013220844432" },
+    ],
+    ],
+  },
+  /* Templare Parisienne (Errante)
+4 punti da dividere tra "Armi da fuoco" e "Uso -arma-" (pistola o fucile)
+Guidare -due ruote- +1
+Guidare -quattro ruote- +1
+Orientamento +3
+Lingua -francese- +3*/
+  {
+    id: "21805963684002006",
+  	nome: "Templare Parisienne (Errante)",
+    ambientazioneRef: "341412111307502180",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343960624931274957" },
+	    { id: "343968013220839777" },
+	    { id: "343968013220839647" },
+	    { id: "343968013220832190" },
+    ],
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343968013220839632" },
+      { id: "343968013220844432" },
+    ],
+  },
+  /* Templare Pellegrino (Adepto)
+3 punti da dividere tra "Armi da fuoco" e "Uso -arma-" con arma a scelta
+Orientamento al Grado +3 o superiore
+Correre +1 o superiore */
+  {
+    id: "21805963684002007",
+  	nome: "Templare Pellegrino (Adepto)",
+    ambientazioneRef: "341412111307502180",
+    eta: "A",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839638" },
+      { id: "343960624931274957" },
+	  { id: "343960377471533261v1" },
+    ],
+  },
+  /* Templare Pellegrino (Errante)
+3 punti da dividere tra "Armi da fuoco" e "Uso -arma-" con arma a scelta
+Orientamento al Grado +3 o superiore
+Correre +1 o superiore */
+  {
+    id: "21805963684002008",
+  	nome: "Templare Pellegrino (Errante)",
+    ambientazioneRef: "341412111307502180",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960818077925581" },
+      { id: "343968013220839634" },
+      { id: "343968013220839629" },
+      { id: "343961628090302669" },
+      { id: "343968013220839635" },
+      { id: "343960624931274957" },
+	  { id: "343960377471533261v1" },
+    ],
+  },
+  /* *** Templari - End *** */
+
   /* *** Trono del Crisantemo - Begin *** */
   /* Lavoratore e Artigiano
 Ascoltare, Correre, Leggere e Scrivere, Rissa più due a scelta, in base alle occupazioni svolte, tra: Addestrare Animale, Agronomia, Artigianato -Specifico-, Naturalistica, Pescare, Pronto Soccorso, Raggirare, Uso -arma- */
@@ -1656,7 +1845,65 @@ Guidare -Veicolo- o Cavalcare, Perquisire, Rissa, Torturare, Uso -arma-, Uso -ar
       { id: "343960130942927053" },
     ],
   },
+  /* Ronin Inscius
+Creazione Ronin: creare un pg, poi estrarre un tarocco, se è Diavolo si è un Diabolicus, altrimenti Inscius.
+Pescare due Arcani Maggiori per le ferite mortali.
+Scegliere se prendere Bushido
+  
+-1 Memoria
+-1 Equilibrio Mentale
+Aumentare malus ad Aspetto e portare Equilibrio Mentale a -3 se uno dei colpi mortali è stato portato alla testa.
+Inscius ha 7 punti da inserire tra:
+Autocontrollo, Arte Marziale -Arma-, Uso -arma-
+Autocontrollo deve essere 1 o superiore
+ */
+  {
+    id: "21005963684002018",
+  	nome: "Ronin - Inscius",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "210068013220839608" },
+      { id: "210068013220839601" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Ronin - Diabolicus
+Creazione Ronin: creare un pg, poi estrarre un tarocco, se è Diavolo si è un Diabolicus, altrimenti Inscius.
+Pescare due Arcani Maggiori per le ferite mortali.
+Scegliere il dono.
+Scegliere se prendere Bushido.
+Abilità aggiuntive da Ronin:
+Autocontrollo, Arte Marziale -Arma-, Uso -arma-
+Autocontrollo deve essere 1 o superiore
+Diabolicus ha 1 punto da spendere.
+
++2 Intuito
++3 Memoria
++2 Percezione
+-1 Aspetto
++3 Comando
++2 Creatività
++2 Socievolezza
++3 Coordinazione
++4 Forza Fisica
++2 Mira
++4 Affinità Occulta
+-3 Equilibrio Mentale
+Volontà 10 */
+  {
+    id: "21005963684002019",
+	  nome: "Ronin - Diabolicus",
+    ambientazioneRef: "341412158384373964",
+    eta: "N",
+    abilitaRef: [
+      { id: "210068013220839608" },
+      { id: "210068013220839601" },
+      { id: "343960377471533261v1" },
+    ],
+  },
   /* *** Trono del Crisantemo - End *** */
+
   /* *** IV Reich - Begin *** */
   /* Avvocato privato
 Interrogare, Legge, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare, Seguire tracce */
