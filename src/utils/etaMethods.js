@@ -14,6 +14,7 @@ export const setAbilitaMiscByEta = (
   funcSetGradoMassimo,
   funcSetArrayProfessione,
   funcSetCaratteristiche,
+  funcSetNumeroAbilitaTaroccoPassato,
   ambientazione
 ) => {
   let puntiAbilita = 7;
@@ -21,10 +22,22 @@ export const setAbilitaMiscByEta = (
   const ambSoviet = getAmbSoviet;
   let arrayProfessione =
     ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-  if (etaValue >= 1 && etaValue <= 18) {
+  let numeroAbilitaTaroccoPassato = 2;
+  if (etaValue >= 1 && etaValue <= 7) {
     puntiAbilita = 2;
     gradoMassimo = 2;
     arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
+    numeroAbilitaTaroccoPassato = 0;
+  } else if (etaValue >= 8 && etaValue <= 13) {
+    puntiAbilita = 2;
+    gradoMassimo = 2;
+    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
+    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 1 : 0;
+  } else if (etaValue >= 13 && etaValue <= 18) {
+    puntiAbilita = 2;
+    gradoMassimo = 2;
+    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
+    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 2 : 0;
   } else if (etaValue >= 19 && etaValue <= 39) {
     puntiAbilita = 7;
     gradoMassimo = 3;
@@ -44,6 +57,7 @@ export const setAbilitaMiscByEta = (
   funcSetPunti(puntiAbilita);
   funcSetGradoMassimo(gradoMassimo);
   funcSetArrayProfessione(arrayProfessione);
+  funcSetNumeroAbilitaTaroccoPassato(numeroAbilitaTaroccoPassato);
 };
 
 export const assignMalusToCaratteristicheByEta = (
@@ -72,12 +86,7 @@ export const getDescForEtaPaper = (
   let titolo = "";
   let descrizione = "";
   const ambSoviet = getAmbSoviet;
-  console.log("ambSoviet", ambSoviet);
-  console.log("ambSoviet.id", ambSoviet.id);
-  console.log("ambientazione.id", ambientazione);
-  console.log("etaValue", etaValue);
   if (ambSoviet.id === ambientazione) {
-    console.log("etaValue", etaValue);
     if (etaValue <= 6) {
       titolo = "Infante (fino a 6 anni d'età)";
       descrizione = `Tarocco del Passato: Nessuno, Abilità di Professione: ${puntiAbilita} punti, Abilità Massime: Grado +${gradoMassimo}`;
