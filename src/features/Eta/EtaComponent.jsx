@@ -22,10 +22,10 @@ import {
 import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
 import {
-  getAmbSoviet,
   getDescForEtaPaper,
   setAbilitaMiscByEta,
 } from "../../utils/etaMethods";
+import { ambSoviet } from "../../utils/ambientazioniMethods";
 
 function EtaComponent() {
   const { eta, puntiAbilitaEta, gradoMassimoEta } = useSelector(
@@ -71,10 +71,8 @@ function EtaComponent() {
     }
   };
 
-  const handleAmbSoviet = () => {
-    const ambSoviet = getAmbSoviet;
-    return ambSoviet.id === ambientazione ? eta >= 6 : eta >= 10;
-  };
+  const handleAmbSoviet = () =>
+    ambSoviet.id === ambientazione ? eta >= 6 : eta >= 10;
 
   const setEtaPaper = () => {
     const { titolo, descrizione } = getDescForEtaPaper(

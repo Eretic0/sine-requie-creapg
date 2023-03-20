@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
@@ -6,10 +7,10 @@ import Select from "@mui/material/Select";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
+import DialogGeneric from "../../components/DialogGeneric";
 import IconTooltip from "../../components/IconTooltip";
 import AbilitaDb from "../../db/Abilita";
 import ProfessioniDb from "../../db/Professioni";
-import Button from "@mui/material/Button";
 import {
   addAbilita,
   resetAllAbilita,
@@ -17,6 +18,11 @@ import {
   setAbilita,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
+import {
+  restoreCaratteristicheByStorico,
+  updateCaratteristica,
+} from "../../redux/slices/caratteristicheSlice";
+import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
 import {
   addProfessioneAbilitaScelta,
   resetProfessione,
@@ -27,14 +33,15 @@ import {
   setProfessionePrecedente,
   updateProfessioneAbilitaScelta,
 } from "../../redux/slices/professioneSlice";
-import { getAmbSoviet } from "../../utils/etaMethods";
+import { ambSoviet } from "../../utils/ambientazioniMethods";
+import { getCaratteristicaByIdFromStore } from "../../utils/caratteristicheMethods";
+import { calcolaPuntiAbilitaByEta } from "../../utils/etaMethods";
 import ProfessionePaper from "./ProfessionePaper";
-import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
-import DialogGeneric from "../../components/DialogGeneric";
 
 const ProfessioneComponent = () => {
   const [openAlertDialog, setOpenAlertDialog] = React.useState(false);
   const [profSovietAppoggio, setProfSovietAppoggio] = React.useState({});
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const {
     professione,
     professioneAbilitaScelte,
@@ -77,7 +84,6 @@ const ProfessioneComponent = () => {
   };
 
   const handleAmbSoviet = (prof) => {
-    const ambSoviet = getAmbSoviet;
     const profArray = ["A", "E"];
     let test = false;
     if (
@@ -108,10 +114,96 @@ const ProfessioneComponent = () => {
   };
 
   const handleConfirmProfSoviet = () => {
+    const carEquilibrioMentale = getCaratteristicaByIdFromStore(
+      "341576027967848653",
+      caratteristiche
+    );
+
+    const carDistanzaMorte = getCaratteristicaByIdFromStore(
+      "341576021433123021",
+      caratteristiche
+    );
+    let carEquilibrioMentaleMod = { ...carEquilibrioMentale };
+    let carDistanzaMorteMod = { ...carDistanzaMorte };
     if (profSovietAppoggio.eta === "A") {
       dispatch(setPuntiAbilitaEta(15));
+      carEquilibrioMentaleMod.valore -= 2;
+      carDistanzaMorteMod.valore -= 2;
+      dispatch(updateCaratteristica(carEquilibrioMentaleMod));
+      dispatch(updateCaratteristica(carDistanzaMorteMod));
     } else if (profSovietAppoggio.eta === "E") {
       dispatch(setPuntiAbilitaEta(30));
+      carEquilibrioMentaleMod.valore -= 3;
+      carDistanzaMorteMod.valore -= 3;
+      dispatch(updateCaratteristica(carEquilibrioMentaleMod));
+      dispatch(updateCaratteristica(carDistanzaMorteMod));
+    }
+    const prof = ProfessioniDb.find((t) => t.id === profSovietAppoggio.id);
+
+    if (profSovietAppoggio.precedente) {
+      dispatch(setProfessionePrecedente(prof));
+      dispatch(setAbilita(abilitaStoricoTarocco));
+      const listAbilitaByProfessione = prof.abilitaRef;
+      const mainProf = ProfessioniDb.find((t) => t.id === professione.id);
+
+      if (mainProf.abilitaRef.length > 0) {
+        mainProf.abilitaRef.forEach((element) => {
+          let abilitaStor = abilitaStoricoTarocco.find(
+            (t) => t.id === element.id
+          );
+          if (abilitaStor) {
+            let abiMod = { ...abilitaStor };
+            abiMod.grado = +0;
+            abiMod.professione = true;
+            dispatch(saveOrUpdateAbilita(abiMod));
+          } else {
+            abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+            let abiMod = { ...abilitaStor };
+            abiMod.grado = +0;
+            abiMod.professione = true;
+            dispatch(saveOrUpdateAbilita(abiMod));
+          }
+        });
+      }
+
+      listAbilitaByProfessione.forEach((element) => {
+        let abilitaStor = abilitaStoricoTarocco.find(
+          (t) => t.id === element.id
+        );
+        if (abilitaStor) {
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        } else {
+          abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        }
+      });
+    } else {
+      dispatch(setProfessione(prof));
+      const listAbilitaByProfessione = prof.abilitaRef;
+      dispatch(setAbilita(abilitaStoricoTarocco));
+      listAbilitaByProfessione.forEach((element) => {
+        let abilitaStor = abilitaStoricoTarocco.find(
+          (t) => t.id === element.id
+        );
+        if (abilitaStor) {
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        } else {
+          abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        }
+      });
     }
     handleCloseAlertDialog();
   };
@@ -173,13 +265,17 @@ const ProfessioneComponent = () => {
   };
 
   const handleChangeProfessionePrecedente = (event) => {
+    const puntiAbilita = calcolaPuntiAbilitaByEta(eta);
+    dispatch(setPuntiAbilitaEta(puntiAbilita));
     dispatch(resetProfessioneAbilitaScelte());
     dispatch(resetProfessioneAbilitaScelteLibere());
     dispatch(resetAllAbilita());
+    dispatch(restoreCaratteristicheByStorico());
     setProfSovietAppoggio({});
     const prof = event.target.value;
     if (handleAmbSoviet(prof)) {
-      setProfSovietAppoggio(prof);
+      let profPass = { ...prof, precedente: true };
+      setProfSovietAppoggio(profPass);
       setOpenAlertDialog(true);
     } else {
       dispatch(setProfessionePrecedente(prof));
@@ -229,8 +325,11 @@ const ProfessioneComponent = () => {
   };
 
   const handleChangeProfessione = (event) => {
+    const puntiAbilita = calcolaPuntiAbilitaByEta(eta);
+    dispatch(setPuntiAbilitaEta(puntiAbilita));
     dispatch(resetProfessione());
     dispatch(resetAllAbilita());
+    dispatch(restoreCaratteristicheByStorico());
     setProfSovietAppoggio({});
     const prof = event.target.value;
     if (handleAmbSoviet(prof)) {

@@ -28,6 +28,10 @@ export const caratteristicheSlice = createSlice({
       state.caratteristicheStorico = [...state.caratteristiche];
     },
 
+    restoreCaratteristicheByStorico: (state) => {
+      state.caratteristiche = [...state.caratteristicheStorico];
+    },
+
     setCaratteristiche: (state, { payload }) => {
       state.caratteristiche = payload;
     },
@@ -141,6 +145,7 @@ export const {
   updateSemiBonus,
   setSemiBonus,
   setCaratteristicheStorico,
+  restoreCaratteristicheByStorico,
 } = caratteristicheSlice.actions;
 
 export default caratteristicheSlice.reducer;
