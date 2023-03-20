@@ -1070,7 +1070,7 @@ const Abilita = [
     id: "210068013220839608",
     nome: "Autocontrollo",
     ambientazioneRef: ["341412158384373964"],
-    caratteristicaRef: "341575970478620877",
+    caratteristicaRef: "341575940363518157",
     grado: null,
     counterFallimento: 0,
     professione: false,
