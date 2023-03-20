@@ -1106,7 +1106,53 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
-  /* *** Trono del Crisantemo - Begin *** */
+  /* *** Trono del Crisantemo - End *** */
+  /* *** Regno di Osiride - Begin *** */
+  {
+    id: "207068013220839600",
+    nome: "Lingua -ieratico-",
+    ambientazioneRef: ["341412158384373964"],
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "207068013220839601",
+    nome: "Uso -Fauci di Anubi-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+   {
+    id: "207068013220839602",
+    nome: "Uso -Khopesch-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  }, 
+  {
+    id: "207068013220839603",
+    nome: "Uso -mazza-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** Regno di Osiride - Begin *** */
 ];
 
 export default Abilita;
