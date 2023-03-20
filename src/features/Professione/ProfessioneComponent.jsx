@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import {
   addAbilita,
   resetAllAbilita,
+  saveOrUpdateAbilita,
   setAbilita,
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
@@ -132,21 +133,44 @@ const ProfessioneComponent = () => {
     dispatch(resetAllAbilita());
     const prof = event.target.value;
     dispatch(setProfessionePrecedente(prof));
+    dispatch(setAbilita(abilitaStoricoTarocco));
     const listAbilitaByProfessione = prof.abilitaRef;
+
+    const mainProf = ProfessioniDb.find((t) => t.id === professione.id);
+
+    if (mainProf.abilitaRef.length > 0) {
+      mainProf.abilitaRef.forEach((element) => {
+        let abilitaStor = abilitaStoricoTarocco.find(
+          (t) => t.id === element.id
+        );
+        if (abilitaStor) {
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        } else {
+          abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        }
+      });
+    }
+
     listAbilitaByProfessione.forEach((element) => {
       let abilitaStor = abilitaStoricoTarocco.find((t) => t.id === element.id);
       if (abilitaStor) {
         let abiMod = { ...abilitaStor };
         abiMod.grado = +0;
         abiMod.professione = true;
-        abiMod.counterFallimento += 5;
-        dispatch(updateAbilita(abiMod));
+        dispatch(saveOrUpdateAbilita(abiMod));
       } else {
         abilitaStor = AbilitaDb.find((t) => t.id === element.id);
         let abiMod = { ...abilitaStor };
         abiMod.grado = +0;
         abiMod.professione = true;
-        dispatch(addAbilita(abiMod));
+        dispatch(saveOrUpdateAbilita(abiMod));
       }
     });
   };
@@ -164,14 +188,13 @@ const ProfessioneComponent = () => {
         let abiMod = { ...abilitaStor };
         abiMod.grado = +0;
         abiMod.professione = true;
-        abiMod.counterFallimento += 5;
-        dispatch(updateAbilita(abiMod));
+        dispatch(saveOrUpdateAbilita(abiMod));
       } else {
         abilitaStor = AbilitaDb.find((t) => t.id === element.id);
         let abiMod = { ...abilitaStor };
         abiMod.grado = +0;
         abiMod.professione = true;
-        dispatch(addAbilita(abiMod));
+        dispatch(saveOrUpdateAbilita(abiMod));
       }
     });
   };
