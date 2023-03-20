@@ -17,6 +17,7 @@ import {
   setEta,
   setGradoMassimoEta,
   setPuntiAbilitaEta,
+  setNumeroAbilitaTaroccoPassato,
 } from "../../redux/slices/etaSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
@@ -46,6 +47,9 @@ function EtaComponent() {
   const handleDispatchUpdateCaratteristica = (value) =>
     dispatch(updateCaratteristica(value));
 
+  const handleDispatchSetNumeroAbilitaTaroccoPassato = (value) =>
+    dispatch(setNumeroAbilitaTaroccoPassato(value));
+
   const handleChangeEta = (event) => {
     const etaValue = event.target.value;
     dispatch(resetTarocchi());
@@ -60,6 +64,7 @@ function EtaComponent() {
         handleDispatchSetGradoMassimoEta,
         handleDispatchSetArrayProfessioneEta,
         handleDispatchUpdateCaratteristica,
+        handleDispatchSetNumeroAbilitaTaroccoPassato,
         ambientazione
       );
       dispatch(setCaratteristicheStorico());
