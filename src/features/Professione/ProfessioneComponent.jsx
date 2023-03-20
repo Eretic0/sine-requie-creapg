@@ -88,7 +88,7 @@ const ProfessioneComponent = () => {
       (p) => p.ambientazioneRef === professione.ambientazioneRef
     );
     professioniFilter = professioniFilter.filter(
-      (p) => p.id !== professione.id
+      (p) => !p.professionePrecedente
     );
     professioniFilter = professioniFilter.filter((p) =>
       arrayProfessioneEta.includes(p.eta)
