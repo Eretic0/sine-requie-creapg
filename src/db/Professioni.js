@@ -2162,6 +2162,355 @@ Armi da Fuoco, Fotografia, Guidare -veicolo-, Interrogare, Intrufolarsi, Perquis
     ],
   },
   /* *** IV Reich - End *** */
+/* *** Regno di Osiride - Begin *** */
+  /* Topo del Deserto - Ufficiale
+Artiglieria, Ascoltare, Demolizione, Guidare -veicolo-, Impartire Ordini, Interrogare, Orientamento, Osservare, Tattica, Uso -Mazza-, Uso -arma-. */
+  {
+    id: "20705963684002001",
+    nome: "Topo del Deserto - Ufficiale",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343960054820503757" },
+      { id: "343960868252287181" },
+      { id: "343960130942927053" },
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
+      { id: "343968013220839629" },
+      { id: "343960281846644941" },
+      { id: "343961571675865293" },
+      { id: "343968013220839629" },
+      { id: "207068013220839603" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Topo del Deserto - Sottoufficiale
+Artiglieria, Ascoltare, Guidare -veicolo-, Interrogare, Lingua -ieratico-, Orientamento, Osservare, Uso -Mazza-, Uso -arma-.  */
+  {
+    id: "20705963684002002",
+    nome: "Topo del Deserto - Sottoufficiale",
+    ambientazioneRef: "341412130688336076",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343960054820503757" },
+      { id: "343960130942927053" },
+      { id: "343961114292256973" },
+      { id: "207068013220839600" },
+      { id: "343968013220839629" },
+      { id: "343960281846644941" },
+      { id: "207068013220839603" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Topo del Deserto - Soldato Semplice
+Acrobazia, Ascoltare, Orientamento, Osservare, Perquisire, Uso -Mazza-, Uso -arma-.  */
+  {
+    id: "20705963684002003",
+    nome: "Topo del Deserto - Soldato Semplice",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343968013220839637" },
+      { id: "343960054820503757" },
+      { id: "343968013220839629" },
+      { id: "343960281846644941" },
+      { id: "343960305710137549" },
+      { id: "207068013220839603" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Servi di Anubi
+  Interrogare, Perquisire, Pronto Soccorso, Rissa, Uso -Fauci di Anubi-, Uso -spada- */
+  {
+    id: "20705963684002003",
+    nome: "Servi di Anubi",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961114292256973" },
+      { id: "343960305710137549" },
+      { id: "343961388801065165" },
+      { id: "343960335239086285" },
+      { id: "207068013220839601" },
+      { id: "343968013220839635" },
+    ],
+  },
+  /* Ispettore Capo
+Impartire Ordini, Interrogare, Intrufolarsi, Perquisire, Politica ed Economia, Seguire tracce, Uso -pistola-, Uso -arma-*/
+  {
+    id: "20705963684002004",
+    nome: "Ispettore Capo",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
+      { id: "343960144603775181" },
+      { id: "343960305710137549" },
+      { id: "343961340510994637" },
+      { id: "343960353026080973" },
+      { id: "343968013220844432" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Ispettore
+Interrogare, Intrufolarsi, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-*/
+  {
+    id: "20705963684002004",
+    nome: "Ispettore",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961114292256973" },
+      { id: "343960144603775181" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* Tecnico di Polizia
+Biologia, Erboristeria, Fotografia, Intrufolarsi, Occultismo, Perquisire, Pronto Soccorso, Scassinare, Uso -arma- */
+  {
+    id: "20705963684002004",
+    nome: "Ispettore Capo",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343966802788745421" },
+      { id: "343960897696301261" },
+      { id: "343960945631953101" },
+      { id: "343960144603775181" },
+      { id: "343961225310240973" },
+      { id: "343960305710137549" },
+      { id: "343961388801065165" },
+      { id: "343961463669391565" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Soldato
+Artiglieria, Correre, Intrufolarsi, Uso -fucile-, Uso -arma- */
+  {
+    id: "20705963684002005",
+    nome: "Soldato",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343960116705362125" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Soldato Coscritto
+Artiglieria, Correre, Intrufolarsi, Uso -fucile-, Uso -arma-
+Selezionare una a scelta tra:
+Addestrare, Agronomia, Artigianato, Cacciare, Cantare, Cavalcare, Disegnare, Erboristeria, Guidare, Mercanteggiare, Pescare, Pilotare, Recitare, Scolpire, Suonare
+*/
+  {
+    id: "20705963684002006",
+    nome: "Soldato Coscritto",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343960116705362125" },
+      { id: "343960144603775181" },
+      { id: "343968013220839632" },
+      { id: "343960377471533261v1" },
+    ],
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343960572802367693" },
+      { id: "343960584919711949" },
+      { id: "343960641759871181" },
+      { id: "343960737749663949" },
+      { id: "343960798508351693" },
+      { id: "343960818077925581" },
+      { id: "343960881357390029" },
+      { id: "343960897696301261" },
+      { id: "343960130942927053" },
+      { id: "343960225473102029" },
+      { id: "343961312311640269" },
+      { id: "343961323029135565" },
+      { id: "343961444479402189" },
+      { id: "343961475369402573" },
+      { id: "343961548035719373" },
+    ],
+  },
+  /* Sergente
+Impartire Ordini, Tattica, Uso -arma-, Uso -arma- */
+  {
+    id: "20705963684002007",
+    nome: "Sergente",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* Tenente
+Impartire Ordini, Strategia, Tattica, Uso -khopesch-, Uso -arma- */
+  {
+    id: "20705963684002008",
+    nome: "Tenente",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961521508843725" },
+      { id: "343961571675865293" },
+      { id: "207068013220839602" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Carrista
+Artiglieria, Guidare -cingolato-, Tattica, Uso -khopesch-, Uso -arma- */
+  {
+    id: "20705963684002009",
+    nome: "Carrista",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343968013220839631" },
+      { id: "343961571675865293" },
+      { id: "207068013220839602" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Medjai
+Artiglieria, Guidare -cingolato-, Intrufolarsi, Perquisire, Uso -spada-, Uso -arma-.
+Un'abilità di copertura a scelta (Agronomia, Artigianato, Cacciare, Pescare,...)
+Addestrare, Agronomia, Artigianato, Cacciare, Cantare, Cavalcare, Disegnare, Erboristeria, Guidare, Mercanteggiare, Pescare, Pilotare, Recitare, Scolpire, Suonare
+*/
+  {
+    id: "20705963684002010",
+    nome: "Medjai",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343968013220839631" },
+      { id: "343968013220839634" },
+      { id: "343960305710137549" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+    ],
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343960572802367693" },
+      { id: "343960584919711949" },
+      { id: "343960641759871181" },
+      { id: "343960737749663949" },
+      { id: "343960798508351693" },
+      { id: "343960818077925581" },
+      { id: "343960881357390029" },
+      { id: "343960897696301261" },
+      { id: "343960130942927053" },
+      { id: "343960225473102029" },
+      { id: "343961312311640269" },
+      { id: "343961323029135565" },
+      { id: "343961444479402189" },
+      { id: "343961475369402573" },
+      { id: "343961548035719373" },
+    ],
+  },
+  /* Mohar
+Artiglieria, Guidare -cingolato-, Impartire Ordini, Intrufolarsi, Strategia, Tattica, Uso -spada-, Uso -arma-.*/
+  {
+    id: "20705963684002011",
+    nome: "Mohar",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343968013220839631" },
+      { id: "343961040254402765" },
+      { id: "343960144603775181" },
+      { id: "343961521508843725" },
+      { id: "343961571675865293" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Mujaheddin
+Cavalcare, Impartire Ordini, Pronto Soccorso, Tattica, Uso -spada-, Uso -arma-.*/
+  {
+    id: "20705963684002012",
+    nome: "Mujaheddin",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960818077925581" },
+      { id: "343961040254402765" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Esploratore
+Ascoltare, Cavalcare, Orientamento, Osservare, Perquisire, Seguire tracce, Uso -spada-, Uso -arma-.*/
+  {
+    id: "20705963684002013",
+    nome: "Esploratore",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960054820503757" },
+      { id: "343960818077925581" },
+      { id: "343968013220839629" },
+      { id: "343960281846644941" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Predone
+Artiglieria, Cavalcare, Demolizione, Guidare -veicolo-, Orientamento, Uso -spada-, Uso -arma-, Uso -arma-*/
+  {
+    id: "20705963684002014",
+    nome: "Predone",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960656041476301" },
+      { id: "343960818077925581" },
+      { id: "343960868252287181" },
+      { id: "343960130942927053" },
+      { id: "343968013220839629" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* Portatore di Fiamma
+Cavalcare, Guidare -veicolo-, Impartire Ordini, Pronto Soccorso, Tattica, Uso -spada-, Uso -arma-*/
+  {
+    id: "20705963684002015",
+    nome: "Portatore di Fiamma",
+    ambientazioneRef: "341412130688336076",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960818077925581" },
+      { id: "343960130942927053" },
+      { id: "343961040254402765" },
+      { id: "343961388801065165" },
+      { id: "343961571675865293" },
+      { id: "343968013220839635" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* *** Regno di Osiride - End *** */
+
 ];
 
 export default Professioni;
