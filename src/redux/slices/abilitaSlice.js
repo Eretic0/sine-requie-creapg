@@ -9,6 +9,7 @@ const initialState = {
   ],
   profiloAbilitaSelezionato: "",
   listBonusAbilita: [],
+  abilitaScelteTaroccoPassato: "",
 };
 
 export const abilitaSlice = createSlice({
@@ -21,6 +22,10 @@ export const abilitaSlice = createSlice({
 
     addAbilita: (state, { payload }) => {
       state.abilita.push(payload);
+    },
+
+    setAbilitaScelteTaroccoPassato: (state, { payload }) => {
+      state.abilitaScelteTaroccoPassato = payload;
     },
 
     updateAbilita: (state, { payload }) => {
@@ -71,6 +76,10 @@ export const abilitaSlice = createSlice({
     setAbilitaStoricoProfessione: (state) => {
       state.abilitaStoricoProfessione = [...state.abilita];
     },
+
+    resetAbilitaScelteTaroccoPassato: (state) => {
+      state.abilitaScelteTaroccoPassato = "";
+    },
   },
 });
 
@@ -86,6 +95,8 @@ export const {
   resetAllAbilita,
   setAbilitaStoricoTarocco,
   setAbilitaStoricoProfessione,
+  setAbilitaScelteTaroccoPassato,
+  resetAbilitaScelteTaroccoPassato,
 } = abilitaSlice.actions;
 
 export default abilitaSlice.reducer;
