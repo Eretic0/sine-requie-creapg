@@ -1065,6 +1065,19 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
+  {
+  /* Prerequisito: Ronin*/
+    id: "210068013220839608",
+    nome: "Autocontrollo",
+    ambientazioneRef: ["341412158384373964"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** Trono del Crisantemo - Begin *** */
 ];
 
 export default Abilita;
