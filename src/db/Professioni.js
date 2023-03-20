@@ -25,8 +25,8 @@ const Professioni = [
   {
     id: "343962772011221197",
     nome: "Frate Minore",
-    eta: "N",
     ambientazioneRef: "341412057407553740",
+    eta: "N",
     abilitaRef: [
       { id: "343960897696301261" },
       { id: "343968013220839634" },
@@ -96,7 +96,7 @@ const Professioni = [
   },
   {
     id: "343965947300675789",
-    nome: "Sopravvisuto",
+    nome: "Sopravvissuto",
     eta: "N",
     ambientazioneRef: "341412057407553740",
     abilitaRef: [
@@ -815,11 +815,11 @@ const Professioni = [
   },
 
   /* Frate Gesuita (Provinciale - Giornalista)
- Fotografia, Leggere e scrivere, Lingua -latino-, Politica ed economia, Storia,
+ Fotografia, Leggere e Scrivere, Lingua -latino-, Politica ed economia, Storia,
  Teologia
  */
   {
-    id: "343970143684002016",
+    id: "343970143684789017",
     nome: "Frate Gesuita (Provinciale - Giornalista)",
     ambientazioneRef: "341411834674282700",
     eta: "N",
@@ -834,7 +834,7 @@ const Professioni = [
   },
 
   /* Giornalista Laico
- Fotografia, Leggere e scrivere, Persuadere, Politica ed Economia, Raggirare
+ Fotografia, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare
  */
   {
     id: "343970143684002017",
@@ -933,10 +933,10 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
 
   /* *** Manuale Soviet - Start *** */
   /* Operaio Esperto
- Artigianato, Artigianato -meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento
+ Artigianato, Artigianato -Meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento
  Rissa, Leggere e Scrivere, un'abilità relativa mansione */
   {
-    id: "343968177253777714",
+    id: "205068177253777714",
     nome: "Operaio Esperto",
     ambientazioneRef: "341412022890528972",
     eta: "A",
@@ -963,7 +963,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
  Ascoltare, Borseggiare, Correre, Intrufolarsi, Mercanteggiare, Orientamento, Perquisire
  Raggirare, Rissa */
   {
-    id: "343968177253777715",
+    id: "205068177253777715",
     nome: "Addetto ai Servizi Speciali",
     ambientazioneRef: "341412022890528972",
     eta: "A",
@@ -981,12 +981,12 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   },
 
   /* Meccanici Avanzati
- Armi da fuoco, artigianato meccanico, artiglieria, biologia, chimica farmaceutica,
- fisica, guidare -cingoloto-, impartire ordini, ingegneria, ingegneria biomeccanica
- leggere e scrivere, medicina e chirurgia
+ Armi da Fuoco, Artigianato -Meccanico-, Artiglieria, Biologia, Chimica Farmaceutica,
+ Fisica, Guidare -cingolato-, Impartire Ordini, Ingegneria, Ingegneria Biomeccanica
+ Leggere e Scrivere, Medicina e Chirurgia
   */
   {
-    id: "343968177253777716",
+    id: "205068177253777716",
     nome: "Meccanici Avanzati",
     ambientazioneRef: "341412022890528972",
     eta: "E",
@@ -1007,11 +1007,11 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   },
 
   /* Membro del Gruppo d'Assalto
- Armi da fuoco, artiglieria, demolizione, Impartire Ordini, Intrufolarsi,
- Orientamento, rissa, tattica, uso arma, uso arma, uso arma, uso arma
+ Armi da Fuoco, Artiglieria, Demolizione, Impartire Ordini, Intrufolarsi,
+ Orientamento, Rissa, Tattica, Uso -arma-, Uso -arma-, Uso -arma-, Uso -arma-
   */
   {
-    id: "343968177253777717",
+    id: "205068177253777717",
     nome: "Membro del Gruppo d'Assalto",
     ambientazioneRef: "341412022890528972",
     eta: "E",
@@ -1034,7 +1034,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Biomacchina da lavoro
    */
   {
-    id: "343968177253777718",
+    id: "205068177253777718",
     nome: "Biomacchina da lavoro",
     ambientazioneRef: "341412022890528972",
     eta: "N",
@@ -1043,10 +1043,10 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   },
 
   /* Biomacchina da guerra
-  armi da fuoco, artiglieria, uso -arma-
+  Armi da Fuoco, Artiglieria, Uso -arma-
    */
   {
-    id: "343968177253777719",
+    id: "205068177253777719",
     nome: "Biomacchina da guerra",
     ambientazioneRef: "341412022890528972",
     eta: "A",
@@ -1064,7 +1064,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Converso specializzato - Guardia del corpo
  Armi da Fuoco, Perquisire, Pronto Soccorso, Rissa, Uso -arma-, Uso -arma- */
   {
-    id: "34397894684002001",
+    id: "21907894684002001",
     nome: "Converso specializzato - Guardia del corpo",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1080,7 +1080,7 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
   /* Converso specializzato - Avanscoperta
 Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
   {
-    id: "343923943684002002",
+    id: "219023943684002002",
     nome: "Converso specializzato - Avanscoperta",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1096,7 +1096,7 @@ Intrufolarsi, Orientamento, Perquisire, Raggirare, Rissa, Scassinare */
   /* Converso specializzato - Persecutore
 Artigianato -Vario-, Interrogare, Pronto Soccorso, Teologia, Torturare, Uso -arma- */
   {
-    id: "343970112384002003",
+    id: "219070112384002003",
     nome: "Converso specializzato - Persecutore",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1114,7 +1114,7 @@ Artigianato -Meccanici-, Rissa, Uso -arma-
 e tre a scelta tra: Guidare -due ruote-, 
 Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battelli- */
   {
-    id: "343974563684002004",
+    id: "219074563684002004",
     nome: "Converso specializzato - Autista",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1132,9 +1132,9 @@ Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battel
     ],
   },
   /* Converso specializzato - Bruto
-Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
+Armi da Fuoco, Perquisire, Rissa, Uso --arma-, Uso -arma- */
   {
-    id: "343977843684002005",
+    id: "219077843684002005",
     nome: "Converso specializzato - Bruto",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1147,10 +1147,10 @@ Armi da fuoco, Perquisire, Rissa, Uso -arma, Uso -arma- */
     ],
   },
   /* Notaio - Contabile
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
   {
-    id: "34397018984002006",
+    id: "21907018984002006",
     nome: "Notaio - Contabile",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1164,10 +1164,10 @@ Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
     ],
   },
   /* Notaio - Avvocato
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Legge (+3), Oratoria */
   {
-    id: "343975443684002017",
+    id: "219075443684002017",
     nome: "Notaio - Avvocato",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1183,10 +1183,10 @@ Legge (+3), Oratoria */
   },
 
   /* Notaio - Notaio
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Falsificazione, Mercanteggiare, Legge (+3) */
   {
-    id: "343977896324002008",
+    id: "219077896324002008",
     nome: "Notaio - Notaio",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1202,11 +1202,11 @@ Falsificazione, Mercanteggiare, Legge (+3) */
     ],
   },
   /* Notaio - Teologo
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Teologia (+3)
 Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
   {
-    id: "34397041526384002009",
+    id: "21907041526384002009",
     nome: "Notaio - Teologo",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1220,11 +1220,11 @@ Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
     ],
   },
   /* Notaio - Letterato
-Legge, leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
 Scegliere due tra:
 Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
   {
-    id: "34395963684002010",
+    id: "21905963684002010",
     nome: "Notaio - Letterato",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1247,7 +1247,7 @@ Letteratura e arte, Lingua -a scelta-, Lingua -a scelta- */
 Scegliere 3 tra queste, con grado massimo +2 e 3 abilità per cosa faceva prima, ma non dalla lista seguente 
 Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia  */
   {
-    id: "343971247884002011",
+    id: "219071247884002011",
     nome: "Segretario tirocinante",
     ambientazioneRef: "341412111307505868",
     eta: "N",
@@ -1338,334 +1338,569 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
   /* *** Inquisizione - End *** */
   /* *** Trono del Crisantemo - Begin *** */
   /* Lavoratore e Artigiano
-Ascoltare, Correre, Leggere e Scrivere, Rissa più due a scelta, in base alle occupazioni svolte, tra: Addestrare Animale, Agronomia, Artigianato -Specifico-, Naturalistica, Pescare, Pronto Soccorso, Raggirare, Rissa, Uso -arma- */
-  /*{
+Ascoltare, Correre, Leggere e Scrivere, Rissa più due a scelta, in base alle occupazioni svolte, tra: Addestrare Animale, Agronomia, Artigianato -Specifico-, Naturalistica, Pescare, Pronto Soccorso, Raggirare, Uso -arma- */
+  {
     id: "21005963684002000",
     nome: "Lavoratore e Artigiano",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
+      { id: "343960054820503757" },
+      { id: "343960116705362125" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960335239086285" },
     ],
     numeroAbilitaLibera: 2,
     abilitaLiberaListRef: [
-      { id: "343961163498782925" },
-      { id: "343960188611461325v1" },
-      { id: "343960188611461325v2" },
+      { id: "343960572802367693" },
+      { id: "343960584919711949" },
+      { id: "343960641759871181" },
+      { id: "343961201334550733" },
+      { id: "343961312311640269" },
+      { id: "343961388801065165" },
+      { id: "343961428784316621" },
+      { id: "343960377471533261v1" },
     ],
-  },/*
-
-
+  },
   /* Capovillaggio (A)
 Maturo o con pregio Kazoku
 Impartire Ordini, Interrogare, Legge, Leggere e Scrivere, Oratoria, Politica ed Economia */
-  /*{
+  {
     id: "21005963684002001",
     nome: "Capovillaggio",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
       { id: "343961138922258637" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
+      { id: "343961275507671245" },
       { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
     ],
-  },/*
-
+  },
   /* Becchino
 Artigianato -Armatura dei Becchini-, Ascoltare, Correre, Osservare, Uso -arma-, Uso -Naginata-
 Oppure Samurai o Samurai Esperto e sostituire un'Abilità con Uso -Naginata- */
-  /*{
+  {
     id: "21005963684002002",
     nome: "Becchino",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "210068013220839600" },
+      { id: "343960054820503757" },
+      { id: "343960116705362125" },
+      { id: "343960281846644941" },
+      { id: "343960377471533261v1" },
+      { id: "210068013220839606" },
     ],
-  },/*
-
-
+  },
   /* Becchino Maestro (A)
 Acrobazia, Arte Marziale -Naginatajiutsu-, Arte Marziale -Rissa- */
-  /*{
+  {
     id: "21005963684002003",
-    nome: Becchino Maestro",
+    nome: "Becchino Maestro",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960552491450573" },
+      { id: "210068013220839603" },
+      { id: "210068013220839604" },
     ],
-    numeroAbilitaLibera: 2,
-    abilitaLiberaListRef: [
-      { id: "343961163498782925" },
-      { id: "343960188611461325v1" },
-      { id: "343960188611461325v2" },
-    ],
-  },/*
-
+  },
   /* Ladruncolo
 Borseggiare, Correre, Intrufolarsi, Perquisire, Raggirare, Scassinare */
-  /*{
+  {
     id: "21005963684002004",
     nome: "Ladruncolo",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960724060504269" },
+      { id: "343960116705362125" },
+      { id: "343960144603775181" },
+      { id: "343960305710137549" },
+      { id: "343961428784316621" },
+      { id: "343961463669391565" },
     ],
-  },/*
-
+  },
   /* Mercante itinerante
 Addestrare Animale, Cavalcare, Leggere e Scrivere, Mercanteggiare, Orientamento, Uso -arma- */
-  /*{
+  {
     id: "21005963684002005",
     nome: "Mercante itinerante",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
+      { id: "343960572802367693" },
+      { id: "343960818077925581" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960225473102029" },
+      { id: "343968013220839629" },
+      { id: "343960377471533261v1" },
     ],
-  },/*
-
+  },
   /* Mercante di Successo (A)
 Maturo o con pregio Kazoku
-Artigianato -Specifico-, Impartite Ordini, Legge */
-  /*{
+Artigianato -Specifico-, Impartire Ordini, Legge */
+  {
     id: "21005963684002006",
     nome: "Mercante di Successo",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
+      { id: "343960641759871181" },
+      { id: "343961040254402765" },
       { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
     ],
-  },/*
-
+  },
   /* Samurai
 Interrogare, Perquisire, Seguire Tracce, Uso -arma-, Uso -arma-, Uso -Katana- */
-  /*{
+  {
     id: "21005963684002007",
     nome: "Samurai",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343961114292256973" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+      { id: "210068013220839605" },
     ],
-  },/*
-
+  },
   /* Samurai Esperto (A)
 Maturo o con pregio Kazoku, deve avere Pregio Bushido
 Arte Marziale -Arma-, Arte Marziale -Katana-, Arte Marziale -Rissa- */
-  /*{
+  {
     id: "21005963684002008",
     nome: "Samurai Esperto",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "210068013220839601" },
+      { id: "210068013220839602" },
+      { id: "210068013220839604" },
+      { id: "343961114292256973" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+      { id: "210068013220839605" },
     ],
-  },/*
-
+  },
   /* Sacerdote Shintoista
 Esorcismo, Naturalistica, Occultismo, Oratoria, Storia e filosofia, Teologia */
-  /*{
+  {
     id: "21005963684002009",
     nome: "Sacerdote Shintoistao",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
+      { id: "343960914857296077" },
+      { id: "343961201334550733" },
+      { id: "343961225310240973" },
+      { id: "343961275507671245" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
     ],
-  },/*
-
+  },
   /* Monaco Buddista
 Leggere e Scrivere, Oratoria, Persuadere, Politica ed Economia, Storia e filosofia, Teologia */
-  /*{
+  {
     id: "21005963684002010",
     nome: "Monaco Buddista",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
+      { id: "343961275507671245" },
+      { id: "343960318838309069" },
       { id: "343961340510994637" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
     ],
-  },/*
-
+  },
   /* Sohei (A)
-Arte Marziale -Arma-, Uso -arma-, Uso -arma- */
-  /*{
+Arte Marziale -Arma-, Leggere e Scrivere, Oratoria, Persuadere, Politica ed Economia, Storia e filosofia, Teologia, Uso -arma-, Uso -arma- */
+  {
     id: "21005963684002011",
     nome: "Sohei",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
+      { id: "210068013220839601" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
+      { id: "343961275507671245" },
+      { id: "343960318838309069" },
       { id: "343961340510994637" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
     ],
-  },/*
-
+  },
   /* Shinobi Rei
 Acrobazia, Borseggiare, Intrufolarsi, Scassinare, Recitare, Uso -Shinobi-to- */
-  /*{
+  {
     id: "21005963684002012",
     nome: "Shinobi Rei",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960552491450573" },
+      { id: "343960724060504269" },
+      { id: "343960144603775181" },
+      { id: "343961463669391565" },
+      { id: "343961444479402189" },
+      { id: "210068013220839607" },
     ],
-  },/*
-
+  },
   /* Shinobi
 Età tra i 20 e 25 anni, ma Maturo
 Può accedere a Via della Mano sinistra 
-Arte Marziale -Arma-, Arte Marziale -Rissa-, Uso -arma- */
-  /*{
+Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Borseggiare, Intrufolarsi, Scassinare, Recitare, Uso -arma-, Uso -Shinobi-to-  */
+  {
     id: "21005963684002013",
     nome: "Shinobi",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960552491450573" },
+      { id: "210068013220839601" },
+      { id: "210068013220839604" },
+      { id: "343960724060504269" },
+      { id: "343960144603775181" },
+      { id: "343961463669391565" },
+      { id: "343961444479402189" },
+      { id: "343960377471533261v1" },
+      { id: "210068013220839607" },
     ],
-  },/*
-
+  },
   /* Kunochi (A)
 Età tra 16 e 30 anni, ma Maturo. Può accedere a Via della Mano sinistra 
-Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica Farmaceutica, Intrufolarsi, Raggirare, Recitare, Uso -arma-, Uso -arma- */
-  /*{
+Acrobazia, Arte Marziale -Arma-, Arte Marziale -Rissa-, Chimica F-arma-ceutica, Intrufolarsi, Raggirare, Recitare, Uso -arma-, Uso -arma- */
+  {
     id: "21005963684002014",
     nome: "Kunochi",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960552491450573" },
+      { id: "210068013220839601" },
+      { id: "210068013220839604" },
+      { id: "343960841070051533" },
+      { id: "343960144603775181" },
+      { id: "343961428784316621" },
+      { id: "343961444479402189" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
     ],
-  },/*
-
+  },
   /* Yakuza, Membro giovane
 Obbligo Difetto Tatuaggio 
-Armi da fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
-  /*{
+Armi da Fuoco, Gioco d'azzardo, Mercanteggiare, Persuadere, Rissa, Uso -arma- */
+  {
     id: "21005963684002015",
     nome: "Yakuza, Membro giovane",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
-      { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960624931274957" },
+      { id: "343960994335162573" },
+      { id: "343960225473102029" },
+      { id: "343960318838309069" },
+      { id: "343960335239086285" },
+      { id: "343960377471533261v1" },
     ],
-  },/*
-
+  },
   /* Yakuza, Kumicho (A)
 Obbligo Difetto Tatuaggio
-Impartire Ordini, Politica ed economia, Strategia */
-  /*{
+Armi da Fuoco, Gioco d'azzardo, Impartire Ordini, Mercanteggiare, Persuadere, Politica ed economia, Rissa, Strategia, Uso -arma- */
+  {
     id: "21005963684002016",
     nome: "Yakuza, Kumicho",
     ambientazioneRef: "341412158384373964",
-    eta: "N",
+    eta: "A",
     abilitaRef: [
-      { id: "343961138922258637" },
-      { id: "343960168760869069" },
-      { id: "343968013220839634" },
+      { id: "343960624931274957" },
+      { id: "343960994335162573" },
+      { id: "343961040254402765" },
+      { id: "343960225473102029" },
+      { id: "343960318838309069" },
       { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343960335239086285" },
+      { id: "343961521508843725" },
+      { id: "343960377471533261v1" },
     ],
-  },/*
-
+  },
   /* Sanguisuga
 Guidare -Veicolo- o Cavalcare, Perquisire, Rissa, Torturare, Uso -arma-, Uso -arma- */
-  /*{
+  {
     id: "21005963684002017",
     nome: "Sanguisuga",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
+      { id: "343960305710137549" },
+      { id: "343960335239086285" },
+      { id: "343961683497058509" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343960818077925581" },
+      { id: "343960130942927053" },
+    ],
+  },
+  /* *** Trono del Crisantemo - End *** */
+  /* *** IV Reich - Begin *** */
+  /* Avvocato privato
+Interrogare, Legge, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare, Seguire tracce */
+  {
+    id: "20405963684002000",
+    nome: "Avvocato privato",
+    ambientazioneRef: "341411954837946572",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961114292256973" },
       { id: "343961138922258637" },
       { id: "343960168760869069" },
-      { id: "343968013220839634" },
+      { id: "343960318838309069" },
       { id: "343961340510994637" },
-      { id: "343961508662739149" },
-      { id: "343961628090302669" },
+      { id: "343961428784316621" },
+      { id: "343960353026080973" },
     ],
-  },/*
-  /* *** Trono del Crisantemo - End *** */
+  },
+  /* Mercante itinerante
+Cavalcare o Guidare -veicolo-, Lingua -specifica- o Leggere e Scrivere, Mercanteggiare, Orientamento, Raggirare, Uso -arma- */
+  {
+    id: "20405963684002001",
+    nome: "Mercante itinerante",
+    ambientazioneRef: "341411954837946572",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960225473102029" },
+      { id: "343968013220839629" },
+      { id: "343961428784316621" },
+      { id: "343960377471533261v1" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960818077925581" },
+          { id: "343960130942927053" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960188611461325" },
+          { id: "343960168760869069" },
+        ],
+      },
+    ],
+  },
+  /* Agente della Kripto (Kripto Agent) (A)
+Guidare -veicolo-, Interrogare, Legge, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo o Pronto Soccorso */
+  {
+    id: "20405963684002002",
+    nome: "Agente della Kripto (Kripto Agent)",
+    ambientazioneRef: "341411954837946572",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960130942927053" },
+      { id: "343961114292256973" },
+      { id: "343961138922258637" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960144603775181" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+  /* Agente Speciale Kripto (A)
+    Abilità professione precedente, Seguire tracce, Uso -arma-, Uso -arma-. */
+  {
+    id: "20405963684002003",
+    nome: "Agente Speciale Kripto",
+    ambientazioneRef: "341411954837946572",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* Ispettore della Kripto (Oberinspektor) (E)
+Guidare -veicolo-, Impartire Ordini, Interrogare, Legge, Perquisire, Politica ed Economia, Seguire tracce, Tattica, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002004",
+    nome: "Ispettore della Kripto (Oberinspektor)",
+    ambientazioneRef: "341411954837946572",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960130942927053" },
+      { id: "343961040254402765" },
+      { id: "343961114292256973" },
+      { id: "343961138922258637" },
+      { id: "343960305710137549" },
+      { id: "343961340510994637" },
+      { id: "343960353026080973" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+  /* Agente della Feuerbrigade (Feuer Agent)
+Arrampicarsi o Ascoltare, Guidare -veicolo- o Osservare, Pronto Soccorso o Lanciare, Impartire Ordini, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002005",
+    nome: "Agente della Feuerbrigade (Feuer Agent)",
+    ambientazioneRef: "341411954837946572",
+    eta: "N",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960031658508493" },
+          { id: "343960054820503757" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960281846644941" },
+        ],
+      },
+      {
+        idList: 3,
+        listAbilita: [
+          { id: "343961388801065165" },
+          { id: "343961128250900685" },
+        ],
+      },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+  /* Ispettore della Feuerbrigade (Feuerinspektor) (A)
+Arrampicarsi o Ascoltare, Guidare -veicolo- o Osservare, Pronto Soccorso o Lanciare, Impartire Ordini, Legge, Politica ed Economia, Tattica, Uso -arma-, Uso -arma-.
+Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotografia, Intrufolarsi, Occultismo,  Pronto Soccorso */
+  {
+    id: "20405963684002006",
+    nome: "Ispettore della Feuerbrigade (Feuerinspektor)",
+    ambientazioneRef: "341411954837946572",
+    eta: "A",
+    abilitaRef: [
+      { id: "343961040254402765" },
+      { id: "343961138922258637" },
+      { id: "343961340510994637" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960031658508493" },
+          { id: "343960054820503757" },
+        ],
+      },
+      {
+        idList: 2,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960281846644941" },
+        ],
+      },
+      {
+        idList: 3,
+        listAbilita: [
+          { id: "343961388801065165" },
+          { id: "343961128250900685" },
+        ],
+      },
+    ],
+    numeroAbilitaLibera: 3,
+    abilitaLiberaListRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343960977172070605" },
+      { id: "343960945631953101" },
+      { id: "343960818077925581" },
+      { id: "343961225310240973" },
+      { id: "343961388801065165" },
+    ],
+  },
+  /* Agente della Sipo (Sicherheitspolizei) (E)
+Armi da Fuoco, Fotografia, Guidare -veicolo-, Interrogare, Intrufolarsi, Perquisire, Pronto Soccorso, Recitare, Scassinare, Seguire tracce, Uso -arma-, Uso -arma- */
+  {
+    id: "20405963684002007",
+    nome: "Agente della Sipo (Sicherheitspolizei)",
+    ambientazioneRef: "341411954837946572",
+    eta: "E",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960945631953101" },
+      { id: "343960130942927053" },
+      { id: "343961114292256973" },
+      { id: "343960144603775181" },
+      { id: "343960305710137549" },
+      { id: "343961388801065165" },
+      { id: "343961444479402189" },
+      { id: "343961463669391565" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* *** IV Reich - End *** */
 ];
 
 export default Professioni;

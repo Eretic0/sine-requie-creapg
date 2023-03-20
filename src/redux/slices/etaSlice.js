@@ -7,6 +7,7 @@ export const etaSlice = createSlice({
     puntiAbilitaEta: 7,
     gradoMassimoEta: 3,
     arrayProfessioneEta: ["N"],
+    numeroAbilitaTaroccoPassato: 2,
   },
   reducers: {
     setEta: (state, { payload }) => {
@@ -18,9 +19,18 @@ export const etaSlice = createSlice({
     setGradoMassimoEta: (state, { payload }) => {
       state.gradoMassimoEta = payload;
     },
-
     setArrayProfessioneEta: (state, { payload }) => {
       state.arrayProfessioneEta = payload;
+    },
+    setNumeroAbilitaTaroccoPassato: (state, { payload }) => {
+      state.numeroAbilitaTaroccoPassato = payload;
+    },
+    resetEta: (state) => {
+      state.eta = "";
+      state.puntiAbilitaEta = 7;
+      state.gradoMassimoEta = 3;
+      state.arrayProfessioneEta = ["N"];
+      state.numeroAbilitaTaroccoPassato = 2;
     },
   },
 });
@@ -30,6 +40,8 @@ export const {
   setPuntiAbilitaEta,
   setGradoMassimoEta,
   setArrayProfessioneEta,
+  setNumeroAbilitaTaroccoPassato,
+  resetEta,
 } = etaSlice.actions;
 
 export default etaSlice.reducer;

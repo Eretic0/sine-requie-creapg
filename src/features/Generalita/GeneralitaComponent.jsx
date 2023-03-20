@@ -16,6 +16,7 @@ import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
 import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
 import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import { resetEta } from "../../redux/slices/etaSlice";
 import IconTooltip from "../../components/IconTooltip";
 
 function GeneralitaComponent() {
@@ -25,6 +26,7 @@ function GeneralitaComponent() {
   const dispatch = useDispatch();
 
   const handleChangeAmbientazione = (event) => {
+    dispatch(resetEta());
     dispatch(resetTarocchi());
     dispatch(resetCaratteristiche());
     dispatch(resetAllAbilita());
@@ -68,7 +70,7 @@ function GeneralitaComponent() {
               <IconTooltip
                 type={"info"}
                 message={
-                  "La modifica comporta il reset dei seguenti campi: Professione, Abilità, Tarocco Dominante, Tarocco del Passato"
+                  "La modifica comporta il reset dei seguenti campi: Età, Professione, Abilità, Tarocco Dominante, Tarocco del Passato"
                 }
               />
             </>
