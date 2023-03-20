@@ -1,11 +1,21 @@
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
+import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import AbilitaDb from "../../db/Abilita";
 import CaratteristicheDb from "../../db/Caratteristiche";
 
 export default function TaroccoPaper(props) {
-  const { tarocco, passato } = props;
+  const {
+    tarocco,
+    passato,
+    handleSelectAbilitaTaroccoPassato,
+    numeroAbilitaTaroccoPassato,
+    abilitaScelteTaroccoPassato,
+  } = props;
 
   const populateCaratteristica = (tarocco) => {
     if (tarocco.caratteristicaRef) {
@@ -43,6 +53,29 @@ export default function TaroccoPaper(props) {
     }
   };
 
+  const populateSelectAbilita = () => {
+    if (tarocco.abilitaRef) {
+      return (
+        <FormControl fullWidth>
+          <InputLabel id="abilita-select-label">Abilita</InputLabel>
+          <Select
+            labelId="abilita-select-label"
+            id="abilita-select"
+            value={abilitaScelteTaroccoPassato}
+            label="Abilita"
+            onChange={handleSelectAbilitaTaroccoPassato}
+          >
+            {tarocco.abilitaRef.map((ab) => (
+              <MenuItem key={ab.id} value={ab.id}>
+                {getAbilita(ab)}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      );
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -64,9 +97,14 @@ export default function TaroccoPaper(props) {
             <Typography variant="body2" color="text.secondary">
               {passato ? tarocco.descPassato : tarocco.descDominante}
             </Typography>
-            {passato
-              ? populateAbilita(tarocco)
-              : populateCaratteristica(tarocco)}
+            <br />
+            {!passato && populateCaratteristica(tarocco)}
+            {passato &&
+              numeroAbilitaTaroccoPassato === 2 &&
+              populateAbilita(tarocco)}
+            {passato &&
+              numeroAbilitaTaroccoPassato < 2 &&
+              populateSelectAbilita(tarocco)}
           </>
         )}
       </Paper>
