@@ -819,7 +819,7 @@ const Professioni = [
  Teologia
  */
   {
-    id: "343970143684002016",
+    id: "343970143684789017",
     nome: "Frate Gesuita (Provinciale - Giornalista)",
     ambientazioneRef: "341411834674282700",
     eta: "N",
