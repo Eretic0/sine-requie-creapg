@@ -1,12 +1,25 @@
-import CaratteristicheDb from "../db/Caratteristiche";
-import AmbientazioniDb from "../db/Ambientazioni";
+import { carAspetto, carFiori, carMemoria } from "./caratteristicheMethods";
+import { ambSoviet } from "./ambientazioniMethods";
 
-const carMemoria = CaratteristicheDb.find((t) => t.id === "341575873655210189");
-const carAspetto = CaratteristicheDb.find((t) => t.id === "341575948055871693");
-const carFiori = CaratteristicheDb.filter((t) => t.seme === "Fiori");
-export const getAmbSoviet = AmbientazioniDb.find(
-  (t) => t.id === "341412022890528972"
-);
+export const calcolaPuntiAbilitaByEta = (etaValue) => {
+  let puntiAbilita = 7;
+  if (etaValue >= 1 && etaValue <= 7) {
+    puntiAbilita = 2;
+  } else if (etaValue >= 8 && etaValue <= 13) {
+    puntiAbilita = 2;
+  } else if (etaValue >= 8 && etaValue <= 13) {
+    puntiAbilita = 2;
+  } else if (etaValue >= 13 && etaValue <= 18) {
+    puntiAbilita = 2;
+  } else if (etaValue >= 19 && etaValue <= 39) {
+    puntiAbilita = 7;
+  } else if (etaValue >= 40 && etaValue <= 59) {
+    puntiAbilita = 15;
+  } else if (etaValue >= 60) {
+    puntiAbilita = 21;
+  }
+  return puntiAbilita;
+};
 
 export const setAbilitaMiscByEta = (
   etaValue,
@@ -19,7 +32,6 @@ export const setAbilitaMiscByEta = (
 ) => {
   let puntiAbilita = 7;
   let gradoMassimo = 3;
-  const ambSoviet = getAmbSoviet;
   let arrayProfessione =
     ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
   let numeroAbilitaTaroccoPassato = 2;
@@ -85,7 +97,6 @@ export const getDescForEtaPaper = (
 ) => {
   let titolo = "";
   let descrizione = "";
-  const ambSoviet = getAmbSoviet;
   if (ambSoviet.id === ambientazione) {
     if (etaValue <= 6) {
       titolo = "Infante (fino a 6 anni d'età)";

@@ -823,7 +823,16 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
-
+  {
+    id: "343968013220832190",
+    nome: "Lingua -francese-",
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
   {
     id: "343960188611461325v1",
     nome: "Lingua",
@@ -851,6 +860,16 @@ const Abilita = [
   {
     id: "343968013220839631",
     nome: "Guidare -cingolato-",
+    caratteristicaRef: "341575935372296397",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "343968013220839777",
+    nome: "Guidare -due ruote-",
     caratteristicaRef: "341575935372296397",
     grado: null,
     counterFallimento: 0,
@@ -891,6 +910,16 @@ const Abilita = [
   {
     id: "343968013220839632",
     nome: "Uso -fucile-",
+    caratteristicaRef: "341575984630202573",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "343968013220844432",
+    nome: "Uso -pistola-",
     caratteristicaRef: "341575984630202573",
     grado: null,
     counterFallimento: 0,
@@ -1065,6 +1094,65 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
+  {
+  /* Prerequisito: Ronin*/
+    id: "210068013220839608",
+    nome: "Autocontrollo",
+    ambientazioneRef: ["341412158384373964"],
+    caratteristicaRef: "341575940363518157",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** Trono del Crisantemo - End *** */
+  /* *** Regno di Osiride - Begin *** */
+  {
+    id: "207068013220839600",
+    nome: "Lingua -ieratico-",
+    ambientazioneRef: ["341412158384373964"],
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "207068013220839601",
+    nome: "Uso -Fauci di Anubi-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+   {
+    id: "207068013220839602",
+    nome: "Uso -Khopesch-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  }, 
+  {
+    id: "207068013220839603",
+    nome: "Uso -mazza-",
+    ambientazioneRef: ["341412130688336076"],
+    caratteristicaRef: "341575970478620877",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** Regno di Osiride - Begin *** */
 ];
 
 export default Abilita;

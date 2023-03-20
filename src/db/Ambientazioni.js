@@ -15,10 +15,10 @@ const Ambientazioni = [
     id: "341412022890528972",
     descrizione: "Soviet",
   },
-  // {
-  //   id: "341412130688336076",
-  //   descrizione: "Regno d'Osiride",
-  // },
+  {
+    id: "341412130688336076",
+     descrizione: "Regno d'Osiride",
+  },
   {
      id: "341412158384373964",
      descrizione: "Trono del Crisantemo",
@@ -26,6 +26,10 @@ const Ambientazioni = [
   {
     id: "341412111307505868",
     descrizione: "Inquisizione",
+  },
+  {
+    id: "341412111307502180",
+    descrizione: "Templari",
   },
 ];
 
