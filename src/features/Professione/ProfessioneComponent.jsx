@@ -27,16 +27,21 @@ import {
   setProfessionePrecedente,
   updateProfessioneAbilitaScelta,
 } from "../../redux/slices/professioneSlice";
+import { getAmbSoviet } from "../../utils/etaMethods";
 import ProfessionePaper from "./ProfessionePaper";
+import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
+import DialogGeneric from "../../components/DialogGeneric";
 
 const ProfessioneComponent = () => {
+  const [openAlertDialog, setOpenAlertDialog] = React.useState(false);
+  const [profSovietAppoggio, setProfSovietAppoggio] = React.useState({});
   const {
     professione,
     professioneAbilitaScelte,
     professionePrecedente,
     professioneAbilitaScelteLibere,
   } = useSelector((state) => state.professione);
-  const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
+  const { puntiAbilitaEta, gradoMassimoEta, eta } = useSelector(
     (state) => state.eta
   );
   const { abilita, abilitaStoricoTarocco } = useSelector(
@@ -69,6 +74,46 @@ const ProfessioneComponent = () => {
         }
       }
     });
+  };
+
+  const handleAmbSoviet = (prof) => {
+    const ambSoviet = getAmbSoviet;
+    const profArray = ["A", "E"];
+    let test = false;
+    if (
+      ambSoviet.id === ambientazione &&
+      profArray.includes(prof.eta) &&
+      eta < 40
+    ) {
+      test = true;
+    }
+    return test;
+  };
+
+  const getAmbSovietProfAlertDialogDesc = () => {
+    let etaProfessioneLabel = "";
+    let numeroPunti = "";
+    let puntiPerdita = "";
+    if (profSovietAppoggio.eta === "A") {
+      etaProfessioneLabel = "Avanzata";
+      numeroPunti = "15";
+      puntiPerdita = "2";
+    } else if (profSovietAppoggio.eta === "E") {
+      etaProfessioneLabel = "Eccellente";
+      numeroPunti = "30";
+      puntiPerdita = "3";
+    }
+    const descrizione = `Dato l'addestramento intensivo infantile tramite la Macchina Educatrice è possibile selezionare questa professione ${etaProfessioneLabel}.\n Questa scelta comporta che saranno disponibili ${numeroPunti} punti per le abilità di professione ma il PG avrà -${puntiPerdita} punti Equilibrio Mentale e -${puntiPerdita} punti Distanza dalla Morte.`;
+    return descrizione;
+  };
+
+  const handleConfirmProfSoviet = () => {
+    if (profSovietAppoggio.eta === "A") {
+      dispatch(setPuntiAbilitaEta(15));
+    } else if (profSovietAppoggio.eta === "E") {
+      dispatch(setPuntiAbilitaEta(30));
+    }
+    handleCloseAlertDialog();
   };
 
   const getListProfessione = () => {
@@ -131,15 +176,39 @@ const ProfessioneComponent = () => {
     dispatch(resetProfessioneAbilitaScelte());
     dispatch(resetProfessioneAbilitaScelteLibere());
     dispatch(resetAllAbilita());
+    setProfSovietAppoggio({});
     const prof = event.target.value;
-    dispatch(setProfessionePrecedente(prof));
-    dispatch(setAbilita(abilitaStoricoTarocco));
-    const listAbilitaByProfessione = prof.abilitaRef;
+    if (handleAmbSoviet(prof)) {
+      setProfSovietAppoggio(prof);
+      setOpenAlertDialog(true);
+    } else {
+      dispatch(setProfessionePrecedente(prof));
+      dispatch(setAbilita(abilitaStoricoTarocco));
+      const listAbilitaByProfessione = prof.abilitaRef;
 
-    const mainProf = ProfessioniDb.find((t) => t.id === professione.id);
+      const mainProf = ProfessioniDb.find((t) => t.id === professione.id);
 
-    if (mainProf.abilitaRef.length > 0) {
-      mainProf.abilitaRef.forEach((element) => {
+      if (mainProf.abilitaRef.length > 0) {
+        mainProf.abilitaRef.forEach((element) => {
+          let abilitaStor = abilitaStoricoTarocco.find(
+            (t) => t.id === element.id
+          );
+          if (abilitaStor) {
+            let abiMod = { ...abilitaStor };
+            abiMod.grado = +0;
+            abiMod.professione = true;
+            dispatch(saveOrUpdateAbilita(abiMod));
+          } else {
+            abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+            let abiMod = { ...abilitaStor };
+            abiMod.grado = +0;
+            abiMod.professione = true;
+            dispatch(saveOrUpdateAbilita(abiMod));
+          }
+        });
+      }
+
+      listAbilitaByProfessione.forEach((element) => {
         let abilitaStor = abilitaStoricoTarocco.find(
           (t) => t.id === element.id
         );
@@ -157,46 +226,38 @@ const ProfessioneComponent = () => {
         }
       });
     }
-
-    listAbilitaByProfessione.forEach((element) => {
-      let abilitaStor = abilitaStoricoTarocco.find((t) => t.id === element.id);
-      if (abilitaStor) {
-        let abiMod = { ...abilitaStor };
-        abiMod.grado = +0;
-        abiMod.professione = true;
-        dispatch(saveOrUpdateAbilita(abiMod));
-      } else {
-        abilitaStor = AbilitaDb.find((t) => t.id === element.id);
-        let abiMod = { ...abilitaStor };
-        abiMod.grado = +0;
-        abiMod.professione = true;
-        dispatch(saveOrUpdateAbilita(abiMod));
-      }
-    });
   };
 
   const handleChangeProfessione = (event) => {
     dispatch(resetProfessione());
     dispatch(resetAllAbilita());
+    setProfSovietAppoggio({});
     const prof = event.target.value;
-    dispatch(setProfessione(prof));
-    const listAbilitaByProfessione = prof.abilitaRef;
-    dispatch(setAbilita(abilitaStoricoTarocco));
-    listAbilitaByProfessione.forEach((element) => {
-      let abilitaStor = abilitaStoricoTarocco.find((t) => t.id === element.id);
-      if (abilitaStor) {
-        let abiMod = { ...abilitaStor };
-        abiMod.grado = +0;
-        abiMod.professione = true;
-        dispatch(saveOrUpdateAbilita(abiMod));
-      } else {
-        abilitaStor = AbilitaDb.find((t) => t.id === element.id);
-        let abiMod = { ...abilitaStor };
-        abiMod.grado = +0;
-        abiMod.professione = true;
-        dispatch(saveOrUpdateAbilita(abiMod));
-      }
-    });
+    if (handleAmbSoviet(prof)) {
+      setProfSovietAppoggio(prof);
+      setOpenAlertDialog(true);
+    } else {
+      dispatch(setProfessione(prof));
+      const listAbilitaByProfessione = prof.abilitaRef;
+      dispatch(setAbilita(abilitaStoricoTarocco));
+      listAbilitaByProfessione.forEach((element) => {
+        let abilitaStor = abilitaStoricoTarocco.find(
+          (t) => t.id === element.id
+        );
+        if (abilitaStor) {
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        } else {
+          abilitaStor = AbilitaDb.find((t) => t.id === element.id);
+          let abiMod = { ...abilitaStor };
+          abiMod.grado = +0;
+          abiMod.professione = true;
+          dispatch(saveOrUpdateAbilita(abiMod));
+        }
+      });
+    }
   };
 
   const handleResetProfessione = () => {
@@ -205,8 +266,22 @@ const ProfessioneComponent = () => {
     dispatch(setAbilita(abilitaStoricoTarocco));
   };
 
+  const handleCloseAlertDialog = () => setOpenAlertDialog(false);
+
+  const handleDismissAlertDialog = () => {
+    handleCloseAlertDialog();
+    setProfSovietAppoggio({});
+  };
+
   return (
     <Card headerText="Professione">
+      <DialogGeneric
+        openDialog={openAlertDialog}
+        handleCloseDialog={handleDismissAlertDialog}
+        handleConfirmDialog={handleConfirmProfSoviet}
+        dialogTitleText="Utilizzo Macchina Educatrice"
+        dialogDescriptionText={getAmbSovietProfAlertDialogDesc()}
+      />
       <Button
         sx={{ marginBottom: "8px" }}
         size="small"
