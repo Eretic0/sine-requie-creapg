@@ -1152,7 +1152,30 @@ const Abilita = [
     passato: false,
     scelta: false,
   },
-  /* *** Regno di Osiride - Begin *** */
+  /* *** Regno di Osiride - End *** */
+  /* *** Cacciatori di Morti - Begin *** */
+  {
+    id: "217068013220839600",
+    nome: "Addestrare -cane-",
+    caratteristicaRef: "341428089448825036",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  {
+    id: "217068013220839601",
+    nome: "Riconoscimento",
+    ambientazioneRef: ["341412111307502170"],
+    caratteristicaRef: "341575873655210189",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** Cacciatori di Morti - End *** */
 ];
 
 export default Abilita;
