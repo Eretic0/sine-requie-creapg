@@ -37,6 +37,7 @@ const Pregi = [
     id: "341972142311604428",
     nome: "Bella voce",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960798508351693", valore: +2 }],
     descrizioneBreve: '+2 ai Test di "Cantare"',
     descrizione:
       'Hai una voce particolare e piena di personalità, ottima per cantare in un\'opera lirica o in un complesso famoso (+2 ai Test di "Cantare")',
@@ -111,6 +112,7 @@ const Pregi = [
     id: "341972376986058956",
     nome: "Feeling con -animale-",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960572802367693", valore: +2 }],
     descrizioneBreve: '+2 ai Test "Addestrare -animale-"',
     descrizione:
       'Con gli animali di una certa specie ci hai sempre saputo fare, tu li ami e loro lo capiscono e ricambiano il tuo amore mostrandosi sempre pacifici e affettuosi. Animali addestrati alla violenza difficilmente sentiranno il tuo buon influsso ma, se risparmieranno una preda, quella sarai tu. Quando prenderete questo Pregio dovrete decidere verso quale specie animale avrete un buon feeling, ad esempio: cani, cavalli, gatti... (+2 ai Test "Addestrare -animale-")',
@@ -127,6 +129,7 @@ const Pregi = [
     id: "341972407950508236",
     nome: "Fortunato al gioco",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960994335162573", valore: +3 }],
     descrizioneBreve: '+3 ai Test "Gioco d\'azzardo"',
     descrizione:
       'Giocare è sempre stato il tuo forte, hai una fortuna sfacciata e irritante... per chi gioca contro di te! (+3 ai Test "Gioco d\'azzardo")',
@@ -136,6 +139,7 @@ const Pregi = [
     nome: "Genio artistico",
     numeroDifetti: 2,
     descrizioneBreve: "+1 a Creatività",
+    caratteristicaRef: [{ id: "341575960680726733", valore: 1 }],
     descrizione:
       "Tutto ciò che fai nel campo dell'arte è considerato geniale o per lo più gradevole, riesci un po' in tutto: pittura, musica, scultura... (+1 a Creatività)",
   },
@@ -143,6 +147,7 @@ const Pregi = [
     id: "341972440765694156",
     nome: "Gusto estetico",
     numeroDifetti: 2,
+    caratteristicaRef: [{ id: "341575948055871693", valore: 1 }],
     descrizioneBreve: "+1 a Aspetto",
     descrizione:
       "Sai cos'è bello, cos'è elegante e raffinato e la tua figura, così come gli oggetti di cui ti circondi, ne sono testimonianza indelebile (+1 a Aspetto)",
@@ -151,6 +156,7 @@ const Pregi = [
     id: "341972460271304908",
     nome: "Iniziazione occulta",
     numeroDifetti: 3,
+    caratteristicaRef: [{ id: "341575989366620365", valore: 2 }],
     descrizioneBreve:
       "+2 a Affinità Occulta, se essa è maggiore di 8 possiedi anche un potere innato",
     descrizione:
@@ -176,6 +182,7 @@ const Pregi = [
     id: "341972502913745100",
     nome: "Orientamento ottimo",
     numeroDifetti: 2,
+    abilitaRef: [{ id: "343968013220839629", valore: +3 }],
     descrizioneBreve: '+3 ai Test di "Orientamento"',
     descrizione:
       'Troveresti la strada di casa anche se ti risvegliassi in un bosco di notte; ti bastano pochi particolari per orientarti e, col cielo sereno, potrai ritornare dall\'Inferno seguendo le stelle! (+3 ai Test di "Orientamento")',
@@ -192,6 +199,7 @@ const Pregi = [
     id: "341972539643265228",
     nome: "Ottima vista",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960281846644941", valore: +1 }],
     descrizioneBreve: '+1 ai Test "Osservare"',
     descrizione:
       'hai una vista ottima e sai porre attenzione a ciò che vedi. Hai quello che si dice un "occhio di falco". Non hai solo degli occhi perfetti, hai anche un metodo di osservazione che ti permette di vedere più cose e di porvi maggior attenzione, di ricostruire mentalmente immagini poco chiare o frammentarie con una certa precisione (+1 ai Test "Osservare").',
@@ -208,6 +216,7 @@ const Pregi = [
     id: "341972570270073036",
     nome: "Ottimo udito",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960054820503757", valore: +1 }],
     descrizioneBreve: '+1 ai Test "Ascoltare"',
     descrizione:
       'Hai un udito spaventosamente sensibile e sai porre attenzione alle stimolazioni sonore, scomporle, comprenderle e processarle con cura nella tua mente. Insomma non solo "senti meglio" ma soprattutto capisci meglio quello che senti (+1 ai Test "Ascoltare").',
@@ -264,6 +273,7 @@ const Pregi = [
     id: "341972685885014220",
     nome: "Romantico",
     numeroDifetti: 1,
+    caratteristicaRef: [{ id: "341575960680726733", valore: +1 }],
     descrizioneBreve:
       "Bonus di +1 a Creatività e nei Test finalizzati a sedurre un partner",
     descrizione:
@@ -273,6 +283,7 @@ const Pregi = [
     id: "341972702222876876",
     nome: "Saper mentire",
     numeroDifetti: 2,
+    abilitaRef: [{ id: "343961428784316621", valore: +2 }],
     descrizioneBreve: '+2 ai Test "Raggirare"',
     descrizione:
       'Sei bravissimo a mentire e anche se non è detto che tu lo faccia spesso, quando ti capita di farlo nessuno ti scopre. Se le bugie hanno le gambe corte nel tuo caso le muovono veloci! (+2 ai Test "Raggirare").',
@@ -281,6 +292,7 @@ const Pregi = [
     id: "341972717500629196",
     nome: "Scattante",
     numeroDifetti: 1,
+    caratteristicaRef: [{ id: "341576033844068558", valore: +2 }],
     descrizioneBreve: "+2 a Risoluzione",
     descrizione:
       "Sei sempre pronto a difenderti, i tuoi sensi sono sempre all'erta, probabilmente sei un po' iperteso e nervoso, ma in compenso sarà difficile prenderti in castagna. (+2 a Risoluzione).",
@@ -297,6 +309,7 @@ const Pregi = [
     id: "341972752719151308",
     nome: "Senso musicale",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343961548035719373", valore: +1 }],
     descrizioneBreve: '+1 ai Test "Suonare -strumento-"',
     descrizione:
       "Hai la musica nel sangue. Hai un gusto sopraffino e un'incredibile abilità nell'imparare l'uso di uno strumento o nel ricordare, anche per intero, pezzi musicali di ogni tipo (+1 ai Test \"Suonare -strumento-\").",
@@ -313,6 +326,7 @@ const Pregi = [
     id: "341972783888072908",
     nome: "Simpatico",
     numeroDifetti: 2,
+    caratteristicaRef: [{ id: "341575965808263373", valore: +1 }],
     descrizioneBreve: "+1 a Socievolezza",
     descrizione:
       "Qualunque cosa tu dica scatenerai il sorriso e, spesso, il riso irrefrenabile... che fai per Capodanno? (+1 a Socievolezza).",
@@ -345,6 +359,7 @@ const Pregi = [
     id: "341972854222356684",
     nome: "Voce impostata",
     numeroDifetti: 1,
+    abilitaRef: [{ id: "343960318838309069", valore: +1 }],
     descrizioneBreve: '+1 a Test "Persuadere"',
     descrizione:
       'Puoi impostare la voce dandogli un tono diverso molto marcato e convincente così da adattarla alla situazione in maniera vantaggiosa: amore, rispetto, calma ... (+1 a Test "Persuadere").',
@@ -374,6 +389,11 @@ const Pregi = [
     nome: "Bushido",
     numeroDifetti: 1,
     descrizioneBreve: "",
+    caratteristicaRef: [
+      { id: "341575965808263373", valore: +2 },
+      { id: "341575940363518157", valore: +2 },
+      { id: "341575952441016525", valore: +2 },
+    ],
     descrizione:
       "Nella società giapponese esiste un forte senso dell' onore e del prestigio personale oltre che nazionale. L'onesta, il rispetto, l'obbedienza ai dettami del Sovrano Celeste, il coraggio, la lealtà, sono valori validi in ogni paese e tempo, ma che in Giappone, mescolati con un nazionalismo molto spinto, sono più accesi che altrove.\nAll'interno di questa società esistono alcuni uomini e donne che hanno intrapreso la Via del Guerriero: il Bushido. Chi padroneggia questa disciplina si dedica, solitamente, a Professioni come il Samurai e il Ronin, ma è possibile per qualunque giapponese seguire i dettami del Bushido. Alcune persone non possono seguire il Bushido, perché la loro condotta morale o le azioni richieste o ricercate nelle loro Professioni sono in aperto contrasto con i principi della Via del Guerriero. Questo è il caso dei criminali comuni, degli Shinobi, dei membri della Yakuza, delle più spietate Sanguisughe, dei mercanti avidi e senza scrupoli e ovviamente di coloro che si sono dedicati a discipline differenti, come Sacerdoti Shintoisti e monaci buddisti.\nE' possibile creare un Personaggio Samurai o Ronin senza il Pregio Bushido. In questo caso il PG conoscerà la Via del Guerriero e dirà di praticarla, forse sarà persino convinto di farlo ma nella realtà questo non cambia la sua vita come invece avviene a chi sceglie di legarsi a questo Pregio. Un Giocatore che crea un PG che ha questo Pregio dovrà tenere conto che sarà continuamente costretto a un certo tipo di comportamento, che potrebbe anche essere molto lontano da quello del suo Tarocco Dominante. Può farlo, ovviamente, ma tenendo sempre in considerazione che vivere lontani dalle proprie pulsioni più istintive e dalle proprie emozioni spontanee porta a una difficoltà nell'automiglioramento (insomma non prenderà quasi mai i Punti Avanzamento relativi al suo Tarocco Dominante!)\nChi segue la pratica del Bushido (che, ricordiamo, non viene fatta a parole ma con gesti quotidiani e le grandi imprese) è ben visto e onorato dal popolo, inoltre avrà una Volontà di ferro, per cui chi possiede questo Pregio ottiene:\n+2 Comando\n2 Volontà\n\n\nQuesto Pregio ha però, insito in sé, un grande Difetto: qualora chi lo possiede non segua alla lettera i suoi insegnamenti o fallisca un'impresa in modo disonorevole (cioè salvandosi, preservando se stesso, invece di dedicare anche la vita al perseguimento della vittoria), può essere obbligato dal Cartomante a effettuare un Test Volontà Usuale. Se ha successo avrà il coraggio di mettere fine alla vergogna che lo accompagna, togliendosi la vita in modo rituale, e cioè col Seppuku per i Samurai, oppure, per un Ronin, gettandosi volontariamente tra le fiamme o subendo la \"Trasformazione in Kami\" con l'aiuto dei propri compagni. Se il test è un insuccesso il Personaggio mostrerà di non avere abbastanza coraggio da togliersi la vita, per cui sceglierà di vivere nella vergogna. Egli smetterà di seguire il Bushido, perdendo tutti i bonus a esso connessi e segnerà il Difetto \"Tradimento del Bushido\" al posto del Pregio Bushido . Il PG continuerà nel suo viaggio e nella propria vita, magari anche come Samurai o Ronin, se gli sarà permesso o se nessuno conoscerà il suo \"tradimento\", ma proverà un costante e doloroso senso di disagio, avrà la certezza interiore di essere un fallimento e tutto questo si manifesterà in malus \"speculare\" rispetto ai bonus che aveva (e che ormai ha già perduto!) grazie al Bushido:\n- 2 Socievolezza\n- 2 Comando\n- 2 Volontà\nUna volta perso, il Pregio Bushido non può essere più riguadagnato. L'unico modo per lavare la vergogna è la morte.\n\nNota: se un PG ha Volontà 5 e prende il pregio Bushido, la Volontà sale a 7. Se poi tradisce il Bushido perde il bonus acquisito ( da 7 a 5) ed e costretto a prendere il Difetto \"Tradimento del Bushido\" che conferisce un malus di 2 a Volontà (da 5 a 3).\n\nLe azioni per cui il Cartomante può richiedere di testare la Volontà per il tradimento del Bushido sono:\n- crimini di ogni tipo come furto, violenza, sopraffazione di un debole, omicidio a sangue freddo, distruzione di beni e oggetti senza un valido motivo, rapimento ecc.;\n- compiere un'azione per se stessi, guidati dall'orgoglio, dall'arroganza, dal disprezzo e dalla superbia;\n- tradire il principio del Gi, che rappresenta l'onestà, la rettitudine, il senso di giustizia che il Samurai (o il Ronin) devono applicare altri altri e a se stessi;\n- tradire il principio del Yu, che rappresenta l'eroismo e il coraggio. Il Samurai (o il Ronin) combatte quando le persone normali fuggono o lo fa fino alla vittoria o fino alla propria morte. Un altro esito non è ammissibile;\n- tradire il principio del Jin, che rappresenta la struggente compassione e la pietà del Samurai (o il Ronin) , per cui non può rifiutarsi di dare il proprio aiuto qualora sia richiesto e deve vivere cercando persone da aiutare;\n- tradire il principio del Rei, cioè la gentilezza che il Samurai (o il Ronin) deve mostrare verso qualunque altra persona, compresi i nemici che hanno scelto di affrontarlo con onore. Visto che gli Shiryo e gli Yokai sono considerati privi di una vera volontà o ripieni di una volontà malvagia, verso di loro i Ronin non sono tenuti a mostrare alcuna gentilezza;\n- tradire il principio del Makoto, ovvero la indissolubilità della parola dall'azione. Il Samurai (o il Ronin) non promette e non rimanda. Compie  le azioni che vanno compiute. Promettere o parlare e non realizzare ciò che si è detto è un atto gravissimo;\n- tradire il principio del Meiyo, ovvero non applicare su se stessi un giusto giudizio. Essere indulgenti con le proprie azioni. Questa è quello che avviene anche quando il Samurai (o il Ronin) sceglie di vivere dopo un'onta perché non ha il coraggio di togliersi la vita;\n- tradire il principio del Chugi, cioè della totale responsabilità del proprio operato. II Samurai ( o il Ronin) è interamente e assolutamente responsabile di ogni evento generato da una sua azione. Non può sfuggire alle proprie responsabilità.",
   },
@@ -382,9 +402,16 @@ const Pregi = [
     ambientazioneRef: "341412158384373964",
     nome: "Via della Mano Sinistra",
     numeroDifetti: 2,
+    caratteristicaRef: [
+      { id: "341575940363518157", valore: +3 },
+      { id: "341575965808263373", valore: +3 },
+      { id: "341575989366620365", valore: +3 },
+      { id: "341576027967848653", valore: +3 },
+      { id: "341576033844068557", valore: +3 },
+    ],
     descrizioneBreve: "",
     descrizione:
-      'Solo gli Shinobi ben addestrati seguono la Via della Mano Sinistra, una filosofia che li porta ad annullare la propria identità per non essere scalfiti da paura, sensi di colpa, emozioni e pulsioni personali. Questa atteggiamento li porta a seguire il fluire degli eventi e delle energie dell\'universo senza opporsi a esse.\nChi sceglie il Pregio "Via della Mano Sinistra" ottiene i seguenti bonus:\n+ 3 Volontà\n+ 3 Socievolezza\n+ 3 Affinità Occulta\n+ 3 Equilibrio Mentale\n+ 3 Karma\n\nII Personaggio con il Pregio "Via della Mano Sinistra" cancella dalla scheda il suo Tarocco Dominante, ma non i bonus e malus alle Caratteristiche ottenuti da essi. Chi ha il Pregio "Via della Mano Sinistra" non può effettuare il test "Distanza dalla Marte": quando è il suo tempo di morire egli muore.\n[Attenzione: molti Shinobi, persino il fondatore Genjo Umon, non seguono la Via in maniera davvero completa, anche se sono convinti di farlo, e solo pochissimi hanno raggiunto un livello di annullamento cosi totale da perdere il proprio Tarocco Dominante. A livello di gioco incontrerete molti Ninja che non hanno il Pregio "Via della Mano Sinistra", sebbene facciano di tutto per aderire ai suoi precetti].',
+      'Solo gli Shinobi ben addestrati seguono la Via della Mano Sinistra, una filosofia che li porta ad annullare la propria identità per non essere scalfiti da paura, sensi di colpa, emozioni e pulsioni personali. Questa atteggiamento li porta a seguire il fluire degli eventi e delle energie dell\'universo senza opporsi a esse.\nChi sceglie il Pregio "Via della Mano Sinistra" ottiene i seguenti bonus:\n+ 3 Volontà\n+ 3 Socievolezza\n+ 3 Affinità Occulta\n+ 3 Equilibrio Mentale\n+ 3 Karma\n\nII Personaggio con il Pregio "Via della Mano Sinistra" cancella dalla scheda il suo Tarocco Dominante, ma non i bonus e malus alle Caratteristiche ottenuti da essi. Chi ha il Pregio "Via della Mano Sinistra" non può effettuare il test "Distanza dalla Morte": quando è il suo tempo di morire egli muore.\n[Attenzione: molti Shinobi, persino il fondatore Genjo Umon, non seguono la Via in maniera davvero completa, anche se sono convinti di farlo, e solo pochissimi hanno raggiunto un livello di annullamento cosi totale da perdere il proprio Tarocco Dominante. A livello di gioco incontrerete molti Ninja che non hanno il Pregio "Via della Mano Sinistra", sebbene facciano di tutto per aderire ai suoi precetti].',
   },
   /* *** Trono di Crisantemo - End *** */
 ];
