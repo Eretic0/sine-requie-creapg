@@ -2180,7 +2180,6 @@ Artiglieria, Ascoltare, Demolizione, Guidare -veicolo-, Impartire Ordini, Interr
       { id: "343968013220839629" },
       { id: "343960281846644941" },
       { id: "343961571675865293" },
-      { id: "343968013220839629" },
       { id: "207068013220839603" },
       { id: "343960377471533261v1" },
     ],
@@ -2191,7 +2190,7 @@ Artiglieria, Ascoltare, Guidare -veicolo-, Interrogare, Lingua -ieratico-, Orien
     id: "20705963684002002",
     nome: "Topo del Deserto - Sottoufficiale",
     ambientazioneRef: "341412130688336076",
-    eta: "A",
+    eta: "N",
     abilitaRef: [
       { id: "343960656041476301" },
       { id: "343960054820503757" },
@@ -2212,6 +2211,7 @@ Acrobazia, Ascoltare, Orientamento, Osservare, Perquisire, Uso -Mazza-, Uso -arm
     ambientazioneRef: "341412130688336076",
     eta: "N",
     abilitaRef: [
+      { id: "343960552491450573" },
       { id: "343968013220839637" },
       { id: "343960054820503757" },
       { id: "343968013220839629" },
@@ -2275,7 +2275,7 @@ Interrogare, Intrufolarsi, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-*/
 Biologia, Erboristeria, Fotografia, Intrufolarsi, Occultismo, Perquisire, Pronto Soccorso, Scassinare, Uso -arma- */
   {
     id: "20705963684002004",
-    nome: "Ispettore Capo",
+    nome: "Tecnico di Polizia",
     ambientazioneRef: "341412130688336076",
     eta: "N",
     abilitaRef: [
@@ -2398,7 +2398,7 @@ Addestrare, Agronomia, Artigianato, Cacciare, Cantare, Cavalcare, Disegnare, Erb
     abilitaRef: [
       { id: "343960656041476301" },
       { id: "343968013220839631" },
-      { id: "343968013220839634" },
+      { id: "343960144603775181" },
       { id: "343960305710137549" },
       { id: "343968013220839635" },
       { id: "343960377471533261v1" },
