@@ -24,6 +24,10 @@ const Ambientazioni = [
      descrizione: "Trono del Crisantemo",
   },
   {
+    id: "341412111307502170",
+    descrizione: "Cacciatori di Morti",
+  },
+  {
     id: "341412111307505868",
     descrizione: "Inquisizione",
   },
