@@ -8,10 +8,7 @@ const semi = [
   { id: 4, nome: "Picche" },
 ];
 
-export const estraiTaroccoMinore = () => {
-  const numeroCarta = generateRandomNumer(14, 1);
-  const semeCarta = generateRandomNumer(4, 1);
-
+export const getDescNumeroCarta = (numeroCarta) => {
   let descNumeroCarta = numeroCarta;
 
   switch (numeroCarta) {
@@ -31,8 +28,19 @@ export const estraiTaroccoMinore = () => {
       descNumeroCarta = numeroCarta;
       break;
   }
+  return descNumeroCarta;
+};
 
-  const descSemeCarta = semi.find((sem) => sem.id === semeCarta).nome;
+export const getDescSemeCarta = (semeCarta) =>
+  semi.find((sem) => sem.id === semeCarta).nome;
+
+export const estraiTaroccoMinore = () => {
+  const numeroCarta = generateRandomNumer(14, 1);
+  const semeCarta = generateRandomNumer(4, 1);
+
+  let descNumeroCarta = getDescNumeroCarta(numeroCarta);
+
+  const descSemeCarta = getDescSemeCarta(semeCarta);
 
   const cartaEstratta = {
     id: numeroCarta + descSemeCarta,
