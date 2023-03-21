@@ -1,5 +1,8 @@
 const Professioni = [
   /* *** Manuale Base - Begin *** */
+  /* *** Manuale Base - Terre Perdute *** */
+  /* Cacciatore di Morti
+  Armi da Fuoco, Cacciare, Guidare -veicolo- o Cavalcare, Pronto Soccorso, Uso -arma-, Uso -arma-. */
   {
     id: "343962654843338957",
     nome: "Cacciatore di Morti",
@@ -22,6 +25,8 @@ const Professioni = [
       },
     ],
   },
+  /* Frate Minore
+  Erboristeria, Lingua -latino-, Naturalistica, Oratoria, Pronto soccorso, Teologia. */
   {
     id: "343962772011221197",
     nome: "Frate Minore",
@@ -36,6 +41,8 @@ const Professioni = [
       { id: "343961628090302669" },
     ],
   },
+  /* Mercante Esploratore
+  Guidare -veicolo-, Impartire ordini, Lingua -specifica-, Mercanteggiare, Raggirare, Uso -arma- . */
   {
     id: "343965072543973581",
     nome: "Mercante Esploratore",
@@ -46,9 +53,13 @@ const Professioni = [
       { id: "343961040254402765" },
       { id: "343960188611461325" },
       { id: "343960225473102029" },
+      { id: "343961428784316621" },
       { id: "343960377471533261v1" },
     ],
   },
+  /* Partigiano
+Guidare -veicolo- o Cavalcare, Interrogare, Uso -arma-, Lingua -tedesco-.
+Due Abilità a scelta tra: Armi da Fuoco, Artiglieria, Demolizione, Naturalistica, Politica ed Economia, Pronto Soccorso, Telegrafia, Torturare. */
   {
     id: "343965540364058829",
     nome: "Partigiano",
@@ -80,6 +91,8 @@ const Professioni = [
       { id: "343961683497058509" },
     ],
   },
+  /* Predone
+Demolizione, Guidare -veicolo-, Scassinare, Torturare, Uso -arma-, Uso -arma-. */
   {
     id: "343965690621853901",
     nome: "Predone",
@@ -94,6 +107,8 @@ const Professioni = [
       { id: "343960377471533261v2" },
     ],
   },
+  /* Sopravvissuto
+Agronomia o Addestrare -animale o Naturalistica, Cacciare, Guidare -veicolo- oppure Cavalcare, Pronto Soccorso o Erboristeria, Uso -arma-, Uso -arma-. */
   {
     id: "343965947300675789",
     nome: "Sopravvissuto",
@@ -129,6 +144,9 @@ const Professioni = [
       },
     ],
   },
+  /* *** Manuale Base - IV Reich *** */
+  /* Agente della Gestapo
+Interrogare, Guidare -veicolo-, Legge, Perquisire, Uso -arma-, Uso -arma-. */
   {
     id: "343966231325311181",
     nome: "Agente della Gestapo",
@@ -143,6 +161,8 @@ const Professioni = [
       { id: "343960377471533261v2" },
     ],
   },
+  /* Ispettore
+Interrogare, Guidare -veicolo-, Legge, Perquisire, Uso -arma-, Uso -arma-, Impartire ordini, Politica ed Economia, Torturare. */
   {
     id: "343966406623101133",
     nome: "Ispettore",
@@ -160,6 +180,8 @@ const Professioni = [
       { id: "343961683497058509" },
     ],
   },
+  /* Giornalista
+Fotografia, Interrogare, Leggere e scrivere, Letteratura e arte, Politica ed Economia, Raggirare. */
   {
     id: "343966575211053261",
     nome: "Giornalista",
@@ -174,6 +196,8 @@ const Professioni = [
       { id: "343961428784316621" },
     ],
   },
+  /* Malavitoso
+Borseggiare, Gioco d'azzardo, Intrufolarsi, Perquisire, Scassinare, Uso -arma-. */
   {
     id: "343966706870255821",
     nome: "Malavitoso",
@@ -188,6 +212,8 @@ const Professioni = [
       { id: "343960377471533261v1" },
     ],
   },
+  /* Medico Classe C
+Biologia, Chimica farmaceutica, Erboristeria, Fisica, Medicina e chirurgia, Pronto soccorso. */
   {
     id: "343966892302532813",
     nome: "Medico Classe C",
@@ -202,6 +228,8 @@ const Professioni = [
       { id: "343961388801065165" },
     ],
   },
+  /* Medico Classe B
+Biologia, Chimica farmaceutica, Erboristeria, Fisica, Medicina e chirurgia, Pronto soccorso, Impartire ordini, Legge, Tanatologia. */
   {
     id: "343967006924472525",
     nome: "Medico Classe B",
@@ -219,6 +247,8 @@ const Professioni = [
       { id: "343961562179961037" },
     ],
   },
+  /* Medico Classe A
+Biologia, Chimica farmaceutica, Erboristeria, Fisica, Medicina e chirurgia, Pronto soccorso, Impartire ordini, Legge, Tanatologia, Ingegneria Genetica, Politica ed Economia, Teratologia. */
   {
     id: "343967121520197837",
     nome: "Medico Classe A",
@@ -239,6 +269,8 @@ const Professioni = [
       { id: "343961656401854669" },
     ],
   },
+  /* Psichiatra del Reich
+Biologia, Chimica farmaceutica, Erboristeria, Fisica, Medicina e chirurgia, Pronto soccorso, Occultismo, Psichiatria, Storia e Filosofia. */
   {
     id: "343967247438446797",
     nome: "Psichiatra del Reich",
@@ -256,6 +288,8 @@ const Professioni = [
       { id: "343961508662739149" },
     ],
   },
+  /* Soldato Semplice
+Armi da Fuoco, Artiglieria, Guidare -cingolato-, Intrufolarsi, Uso - arma, Uso -fucile-. */
   {
     id: "343967373812826317",
     nome: "Soldato Semplice",
@@ -270,6 +304,8 @@ const Professioni = [
       { id: "343968013220839632" },
     ],
   },
+  /* Sottufficiale
+Armi da Fuoco, Artiglieria, Guidare -cingolato-, Intrufolarsi, Uso - arma, Uso -fucile-, Impartire ordini, Pronto soccorso, Tattica. */
   {
     id: "343967521352712397",
     nome: "Sottufficiale",
@@ -287,6 +323,8 @@ const Professioni = [
       { id: "343961571675865293" },
     ],
   },
+  /* Ufficiale
+Armi da Fuoco, Artiglieria, Guidare -cingolato-, Intrufolarsi, Uso - arma, Uso -fucile-, Impartire ordini, Pronto soccorso, Tattica, Legge, Politica ed Economia, Strategia. */
   {
     id: "343967634681757901",
     nome: "Ufficiale",
@@ -307,6 +345,9 @@ const Professioni = [
       { id: "343961521508843725" },
     ],
   },
+  /* *** Manuale Base - Soviet *** */
+  /* Metalmeccanico
+Artigianato -meccanico-, Borseggiare, Fisica, Intrufolarsi, Orientamento, Rissa. */
   {
     id: "343968062644420813",
     nome: "Metalmeccanico",
@@ -321,6 +362,8 @@ const Professioni = [
       { id: "343960335239086285" },
     ],
   },
+  /* Operaio di base
+Ascoltare, Borseggiare, Demolizione, Intrufolarsi, Orientamento, Rissa. */
   {
     id: "343968177253777613",
     nome: "Operaio di base",
@@ -335,6 +378,8 @@ const Professioni = [
       { id: "343960335239086285" },
     ],
   },
+  /* Operaio Medico
+Biologia, Chimica farmaceutica, Fisica, Medicina e chirurgia, Orientamento, Pronto soccorso. */
   {
     id: "343968177253777614",
     nome: "Operaio Medico",
@@ -349,6 +394,8 @@ const Professioni = [
       { id: "343961388801065165" },
     ],
   },
+  /* Soldato NKVD
+Armi da Fuoco, Intrufolarsi, Orientamento, Perquisire, Uso -arma-, Uso -arma-. */
   {
     id: "343968592013820109",
     nome: "Soldato NKVD",
@@ -363,6 +410,8 @@ const Professioni = [
       { id: "343960377471533261v2" },
     ],
   },
+  /* Meccanico Semplice
+  Armi da Fuoco, Artigianato -meccanico-, Artiglieria, Biologia, Chimica farmaceutica, Fisica. */
   {
     id: "343969211872182477",
     nome: "Meccanico Semplice",
@@ -377,6 +426,8 @@ const Professioni = [
       { id: "343960977172070605" },
     ],
   },
+  /* Sottufficiale NKVD
+Armi da Fuoco, Intrufolarsi, Orientamento, Perquisire, Uso -arma-, Uso -arma-, Impartire Ordini, Interrogare, Tattica. */
   {
     id: "343970027712544973",
     nome: "Sottufficiale NKVD",
@@ -394,6 +445,8 @@ const Professioni = [
       { id: "343961571675865293" },
     ],
   },
+  /* Ufficiale NKVD
+Armi da Fuoco, Intrufolarsi, Orientamento, Perquisire, Uso -arma-, Uso -arma-, Impartire Ordini, Interrogare, Tattica, Artiglieria, Strategia, Torturare. */
   {
     id: "343970143684001997",
     nome: "Ufficiale NKVD",
@@ -414,6 +467,8 @@ const Professioni = [
       { id: "343961683497058509" },
     ],
   },
+  /* Gladiatore
+  Le stesse possedute nella Professione di provenienza. */
   {
     id: "343970143684001998",
     nome: "Gladiatore",
@@ -422,6 +477,9 @@ const Professioni = [
     professionePrecedente: true,
     abilitaRef: [],
   },
+  /* Ribelle
+Letteratura e arte, Naturalistica, Uso -arma-.
+  Tre abilità legage al vecchio impiego. */
   {
     id: "343970143684001999",
     nome: "Ribelle",
@@ -453,6 +511,9 @@ const Professioni = [
       { id: "343960335239086285" },
     ],
   },
+  /* *** Manuale Base - Sanctum Imperium *** */
+  /* Cacciatore di Morti
+  Armi da Fuoco, Guidare -veicolo- o Cavalcare, Lingua -Latino-, Pronto Soccorso, Uso -arma-, Uso -arma-. */
   {
     id: "343970143684002000",
     nome: "Cacciatore di Morti",
@@ -475,6 +536,8 @@ const Professioni = [
       },
     ],
   },
+  /* Converso
+  Interrogare, Perquisire, Rissa, Teologia, Torturare, Uso -arma-. */
   {
     id: "343970143684002001",
     nome: "Converso",
@@ -489,6 +552,8 @@ const Professioni = [
       { id: "343960377471533261v1" },
     ],
   },
+  /* Excubitor
+  Interrogare, Intrufolarsi, Legge, Osservare, Perquisire, Uso -arma-. */
   {
     id: "343970143684002002",
     nome: "Excubitor",
@@ -503,6 +568,8 @@ const Professioni = [
       { id: "343960377471533261v1" },
     ],
   },
+  /* Portavoce degli Excubitores
+  Interrogare, Intrufolarsi, Legge, Osservare, Perquisire, Uso -arma-, Impartire Ordini, Lingua -latino-, Tattica. */
   {
     id: "343970143684002003",
     nome: "Portavoce degli Excubitor",
@@ -520,6 +587,8 @@ const Professioni = [
       { id: "343961571675865293" },
     ],
   },
+  /* Frate Penitenziale
+  Biologia, Chimica farmaceutica, Erboristeria, Lingua -latino-, Medicina e Chirurgia, Teologia. */
   {
     id: "343970143684002004",
     nome: "Frate Penitenziale",
@@ -534,6 +603,8 @@ const Professioni = [
       { id: "343961628090302669" },
     ],
   },
+  /* Malavitoso
+  Borseggiare, Intrufolarsi, Perquisire, Raggirare, Scassinare, Uso -arma-. */
   {
     id: "343970143684002005",
     nome: "Malavitoso",
@@ -548,6 +619,8 @@ const Professioni = [
       { id: "343960377471533261v1" },
     ],
   },
+  /* Sotium Inquisitoris
+  Interrogare, Lingua -latino-, Occultismo, Perquisire, Teologia, Uso -spada-. */
   {
     id: "343970143684002006",
     nome: "Sotium Inquisitoris",
@@ -562,6 +635,8 @@ const Professioni = [
       { id: "343968013220839635" },
     ],
   },
+  /* Inquisitore
+  Interrogare, Lingua -latino-, Occultismo, Perquisire, Teologia, Uso -spada-, Legge, Uso -requiem-, Torturare. */
   {
     id: "343970143684002007",
     nome: "Inquisitore",
@@ -579,6 +654,8 @@ const Professioni = [
       { id: "343961683497058509" },
     ],
   },
+  /* Magister
+  Interrogare, Lingua -latino-, Occultismo, Perquisire, Teologia, Uso -spada-, Legge, Uso -requiem-, Torturare, Impartire Ordini, Politica ed Economia, Tattica. */
   {
     id: "343970143684002008",
     nome: "Magister",
@@ -599,6 +676,8 @@ const Professioni = [
       { id: "343961571675865293" },
     ],
   },
+  /* Templare Errante
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-. */
   {
     id: "343970143684002009",
     nome: "Templare Errante",
@@ -613,6 +692,8 @@ const Professioni = [
       { id: "343968013220839635" },
     ],
   },
+  /* Templare Adepto
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-. */
   {
     id: "343970143684002010",
     nome: "Templare Adepto",
@@ -630,6 +711,9 @@ const Professioni = [
       { id: "343968013220839638" },
     ],
   },
+
+  /* Maestro Templare
+    Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-, Occultismo, Politica ed Economia, Strategia. */
   {
     id: "343970143684002011",
     nome: "Maestro Templare",
@@ -950,12 +1034,12 @@ Esorcismo, Impartire Ordini, Interrogare, Lingua -latino-, Occultismo, Teologia
       { id: "343960335239086285" },
       { id: "343960168760869069" },
     ],
-    abilitaSceltaRef: [
-      {
-        idList: 1,
-        //TODO lista abilità relativa Mansione
-        listAbilita: [{ id: "" }, { id: "" }, { id: "" }],
-      },
+    numeroAbilitaLibera: 1,
+    abilitaLiberaListRef: [
+      { id: "343960572802367693" },
+      { id: "343960584919711949" },
+      { id: "343960897696301261" },
+      { id: "343961312311640269" },
     ],
   },
 
@@ -1133,7 +1217,7 @@ Guidare -quattro ruote-, Guidare -camion-, Guidare -cingolato-, Pilotare -battel
     ],
   },
   /* Converso specializzato - Bruto
-Armi da Fuoco, Perquisire, Rissa, Uso --arma-, Uso -arma- */
+Armi da Fuoco, Perquisire, Rissa, Uso -arma-, Uso -arma-, Uso -arma- */
   {
     id: "219077843684002005",
     nome: "Converso specializzato - Bruto",
@@ -1145,10 +1229,11 @@ Armi da Fuoco, Perquisire, Rissa, Uso --arma-, Uso -arma- */
       { id: "343960335239086285" },
       { id: "343960377471533261v1" },
       { id: "343960377471533261v2" },
+      { id: "343960377471533261v3" },
     ],
   },
   /* Notaio - Contabile
-Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
+Legge, Leggere e Scrivere, Lingua -Latino-, Mercanteggiare, Politica ed economia, Storia e filosofia, Teologia
 Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
   {
     id: "21907018984002006",
@@ -1159,14 +1244,16 @@ Prerequisito: Mercanteggiare (+2), Lingua straniera (+1) */
       { id: "343961138922258637" },
       { id: "343960168760869069" },
       { id: "343968013220839634" },
+      { id: "343960188611461325v1" },
+      { id: "343960225473102029" },
       { id: "343961340510994637" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
     ],
   },
   /* Notaio - Avvocato
-Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
-Legge (+3), Oratoria */
+Legge, Leggere e Scrivere, Lingua -Latino-, Oratoria, Politica ed economia, Storia e filosofia, Teologia
+Prerequisito: Legge (+3) */
   {
     id: "219075443684002017",
     nome: "Notaio - Avvocato",
@@ -1176,35 +1263,35 @@ Legge (+3), Oratoria */
       { id: "343961138922258637" },
       { id: "343960168760869069" },
       { id: "343968013220839634" },
+      { id: "343961275507671245" },
       { id: "343961340510994637" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
-      { id: "343961275507671245" },
     ],
   },
 
   /* Notaio - Notaio
-Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
-Falsificazione, Mercanteggiare, Legge (+3) */
+Falsificazione, Legge, Leggere e Scrivere, Lingua -Latino-, Mercanteggiare, Politica ed economia, Storia e filosofia, Teologia
+Prerequisito: Legge (+3) */
   {
     id: "219077896324002008",
     nome: "Notaio - Notaio",
     ambientazioneRef: "341412111307505868",
     eta: "N",
     abilitaRef: [
+      { id: "343960932485955789" },
       { id: "343961138922258637" },
       { id: "343960168760869069" },
       { id: "343968013220839634" },
+      { id: "343960225473102029" },
       { id: "343961340510994637" },
       { id: "343961508662739149" },
       { id: "343961628090302669" },
-      { id: "343960932485955789" },
-      { id: "343960225473102029" },
     ],
   },
   /* Notaio - Teologo
 Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filosofia, Teologia
-Teologia (+3)
+Prerequisito: Teologia (+3)
 Pregio: Conoscenza di un ambiente (Ambiente ecclesiastico) */
   {
     id: "21907041526384002009",
@@ -1303,7 +1390,6 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
       { id: "343961081343901901" },
       { id: "343961097641918669" },
       { id: "343961114292256973" },
-      { id: "343961128250900685" },
       { id: "343961163498782925" },
       { id: "343961188338499789" },
       { id: "343961201334550733" },
@@ -1695,7 +1781,7 @@ Arte Marziale -Arma-, Arte Marziale -Katana-, Arte Marziale -Rissa- */
 Esorcismo, Naturalistica, Occultismo, Oratoria, Storia e filosofia, Teologia */
   {
     id: "21005963684002009",
-    nome: "Sacerdote Shintoistao",
+    nome: "Sacerdote Shintoista",
     ambientazioneRef: "341412158384373964",
     eta: "N",
     abilitaRef: [
@@ -2072,7 +2158,7 @@ Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotogra
         idList: 3,
         listAbilita: [
           { id: "343961388801065165" },
-          { id: "343961128250900685" },
+          { id: "343960154959511757" },
         ],
       },
     ],
@@ -2123,7 +2209,7 @@ Tre a scelta tra: Armi da Fuoco, Biologia, Chimica farmaceutica, Fisica, Fotogra
         idList: 3,
         listAbilita: [
           { id: "343961388801065165" },
-          { id: "343961128250900685" },
+          { id: "343960154959511757" },
         ],
       },
     ],
