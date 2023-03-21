@@ -21,6 +21,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "A scelta",
     abilitaRef: [{ id: "343960552491450573" }, { id: "343961353401139405" }],
   },
   {
@@ -45,6 +46,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Gamba sinistra",
     abilitaRef: [{ id: "343960818077925581" }, { id: "343960130942927053" }],
   },
   {
@@ -68,6 +70,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Gamba destra",
     abilitaRef: [{ id: "343960670392287437" }, { id: "343960798508351693" }],
   },
   {
@@ -92,6 +95,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Braccio destro",
     abilitaRef: [{ id: "343960572802367693" }, { id: "343960584919711949" }],
   },
   {
@@ -115,6 +119,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Braccio sinistro",
     abilitaRef: [{ id: "343960881357390029" }, { id: "343960945631953101" }],
   },
   {
@@ -139,6 +144,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Ventre",
     abilitaRef: [{ id: "343961295983214797" }, { id: "343961323029135565" }],
   },
   {
@@ -162,6 +168,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Testa",
     abilitaRef: [{ id: "343960724060504269" }, { id: "343961463669391565" }],
   },
   {
@@ -186,6 +193,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Collo",
     abilitaRef: [{ id: "343961225310240973" }, { id: "343961428784316621" }],
   },
   {
@@ -210,6 +218,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Braccio sinistro",
     abilitaRef: [{ id: "343960188611461325" }, { id: "343960318838309069" }],
   },
   {
@@ -234,6 +243,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Testa",
     abilitaRef: [{ id: "343960841070051533" }, { id: "343961388801065165" }],
   },
   {
@@ -257,6 +267,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Ventre",
     abilitaRef: [{ id: "343960932485955789" }, { id: "343960144603775181" }],
   },
   {
@@ -281,6 +292,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Braccio destro",
     abilitaRef: [{ id: "343960641759871181" }, { id: "343960225473102029" }],
   },
   {
@@ -305,6 +317,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Inguine",
     abilitaRef: [{ id: "343961491016253645" }, { id: "343961548035719373" }],
   },
   {
@@ -328,6 +341,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "tORACE",
     abilitaRef: [{ id: "343960737749663949" }, { id: "343961312311640269" }],
   },
   {
@@ -350,6 +364,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Torace",
     abilitaRef: [{ id: "343961138922258637" }, { id: "343960305710137549" }],
   },
   {
@@ -373,6 +388,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Ventre",
     abilitaRef: [{ id: "343961521508843725" }, { id: "343961571675865293" }],
   },
   {
@@ -396,6 +412,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Cuore",
     abilitaRef: [{ id: "343960994335162573" }, { id: "343961444479402189" }],
   },
   {
@@ -420,6 +437,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Gamba destra",
     abilitaRef: [{ id: "343960897696301261" }, { id: "343961201334550733" }],
   },
   {
@@ -444,6 +462,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Spalla destra",
     abilitaRef: [{ id: "343961040254402765" }, { id: "343960377471533261" }],
   },
   {
@@ -467,6 +486,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Spalla sinistra",
     abilitaRef: [{ id: "343960656041476301" }, { id: "343960868252287181" }],
   },
   {
@@ -489,6 +509,7 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Gamba sinistra",
     abilitaRef: [{ id: "343961340510994637" }, { id: "343961508662739149" }],
   },
   {
@@ -512,8 +533,10 @@ const Tarocchi = [
         valore: -1,
       },
     ],
+    locazione: "Torace",
     abilitaRef: [{ id: "343961163498782925" }, { id: "343961275507671245" }],
   },
 ];
 
 export default Tarocchi;
+
