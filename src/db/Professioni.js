@@ -771,8 +771,8 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Crociato
- Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
- un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-.
+ Un'abilità a scelta tra: Artiglieria, Demolizione, Guidare -veicolo-.
  */
   {
     id: "343970143684002013",
@@ -799,8 +799,8 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Crociato Sottufficiale
- Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
- un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-.
+ Un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo-.
  Impartire Ordini, Naturalistica, Tattica
  */
   {
@@ -831,10 +831,10 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Crociato Ufficiale
- Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
- un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
- Impartire Ordini, Naturalistica, Tattica, Lingua -latino-, Politica ed Economia,
- Strategia
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-. 
+ un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo-.
+ Impartire Ordini, Naturalistica, Tattica.
+ Lingua -latino-, Politica ed Economia, Strategia.
  */
   {
     id: "343970143684002015",
@@ -867,8 +867,8 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Crociato Nero
- Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-, 
- un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo*,
+ Armi da Fuoco, Cavalcare, Intrufolarsi, Uso -fucile-, Uso -arma-.
+ Un'abilità a scelta tra Artiglieria, Demolizione, Guidare -veicolo-.
  Impartire Ordini, Tattica, Uso -lanciafiamme-
  */
   {
@@ -899,7 +899,7 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Frate Gesuita (Provinciale - Giornalista)
- Fotografia, Leggere e Scrivere, Lingua -latino-, Politica ed economia, Storia,
+ Fotografia, Leggere e Scrivere, Lingua -latino-, Politica ed economia, Storia e filosofia,
  Teologia
  */
   {
@@ -918,7 +918,7 @@ Letteratura e arte, Naturalistica, Uso -arma-.
   },
 
   /* Giornalista Laico
- Fotografia, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare
+ Fotografia, Leggere e Scrivere, Persuadere, Politica ed Economia, Raggirare.
  */
   {
     id: "343970143684002017",
@@ -932,6 +932,17 @@ Letteratura e arte, Naturalistica, Uso -arma-.
       { id: "343961340510994637" },
       { id: "343961428784316621" },
     ],
+  },
+
+  /* Membro di una Setta
+   */
+  {
+    id: "343970143684002020",
+    nome: "Membro di una Setta",
+    ambientazioneRef: "341411834674282700",
+    eta: "A",
+    professionePrecedente: true,
+    abilitaRef: [],
   },
 
   /* Missionario
@@ -972,17 +983,6 @@ Letteratura e arte, Naturalistica, Uso -arma-.
       { id: "343961571675865293" },
       { id: "343961600257949901" },
     ],
-  },
-
-  /* Membro di una Setta
-   */
-  {
-    id: "343970143684002020",
-    nome: "Membro di una Setta",
-    ambientazioneRef: "341411834674282700",
-    eta: "A",
-    professionePrecedente: true,
-    abilitaRef: [],
   },
 
   /* Padre Esorcista
@@ -1426,6 +1426,7 @@ Legge, Leggere e Scrivere, Lingua -Latino-, Politica ed economia, Storia e filos
 
   /* *** Templari - Begin *** */
   /* Scudiero
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-.
 Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti per Grado massimo +2 */
   {
     id: "21805963684002001",
@@ -1442,6 +1443,7 @@ Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti 
     ],
   },
   /* Templare Sterminatore (Adepto)
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-.
 +1 Coordinazione
 +2 Forza fisica
 -3 ad ognuna di quattro Caratteristiche a propria scelta */
@@ -1463,6 +1465,7 @@ Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti 
     ],
   },
   /* Templare Sterminatore (Errante)
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-.
 +1 Coordinazione
 +2 Forza fisica
 -3 ad ognuna di quattro Caratteristiche a propria scelta */
@@ -1481,6 +1484,7 @@ Personaggio giovane o adulto con abilità del Templare Errante, ma solo 2 punti 
     ],
   },
   /* Templare Guardia nobile
+  Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-.
   Templare Adepto
 Aspetto 4
 Forza fisica 6
@@ -1503,6 +1507,7 @@ Esclusi con i Difetti Albino, Brutta cicatrice, Cattiva Reputazione, Fedina pena
     ],
   },
   /* Templare Parisienne  (Adepto)
+Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-.
 4 punti da dividere tra "Armi da fuoco" e "Uso -arma-" (pistola o fucile)
 Guidare -due ruote- +1
 Guidare -quattro ruote- +1
@@ -1524,8 +1529,6 @@ Lingua -francese- +3*/
       { id: "343961571675865293" },
       { id: "343968013220839638" },
       { id: "343960624931274957" },
-      { id: "343968013220832190" },
-      { id: "343960624931274957" },
       { id: "343968013220839777" },
       { id: "343968013220839647" },
       { id: "343968013220832190" },
@@ -1537,6 +1540,7 @@ Lingua -francese- +3*/
     ],
   },
   /* Templare Parisienne (Errante)
+Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-.
 4 punti da dividere tra "Armi da fuoco" e "Uso -arma-" (pistola o fucile)
 Guidare -due ruote- +1
 Guidare -quattro ruote- +1
@@ -1566,6 +1570,7 @@ Lingua -francese- +3*/
     ],
   },
   /* Templare Pellegrino (Adepto)
+Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-, Pronto Soccorso, Tattica, Uso -expiator-.
 3 punti da dividere tra "Armi da fuoco" e "Uso -arma-" con arma a scelta
 Orientamento al Grado +3 o superiore
 Correre +1 o superiore */
@@ -1589,6 +1594,7 @@ Correre +1 o superiore */
     ],
   },
   /* Templare Pellegrino (Errante)
+Addestrare -cavallo-, Cavalcare, Lingua -latino-, Orientamento, Teologia, Uso -spada-.
 3 punti da dividere tra "Armi da fuoco" e "Uso -arma-" con arma a scelta
 Orientamento al Grado +3 o superiore
 Correre +1 o superiore */
@@ -2597,6 +2603,131 @@ Cavalcare, Guidare -veicolo-, Impartire Ordini, Pronto Soccorso, Tattica, Uso -s
   },
   /* *** Regno di Osiride - End *** */
 
+  /* *** Cacciatori di Morti - Start *** */
+  /* Capobranco
+Addestrare -cane-, Armi da Fuoco, Cacciare, Naturalistica, Uso -arma-, Uso -arma- */
+  {
+    id: "21705963684002001",
+    nome: "Capobranco",
+    ambientazioneRef: "341412111307502170",
+    eta: "N",
+    abilitaRef: [
+      { id: "217068013220839600" },
+      { id: "343960624931274957" },
+      { id: "343960737749663949" },
+      { id: "343961201334550733" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+  },
+  /* Esperto di Morti
+Armi da Fuoco, Cacciare, Guidare -veicolo- o Cavalcare, Riconoscimento, Uso -arma-, Uso -arma- */
+  {
+    id: "21705963684002002",
+    nome: "Esperto di Morti",
+    ambientazioneRef: "341412111307502170",
+    eta: "N",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960737749663949" },
+      { id: "217068013220839601" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960818077925581" },
+        ],
+      },
+    ],
+  },
+  /* Graduato
+Armi da Fuoco, Cacciare, Guidare -veicolo- o Cavalcare, Impartire Ordini, Pronto Soccorso, Strategia, Tattica, Uso -arma-, Uso -arma- */
+  {
+    id: "21705963684002003",
+    nome: "Graduato",
+    ambientazioneRef: "341412111307502170",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343960737749663949" },
+      { id: "343961040254402765" },
+      { id: "343961388801065165" },
+      { id: "343961521508843725" },
+      { id: "343961571675865293" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    abilitaSceltaRef: [
+      {
+        idList: 1,
+        listAbilita: [
+          { id: "343960130942927053" },
+          { id: "343960818077925581" },
+        ],
+      },
+    ],
+  },
+  /* Guida
+Cacciare, Correre, Intrufolarsi, Naturalistica, Orientamento, Osservare, Perquisire, Seguire tracce, Uso -arma- */
+  {
+    id: "21705963684002004",
+    nome: "Guida",
+    ambientazioneRef: "341412111307502170",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960737749663949" },
+      { id: "343960116705362125" },
+      { id: "343960144603775181" },
+      { id: "343961201334550733" },
+      { id: "343968013220839629" },
+      { id: "343960281846644941" },
+      { id: "343960305710137549" },
+      { id: "343960353026080973" },
+      { id: "343960377471533261v1" },
+    ],
+  },
+  /* Necrologo
+Biologia, Chimica farmaceutica, Medicina e chirurgia, Occultismo, Teologia, Uso -arma- . */
+  {
+    id: "21705963684002005",
+    nome: "Necrologo",
+    ambientazioneRef: "341412111307502170",
+    eta: "N",
+    abilitaRef: [
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343961188338499789" },
+      { id: "343961225310240973" },
+      { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+    ],
+    magiaRituale: true,
+  },
+  /* Necrologo Esperto
+Armi da Fuoco, Biologia, Chimica farmaceutica, Medicina e chirurgia, Occultismo, Riconoscimento, Teologia, Uso -arma-, Uso -arma- . */
+  {
+    id: "21705963684002006",
+    nome: "Necrologo Esperto",
+    ambientazioneRef: "341412111307502170",
+    eta: "A",
+    abilitaRef: [
+      { id: "343960624931274957" },
+      { id: "343966802788745421" },
+      { id: "343960841070051533" },
+      { id: "343961188338499789" },
+      { id: "343961225310240973" },
+      { id: "217068013220839601" },
+      { id: "343961628090302669" },
+      { id: "343960377471533261v1" },
+      { id: "343960377471533261v2" },
+    ],
+    magiaRituale: true,
+  },
+  /* *** Cacciatori di Morti - End *** */
 ];
 
 export default Professioni;
