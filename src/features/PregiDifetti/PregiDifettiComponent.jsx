@@ -32,10 +32,17 @@ import { estraiTaroccoMinore } from "../../utils/random";
 
 export default function PregiDifettiComponent() {
   const [openDesc, setOpenDesc] = React.useState([]);
+  const { ambientazione } = useSelector((state) => state.generalita);
   const { pregi, difetti, minoriEstratti, numDifetti, numPregi } = useSelector(
     (state) => state.pregiDifetti
   );
   const dispatch = useDispatch();
+
+  const handleSelectDifetto = (diff) => {
+    dispatch(addDifetto(diff));
+    const numDifettiMod = numDifetti - 1;
+    dispatch(setNumDifetti(numDifettiMod));
+  };
 
   const handleSelectPregi = (pregio) => {
     dispatch(addPregio(pregio));
@@ -97,6 +104,72 @@ export default function PregiDifettiComponent() {
     return openDescObj ? openDescObj.open : false;
   };
 
+  const getListPregiFilter = () =>
+    PregiDb.filter(
+      (t) => !t.ambientazioneRef || t.ambientazioneRef === ambientazione
+    );
+
+  const getListDifettiFilterByAmbientazione = () =>
+    DifettiDb.filter((t) => t.ambientazioneRef === ambientazione);
+
+  const getListDifettiFilter = () => difetti.filter((t) => !t.ambientazioneRef);
+
+  const isDifettoSelezionato = (dif) => difetti.find((t) => t.id === dif.id);
+
+  const listItemDifetto = (dif, selection = false) => (
+    <div key={`div_${dif.id}`}>
+      <ListItem
+        key={dif.id}
+        secondaryAction={
+          <>
+            {checkIsOpenDesc(dif.id) ? (
+              <IconButton
+                edge="end"
+                onClick={() => handleOpenDescription(dif.id, false)}
+              >
+                <ExpandLessIcon />
+              </IconButton>
+            ) : (
+              <IconButton
+                edge="end"
+                onClick={() => handleOpenDescription(dif.id, true)}
+              >
+                <ListItemIcon>
+                  <ExpandMoreIcon />
+                </ListItemIcon>
+              </IconButton>
+            )}
+            {selection && (
+              <IconButton
+                edge="end"
+                disabled={numDifetti === 0 || isDifettoSelezionato(dif)}
+                onClick={() => handleSelectDifetto(dif)}
+              >
+                {isDifettoSelezionato(dif) ? (
+                  <CheckCircleOutlineOutlinedIcon />
+                ) : (
+                  <AddCircleOutlineIcon />
+                )}
+              </IconButton>
+            )}
+          </>
+        }
+      >
+        <ListItemText primary={dif.nome} />
+      </ListItem>
+      <Collapse
+        in={checkIsOpenDesc(dif.id)}
+        key={`desc_${dif.id}`}
+        timeout="auto"
+        unmountOnExit
+      >
+        <List component="div" disablePadding>
+          <ListItemText sx={{ pl: 4 }} primary={dif.descrizione} />
+        </List>
+      </Collapse>
+    </div>
+  );
+
   return (
     <Card headerText="Pregi e Difetti">
       <Grid container spacing={1}>
@@ -113,7 +186,7 @@ export default function PregiDifettiComponent() {
               Pregi ({numPregi} selezionati)
             </Typography>
             <List component="nav">
-              {PregiDb.map((pr) => (
+              {getListPregiFilter().map((pr) => (
                 <div key={`div_${pr.id}`}>
                   <ListItem
                     key={pr.id}
@@ -198,55 +271,16 @@ export default function PregiDifettiComponent() {
                 Reset
               </Button>
             </Stack>
+            {getListDifettiFilterByAmbientazione().length > 0 && (
+              <List>
+                {getListDifettiFilterByAmbientazione().map((diffTronoCre) =>
+                  listItemDifetto(diffTronoCre, true)
+                )}
+              </List>
+            )}
             <List>
-              {difetti.length > 0 &&
-                difetti.map((diff) => (
-                  <div key={`div_${diff.id}`}>
-                    <ListItem
-                      key={diff.id}
-                      secondaryAction={
-                        <>
-                          {checkIsOpenDesc(diff.id) ? (
-                            <IconButton
-                              edge="end"
-                              onClick={() =>
-                                handleOpenDescription(diff.id, false)
-                              }
-                            >
-                              <ExpandLessIcon />
-                            </IconButton>
-                          ) : (
-                            <IconButton
-                              edge="end"
-                              onClick={() =>
-                                handleOpenDescription(diff.id, true)
-                              }
-                            >
-                              <ListItemIcon>
-                                <ExpandMoreIcon />
-                              </ListItemIcon>
-                            </IconButton>
-                          )}
-                        </>
-                      }
-                    >
-                      <ListItemText primary={diff.nome} />
-                    </ListItem>
-                    <Collapse
-                      in={checkIsOpenDesc(diff.id)}
-                      key={`desc_${diff.id}`}
-                      timeout="auto"
-                      unmountOnExit
-                    >
-                      <List component="div" disablePadding>
-                        <ListItemText
-                          sx={{ pl: 4 }}
-                          primary={diff.descrizione}
-                        />
-                      </List>
-                    </Collapse>
-                  </div>
-                ))}
+              {getListDifettiFilter().length > 0 &&
+                getListDifettiFilter().map((diff) => listItemDifetto(diff))}
             </List>
           </>
         </Grid>
