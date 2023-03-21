@@ -78,7 +78,7 @@ const Difetti = [
     descrizioneBreve: "",
     descrizione:
       "Non puoi fare a meno di mentire. Non lo fai né per cattiveria né a fin di bene, le bugie escono dalla tua bocca senza che tu te ne renda conto, il dramma è che nessuno sa più quando crederti e forse, ormai, non lo sai neanche tu.",
-    carta: 8,
+    carta: 9,
     seme: 1,
   },
   {
