@@ -380,7 +380,7 @@ const Pregi = [
   {
     id: "210072873742647502",
     ambientazioneRef: "341412158384373964",
-    nome: "Volto comune",
+    nome: "Via della Mano Sinistra",
     numeroDifetti: 2,
     descrizioneBreve: "",
     descrizione:
