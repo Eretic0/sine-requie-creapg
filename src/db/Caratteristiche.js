@@ -157,6 +157,7 @@ const Caratteristiche = [
       return `${val}`;
     },
   },
+  { id: "341576033844068558", nome: "Risoluzione", valore: 16 },
 ];
 
 export default Caratteristiche;

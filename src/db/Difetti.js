@@ -22,6 +22,7 @@ const Difetti = [
     id: "341973129101312204",
     nome: "Albino",
     descrizioneBreve: "",
+    difettoRef: "341973352259256524",
     descrizione:
       'Sei affetto da albinismo (e purtroppo non sei Elric; Moorcock docet). La tua pelle come ogni pelo dal tuo corpo e i tuoi capelli sono bianco latte, i tuoi occhi sono rossi e deboli (aggiungi il Difetto "Difetti di vista"). Sei cosi particolare che ti sarà impossibile passare inosservato.',
     carta: 3,
@@ -39,6 +40,7 @@ const Difetti = [
   {
     id: "341973164182470860",
     nome: "Antipatico",
+    caratteristicaRef: [{ id: "341575965808263373", valore: 1 }],
     descrizioneBreve: "-1 a Socievolezza",
     descrizione:
       "Nei momenti meno opportuni te ne esci con qualche battuta, critica o freddura veramente imbarazzante o inopportuna. Spesso risulti offensivo, fuori luogo, decisamente sgradevole... ma perché non stai un po' zitto? (-1 a Socievolezza)",
@@ -66,6 +68,7 @@ const Difetti = [
   {
     id: "341973245510025420",
     nome: "Brutta cicatrice",
+    caratteristicaRef: [{ id: "341575948055871693", valore: 1 }],
     descrizioneBreve: "-1 ad Aspetto",
     descrizione:
       "Hai una cicatrice molto grande ed evidente che ti deturpa il volto: non solo sei più brutto, ma sei anche più facilmente riconoscibile. (-1 ad Aspetto).",
@@ -103,6 +106,7 @@ const Difetti = [
     id: "341973328976675020",
     nome: "Difetti d'udito",
     descrizioneBreve: "",
+    abilitaRef: [{ id: "343960054820503757", valore: 2 }],
     descrizione:
       'Eh?... come hai detto scusa... c\'è un orto? Dove? Come? Non ti sento! Ah... hai detto "Morto", non orto! Ah ecco... ARGHHH! (-2 ai Test "Ascoltare")',
     carta: 12,
@@ -111,6 +115,7 @@ const Difetti = [
   {
     id: "341973352259256524",
     nome: "Difetti di vista",
+    abilitaRef: [{ id: "343960281846644941", valore: 2 }],
     descrizioneBreve: '-2 ai Test "Osservare"',
     descrizione:
       'Chi è quel tipo laggiù? Non vedo bene ... avviciniamoci un po\'? Mah ... sembra un simpatico vecchietto lento e impacciato ... "ehi simpatico signore lento e impacciat...ARGHHH!!!!" (-2 ai Test "Osservare")',
@@ -120,6 +125,7 @@ const Difetti = [
   {
     id: "341973371367456972",
     nome: "Distratto",
+    caratteristicaRef: [{ id: "341575935372296397", valore: 1 }],
     descrizioneBreve: '-1 ai Test "Percezione"',
     descrizione:
       'Sei costantemente e bellamente immerso nei tuoi pensieri, non hai una visione chiara di ciò che ti accade attorno, la tua percezione è scarsa e ne risentono le tue azioni, meno pronte e precise (-1 ai Test "Percezione").',
@@ -183,6 +189,7 @@ const Difetti = [
   {
     id: "341973609074393292",
     nome: "Grasso",
+    caratteristicaRef: [{ id: "341575970478620877", valore: 1 }],
     descrizioneBreve: "-1 a Coordinazione",
     descrizione:
       "La gola è il tuo peccato preferito, oppure mamma natura ha abbondato quando ti ha disegnato ... sei un po' goffo e lento, senza contare che probabilmente i tuoi amici hanno inventato un sacco di nomignoli su di te, Ciccio! (-1 a Coordinazione)",
@@ -291,6 +298,11 @@ const Difetti = [
   {
     id: "341973954980741324",
     nome: "Nanismo/Gigantismo",
+    caratteristicaRef: [
+      { id: "341575970478620877", valore: 1 },
+      { id: "341575948055871693", valore: 1 },
+      { id: "341575952441016525", valore: 1 },
+    ],
     descrizioneBreve: "-1 a Coordinazione, -1 ad Aspetto, -1 a Comando",
     descrizione:
       "Siete dei diversi... quindi riconoscibili e additati da tutti. I vostri arti sono troppo tozzi o troppo lunghi, le vostre capacita di movimento sono ridotte (-1 a Coordinazione, -1 ad Aspetto, -1 a Comando).",
@@ -327,6 +339,7 @@ const Difetti = [
   {
     id: "341974042742358220",
     nome: "Non sai ascoltare",
+    caratteristicaRef: [{ id: "341575965808263373", valore: 1 }],
     descrizioneBreve: "-1 a Socievolezza",
     descrizione:
       "Che dire... sei un pessimo ascoltatore, i problemi degli altri non ti interessano, i discorsi lunghi e contorti ti annoiano, non hai consigli per nessuno e speri non te ne chiedano... non è che lo fai apposta, ma dopo pochi minuti di conversazione ti distrai e i tuoi pensieri migrano altrove... frase tipica: -Parli da sola anche quando non ci sono?- (ci vuole un po' per capirla...). (-1 a Socievolezza).",
@@ -336,6 +349,7 @@ const Difetti = [
   {
     id: "341974060890063052",
     nome: "Obeso",
+    caratteristicaRef: [{ id: "341575970478620877", valore: 2 }],
     descrizioneBreve: "-2 a Coordinazione",
     descrizione:
       "La realta è che mangi come un elefante bulimico! Non sei grasso... sei enorme! (-2 a Coordinazione).",
@@ -381,6 +395,7 @@ const Difetti = [
   {
     id: "341974175457476812",
     nome: "Sdentato",
+    caratteristicaRef: [{ id: "341575948055871693", valore: 1 }],
     descrizioneBreve: "-1 ad Aspetto",
     descrizione:
       'Per anzianità, malattia o trauma non hai più molti denti, hai difficoltà nel mangiare e una buffa parlata, ad esempio "col fischio" (-1 ad Aspetto).',
@@ -444,6 +459,7 @@ const Difetti = [
   {
     id: "341974303826247884",
     nome: "Stonato",
+    abilitaRef: [{ id: "343960798508351693", valore: 3 }],
     descrizioneBreve: '-3 ai Test "Cantare"',
     descrizione:
       'La tua voce è quanto di più inadatto esista per il canto, sei una cornacchia, le tue ninne-nanne svegliano i bimbi di tutto il quartiere. (-3 ai Test "Cantare")',
@@ -499,6 +515,7 @@ const Difetti = [
     id: "341974465831239884",
     nome: "Zoppia",
     descrizioneBreve: "-1 a Coordinazione",
+    caratteristicaRef: [{ id: "341575970478620877", valore: 1 }],
     descrizione:
       "Zoppichi a causa di una ferita o di una malformazione congenita; avrai difficoltà nel correre, marciare, saltare, ballare, giocare a pallone. Dimenticavo: chi sta con te impara a zoppicare... (-1 a Coordinazione)",
     carta: 14,

@@ -18,6 +18,7 @@ import Card from "../../components/Card";
 import MinoriPaper from "../../components/MinoriPaper";
 import DifettiDb from "../../db/Difetti";
 import PregiDb from "../../db/Pregi";
+import { updateCaratteristica } from "../../redux/slices/caratteristicheSlice";
 import {
   addDifetto,
   addMinoreEstratto,
@@ -28,11 +29,16 @@ import {
   setNumDifetti,
   setNumPregi,
 } from "../../redux/slices/pregiDifettiSlice";
-import { estraiTaroccoMinore } from "../../utils/random";
+import {
+  estraiTaroccoMinore,
+  getDescNumeroCarta,
+  getDescSemeCarta,
+} from "../../utils/random";
 
 export default function PregiDifettiComponent() {
   const [openDesc, setOpenDesc] = React.useState([]);
   const { ambientazione } = useSelector((state) => state.generalita);
+  const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { pregi, difetti, minoriEstratti, numDifetti, numPregi } = useSelector(
     (state) => state.pregiDifetti
   );
@@ -50,8 +56,33 @@ export default function PregiDifettiComponent() {
     numPregiLocal += 1;
     dispatch(setNumPregi(numPregiLocal));
     let numDifettiLocal = numDifetti;
-    numDifettiLocal += pregio.numeroDifetti;
+
+    if (pregio.difettoRef && !difetti.find((t) => t.id === pregio.difettoRef)) {
+      const diff = DifettiDb.find((t) => t.id === pregio.difettoRef);
+      numDifettiLocal += pregio.numeroDifetti - 1;
+      dispatch(addDifetto(diff));
+      const cartaEstratta = {
+        id: diff.carta + getDescSemeCarta(diff.seme),
+        numeroCarta: diff.carta,
+        semeCarta: diff.seme,
+        descNumeroCarta: getDescNumeroCarta(diff.carta),
+        descSemeCarta: getDescSemeCarta(diff.seme),
+      };
+      dispatch(addMinoreEstratto(cartaEstratta));
+    } else {
+      numDifettiLocal += pregio.numeroDifetti;
+    }
+
     dispatch(setNumDifetti(numDifettiLocal));
+
+    if (pregio.caratteristicaRef) {
+      pregio.caratteristicaRef.forEach((element) => {
+        const caratt = caratteristiche.find((t) => t.id === element.id);
+        let caratMod = { ...caratt };
+        caratMod.valore += element.valore;
+        dispatch(updateCaratteristica(caratMod));
+      });
+    }
   };
 
   const disableButtonPregi = (pregio) =>
@@ -71,6 +102,14 @@ export default function PregiDifettiComponent() {
             dif.seme === cartaEstratta.semeCarta
         );
         dispatch(addDifetto(difettoEstratto));
+        if (difettoEstratto.caratteristicaRef) {
+          difettoEstratto.caratteristicaRef.forEach((element) => {
+            const carat = caratteristiche.find((t) => t.id === element.id);
+            let caratMod = { ...carat };
+            caratMod.valore -= element.valore;
+            dispatch(updateCaratteristica(caratMod));
+          });
+        }
         numeroEstrazioni++;
       }
     }
