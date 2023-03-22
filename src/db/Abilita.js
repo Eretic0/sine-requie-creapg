@@ -1176,6 +1176,18 @@ const Abilita = [
     scelta: false,
   },
   /* *** Cacciatori di Morti - End *** */
+  /* *** I Dossier dell'Impossibile - Begin *** */
+  {
+    id: "222068013220839600",
+    nome: "Artigianato -cuoco-",
+    caratteristicaRef: "341575976248934605",
+    grado: null,
+    counterFallimento: 0,
+    professione: false,
+    passato: false,
+    scelta: false,
+  },
+  /* *** I Dossier dell'Impossibile - End *** */
 ];
 
 export default Abilita;
