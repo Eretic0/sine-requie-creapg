@@ -214,11 +214,13 @@ const ProfessioneComponent = () => {
       professioniFilter = professioniFilter.filter(
         (p) => p.ambientazioneRef === ambientazione
       );
+      professioniFilter = professioniFilter.filter((p) =>
+        arrayProfessioneEta.includes(p.eta)
+      );
+      return professioniFilter;
     }
-    professioniFilter = professioniFilter.filter((p) =>
-      arrayProfessioneEta.includes(p.eta)
-    );
-    return professioniFilter;
+
+    return [];
   };
 
   const getListProfessioneFilterByPrecedente = () => {
@@ -408,7 +410,9 @@ const ProfessioneComponent = () => {
               >
                 {getListProfessione().map((prof) => (
                   <MenuItem key={prof.id} value={prof}>
-                    {prof.nome}
+                    {prof.eta !== "N"
+                      ? `${prof.nome} - ${prof.eta}`
+                      : `${prof.nome}`}
                   </MenuItem>
                 ))}
               </Select>
