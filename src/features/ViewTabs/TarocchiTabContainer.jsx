@@ -8,7 +8,7 @@ function TarocchiTabContainer() {
   const { ambientazione } = useSelector((state) => state.generalita);
 
   const handleAmbSoviet = () =>
-    ambSoviet.id === ambientazione ? eta >= 7 : eta >= 19;
+    ambSoviet.id === ambientazione ? eta >= 8 : eta >= 19;
 
   return (
     <>

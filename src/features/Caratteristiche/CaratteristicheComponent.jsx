@@ -192,7 +192,7 @@ function CaratteristicheComponent() {
               </Button>
               <Button
                 size="small"
-                disabled={abilitateBtnMalus()}
+                //disabled={abilitateBtnMalus()}
                 variant="contained"
                 onClick={() => handleResetMinoriEstratti()}
               >

@@ -3,13 +3,7 @@ import { ambSoviet } from "./ambientazioniMethods";
 
 export const calcolaPuntiAbilitaByEta = (etaValue) => {
   let puntiAbilita = 7;
-  if (etaValue >= 1 && etaValue <= 7) {
-    puntiAbilita = 2;
-  } else if (etaValue >= 8 && etaValue <= 13) {
-    puntiAbilita = 2;
-  } else if (etaValue >= 8 && etaValue <= 13) {
-    puntiAbilita = 2;
-  } else if (etaValue >= 13 && etaValue <= 18) {
+  if (etaValue >= 1 && etaValue <= 18) {
     puntiAbilita = 2;
   } else if (etaValue >= 19 && etaValue <= 39) {
     puntiAbilita = 7;
@@ -21,6 +15,48 @@ export const calcolaPuntiAbilitaByEta = (etaValue) => {
   return puntiAbilita;
 };
 
+export const calcolaGradoMassimo = (etaValue) => {
+  let gradoMassimo = 3;
+  if (etaValue >= 1 && etaValue <= 18) {
+    gradoMassimo = 2;
+  } else if (etaValue >= 19 && etaValue <= 39) {
+    gradoMassimo = 3;
+  } else if (etaValue >= 40 && etaValue <= 59) {
+    gradoMassimo = 4;
+  } else if (etaValue >= 60) {
+    gradoMassimo = 5;
+  }
+  return gradoMassimo;
+};
+
+export const calcolaNumeroAbilitaTaroccoPassato = (etaValue, ambientazione) => {
+  let numeroAbilitaTaroccoPassato = 2;
+  if (etaValue >= 1 && etaValue <= 7) {
+    numeroAbilitaTaroccoPassato = 0;
+  } else if (etaValue >= 8 && etaValue <= 13) {
+    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 1 : 0;
+  } else if (etaValue >= 14 && etaValue <= 18) {
+    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 2 : 0;
+  }
+  return numeroAbilitaTaroccoPassato;
+};
+
+export const calcolaArrayProfessione = (etaValue, ambientazione) => {
+  let arrayProfessione = ["N"];
+  if (ambSoviet.id === ambientazione) {
+    arrayProfessione = ["N", "A", "E"];
+  } else {
+    if (etaValue >= 1 && etaValue <= 39) {
+      arrayProfessione = ["N"];
+    } else if (etaValue >= 40 && etaValue <= 59) {
+      arrayProfessione = ["N", "A"];
+    } else if (etaValue >= 60) {
+      arrayProfessione = ["N", "A", "E"];
+    }
+  }
+  return arrayProfessione;
+};
+
 export const setAbilitaMiscByEta = (
   etaValue,
   funcSetPunti,
@@ -30,40 +66,16 @@ export const setAbilitaMiscByEta = (
   funcSetNumeroAbilitaTaroccoPassato,
   ambientazione
 ) => {
-  let puntiAbilita = 7;
-  let gradoMassimo = 3;
-  let arrayProfessione =
-    ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-  let numeroAbilitaTaroccoPassato = 2;
-  if (etaValue >= 1 && etaValue <= 7) {
-    puntiAbilita = 2;
-    gradoMassimo = 2;
-    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-    numeroAbilitaTaroccoPassato = 0;
-  } else if (etaValue >= 8 && etaValue <= 13) {
-    puntiAbilita = 2;
-    gradoMassimo = 2;
-    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 1 : 0;
-  } else if (etaValue >= 13 && etaValue <= 18) {
-    puntiAbilita = 2;
-    gradoMassimo = 2;
-    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-    numeroAbilitaTaroccoPassato = ambSoviet.id === ambientazione ? 2 : 0;
-  } else if (etaValue >= 19 && etaValue <= 39) {
-    puntiAbilita = 7;
-    gradoMassimo = 3;
-    arrayProfessione = ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N"];
-  } else if (etaValue >= 40 && etaValue <= 59) {
-    puntiAbilita = 15;
-    gradoMassimo = 4;
-    arrayProfessione =
-      ambSoviet.id === ambientazione ? ["N", "A", "E"] : ["N", "A"];
+  const puntiAbilita = calcolaPuntiAbilitaByEta(etaValue);
+  const gradoMassimo = calcolaGradoMassimo(etaValue, ambientazione);
+  const arrayProfessione = calcolaArrayProfessione(etaValue, ambientazione);
+  const numeroAbilitaTaroccoPassato = calcolaNumeroAbilitaTaroccoPassato(
+    etaValue,
+    ambientazione
+  );
+  if (etaValue >= 40 && etaValue <= 59) {
     assignMalusToCaratteristicheByEta(1, funcSetCaratteristiche);
   } else if (etaValue >= 60) {
-    puntiAbilita = 21;
-    gradoMassimo = 5;
-    arrayProfessione = ["N", "A", "E"];
     assignMalusToCaratteristicheByEta(2, funcSetCaratteristiche);
   }
   funcSetPunti(puntiAbilita);
