@@ -6,6 +6,7 @@ export const caratteristicheSlice = createSlice({
   initialState: {
     caratteristiche: [...CaratteristicheDb],
     caratteristicheStorico: [...CaratteristicheDb],
+    caratteristicheUpdateStorico: [...CaratteristicheDb],
     caratteristicheAggiornate: [],
     minoriEstratti: [],
     btnBonusPressed: false,
@@ -26,6 +27,10 @@ export const caratteristicheSlice = createSlice({
   reducers: {
     setCaratteristicheStorico: (state) => {
       state.caratteristicheStorico = [...state.caratteristiche];
+    },
+
+    setCaratteristicheUpdateStorico: (state) => {
+      state.caratteristicheUpdateStorico = [...state.caratteristiche];
     },
 
     restoreCaratteristicheByStorico: (state) => {
@@ -146,6 +151,7 @@ export const {
   setSemiBonus,
   setCaratteristicheStorico,
   restoreCaratteristicheByStorico,
+  setCaratteristicheUpdateStorico,
 } = caratteristicheSlice.actions;
 
 export default caratteristicheSlice.reducer;

@@ -104,28 +104,18 @@ const Caratteristiche = [
     valore: 4,
     modificatore: function calcolaModificatore(valore) {
       let val = 0;
-      switch (valore) {
-        case valore >= 8 && valore < 10:
-          val = 1;
-          break;
-        case valore >= 10 && valore < 12:
-          val = 2;
-          break;
-        case valore >= 12 && valore < 14:
-          val = 3;
-          break;
-        case valore >= 14 && valore < 16:
-          val = 4;
-          break;
-        case valore >= 16 && valore < 18:
-          val = 5;
-          break;
-        case valore >= 18:
-          val = 6;
-          break;
-
-        default:
-          break;
+      if (valore >= 8 && valore < 10) {
+        val = 1;
+      } else if (valore >= 10 && valore < 12) {
+        val = 2;
+      } else if (valore >= 12 && valore < 14) {
+        val = 3;
+      } else if (valore >= 14 && valore < 16) {
+        val = 4;
+      } else if (valore >= 16 && valore < 18) {
+        val = 5;
+      } else if (valore >= 18) {
+        val = 6;
       }
       return `${val}`;
     },

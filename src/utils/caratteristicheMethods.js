@@ -8,6 +8,9 @@ export const getCaratteristicaByIdFromStore = (
   caratteristiche
 ) => caratteristiche.find((t) => t.id === idCaratteristica);
 
+export const carAffinitaOccultaByStore = (caratteristiche) =>
+  getCaratteristicaByIdFromStore("341575989366620365", caratteristiche);
+
 export const carMemoria = getCaratteristicaById("341575873655210189");
 export const carAspetto = getCaratteristicaById("341575948055871693");
 export const carEquilibrioMentale = getCaratteristicaById("341576027967848653");

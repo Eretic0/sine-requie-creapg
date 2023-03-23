@@ -73,15 +73,19 @@ export const setAbilitaMiscByEta = (
     etaValue,
     ambientazione
   );
+  handleAssignMalusByEta(etaValue, funcSetCaratteristiche);
+  funcSetPunti(puntiAbilita);
+  funcSetGradoMassimo(gradoMassimo);
+  funcSetArrayProfessione(arrayProfessione);
+  funcSetNumeroAbilitaTaroccoPassato(numeroAbilitaTaroccoPassato);
+};
+
+export const handleAssignMalusByEta = (etaValue, funcSetCaratteristiche) => {
   if (etaValue >= 40 && etaValue <= 59) {
     assignMalusToCaratteristicheByEta(1, funcSetCaratteristiche);
   } else if (etaValue >= 60) {
     assignMalusToCaratteristicheByEta(2, funcSetCaratteristiche);
   }
-  funcSetPunti(puntiAbilita);
-  funcSetGradoMassimo(gradoMassimo);
-  funcSetArrayProfessione(arrayProfessione);
-  funcSetNumeroAbilitaTaroccoPassato(numeroAbilitaTaroccoPassato);
 };
 
 export const assignMalusToCaratteristicheByEta = (
