@@ -33,6 +33,14 @@ export const pregiDifettiSlice = createSlice({
       state.difetti = [];
     },
 
+    resetAllPregiDifetti: (state) => {
+      state.pregi = [];
+      state.difetti = [];
+      state.minoriEstratti = [];
+      state.numDifetti = 0;
+      state.numPregi = 0;
+    },
+
     setMinoriEstratti: (state, { payload }) => {
       state.minoriEstratti = payload;
     },
@@ -67,6 +75,7 @@ export const {
   setNumPregi,
   setNumDifetti,
   addMinoreEstratto,
+  resetAllPregiDifetti,
 } = pregiDifettiSlice.actions;
 
 export default pregiDifettiSlice.reducer;

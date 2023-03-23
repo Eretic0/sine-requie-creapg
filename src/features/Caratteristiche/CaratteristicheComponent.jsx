@@ -1,5 +1,6 @@
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutline from "@mui/icons-material/RemoveCircleOutline";
+import { Tooltip } from "@mui/material";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
@@ -11,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
 import MinoriPaper from "../../components/MinoriPaper";
+import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
 import {
   addCaratteristicaAggiornata,
   addMinoreEstratto,
@@ -27,7 +29,11 @@ import {
   updateCaratteristica,
   updateSemiBonus,
   updateSemiMalus,
+  setCaratteristicheUpdateStorico,
 } from "../../redux/slices/caratteristicheSlice";
+import { resetDoni } from "../../redux/slices/doniSlice";
+import { resetAllPregiDifetti } from "../../redux/slices/pregiDifettiSlice";
+import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { estraiTaroccoMinore } from "../../utils/random";
 
 function CaratteristicheComponent() {
@@ -54,14 +60,19 @@ function CaratteristicheComponent() {
     caratteristicheAggiornate.some((t) => cara.id === t.id);
 
   const handleResetMinoriEstratti = () => {
+    dispatch(resetDoni());
     dispatch(resetMinoriEstratti());
     dispatch(resetSemiBonus());
     dispatch(resetSemiMalus());
     dispatch(setBtnMalusPressed(false));
     dispatch(setBtnBonusPressed(false));
     dispatch(resetCaratteristiche());
+    dispatch(resetAllAbilita());
+    dispatch(resetProfessione());
+    dispatch(resetAllPregiDifetti());
     dispatch(resetCaratteristicheAggiornate());
     dispatch(setCaratteristiche(caratteristicheStorico));
+    dispatch(setCaratteristicheUpdateStorico());
   };
 
   const addReduceCaratteristica = (caratt, positive) => {
@@ -82,6 +93,7 @@ function CaratteristicheComponent() {
       sem.valore -= 1;
       dispatch(updateSemiMalus(sem));
     }
+    dispatch(setCaratteristicheUpdateStorico());
   };
 
   const visualizzaModificare = (car) => {
@@ -190,14 +202,15 @@ function CaratteristicheComponent() {
               >
                 Estrai Malus
               </Button>
-              <Button
-                size="small"
-                //disabled={abilitateBtnMalus()}
-                variant="contained"
-                onClick={() => handleResetMinoriEstratti()}
-              >
-                Reset
-              </Button>
+              <Tooltip title="La modifica comporta il reset dei seguenti campi: Professione, Abilità, Caratteristiche, Pregi e Difetti, Doni e Disturbi Mentali">
+                <Button
+                  size="small"
+                  variant="contained"
+                  onClick={() => handleResetMinoriEstratti()}
+                >
+                  Reset
+                </Button>
+              </Tooltip>
             </Stack>
           </Grid>
         </Grid>
