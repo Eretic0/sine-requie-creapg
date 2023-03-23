@@ -2254,7 +2254,7 @@ Armi da Fuoco, Fotografia, Guidare -veicolo-, Interrogare, Intrufolarsi, Perquis
     ],
   },
   /* *** IV Reich - End *** */
-/* *** Regno di Osiride - Begin *** */
+  /* *** Regno di Osiride - Begin *** */
   /* Topo del Deserto - Ufficiale
 Artiglieria, Ascoltare, Demolizione, Guidare -veicolo-, Impartire Ordini, Interrogare, Orientamento, Osservare, Tattica, Uso -Mazza-, Uso -arma-. */
   {
@@ -2316,7 +2316,7 @@ Acrobazia, Ascoltare, Orientamento, Osservare, Perquisire, Uso -Mazza-, Uso -arm
   /* Servi di Anubi
   Interrogare, Perquisire, Pronto Soccorso, Rissa, Uso -Fauci di Anubi-, Uso -spada- */
   {
-    id: "20705963684002003",
+    id: "207059636840020027",
     nome: "Servi di Anubi",
     ambientazioneRef: "341412130688336076",
     eta: "N",
@@ -2332,7 +2332,7 @@ Acrobazia, Ascoltare, Orientamento, Osservare, Perquisire, Uso -Mazza-, Uso -arm
   /* Ispettore Capo
 Impartire Ordini, Interrogare, Intrufolarsi, Perquisire, Politica ed Economia, Seguire tracce, Uso -pistola-, Uso -arma-*/
   {
-    id: "20705963684002004",
+    id: "2070596368400200472",
     nome: "Ispettore Capo",
     ambientazioneRef: "341412130688336076",
     eta: "N",
@@ -2350,7 +2350,7 @@ Impartire Ordini, Interrogare, Intrufolarsi, Perquisire, Politica ed Economia, S
   /* Ispettore
 Interrogare, Intrufolarsi, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-*/
   {
-    id: "20705963684002004",
+    id: "2070596368400200489",
     nome: "Ispettore",
     ambientazioneRef: "341412130688336076",
     eta: "N",
@@ -2366,7 +2366,7 @@ Interrogare, Intrufolarsi, Perquisire, Seguire tracce, Uso -arma-, Uso -arma-*/
   /* Tecnico di Polizia
 Biologia, Erboristeria, Fotografia, Intrufolarsi, Occultismo, Perquisire, Pronto Soccorso, Scassinare, Uso -arma- */
   {
-    id: "20705963684002004",
+    id: "20705963684002004123",
     nome: "Tecnico di Polizia",
     ambientazioneRef: "341412130688336076",
     eta: "N",
@@ -2728,7 +2728,7 @@ Armi da Fuoco, Biologia, Chimica farmaceutica, Medicina e chirurgia, Occultismo,
     magiaRituale: true,
   },
   /* *** Cacciatori di Morti - End *** */
-/* *** I Dossier dell'Impossibile - Start *** */
+  /* *** I Dossier dell'Impossibile - Start *** */
   /* Architetto
 Demolizione, Disegnare, Fisica, Ingegneria, Legge, Politica ed Economia. */
   {
@@ -2763,8 +2763,8 @@ Prerequisito: Difetto Omossessuale per Maschio, Cattiva reputazione per Femmina 
       { id: "343961548035719373" },
     ],
     difettiRef: [
-      { id: "341974081863680204", sesso: "M"},
-      { id: "341973280195870924", sesso: "F"},
+      { id: "341974081863680204", sesso: "M" },
+      { id: "341973280195870924", sesso: "F" },
     ],
     sferaInfluenza: "Ammiratori segreti.",
   },
@@ -2786,10 +2786,10 @@ Ha 1 Punto Difetto in meno rispetto a quanto risulterebbe dai suoi pregi. */
       { id: "343960318838309069" },
     ],
     pregiRef: [
-      { id: "341972591715549388"},
-      { id: "341972670853677260"},
-      { id: "341972702222876876"},
-      { id: "341972854222356684"},
+      { id: "341972591715549388" },
+      { id: "341972670853677260" },
+      { id: "341972702222876876" },
+      { id: "341972854222356684" },
     ],
     sferaInfluenza: "Clienti soddisfatti.",
   },
@@ -2806,7 +2806,8 @@ Falsificazione, Legge, Mercanteggiare, Persuadere. */
       { id: "343960225473102029" },
       { id: "343960318838309069" },
     ],
-    sferaInfluenza: "Piccoli risparmiatore e piccoli investitori. Almeno un cliente danaroso.",
+    sferaInfluenza:
+      "Piccoli risparmiatore e piccoli investitori. Almeno un cliente danaroso.",
   },
   /* Bibliotecario
 Abilità prestampate e quelle del Passato . */
@@ -2815,14 +2816,9 @@ Abilità prestampate e quelle del Passato . */
     nome: "Bibliotecario",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-    ],
-    pregiRef: [
-      { id: "341972630388080844"},
-    ],
-    difettiSceltaRef: [
-      { id: "341974205674291404"},
-    ],
+    abilitaRef: [],
+    pregiRef: [{ id: "341972630388080844" }],
+    difettiSceltaRef: [{ id: "341974205674291404" }],
     prestampateProfessione: true,
     sferaInfluenza: "Libri.",
   },
@@ -2833,10 +2829,7 @@ Artigianato -cuoco-, Mercanteggiare. Abilità prestampate e quelle del Passato. 
     nome: "Casalinga",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-      { id: "222068013220839600" },
-      { id: "343960225473102029" },
-    ],
+    abilitaRef: [{ id: "222068013220839600" }, { id: "343960225473102029" }],
     prestampateProfessione: true,
     sferaInfluenza: "Altre casalinghe o casalinghi.",
   },
@@ -2847,10 +2840,7 @@ Artigianato specifico, Mercanteggiare. */
     nome: "Calzolaio, Parrucchiere, Sarto...",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-      { id: "343960641759871181" },
-      { id: "343960225473102029" },
-    ],
+    abilitaRef: [{ id: "343960641759871181" }, { id: "343960225473102029" }],
     sferaInfluenza: "Gente del Borgo o del quartiere in caso di città grandi.",
   },
   /* Facchino /Muratore 
@@ -2862,9 +2852,7 @@ Forza fisica +1 a PG con 4 o meno in tale Caratteristica.
     nome: "Facchino /Muratore ",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-      { id: "343960868252287181" },
-    ],
+    abilitaRef: [{ id: "343960868252287181" }],
     prestampateProfessione: true,
     sferaInfluenza: "Piccoli criminali.",
   },
@@ -2891,14 +2879,9 @@ Può avere il Pregio Sopravvivenza. */
     nome: "Nullafacente",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-    ],
-    difettiRef: [
-      { id: "341973280195870924"},
-    ],
-    pregiSceltaRef: [
-      { id: "341972738066350284", }
-    ],
+    abilitaRef: [],
+    difettiRef: [{ id: "341973280195870924" }],
+    pregiSceltaRef: [{ id: "341972738066350284" }],
     prestampateProfessione: true,
     sferaInfluenza: "Nessuna.",
   },
@@ -2918,10 +2901,9 @@ Può avere il Pregio Iniziazione Occulta, pagandolo 2 Difetti. */
       { id: "343960318838309069" },
       { id: "343961428784316621" },
     ],
-    pregiSceltaRef: [
-      { id: "341972460271304908"},
-    ],
-    sferaInfluenza: "Se ha Iniziazione Occulta, avrà libri o conoscenze che possono aiutare alcune indagini. Altrimenti solo una serie di squinternati.",
+    pregiSceltaRef: [{ id: "341972460271304908" }],
+    sferaInfluenza:
+      "Se ha Iniziazione Occulta, avrà libri o conoscenze che possono aiutare alcune indagini. Altrimenti solo una serie di squinternati.",
   },
   /* Operaio
 Abilità prestampate e quelle del Passato . */
@@ -2930,10 +2912,10 @@ Abilità prestampate e quelle del Passato . */
     nome: "Operaio",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-    ],
+    abilitaRef: [],
     prestampateProfessione: true,
-    sferaInfluenza: "Lavoratori nel proprio reparto. Sa procurarsi parti meccaniche, trafugandole dalla fabbrica in cui lavora.",
+    sferaInfluenza:
+      "Lavoratori nel proprio reparto. Sa procurarsi parti meccaniche, trafugandole dalla fabbrica in cui lavora.",
   },
   /* Idraulico/Imbianchino/Elettricista/Giardiniere
 Artigianato specifico, Mercanteggiare.
@@ -2943,11 +2925,9 @@ Artigianato specifico, Mercanteggiare.
     nome: "Idraulico/Imbianchino/Elettricista/Giardiniere",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-      { id: "343960641759871181" },
-      { id: "343960225473102029" },
-    ],
-    sferaInfluenza: "Clienti affezionati, di cui conoscono abitazioni o fabbricati in cui hanno lavorato. Conoscono i Muratori. Hanno partecipato all'edificazione di immobili in zona.",
+    abilitaRef: [{ id: "343960641759871181" }, { id: "343960225473102029" }],
+    sferaInfluenza:
+      "Clienti affezionati, di cui conoscono abitazioni o fabbricati in cui hanno lavorato. Conoscono i Muratori. Hanno partecipato all'edificazione di immobili in zona.",
   },
   /* Cameriere di città
 Abilità prestampate e quelle del Passato.
@@ -2957,11 +2937,8 @@ Camerieri di città hanno il Pregio Comportamento Educato. */
     nome: "Cameriere",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-    ],
-    pregiRef: [
-      { id: "341972247204856012"},
-    ],
+    abilitaRef: [],
+    pregiRef: [{ id: "341972247204856012" }],
     prestampateProfessione: true,
     sferaInfluenza: "Ubriaconi.",
   },
@@ -2973,11 +2950,8 @@ Camerieri dei Borghi possono avere il Pregio Dote Innata solo ottenere Abilità 
     nome: "Cameriere",
     ambientazioneRef: "341412111307502220",
     eta: "N",
-    abilitaRef: [
-    ],
-    pregiSceltaRef: [
-      { id: "341972352170459340"},
-    ],
+    abilitaRef: [],
+    pregiSceltaRef: [{ id: "341972352170459340" }],
     prestampateProfessione: true,
     sferaInfluenza: "Ubriaconi.",
   },
@@ -2989,11 +2963,11 @@ Leggere e Scrivere, Letteratura ed Arte, Mercanteggiare, Politica ed Economia, S
     ambientazioneRef: "341412111307502220",
     eta: "N",
     abilitaRef: [
-      { id: "343960168760869069"},
-      { id: "343961163498782925"},
-      { id: "343960225473102029"},
-      { id: "343961340510994637"},
-      { id: "343961508662739149"},
+      { id: "343960168760869069" },
+      { id: "343961163498782925" },
+      { id: "343960225473102029" },
+      { id: "343961340510994637" },
+      { id: "343961508662739149" },
     ],
     sferaInfluenza: "Editori. Ammiratori.",
   },
@@ -3007,22 +2981,18 @@ Possono essere Anziani o avere il Difetto Mutilazione. */
     ambientazioneRef: "341412111307502220",
     eta: "N",
     abilitaRef: [
-      { id: "343960624931274957"},
-      { id: "343960656041476301"},
-      { id: "343968013220839631"},
-      { id: "343960144603775181"},
+      { id: "343960624931274957" },
+      { id: "343960656041476301" },
+      { id: "343968013220839631" },
+      { id: "343960144603775181" },
       { id: "343960377471533261v1" },
-      { id: "343968013220839632"},
+      { id: "343968013220839632" },
     ],
-    difettiSceltaRef: [
-      { id: "341973933785874636"},
-    ],
-    pregiSceltaRef: [
-      { id: "341972618725818572"},
-    ],
+    difettiSceltaRef: [{ id: "341973933785874636" }],
+    pregiSceltaRef: [{ id: "341972618725818572" }],
     sferaInfluenza: "Altri Veterani.",
   },
-/* *** I Dossier dell'Impossibile - End *** */
+  /* *** I Dossier dell'Impossibile - End *** */
 ];
 
 export default Professioni;
