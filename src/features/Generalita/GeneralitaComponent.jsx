@@ -6,7 +6,16 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
+import IconTooltip from "../../components/IconTooltip";
 import AmbientazioniDb from "../../db/Ambientazioni";
+import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
+import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
+import {
+  setArrayProfessioneEta,
+  setGradoMassimoEta,
+  setNumeroAbilitaTaroccoPassato,
+  setPuntiAbilitaEta,
+} from "../../redux/slices/etaSlice";
 import {
   setAmbientazione,
   setNome,
@@ -14,33 +23,46 @@ import {
 } from "../../redux/slices/generalitaSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
-import { resetAllAbilita } from "../../redux/slices/abilitaSlice";
-import { resetCaratteristiche } from "../../redux/slices/caratteristicheSlice";
-import { resetEta } from "../../redux/slices/etaSlice";
-import IconTooltip from "../../components/IconTooltip";
+import { ambSoviet } from "../../utils/ambientazioniMethods";
+import {
+  calcolaArrayProfessione,
+  calcolaGradoMassimo,
+  calcolaNumeroAbilitaTaroccoPassato,
+  calcolaPuntiAbilitaByEta,
+} from "../../utils/etaMethods";
 
 function GeneralitaComponent() {
   const { nome, ambientazione, sesso } = useSelector(
     (state) => state.generalita
   );
+  const { eta } = useSelector((state) => state.eta);
   const dispatch = useDispatch();
 
   const handleChangeAmbientazione = (event) => {
-    dispatch(resetEta());
     dispatch(resetTarocchi());
     dispatch(resetCaratteristiche());
     dispatch(resetAllAbilita());
     dispatch(resetProfessione());
-    dispatch(setAmbientazione(event.target.value));
+    const manuale = event.target.value;
+    dispatch(setAmbientazione(manuale));
+    if (ambSoviet.id === manuale && eta > 0) {
+      const puntiAbilita = calcolaPuntiAbilitaByEta(eta);
+      const arrayProfessione = calcolaArrayProfessione(eta, manuale);
+      const gradoMassimo = calcolaGradoMassimo(eta);
+      const numeroAbilitaTarocco = calcolaNumeroAbilitaTaroccoPassato(
+        eta,
+        manuale
+      );
+      dispatch(setPuntiAbilitaEta(puntiAbilita));
+      dispatch(setArrayProfessioneEta(arrayProfessione));
+      dispatch(setGradoMassimoEta(gradoMassimo));
+      dispatch(setNumeroAbilitaTaroccoPassato(numeroAbilitaTarocco));
+    }
   };
 
-  const handleChangeNome = (event) => {
-    dispatch(setNome(event.target.value));
-  };
+  const handleChangeNome = (event) => dispatch(setNome(event.target.value));
 
-  const handleChangeSesso = (event) => {
-    dispatch(setSesso(event.target.value));
-  };
+  const handleChangeSesso = (event) => dispatch(setSesso(event.target.value));
 
   return (
     <>
@@ -50,12 +72,12 @@ function GeneralitaComponent() {
             <>
               <FormControl fullWidth>
                 <InputLabel id="label-input-select-ambientazione">
-                  Manuale / Ambientazione
+                  Manuale
                 </InputLabel>
                 <Select
                   labelId="label-input-select-ambientazione"
                   id="select-ambientazione"
-                  label="Manuale / Ambientazione"
+                  label="Manuale"
                   defaultValue=""
                   value={ambientazione}
                   onChange={handleChangeAmbientazione}
@@ -70,7 +92,7 @@ function GeneralitaComponent() {
               <IconTooltip
                 type={"info"}
                 message={
-                  "La modifica comporta il reset dei seguenti campi: Età, Professione, Abilità, Tarocco Dominante, Tarocco del Passato"
+                  "La modifica comporta il reset dei seguenti campi: Professione, Abilità, Tarocco Dominante, Tarocco del Passato"
                 }
               />
             </>
