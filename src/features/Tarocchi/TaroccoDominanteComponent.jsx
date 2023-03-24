@@ -5,27 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card";
 import IconTooltip from "../../components/IconTooltip";
 import TarocchiDb from "../../db/Tarocchi";
-import CaratteristicheDb from "../../db/Caratteristiche";
 import {
   resetCaratteristiche,
-  setCaratteristicheStorico,
+  resetCaratteristicheTaroccoStorico,
+  restoreCaratteristicheByStorico,
+  setCaratteristicheTaroccoStorico,
   updateCaratteristica,
 } from "../../redux/slices/caratteristicheSlice";
+import { resetDisturbiMentali } from "../../redux/slices/disturbiMentaliSlice";
+import { resetDoni } from "../../redux/slices/doniSlice";
 import { setTaroccoDominante } from "../../redux/slices/taroccoSlice";
-
-import { handleAssignMalusByEta } from "../../utils/etaMethods";
 
 import { generateRandomNumer } from "../../utils/random";
 import TaroccoPaper from "./TaroccoPaper";
 
 function TarocchiDominante() {
   const { taroccoDominante } = useSelector((state) => state.tarocco);
-  const { eta } = useSelector((state) => state.eta);
+  const { caratteristicheStorico } = useSelector(
+    (state) => state.caratteristiche
+  );
 
   const dispatch = useDispatch();
-
-  const handleUpdateCaratteristica = (value) =>
-    dispatch(updateCaratteristica(value));
 
   const handleRandomTaroccoDominante = () => {
     const number = generateRandomNumer(21, 0);
@@ -33,12 +33,12 @@ function TarocchiDominante() {
     if (tarocco) {
       dispatch(setTaroccoDominante(tarocco));
       const listCaratteristicheByTarocco = tarocco.caratteristicaRef;
+      dispatch(resetDoni());
+      dispatch(resetDisturbiMentali());
       dispatch(resetCaratteristiche());
-      if (eta) {
-        handleAssignMalusByEta(eta, handleUpdateCaratteristica);
-      }
+      dispatch(restoreCaratteristicheByStorico());
       listCaratteristicheByTarocco.forEach((element) => {
-        const carat = CaratteristicheDb.find((ca) => ca.id === element.id);
+        const carat = caratteristicheStorico.find((ca) => ca.id === element.id);
         let caratMod = { ...carat };
         if (Math.sign(element.valore)) {
           caratMod.valore = caratMod.valore + element.valore;
@@ -47,7 +47,8 @@ function TarocchiDominante() {
         }
         dispatch(updateCaratteristica(caratMod));
       });
-      dispatch(setCaratteristicheStorico());
+      dispatch(resetCaratteristicheTaroccoStorico());
+      dispatch(setCaratteristicheTaroccoStorico());
     }
   };
 

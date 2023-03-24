@@ -163,7 +163,9 @@ async function fillForm({
   setTextField(form, "taroccoPassato", taroccoPassato.nome);
   setTextField(form, "professione", professione.nome);
   setTextField(form, "eta", eta);
-  setTextField(form, "doni", doni.map((t) => t).join("\n"));
+  if (doni.length > 0) {
+    setTextField(form, "doni", doni.map((t) => t.nome).join(", "));
+  }
 
   if (pregi.length > 0) {
     setTextField(form, "pregi", pregi.map((t) => t.nome).join("\n"));
@@ -205,13 +207,16 @@ async function fillForm({
     equilibrioMentaleVal <= 2 && form.getCheckBox("equi2").check();
     equilibrioMentaleVal <= 1 && form.getCheckBox("equi1").check();
 
-    const distuMent3 = disturbiMentali.filter((t) => t.equilibrioMental === 3);
-    const distuMent2 = disturbiMentali.filter((t) => t.equilibrioMental === 2);
-    const distuMent1 = disturbiMentali.filter((t) => t.equilibrioMental === 1);
+    const distuMent3 = disturbiMentali.find((t) => t.equilibrioMental === 3);
+    const distuMent2 = disturbiMentali.find((t) => t.equilibrioMental === 2);
+    const distuMent1 = disturbiMentali.find((t) => t.equilibrioMental === 1);
 
-    distuMent3 && setTextField(form, "disturboMentale3", distuMent3.nome);
-    distuMent2 && setTextField(form, "disturboMentale2", distuMent2.nome);
-    distuMent1 && setTextField(form, "disturboMentale1", distuMent1.nome);
+    distuMent3 &&
+      setTextField(form, "disturboMentale3", distuMent3.disturbo.nome);
+    distuMent2 &&
+      setTextField(form, "disturboMentale2", distuMent2.disturbo.nome);
+    distuMent1 &&
+      setTextField(form, "disturboMentale1", distuMent1.disturbo.nome);
   }
 
   const percezioneVal = getValoreCaratteristica(
@@ -284,10 +289,11 @@ const StampaSchedaButton = () => {
       sesso,
     })
       .then(() => setPrintingPdf(false))
-      .catch(() => handleCatchError());
+      .catch((er) => handleCatchError(er));
   };
 
-  const handleCatchError = () => {
+  const handleCatchError = (er) => {
+    console.error("Error", er);
     setPrintingPdf(false);
     handleClickDialogError();
   };
