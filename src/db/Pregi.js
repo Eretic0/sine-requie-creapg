@@ -292,7 +292,7 @@ const Pregi = [
     id: "341972717500629196",
     nome: "Scattante",
     numeroDifetti: 1,
-    caratteristicaRef: [{ id: "341576033844068558", valore: +2 }],
+    risoluzioneRef: [{ valore: +2 }],
     descrizioneBreve: "+2 a Risoluzione",
     descrizione:
       "Sei sempre pronto a difenderti, i tuoi sensi sono sempre all'erta, probabilmente sei un po' iperteso e nervoso, ma in compenso sarà difficile prenderti in castagna. (+2 a Risoluzione).",

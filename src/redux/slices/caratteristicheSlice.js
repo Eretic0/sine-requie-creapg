@@ -6,6 +6,7 @@ export const caratteristicheSlice = createSlice({
   initialState: {
     caratteristiche: [...CaratteristicheDb],
     caratteristicheStorico: [...CaratteristicheDb],
+    caratteristicheTaroccoStorico: [...CaratteristicheDb],
     caratteristicheUpdateStorico: [...CaratteristicheDb],
     caratteristicheAggiornate: [],
     minoriEstratti: [],
@@ -27,6 +28,14 @@ export const caratteristicheSlice = createSlice({
   reducers: {
     setCaratteristicheStorico: (state) => {
       state.caratteristicheStorico = [...state.caratteristiche];
+    },
+
+    setCaratteristicheTaroccoStorico: (state) => {
+      state.caratteristicheTaroccoStorico = [...state.caratteristiche];
+    },
+
+    resetCaratteristicheTaroccoStorico: (state) => {
+      state.caratteristicheTaroccoStorico = [...CaratteristicheDb];
     },
 
     setCaratteristicheUpdateStorico: (state) => {
@@ -152,6 +161,8 @@ export const {
   setCaratteristicheStorico,
   restoreCaratteristicheByStorico,
   setCaratteristicheUpdateStorico,
+  setCaratteristicheTaroccoStorico,
+  resetCaratteristicheTaroccoStorico,
 } = caratteristicheSlice.actions;
 
 export default caratteristicheSlice.reducer;

@@ -31,6 +31,7 @@ import {
   updateSemiMalus,
   setCaratteristicheUpdateStorico,
 } from "../../redux/slices/caratteristicheSlice";
+import { resetDisturbiMentali } from "../../redux/slices/disturbiMentaliSlice";
 import { resetDoni } from "../../redux/slices/doniSlice";
 import { resetAllPregiDifetti } from "../../redux/slices/pregiDifettiSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
@@ -61,6 +62,7 @@ function CaratteristicheComponent() {
 
   const handleResetMinoriEstratti = () => {
     dispatch(resetDoni());
+    dispatch(resetDisturbiMentali());
     dispatch(resetMinoriEstratti());
     dispatch(resetSemiBonus());
     dispatch(resetSemiMalus());
@@ -94,6 +96,8 @@ function CaratteristicheComponent() {
       dispatch(updateSemiMalus(sem));
     }
     dispatch(setCaratteristicheUpdateStorico());
+    dispatch(resetDoni());
+    dispatch(resetDisturbiMentali());
   };
 
   const visualizzaModificare = (car) => {
