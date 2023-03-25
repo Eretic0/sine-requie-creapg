@@ -2,6 +2,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Tooltip } from "@mui/material";
 import Button from "@mui/material/Button";
 import Collapse from "@mui/material/Collapse";
 import Grid from "@mui/material/Grid";
@@ -18,6 +19,7 @@ import Card from "../../components/Card";
 import MinoriPaper from "../../components/MinoriPaper";
 import DifettiDb from "../../db/Difetti";
 import PregiDb from "../../db/Pregi";
+import { resetAllAbilita, setAbilita } from "../../redux/slices/abilitaSlice";
 import { updateCaratteristica } from "../../redux/slices/caratteristicheSlice";
 import {
   addDifetto,
@@ -29,6 +31,7 @@ import {
   setNumDifetti,
   setNumPregi,
 } from "../../redux/slices/pregiDifettiSlice";
+import { resetProfessione } from "../../redux/slices/professioneSlice";
 import {
   estraiTaroccoMinore,
   getDescNumeroCarta,
@@ -42,6 +45,7 @@ export default function PregiDifettiComponent() {
   const { pregi, difetti, minoriEstratti, numDifetti, numPregi } = useSelector(
     (state) => state.pregiDifetti
   );
+  const { abilitaStoricoTarocco } = useSelector((state) => state.abilita);
   const dispatch = useDispatch();
 
   const handleSelectDifetto = (diff) => {
@@ -117,11 +121,14 @@ export default function PregiDifettiComponent() {
   };
 
   const resetPregiDifetti = () => {
+    dispatch(resetProfessione());
     dispatch(resetMinoriEstratti());
     dispatch(setNumPregi(0));
     dispatch(setNumDifetti(0));
     dispatch(resetPregi());
     dispatch(resetDifetti());
+    dispatch(resetAllAbilita());
+    dispatch(setAbilita(abilitaStoricoTarocco));
   };
 
   const handleOpenDescription = (id, isOpen) => {
@@ -302,13 +309,15 @@ export default function PregiDifettiComponent() {
               >
                 Estrai Difetto
               </Button>
-              <Button
-                size="small"
-                variant="contained"
-                onClick={() => resetPregiDifetti()}
-              >
-                Reset
-              </Button>
+              <Tooltip title="La modifica comporta il reset dei seguenti campi: Professione, Abilità">
+                <Button
+                  size="small"
+                  variant="contained"
+                  onClick={() => resetPregiDifetti()}
+                >
+                  Reset
+                </Button>
+              </Tooltip>
             </Stack>
             {getListDifettiFilterByAmbientazione().length > 0 && (
               <List>

@@ -27,6 +27,7 @@ const AbilitaTable = ({
   profiloAbilitaSelezionato = null,
 }) => {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
+  const { ambientazione } = useSelector((state) => state.generalita);
   const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useDispatch();
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
@@ -52,6 +53,11 @@ const AbilitaTable = ({
     }
   };
 
+  const filterListSpecifico = (listSpecifico) =>
+    listSpecifico.filter(
+      (t) => !t.ambientazioneRef || t.ambientazioneRef === ambientazione
+    );
+
   const visualizzaSpecifico = (ab) => {
     if (ab.specifico) {
       if (ab.specifico.length > 0) {
@@ -70,7 +76,7 @@ const AbilitaTable = ({
               value={ab.specificoSelezionato}
               onChange={(event) => handleChangeSpecifico(event, ab.id)}
             >
-              {ab.specifico.map((s) => (
+              {filterListSpecifico(ab.specifico).map((s) => (
                 <MenuItem key={s.id} value={s.id}>
                   {s.id}
                 </MenuItem>

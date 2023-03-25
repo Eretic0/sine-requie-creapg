@@ -54,6 +54,30 @@ const DisturbiMentaliComponent = () => {
     dispatch(addDisturbiMentali(dist));
   };
 
+  const getListDisturbiMentaliFilter = (valEquMent) => {
+    let arrayDisturbiMentali = DisturbiMentaliDb;
+    let disturbiSelezionati = [];
+    if (disturbiMentali.length > 0) {
+      disturbiSelezionati = disturbiMentali
+        .filter((v) => v.equilibrioMental !== valEquMent)
+        .map((t) => t.disturbo.id);
+    }
+    if (valEquMent === 3) {
+      arrayDisturbiMentali = arrayDisturbiMentali.filter(
+        (t) => t.tipo === "L" && !disturbiSelezionati.includes(t.id)
+      );
+    } else if (valEquMent === 2) {
+      arrayDisturbiMentali = arrayDisturbiMentali.filter(
+        (t) => t.tipo === "L" && !disturbiSelezionati.includes(t.id)
+      );
+    } else if (valEquMent <= 1) {
+      arrayDisturbiMentali = arrayDisturbiMentali.filter(
+        (t) => t.tipo === "G" && !disturbiSelezionati.includes(t.id)
+      );
+    }
+    return arrayDisturbiMentali;
+  };
+
   return (
     <Card headerText="Disturbi Mentali">
       <TableContainer>
@@ -80,11 +104,13 @@ const DisturbiMentaliComponent = () => {
                       handleChangeDisturbo(t.equilibrioMental, event)
                     }
                   >
-                    {DisturbiMentaliDb.map((d) => (
-                      <MenuItem key={d.id} value={d}>
-                        {d.nome}
-                      </MenuItem>
-                    ))}
+                    {getListDisturbiMentaliFilter(t.equilibrioMental).map(
+                      (d) => (
+                        <MenuItem key={d.id} value={d}>
+                          {d.nome}
+                        </MenuItem>
+                      )
+                    )}
                   </Select>
                 </TableCell>
               </TableRow>
