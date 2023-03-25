@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/sine-requie-creapg/static/css/main.e6c13ad2.css",
-    "main.js": "/sine-requie-creapg/static/js/main.422eae93.js",
+    "main.js": "/sine-requie-creapg/static/js/main.365e4f33.js",
     "static/js/787.28600b4b.chunk.js": "/sine-requie-creapg/static/js/787.28600b4b.chunk.js",
     "static/media/SineRequie_DonnaForm.pdf": "/sine-requie-creapg/static/media/SineRequie_DonnaForm.e00a6c8b17698c0c37ec.pdf",
     "static/media/SineRequie_UomoForm.pdf": "/sine-requie-creapg/static/media/SineRequie_UomoForm.76a486dd3c8213abb321.pdf",
     "index.html": "/sine-requie-creapg/index.html",
     "main.e6c13ad2.css.map": "/sine-requie-creapg/static/css/main.e6c13ad2.css.map",
-    "main.422eae93.js.map": "/sine-requie-creapg/static/js/main.422eae93.js.map",
+    "main.365e4f33.js.map": "/sine-requie-creapg/static/js/main.365e4f33.js.map",
     "787.28600b4b.chunk.js.map": "/sine-requie-creapg/static/js/787.28600b4b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.422eae93.js"
+    "static/js/main.365e4f33.js"
   ]
 }
