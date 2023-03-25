@@ -23,7 +23,6 @@ import {
 } from "../../redux/slices/generalitaSlice";
 import { resetProfessione } from "../../redux/slices/professioneSlice";
 import { resetTarocchi } from "../../redux/slices/taroccoSlice";
-import { ambSoviet } from "../../utils/ambientazioniMethods";
 import {
   calcolaArrayProfessione,
   calcolaGradoMassimo,
@@ -45,7 +44,7 @@ function GeneralitaComponent() {
     dispatch(resetProfessione());
     const manuale = event.target.value;
     dispatch(setAmbientazione(manuale));
-    if (ambSoviet.id === manuale && eta > 0) {
+    if (eta > 0) {
       const puntiAbilita = calcolaPuntiAbilitaByEta(eta);
       const arrayProfessione = calcolaArrayProfessione(eta, manuale);
       const gradoMassimo = calcolaGradoMassimo(eta);

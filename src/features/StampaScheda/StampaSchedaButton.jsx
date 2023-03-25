@@ -242,6 +242,18 @@ async function fillForm({
   const risoluzioneLabel =
     percezioneVal + volontaVal + coordinazioneVal + karmaVal;
   setTextField(form, "risoluzione", risoluzioneLabel.toString());
+
+  if (professione.magiaRituale) {
+    setTextField(form, "equipaggiamento", "Magia Rituale:");
+  }
+  if (professione.sferaInfluenza) {
+    setTextField(
+      form,
+      "equipaggiamento",
+      `Sfera d'Influenza : ${professione.sferaInfluenza}`
+    );
+  }
+
   fillCaratteristicheLabel(form, caratteristiche);
   fillAbilitaLabel(form, abilita, caratteristiche);
 

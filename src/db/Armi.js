@@ -54,37 +54,47 @@ const Armi = [
   {
     id: "Requiem",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412057407553740"],
+    ambientazioneRef: "341411834674282700",
   },
   {
     id: "Expiator",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412057407553740"],
+    ambientazioneRef: "341411834674282700",
   },
   {
     id: "Katana",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412158384373964"],
+    ambientazioneRef: "341412158384373964",
   },
   {
     id: "Yari",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412158384373964"],
+    ambientazioneRef: "341412158384373964",
   },
   {
     id: "Nunchaku",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412158384373964"],
+    ambientazioneRef: "341412158384373964",
   },
   {
     id: "Kusarigama",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412158384373964"],
+    ambientazioneRef: "341412158384373964",
   },
   {
     id: "Senssu",
     caratteristicaRef: "341575970478620877",
-    ambientazioneRef: ["341412158384373964"],
+    ambientazioneRef: "341412158384373964",
+  },
+  {
+    id: "Fauci di Anubi",
+    caratteristicaRef: "341575970478620877",
+    ambientazioneRef: "341412130688336076",
+  },
+  {
+    id: "Khopesh",
+    caratteristicaRef: "341575970478620877",
+    ambientazioneRef: "341412130688336076",
   },
 ];
 
