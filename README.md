@@ -126,13 +126,23 @@ Compila le diverse sezioni presenti nell'applicativo con i dati richiesti per cr
 - [x] Estrazione Tarocco Dominante e Tarocco Passato
 - [x] Gestione Caratteristiche
 - [ ] Implementazione Pregi e Difetti
-- [x] Professioni Eccellenti e Avanzate
+- [x] Professioni Avanzate e Eccellenti
 - [x] Implementazione Professioni Manuale Base
+- [x] Implementazione Professioni Manuale Sanctum Imperium
+- [x] Implementazione Professioni Manuale IV Reich
+- [x] Implementazione Professioni Manuale Soviet
+- [x] Implementazione Professioni Manuale Regno di Osiride
+- [ ] Implementazione Professioni Manuale Trono del Crisantemo
+- [ ] Implementazione Professioni Manuale Braccamorte
+- [ ] Implementazione Professioni Manuale Decussis Sanguinis
+- [x] Implementazione Professioni Manuale Cacciatori di Morti
+- [ ] Implementazione Professioni Manuale Templari
+- [ ] Implementazione Professioni Manuale Inquisizione
+- [ ] Implementazione Professioni Manuale I Dossier dell'Impossibile
 - [x] Distribuzione punteggi abilità
-- [ ] Implementazione Disturbi Mentali
-- [ ] Implementazione Doni
+- [x] Implementazione Disturbi Mentali
+- [x] Implementazione Doni
 - [ ] Implementazione regole Propeudicità
-- [ ] Implementazione Professioni da Manuali successivi al Manuale Base
 - [x] Stampa scheda personaggio
 
 Vedere presso [open issues](https://github.com/Eretic0/sine-requie-creapg/issues) per una lista completa delle feature proposte (e problemi conosciuti).
