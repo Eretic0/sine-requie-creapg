@@ -4,8 +4,7 @@ const Pregi = [
     id: "341971750549979340",
     nome: "Affascinante",
     numeroDifetti: 2,
-    descrizioneBreve:
-      "+1 ai Test su Caratteristiche di Quadri verso il sesso opposto",
+    descrizioneBreve: "+1 Quadri",
     descrizione:
       "Hai qualcosa che ti fa avere un certo ascendente sul sesso opposto, forse la voce, il portamento o il modo in cui parli... (+1 ai Test su Caratteristiche di Quadri verso il sesso opposto).",
   },
@@ -38,7 +37,7 @@ const Pregi = [
     nome: "Bella voce",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960798508351693", valore: +2 }],
-    descrizioneBreve: '+2 ai Test di "Cantare"',
+    descrizioneBreve: "+2 Cantare",
     descrizione:
       'Hai una voce particolare e piena di personalità, ottima per cantare in un\'opera lirica o in un complesso famoso (+2 ai Test di "Cantare")',
   },
@@ -63,8 +62,7 @@ const Pregi = [
     id: "341972247204856012",
     nome: "Comportamento educato",
     numeroDifetti: 1,
-    descrizioneBreve:
-      "+1 a Socievolezza durante incontri che richiedano una certa etichetta",
+    descrizioneBreve: "+1 Socievolezza",
     descrizione:
       "Conosci le regale della buona educazione, non sarai a disagio né a cena con i suoceri né a un gala dell'alta società, sarai all'altezza della situazione, evitando imbarazzanti gaffe e mostrandoti sicuro e a tuo agio (+1 a Socievolezza durante incontri che richiedano una certa etichetta).",
   },
@@ -88,7 +86,7 @@ const Pregi = [
     id: "341972309684256972",
     nome: "Coraggioso",
     numeroDifetti: 2,
-    descrizioneBreve: "+3 ai Test di Paura",
+    descrizioneBreve: "+3 Paura",
     descrizione:
       "Sai come affrontare la paura, come chiuderla nel tuo cuore senza che domini le tue azioni; niente e nessuno può spaventarti: sergenti iracondi, sangue, armi, pericolo... Morti... ci vorrà ben altro per uno tosto come te! (+3 ai Test di Paura).",
   },
@@ -113,7 +111,7 @@ const Pregi = [
     nome: "Feeling con -animale-",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960572802367693", valore: +2 }],
-    descrizioneBreve: '+2 ai Test "Addestrare -animale-"',
+    descrizioneBreve: "+2 Addestrare -animale-",
     descrizione:
       'Con gli animali di una certa specie ci hai sempre saputo fare, tu li ami e loro lo capiscono e ricambiano il tuo amore mostrandosi sempre pacifici e affettuosi. Animali addestrati alla violenza difficilmente sentiranno il tuo buon influsso ma, se risparmieranno una preda, quella sarai tu. Quando prenderete questo Pregio dovrete decidere verso quale specie animale avrete un buon feeling, ad esempio: cani, cavalli, gatti... (+2 ai Test "Addestrare -animale-")',
   },
@@ -121,7 +119,7 @@ const Pregi = [
     id: "341972388888445132",
     nome: "Fisionimista",
     numeroDifetti: 2,
-    descrizioneBreve: "+3 a Memoria per il riconoscimento di volti",
+    descrizioneBreve: "+3 Memoria",
     descrizione:
       "Nessun volto ti sfugge, nessuna particolare camminata, espressione o sguardo sono da te sottovalutati o dimenticati. Puoi riconoscere una persona anche dopo che il tempo, la guerra o un pesante trucco ne abbiano modificato parzialmente i lineamenti (+3 a Memoria per il riconoscimento di volti)",
   },
@@ -130,7 +128,7 @@ const Pregi = [
     nome: "Fortunato al gioco",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960994335162573", valore: +3 }],
-    descrizioneBreve: '+3 ai Test "Gioco d\'azzardo"',
+    descrizioneBreve: "+3 Gioco d'azzardo",
     descrizione:
       'Giocare è sempre stato il tuo forte, hai una fortuna sfacciata e irritante... per chi gioca contro di te! (+3 ai Test "Gioco d\'azzardo")',
   },
@@ -138,7 +136,7 @@ const Pregi = [
     id: "341972425133523148",
     nome: "Genio artistico",
     numeroDifetti: 2,
-    descrizioneBreve: "+1 a Creatività",
+    descrizioneBreve: "+1 Creatività",
     caratteristicaRef: [{ id: "341575960680726733", valore: 1 }],
     descrizione:
       "Tutto ciò che fai nel campo dell'arte è considerato geniale o per lo più gradevole, riesci un po' in tutto: pittura, musica, scultura... (+1 a Creatività)",
@@ -148,7 +146,7 @@ const Pregi = [
     nome: "Gusto estetico",
     numeroDifetti: 2,
     caratteristicaRef: [{ id: "341575948055871693", valore: 1 }],
-    descrizioneBreve: "+1 a Aspetto",
+    descrizioneBreve: "+1 Aspetto",
     descrizione:
       "Sai cos'è bello, cos'è elegante e raffinato e la tua figura, così come gli oggetti di cui ti circondi, ne sono testimonianza indelebile (+1 a Aspetto)",
   },
@@ -157,8 +155,7 @@ const Pregi = [
     nome: "Iniziazione occulta",
     numeroDifetti: 3,
     caratteristicaRef: [{ id: "341575989366620365", valore: 2 }],
-    descrizioneBreve:
-      "+2 a Affinità Occulta, se essa è maggiore di 8 possiedi anche un potere innato",
+    descrizioneBreve: "+2 Affinità Occulta",
     descrizione:
       "Qualcuno, nella tua infanzia, ti ha iniziato alla conoscenza della vera magia, oppure semplicemente sei nato così... un po' strano, capace di vedere o sentire cose che agli altri sono da sempre negate (+2 a Affinità Occulta, se essa è maggiore di 8 possiedi anche un potere innato).",
   },
@@ -174,7 +171,7 @@ const Pregi = [
     id: "341972491707613388",
     nome: "Non impressionabile",
     numeroDifetti: 2,
-    descrizioneBreve: "Bonus +2 sui Test di Orrore",
+    descrizioneBreve: "+2 Orrore",
     descrizione:
       "Potranno immergerti in una vasca di sangue, gettarti in un pozzo abitato da viscidi vermi striscianti, costringerti a guardare tua madre sbranata dai Morti... forse resisterai all'orrore (Bonus +2 sui Test di Orrore)",
   },
@@ -183,7 +180,7 @@ const Pregi = [
     nome: "Orientamento ottimo",
     numeroDifetti: 2,
     abilitaRef: [{ id: "343968013220839629", valore: +3 }],
-    descrizioneBreve: '+3 ai Test di "Orientamento"',
+    descrizioneBreve: "+3 Orientamento",
     descrizione:
       'Troveresti la strada di casa anche se ti risvegliassi in un bosco di notte; ti bastano pochi particolari per orientarti e, col cielo sereno, potrai ritornare dall\'Inferno seguendo le stelle! (+3 ai Test di "Orientamento")',
   },
@@ -200,7 +197,7 @@ const Pregi = [
     nome: "Ottima vista",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960281846644941", valore: +1 }],
-    descrizioneBreve: '+1 ai Test "Osservare"',
+    descrizioneBreve: "+1 Osservare",
     descrizione:
       'hai una vista ottima e sai porre attenzione a ciò che vedi. Hai quello che si dice un "occhio di falco". Non hai solo degli occhi perfetti, hai anche un metodo di osservazione che ti permette di vedere più cose e di porvi maggior attenzione, di ricostruire mentalmente immagini poco chiare o frammentarie con una certa precisione (+1 ai Test "Osservare").',
   },
@@ -217,7 +214,7 @@ const Pregi = [
     nome: "Ottimo udito",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960054820503757", valore: +1 }],
-    descrizioneBreve: '+1 ai Test "Ascoltare"',
+    descrizioneBreve: "+1 Ascoltare",
     descrizione:
       'Hai un udito spaventosamente sensibile e sai porre attenzione alle stimolazioni sonore, scomporle, comprenderle e processarle con cura nella tua mente. Insomma non solo "senti meglio" ma soprattutto capisci meglio quello che senti (+1 ai Test "Ascoltare").',
   },
@@ -274,8 +271,7 @@ const Pregi = [
     nome: "Romantico",
     numeroDifetti: 1,
     caratteristicaRef: [{ id: "341575960680726733", valore: +1 }],
-    descrizioneBreve:
-      "Bonus di +1 a Creatività e nei Test finalizzati a sedurre un partner",
+    descrizioneBreve: "+1 Creatività",
     descrizione:
       "hai uno spirito poetico e sognatore che affascina l'altro sesso e ti rende un poeta qualunque cosa tu faccia; se questa sensibilità viene affiancata a una forma d'arte, essa risulterà più sdolcinata e commovente (Bonus di +1 a Creatività e nei Test finalizzati a sedurre un partner).",
   },
@@ -284,7 +280,7 @@ const Pregi = [
     nome: "Saper mentire",
     numeroDifetti: 2,
     abilitaRef: [{ id: "343961428784316621", valore: +2 }],
-    descrizioneBreve: '+2 ai Test "Raggirare"',
+    descrizioneBreve: "+2 Raggirare",
     descrizione:
       'Sei bravissimo a mentire e anche se non è detto che tu lo faccia spesso, quando ti capita di farlo nessuno ti scopre. Se le bugie hanno le gambe corte nel tuo caso le muovono veloci! (+2 ai Test "Raggirare").',
   },
@@ -292,8 +288,8 @@ const Pregi = [
     id: "341972717500629196",
     nome: "Scattante",
     numeroDifetti: 1,
-    risoluzioneRef: [{ valore: +2 }],
-    descrizioneBreve: "+2 a Risoluzione",
+    risoluzioneValore: +2,
+    descrizioneBreve: "+2 Risoluzione",
     descrizione:
       "Sei sempre pronto a difenderti, i tuoi sensi sono sempre all'erta, probabilmente sei un po' iperteso e nervoso, ma in compenso sarà difficile prenderti in castagna. (+2 a Risoluzione).",
   },
@@ -310,7 +306,7 @@ const Pregi = [
     nome: "Senso musicale",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343961548035719373", valore: +1 }],
-    descrizioneBreve: '+1 ai Test "Suonare -strumento-"',
+    descrizioneBreve: "+1 Suonare -strumento-",
     descrizione:
       "Hai la musica nel sangue. Hai un gusto sopraffino e un'incredibile abilità nell'imparare l'uso di uno strumento o nel ricordare, anche per intero, pezzi musicali di ogni tipo (+1 ai Test \"Suonare -strumento-\").",
   },
@@ -327,7 +323,7 @@ const Pregi = [
     nome: "Simpatico",
     numeroDifetti: 2,
     caratteristicaRef: [{ id: "341575965808263373", valore: +1 }],
-    descrizioneBreve: "+1 a Socievolezza",
+    descrizioneBreve: "+1 Socievolezza",
     descrizione:
       "Qualunque cosa tu dica scatenerai il sorriso e, spesso, il riso irrefrenabile... che fai per Capodanno? (+1 a Socievolezza).",
   },
@@ -360,7 +356,7 @@ const Pregi = [
     nome: "Voce impostata",
     numeroDifetti: 1,
     abilitaRef: [{ id: "343960318838309069", valore: +1 }],
-    descrizioneBreve: '+1 a Test "Persuadere"',
+    descrizioneBreve: "+1 Persuadere",
     descrizione:
       'Puoi impostare la voce dandogli un tono diverso molto marcato e convincente così da adattarla alla situazione in maniera vantaggiosa: amore, rispetto, calma ... (+1 a Test "Persuadere").',
   },
@@ -380,6 +376,7 @@ const Pregi = [
     nome: "Kazoku",
     numeroDifetti: 2,
     descrizioneBreve: "",
+    arrayProfessioneEta: ["N", "A"],
     descrizione:
       "I nobili giapponesi, decaduti o meno, godono di un certo prestigio nella società nipponica, inoltre hanno mantenuto ingenti quantità di denaro, talvolta sotto forma di terre o attività in cui possono mettere dei lavoratori a sgobbare per loro. I Kazoku accedono solitamente ai mestieri di Capovillaggio, Mercante di successo o, nel caso siano decaduti, Samurai (più per il prestigio che per seguire realmente i dettami del Bushido). In tutti questi casi possono accedere a Professioni Avanzate (A) anche se non sono Personaggi Maturi o Anziani.",
   },

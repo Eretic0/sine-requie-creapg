@@ -16,12 +16,38 @@ import Stack from "@mui/material/Stack";
 import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
 import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
+import { calcolaRisoluzione } from "../../utils/caratteristicheMethods";
 
 const setTextField = (form, idTextField, valore) => {
   form.getTextField(idTextField).setText(valore);
 };
 
-const fillAbilitaLabel = (form, abilita, caratteristiche) => {
+const getDescIfPregioOrDifetto = (idAbilita, pregi, difetti) => {
+  console.log("idAbilita", idAbilita);
+  console.log("pregi", pregi);
+  let desc = "";
+  if (pregi.length > 0) {
+    const listAbilitaPregRef = pregi.filter((t) => t.abilitaRef);
+    listAbilitaPregRef.forEach((element) => {
+      const pregioAb = element.abilitaRef.find((t) => t.id === idAbilita);
+      if (pregioAb) {
+        desc = `(+${pregioAb.valore})`;
+      }
+    });
+  }
+  if (difetti.length > 0) {
+    const listAbilitaDiffRef = difetti.filter((t) => t.abilitaRef);
+    listAbilitaDiffRef.forEach((element) => {
+      const diffAb = element.abilitaRef.find((t) => t.id === idAbilita);
+      if (diffAb) {
+        desc = `(-${diffAb.valore})`;
+      }
+    });
+  }
+  return desc;
+};
+
+const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
   const abilitaPrest = abilita.filter((t) => t.prestampata);
 
   const abilitaNotPrest = abilita.filter((t) => !t.prestampata);
@@ -30,7 +56,15 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
     const caratteristica = element.caratteristicaRef
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
-    setTextField(form, element.id, element.grado.toString());
+    setTextField(
+      form,
+      element.id,
+      `${element.grado.toString()} ${getDescIfPregioOrDifetto(
+        element.id,
+        pregi,
+        difetti
+      )}`
+    );
     setTextField(
       form,
       `vs_${element.id}`,
@@ -168,11 +202,27 @@ async function fillForm({
   }
 
   if (pregi.length > 0) {
-    setTextField(form, "pregi", pregi.map((t) => t.nome).join("\n"));
+    setTextField(
+      form,
+      "pregi",
+      pregi
+        .map((t) =>
+          t.descrizioneBreve ? `${t.nome} (${t.descrizioneBreve})` : `${t.nome}`
+        )
+        .join("\n")
+    );
   }
 
   if (difetti.length > 0) {
-    setTextField(form, "difetti", difetti.map((t) => t.nome).join("\n"));
+    setTextField(
+      form,
+      "difetti",
+      difetti
+        .map((t) =>
+          t.descrizioneBreve ? `${t.nome} (${t.descrizioneBreve})` : `${t.nome}`
+        )
+        .join("\n")
+    );
   }
 
   const vitField = form.getRadioGroup("vit");
@@ -219,28 +269,7 @@ async function fillForm({
       setTextField(form, "disturboMentale1", distuMent1.disturbo.nome);
   }
 
-  const percezioneVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575935372296397"
-  );
-
-  const volontaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575940363518157"
-  );
-
-  const coordinazioneVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575970478620877"
-  );
-
-  const karmaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341576033844068557"
-  );
-
-  const risoluzioneLabel =
-    percezioneVal + volontaVal + coordinazioneVal + karmaVal;
+  const risoluzioneLabel = calcolaRisoluzione(caratteristiche, pregi);
   setTextField(form, "risoluzione", risoluzioneLabel.toString());
 
   if (professione.magiaRituale) {
@@ -255,7 +284,7 @@ async function fillForm({
   }
 
   fillCaratteristicheLabel(form, caratteristiche);
-  fillAbilitaLabel(form, abilita, caratteristiche);
+  fillAbilitaLabel(form, abilita, caratteristiche, pregi, difetti);
 
   const pdfBytes = await pdfDoc.save();
   download(pdfBytes, `SineRequie_${nome}.pdf`, "application/pdf");
