@@ -1,50 +1,34 @@
-import download from "downloadjs";
-import { PDFDocument } from "pdf-lib";
-import SineRequie_UomoForm from "../../components/SineRequie_UomoForm.pdf";
-import SineRequie_DonnaForm from "../../components/SineRequie_DonnaForm.pdf";
-import { useSelector } from "react-redux";
 import PrintIcon from "@mui/icons-material/Print";
-import Fab from "@mui/material/Fab";
-import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
 import Stack from "@mui/material/Stack";
-import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
-import Button from "@mui/material/Button";
-import DialogActions from "@mui/material/DialogActions";
-import { calcolaRisoluzione } from "../../utils/caratteristicheMethods";
+import download from "downloadjs";
+import { PDFDocument } from "pdf-lib";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import SineRequie_DonnaForm from "../../components/SineRequie_DonnaForm.pdf";
+import SineRequie_UomoForm from "../../components/SineRequie_UomoForm.pdf";
+import {
+  calcolaCaratUsata,
+  calcolaVS,
+  getDescIfPregioOrDifetto,
+  getValoreIfPregioOrDifetto,
+} from "../../utils/abilitaMethods";
+import {
+  calcolaRisoluzione,
+  carEquilibrioMentaleByStore,
+  forzaFisicaValByStore,
+} from "../../utils/caratteristicheMethods";
 
 const setTextField = (form, idTextField, valore) => {
   form.getTextField(idTextField).setText(valore);
-};
-
-const getDescIfPregioOrDifetto = (idAbilita, pregi, difetti) => {
-  console.log("idAbilita", idAbilita);
-  console.log("pregi", pregi);
-  let desc = "";
-  if (pregi.length > 0) {
-    const listAbilitaPregRef = pregi.filter((t) => t.abilitaRef);
-    listAbilitaPregRef.forEach((element) => {
-      const pregioAb = element.abilitaRef.find((t) => t.id === idAbilita);
-      if (pregioAb) {
-        desc = `(+${pregioAb.valore})`;
-      }
-    });
-  }
-  if (difetti.length > 0) {
-    const listAbilitaDiffRef = difetti.filter((t) => t.abilitaRef);
-    listAbilitaDiffRef.forEach((element) => {
-      const diffAb = element.abilitaRef.find((t) => t.id === idAbilita);
-      if (diffAb) {
-        desc = `(-${diffAb.valore})`;
-      }
-    });
-  }
-  return desc;
 };
 
 const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
@@ -56,6 +40,17 @@ const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
     const caratteristica = element.caratteristicaRef
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
+    let sommaGradoCaratt = calcolaCaratUsata(
+      element.grado,
+      caratteristica.valore
+    );
+    sommaGradoCaratt = getValoreIfPregioOrDifetto(
+      element.id,
+      sommaGradoCaratt,
+      pregi,
+      difetti
+    );
+
     setTextField(
       form,
       element.id,
@@ -65,26 +60,16 @@ const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
         difetti
       )}`
     );
-    setTextField(
-      form,
-      `vs_${element.id}`,
-      calcolaVS(element.grado, caratteristica.valore)
-    );
+
+    setTextField(form, `vs_${element.id}`, calcolaVS(sommaGradoCaratt));
 
     if (element.id !== "343960377471533261") {
-      setTextField(
-        form,
-        `car_${element.id}`,
-        calcolaCaratUsata(element.grado, caratteristica.valore)
-      );
+      setTextField(form, `car_${element.id}`, sommaGradoCaratt);
     } else {
       setTextField(
         form,
         `car_${element.id}`,
-        `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
-          element.grado,
-          caratteristica.valore
-        )}`
+        `${caratteristica ? caratteristica.sigla : ""} ${sommaGradoCaratt}`
       );
     }
 
@@ -111,6 +96,17 @@ const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
 
+    let sommaGradoCaratt = calcolaCaratUsata(
+      element.grado,
+      caratteristica.valore
+    );
+    sommaGradoCaratt = getValoreIfPregioOrDifetto(
+      element.id,
+      sommaGradoCaratt,
+      pregi,
+      difetti
+    );
+
     if (element.specificoSelezionato) {
       setTextField(
         form,
@@ -122,19 +118,12 @@ const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
     }
 
     setTextField(form, `abilita_${index}`, element.grado.toString());
-    setTextField(
-      form,
-      `vs_abilita_${index}`,
-      calcolaVS(element.grado, caratteristica.valore)
-    );
+    setTextField(form, `vs_abilita_${index}`, calcolaVS(sommaGradoCaratt));
 
     setTextField(
       form,
       `car_abilita_${index}`,
-      `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
-        element.grado,
-        caratteristica.valore
-      )}`
+      `${caratteristica ? caratteristica.sigla : ""} ${sommaGradoCaratt}`
     );
 
     if (element.counterFallimento > 0) {
@@ -160,17 +149,6 @@ const fillCaratteristicheLabel = (form, caratteristiche) => {
   });
 };
 
-const getValoreCaratteristica = (caratteristiche, idCaratteristica) => {
-  let car = "";
-
-  const caratt = getCaratteristica(caratteristiche, idCaratteristica);
-  if (caratt) {
-    car = caratt.valore;
-  }
-
-  return car;
-};
-
 const getCaratteristica = (caratteristiche, idCaratteristica) =>
   caratteristiche.find((t) => t.id === idCaratteristica);
 
@@ -187,6 +165,7 @@ async function fillForm({
   doni,
   disturbiMentali,
   sesso,
+  morto,
 }) {
   const formUrl = sesso === "M" ? SineRequie_UomoForm : SineRequie_DonnaForm;
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
@@ -225,32 +204,24 @@ async function fillForm({
     );
   }
 
-  const vitField = form.getRadioGroup("vit");
-
-  let vitMaxLabel = "8";
-
-  const forzaFisicaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575980363546829"
-  );
-  if (forzaFisicaVal > 8) {
-    vitMaxLabel = forzaFisicaVal.toString();
+  if (!morto) {
+    const vitField = form.getRadioGroup("vit");
+    let vitMaxLabel = "8";
+    const forzaFisicaVal = forzaFisicaValByStore(caratteristiche);
+    if (forzaFisicaVal > 8) {
+      vitMaxLabel = forzaFisicaVal.toString();
+    }
+    vitField.select(vitMaxLabel);
+    setTextField(form, "oreMarcia", forzaFisicaVal.toString());
+    setTextField(
+      form,
+      "vitMax",
+      forzaFisicaVal > 8 ? forzaFisicaVal.toString() : "8"
+    );
+    setTextField(form, "morteA", `-${forzaFisicaVal}`);
   }
-  vitField.select(vitMaxLabel);
 
-  setTextField(form, "oreMarcia", forzaFisicaVal.toString());
-
-  setTextField(
-    form,
-    "vitMax",
-    forzaFisicaVal > 8 ? forzaFisicaVal.toString() : "8"
-  );
-  setTextField(form, "morteA", `-${forzaFisicaVal}`);
-
-  const equilibrioMentaleVal = getValoreCaratteristica(
-    caratteristiche,
-    "341576027967848653"
-  );
+  const equilibrioMentaleVal = carEquilibrioMentaleByStore(caratteristiche);
 
   if (equilibrioMentaleVal <= 3) {
     form.getCheckBox("equi3").check();
@@ -293,7 +264,7 @@ async function fillForm({
 const StampaSchedaButton = () => {
   const [printingPdf, setPrintingPdf] = useState(false);
   const [openDialogError, setOpenDialogError] = React.useState(false);
-  const { nome, sesso } = useSelector((state) => state.generalita);
+  const { nome, sesso, morto } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
     (state) => state.tarocco
   );
@@ -328,6 +299,7 @@ const StampaSchedaButton = () => {
       disturbiMentali,
       doni,
       sesso,
+      morto,
     })
       .then(() => setPrintingPdf(false))
       .catch((er) => handleCatchError(er));

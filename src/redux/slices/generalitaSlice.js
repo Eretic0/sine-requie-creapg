@@ -6,6 +6,8 @@ export const generalitaSlice = createSlice({
     nome: "",
     ambientazione: "",
     sesso: "",
+    morto: false,
+    tipoMorto: "",
   },
   reducers: {
     setNome: (state, { payload }) => {
@@ -16,6 +18,12 @@ export const generalitaSlice = createSlice({
     },
     setSesso: (state, { payload }) => {
       state.sesso = payload;
+    },
+    setMorto: (state, { payload }) => {
+      state.morto = payload;
+    },
+    setTipoMorto: (state, { payload }) => {
+      state.tipoMorto = payload;
     },
   },
 });

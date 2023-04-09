@@ -376,7 +376,7 @@ const Pregi = [
     nome: "Kazoku",
     numeroDifetti: 2,
     descrizioneBreve: "",
-    arrayProfessioneEta: ["N", "A"],
+    arrayProfessioneEta: ["A"],
     descrizione:
       "I nobili giapponesi, decaduti o meno, godono di un certo prestigio nella società nipponica, inoltre hanno mantenuto ingenti quantità di denaro, talvolta sotto forma di terre o attività in cui possono mettere dei lavoratori a sgobbare per loro. I Kazoku accedono solitamente ai mestieri di Capovillaggio, Mercante di successo o, nel caso siano decaduti, Samurai (più per il prestigio che per seguire realmente i dettami del Bushido). In tutti questi casi possono accedere a Professioni Avanzate (A) anche se non sono Personaggi Maturi o Anziani.",
   },

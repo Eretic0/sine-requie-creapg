@@ -19,7 +19,12 @@ import {
   updateAbilita,
 } from "../../redux/slices/abilitaSlice";
 import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
-import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
+import {
+  calcolaCaratUsata,
+  calcolaVS,
+  getDescIfPregioOrDifetto,
+  getValoreIfPregioOrDifetto,
+} from "../../utils/abilitaMethods";
 
 const AbilitaTable = ({
   abilita,
@@ -28,6 +33,7 @@ const AbilitaTable = ({
 }) => {
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { ambientazione } = useSelector((state) => state.generalita);
+  const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
   const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useDispatch();
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
@@ -39,7 +45,14 @@ const AbilitaTable = ({
       const car = caratteristiche.find(
         (car) => car.id === ab.caratteristicaRef
       );
-      return calcolaVS(ab.grado, car.valore);
+      let sommaGradoCaratt = calcolaCaratUsata(ab.grado, car.valore);
+      sommaGradoCaratt = getValoreIfPregioOrDifetto(
+        ab.id,
+        sommaGradoCaratt,
+        pregi,
+        difetti
+      );
+      return calcolaVS(sommaGradoCaratt);
     }
   };
 
@@ -48,7 +61,13 @@ const AbilitaTable = ({
       const car = caratteristiche.find(
         (car) => car.id === ab.caratteristicaRef
       );
-      const sommaGradoCaratt = calcolaCaratUsata(ab.grado, car.valore);
+      let sommaGradoCaratt = calcolaCaratUsata(ab.grado, car.valore);
+      sommaGradoCaratt = getValoreIfPregioOrDifetto(
+        ab.id,
+        sommaGradoCaratt,
+        pregi,
+        difetti
+      );
       return `${car.nome} ${sommaGradoCaratt}`;
     }
   };
@@ -151,7 +170,8 @@ const AbilitaTable = ({
     if (!listBonusAbilita) {
       return (
         <>
-          {ability.grado}
+          {ability.grado}&nbsp;
+          {getDescIfPregioOrDifetto(ability.id, pregi, difetti)}
           <IconButton
             edge="end"
             onClick={() => handleUpdateGradoAbilita(ability)}
@@ -170,6 +190,8 @@ const AbilitaTable = ({
       return (
         <>
           {ability.grado}
+          &nbsp;
+          {getDescIfPregioOrDifetto(ability.id, pregi, difetti)}
           <br />
           <Select
             labelId={`label-select-arraybonus-${ability.id}`}
@@ -188,7 +210,12 @@ const AbilitaTable = ({
         </>
       );
     }
-    return ability.grado;
+    return (
+      <>
+        {ability.grado}&nbsp;
+        {getDescIfPregioOrDifetto(ability.id, pregi, difetti)}
+      </>
+    );
   };
 
   return (
