@@ -1,27 +1,37 @@
-import download from "downloadjs";
-import { PDFDocument } from "pdf-lib";
-import SineRequie_UomoForm from "../../components/SineRequie_UomoForm.pdf";
-import SineRequie_DonnaForm from "../../components/SineRequie_DonnaForm.pdf";
-import { useSelector } from "react-redux";
 import PrintIcon from "@mui/icons-material/Print";
-import Fab from "@mui/material/Fab";
-import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
 import Stack from "@mui/material/Stack";
-import { calcolaCaratUsata, calcolaVS } from "../../utils/abilitaMethods";
-import Button from "@mui/material/Button";
-import DialogActions from "@mui/material/DialogActions";
+import download from "downloadjs";
+import { PDFDocument } from "pdf-lib";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import SineRequie_DonnaForm from "../../components/SineRequie_DonnaForm.pdf";
+import SineRequie_UomoForm from "../../components/SineRequie_UomoForm.pdf";
+import {
+  calcolaCaratUsata,
+  calcolaVS,
+  getDescIfPregioOrDifetto,
+  getValoreIfPregioOrDifetto,
+} from "../../utils/abilitaMethods";
+import {
+  calcolaRisoluzione,
+  carEquilibrioMentaleByStore,
+  forzaFisicaValByStore,
+} from "../../utils/caratteristicheMethods";
 
 const setTextField = (form, idTextField, valore) => {
   form.getTextField(idTextField).setText(valore);
 };
 
-const fillAbilitaLabel = (form, abilita, caratteristiche) => {
+const fillAbilitaLabel = (form, abilita, caratteristiche, pregi, difetti) => {
   const abilitaPrest = abilita.filter((t) => t.prestampata);
 
   const abilitaNotPrest = abilita.filter((t) => !t.prestampata);
@@ -30,27 +40,36 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
     const caratteristica = element.caratteristicaRef
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
-    setTextField(form, element.id, element.grado.toString());
-    setTextField(
-      form,
-      `vs_${element.id}`,
-      calcolaVS(element.grado, caratteristica.valore)
+    let sommaGradoCaratt = calcolaCaratUsata(
+      element.grado,
+      caratteristica.valore
+    );
+    sommaGradoCaratt = getValoreIfPregioOrDifetto(
+      element.id,
+      sommaGradoCaratt,
+      pregi,
+      difetti
     );
 
+    setTextField(
+      form,
+      element.id,
+      `${element.grado.toString()} ${getDescIfPregioOrDifetto(
+        element.id,
+        pregi,
+        difetti
+      )}`
+    );
+
+    setTextField(form, `vs_${element.id}`, calcolaVS(sommaGradoCaratt));
+
     if (element.id !== "343960377471533261") {
-      setTextField(
-        form,
-        `car_${element.id}`,
-        calcolaCaratUsata(element.grado, caratteristica.valore)
-      );
+      setTextField(form, `car_${element.id}`, sommaGradoCaratt);
     } else {
       setTextField(
         form,
         `car_${element.id}`,
-        `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
-          element.grado,
-          caratteristica.valore
-        )}`
+        `${caratteristica ? caratteristica.sigla : ""} ${sommaGradoCaratt}`
       );
     }
 
@@ -77,6 +96,17 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
       ? getCaratteristica(caratteristiche, element.caratteristicaRef)
       : "";
 
+    let sommaGradoCaratt = calcolaCaratUsata(
+      element.grado,
+      caratteristica.valore
+    );
+    sommaGradoCaratt = getValoreIfPregioOrDifetto(
+      element.id,
+      sommaGradoCaratt,
+      pregi,
+      difetti
+    );
+
     if (element.specificoSelezionato) {
       setTextField(
         form,
@@ -88,19 +118,12 @@ const fillAbilitaLabel = (form, abilita, caratteristiche) => {
     }
 
     setTextField(form, `abilita_${index}`, element.grado.toString());
-    setTextField(
-      form,
-      `vs_abilita_${index}`,
-      calcolaVS(element.grado, caratteristica.valore)
-    );
+    setTextField(form, `vs_abilita_${index}`, calcolaVS(sommaGradoCaratt));
 
     setTextField(
       form,
       `car_abilita_${index}`,
-      `${caratteristica ? caratteristica.sigla : ""} ${calcolaCaratUsata(
-        element.grado,
-        caratteristica.valore
-      )}`
+      `${caratteristica ? caratteristica.sigla : ""} ${sommaGradoCaratt}`
     );
 
     if (element.counterFallimento > 0) {
@@ -126,17 +149,6 @@ const fillCaratteristicheLabel = (form, caratteristiche) => {
   });
 };
 
-const getValoreCaratteristica = (caratteristiche, idCaratteristica) => {
-  let car = "";
-
-  const caratt = getCaratteristica(caratteristiche, idCaratteristica);
-  if (caratt) {
-    car = caratt.valore;
-  }
-
-  return car;
-};
-
 const getCaratteristica = (caratteristiche, idCaratteristica) =>
   caratteristiche.find((t) => t.id === idCaratteristica);
 
@@ -153,6 +165,7 @@ async function fillForm({
   doni,
   disturbiMentali,
   sesso,
+  morto,
 }) {
   const formUrl = sesso === "M" ? SineRequie_UomoForm : SineRequie_DonnaForm;
   const formPdfBytes = await fetch(formUrl).then((res) => res.arrayBuffer());
@@ -168,39 +181,47 @@ async function fillForm({
   }
 
   if (pregi.length > 0) {
-    setTextField(form, "pregi", pregi.map((t) => t.nome).join("\n"));
+    setTextField(
+      form,
+      "pregi",
+      pregi
+        .map((t) =>
+          t.descrizioneBreve ? `${t.nome} (${t.descrizioneBreve})` : `${t.nome}`
+        )
+        .join("\n")
+    );
   }
 
   if (difetti.length > 0) {
-    setTextField(form, "difetti", difetti.map((t) => t.nome).join("\n"));
+    setTextField(
+      form,
+      "difetti",
+      difetti
+        .map((t) =>
+          t.descrizioneBreve ? `${t.nome} (${t.descrizioneBreve})` : `${t.nome}`
+        )
+        .join("\n")
+    );
   }
 
-  const vitField = form.getRadioGroup("vit");
-
-  let vitMaxLabel = "8";
-
-  const forzaFisicaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575980363546829"
-  );
-  if (forzaFisicaVal > 8) {
-    vitMaxLabel = forzaFisicaVal.toString();
+  if (!morto) {
+    const vitField = form.getRadioGroup("vit");
+    let vitMaxLabel = "8";
+    const forzaFisicaVal = forzaFisicaValByStore(caratteristiche);
+    if (forzaFisicaVal > 8) {
+      vitMaxLabel = forzaFisicaVal.toString();
+    }
+    vitField.select(vitMaxLabel);
+    setTextField(form, "oreMarcia", forzaFisicaVal.toString());
+    setTextField(
+      form,
+      "vitMax",
+      forzaFisicaVal > 8 ? forzaFisicaVal.toString() : "8"
+    );
+    setTextField(form, "morteA", `-${forzaFisicaVal}`);
   }
-  vitField.select(vitMaxLabel);
 
-  setTextField(form, "oreMarcia", forzaFisicaVal.toString());
-
-  setTextField(
-    form,
-    "vitMax",
-    forzaFisicaVal > 8 ? forzaFisicaVal.toString() : "8"
-  );
-  setTextField(form, "morteA", `-${forzaFisicaVal}`);
-
-  const equilibrioMentaleVal = getValoreCaratteristica(
-    caratteristiche,
-    "341576027967848653"
-  );
+  const equilibrioMentaleVal = carEquilibrioMentaleByStore(caratteristiche);
 
   if (equilibrioMentaleVal <= 3) {
     form.getCheckBox("equi3").check();
@@ -219,28 +240,7 @@ async function fillForm({
       setTextField(form, "disturboMentale1", distuMent1.disturbo.nome);
   }
 
-  const percezioneVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575935372296397"
-  );
-
-  const volontaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575940363518157"
-  );
-
-  const coordinazioneVal = getValoreCaratteristica(
-    caratteristiche,
-    "341575970478620877"
-  );
-
-  const karmaVal = getValoreCaratteristica(
-    caratteristiche,
-    "341576033844068557"
-  );
-
-  const risoluzioneLabel =
-    percezioneVal + volontaVal + coordinazioneVal + karmaVal;
+  const risoluzioneLabel = calcolaRisoluzione(caratteristiche, pregi);
   setTextField(form, "risoluzione", risoluzioneLabel.toString());
 
   if (professione.magiaRituale) {
@@ -255,7 +255,7 @@ async function fillForm({
   }
 
   fillCaratteristicheLabel(form, caratteristiche);
-  fillAbilitaLabel(form, abilita, caratteristiche);
+  fillAbilitaLabel(form, abilita, caratteristiche, pregi, difetti);
 
   const pdfBytes = await pdfDoc.save();
   download(pdfBytes, `SineRequie_${nome}.pdf`, "application/pdf");
@@ -264,7 +264,7 @@ async function fillForm({
 const StampaSchedaButton = () => {
   const [printingPdf, setPrintingPdf] = useState(false);
   const [openDialogError, setOpenDialogError] = React.useState(false);
-  const { nome, sesso } = useSelector((state) => state.generalita);
+  const { nome, sesso, morto } = useSelector((state) => state.generalita);
   const { taroccoDominante, taroccoPassato } = useSelector(
     (state) => state.tarocco
   );
@@ -299,6 +299,7 @@ const StampaSchedaButton = () => {
       disturbiMentali,
       doni,
       sesso,
+      morto,
     })
       .then(() => setPrintingPdf(false))
       .catch((er) => handleCatchError(er));
