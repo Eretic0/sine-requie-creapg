@@ -21,7 +21,7 @@ export const carEquilibrioMentale = getCaratteristicaById("341576027967848653");
 export const carDistanzaMorte = getCaratteristicaById("341576021433123021");
 export const carFiori = CaratteristicheDb.filter((t) => t.seme === "Fiori");
 
-export const forzaFisicaValByStore = (caratteristiche) =>
+export const carForzaFisicaByStore = (caratteristiche) =>
   getCaratteristicaByIdFromStore("341575980363546829", caratteristiche);
 
 const percezioneVal = (caratteristiche) =>

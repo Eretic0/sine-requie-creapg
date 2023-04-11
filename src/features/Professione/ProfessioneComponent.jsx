@@ -20,6 +20,7 @@ import {
 } from "../../redux/slices/abilitaSlice";
 import {
   restoreCaratteristicheByStorico,
+  restoreCaratteristicheByUpdateStorico,
   updateCaratteristica,
 } from "../../redux/slices/caratteristicheSlice";
 import { setPuntiAbilitaEta } from "../../redux/slices/etaSlice";
@@ -331,7 +332,7 @@ const ProfessioneComponent = () => {
     dispatch(setPuntiAbilitaEta(puntiAbilita));
     dispatch(resetProfessione());
     dispatch(resetAllAbilita());
-    dispatch(restoreCaratteristicheByStorico());
+    dispatch(restoreCaratteristicheByUpdateStorico());
     setProfSovietAppoggio({});
     const prof = event.target.value;
     if (handleAmbSoviet(prof)) {
