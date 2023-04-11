@@ -24,12 +24,12 @@ import {
   setBtnBonusPressed,
   setBtnMalusPressed,
   setCaratteristiche,
+  setCaratteristicheUpdateStorico,
   setSemiBonus,
   setSemiMalus,
   updateCaratteristica,
   updateSemiBonus,
   updateSemiMalus,
-  setCaratteristicheUpdateStorico,
 } from "../../redux/slices/caratteristicheSlice";
 import { resetDisturbiMentali } from "../../redux/slices/disturbiMentaliSlice";
 import { resetDoni } from "../../redux/slices/doniSlice";
@@ -40,7 +40,7 @@ import { estraiTaroccoMinore } from "../../utils/random";
 function CaratteristicheComponent() {
   const {
     caratteristiche,
-    caratteristicheStorico,
+    caratteristicheTaroccoStorico,
     minoriEstratti,
     semiBonus,
     semiMalus,
@@ -54,8 +54,8 @@ function CaratteristicheComponent() {
 
   const visibleButtonMalus = (seme) => isPuntiMalus(seme) > 0;
 
-  const disableButtonBonus = (cara) =>
-    caratteristicheAggiornate.some((t) => cara.id === t.id);
+  // const disableButtonBonus = (cara) =>
+  //   caratteristicheAggiornate.some((t) => cara.id === t.id);
 
   const disableButtonMalus = (cara) =>
     caratteristicheAggiornate.some((t) => cara.id === t.id);
@@ -73,7 +73,7 @@ function CaratteristicheComponent() {
     dispatch(resetProfessione());
     dispatch(resetAllPregiDifetti());
     dispatch(resetCaratteristicheAggiornate());
-    dispatch(setCaratteristiche(caratteristicheStorico));
+    dispatch(setCaratteristiche(caratteristicheTaroccoStorico));
     dispatch(setCaratteristicheUpdateStorico());
   };
 
@@ -259,7 +259,7 @@ function CaratteristicheComponent() {
                         {visibleButtonBonus(car.seme) && (
                           <IconButton
                             edge="end"
-                            disabled={disableButtonBonus(car)}
+                            //disabled={disableButtonBonus(car)}
                             onClick={() => addReduceCaratteristica(car, true)}
                           >
                             <AddCircleOutlineIcon />
@@ -297,7 +297,7 @@ function CaratteristicheComponent() {
                         {visibleButtonBonus(car.seme) && (
                           <IconButton
                             edge="end"
-                            disabled={disableButtonBonus(car)}
+                            //disabled={disableButtonBonus(car)}
                             onClick={() => addReduceCaratteristica(car, true)}
                           >
                             <AddCircleOutlineIcon />
@@ -332,7 +332,7 @@ function CaratteristicheComponent() {
                         {visibleButtonBonus(car.seme) && (
                           <IconButton
                             edge="end"
-                            disabled={disableButtonBonus(car)}
+                            //disabled={disableButtonBonus(car)}
                             onClick={() => addReduceCaratteristica(car, true)}
                           >
                             <AddCircleOutlineIcon />
@@ -370,7 +370,7 @@ function CaratteristicheComponent() {
                         {visibleButtonBonus(car.seme) && (
                           <IconButton
                             edge="end"
-                            disabled={disableButtonBonus(car)}
+                            //disabled={disableButtonBonus(car)}
                             onClick={() => addReduceCaratteristica(car, true)}
                           >
                             <AddCircleOutlineIcon />
