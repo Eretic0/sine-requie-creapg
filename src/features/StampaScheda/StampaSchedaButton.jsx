@@ -24,7 +24,7 @@ import {
 import {
   calcolaRisoluzione,
   carEquilibrioMentaleByStore,
-  forzaFisicaValByStore,
+  carForzaFisicaByStore,
 } from "../../utils/caratteristicheMethods";
 
 const setTextField = (form, idTextField, valore) => {
@@ -207,7 +207,8 @@ async function fillForm({
   if (!morto) {
     const vitField = form.getRadioGroup("vit");
     let vitMaxLabel = "8";
-    const forzaFisicaVal = forzaFisicaValByStore(caratteristiche);
+    const carForzaFisica = carForzaFisicaByStore(caratteristiche);
+    const forzaFisicaVal = carForzaFisica.valore;
     if (forzaFisicaVal > 8) {
       vitMaxLabel = forzaFisicaVal.toString();
     }
