@@ -46,6 +46,14 @@ export const caratteristicheSlice = createSlice({
       state.caratteristiche = [...state.caratteristicheStorico];
     },
 
+    restoreCaratteristicheByUpdateStorico: (state) => {
+      state.caratteristiche = [...state.caratteristicheUpdateStorico];
+    },
+
+    restoreCaratteristicheByTaroccoStorico: (state) => {
+      state.caratteristiche = [...state.caratteristicheTaroccoStorico];
+    },
+
     setCaratteristiche: (state, { payload }) => {
       state.caratteristiche = payload;
     },
@@ -161,8 +169,10 @@ export const {
   setCaratteristicheStorico,
   restoreCaratteristicheByStorico,
   setCaratteristicheUpdateStorico,
+  restoreCaratteristicheByUpdateStorico,
   setCaratteristicheTaroccoStorico,
   resetCaratteristicheTaroccoStorico,
+  restoreCaratteristicheByTaroccoStorico,
 } = caratteristicheSlice.actions;
 
 export default caratteristicheSlice.reducer;
