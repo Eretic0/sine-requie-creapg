@@ -19,10 +19,10 @@ const Ambientazioni = [
     id: "341412130688336076",
     descrizione: "Regno d'Osiride",
   },
-  // {
-  //   id: "341412158384373964",
-  //   descrizione: "Trono del Crisantemo",
-  // },
+  {
+    id: "341412158384373964",
+    descrizione: "Trono del Crisantemo",
+  },
   //{
   //   id: "341412111307502221",
   //   descrizione: "Braccamorte",

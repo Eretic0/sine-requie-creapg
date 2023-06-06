@@ -37,10 +37,14 @@ export const abilitaSlice = createSlice({
     saveOrUpdateAbilita: (state, { payload }) => {
       const ability = state.abilita.find((t) => t.id === payload.id);
       if (ability) {
-        let ability = { ...payload };
-        ability.counterFallimento += 5;
+        let abilityCopy = { ...payload };
+        abilityCopy.counterFallimento += 5;
+        if (abilityCopy.counterFallimento >= 9) {
+          abilityCopy.grado += 1;
+          abilityCopy.counterFallimento = abilityCopy.counterFallimento - 9;
+        }
         state.abilita = state.abilita.map((ab) =>
-          ab.id === payload.id ? ability : ab
+          ab.id === payload.id ? abilityCopy : ab
         );
       } else {
         state.abilita.push(payload);
