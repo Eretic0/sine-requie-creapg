@@ -34,7 +34,7 @@ const AbilitaTable = ({
   const { caratteristiche } = useSelector((state) => state.caratteristiche);
   const { ambientazione } = useSelector((state) => state.generalita);
   const { pregi, difetti } = useSelector((state) => state.pregiDifetti);
-  const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const arrayCounterFallimento = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dispatch = useDispatch();
   const { puntiAbilitaEta, gradoMassimoEta } = useSelector(
     (state) => state.eta
