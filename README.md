@@ -178,7 +178,7 @@ Distribuita con la licenza Creative Commons Attribution Non Commercial No Deriva
 
 ## Contatti
 
-Eretic0 - [YouTube](https://www.youtube.com/@GoticaArcana) - [Itch.io](https://eretic0.itch.io/)
+Eretic0 - [Discord](https://discord.gg/UheyS5PZsx) - [YouTube](https://www.youtube.com/@GoticaArcana) - [Itch.io](https://eretic0.itch.io/)
 
 Link al Progetto: [https://github.com/Eretic0/sine-requie-creapg](https://github.com/Eretic0/sine-requie-creapg)
 
